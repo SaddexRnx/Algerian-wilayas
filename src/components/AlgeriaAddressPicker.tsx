@@ -441,28 +441,79 @@ export function AlgeriaAddressPicker() {
       </div>
 
       <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-        <p className="text-xs font-medium tracking-wide text-gray-500 uppercase">
+        <p
+          id="dz-preview-label"
+          className="text-xs font-medium tracking-wide text-gray-500 uppercase"
+        >
           Live address preview
         </p>
+
+        <div
+          role="radiogroup"
+          aria-label="Address output format preset"
+          className="mt-3 flex flex-wrap gap-2"
+        >
+          {PRESETS.map((p) => {
+            const isActive = p.id === preset;
+            return (
+              <button
+                key={p.id}
+                type="button"
+                role="radio"
+                aria-checked={isActive}
+                title={p.hint}
+                onClick={() => setPreset(p.id)}
+                className={
+                  (isActive
+                    ? "bg-black text-white "
+                    : "border border-gray-300 bg-white text-gray-600 hover:bg-gray-100 ") +
+                  "rounded-md px-3 py-1.5 text-xs font-medium transition focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
+                }
+              >
+                {p.label}
+              </button>
+            );
+          })}
+        </div>
+
         <p
-          className={`mt-2 text-sm ${fullAddress ? "text-black" : "text-gray-400"}`}
+          className={`mt-3 text-sm ${fullAddress ? "text-black" : "text-gray-400"}`}
           dir="auto"
+          aria-live="polite"
+          aria-labelledby="dz-preview-label"
         >
           {fullAddress || "Select a wilaya, daira and commune to build the address."}
         </p>
-        <button
-          type="button"
-          disabled={!fullAddress}
-          onClick={() => {
-            void navigator.clipboard.writeText(fullAddress);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
-          }}
-          className="mt-4 rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
-        >
-          {copied ? "Copied!" : "Copy full address"}
-        </button>
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          <button
+            type="button"
+            disabled={!fullAddress}
+            aria-label="Copy the formatted address to clipboard"
+            onClick={() => {
+              void navigator.clipboard.writeText(fullAddress);
+              setCopied(true);
+              setTimeout(() => setCopied(false), 2000);
+            }}
+            className="rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
+          >
+            {copied ? "Copied!" : "Copy address"}
+          </button>
+          <button
+            type="button"
+            onClick={exportCsv}
+            aria-label={
+              wilaya
+                ? "Download the selected wilaya's dairas and communes as CSV"
+                : "Download all wilayas, dairas and communes as CSV"
+            }
+            className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
+          >
+            Export CSV
+          </button>
+        </div>
       </div>
+
     </div>
   );
 }
