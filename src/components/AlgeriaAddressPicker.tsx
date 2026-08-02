@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { SearchableSelect } from "@/components/SearchableSelect";
 
 export interface Commune {
   arabic: string;
@@ -23,12 +24,7 @@ const DEMO_DATA_URL =
 
 const CACHE_KEY = "dz-address-picker:data";
 const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
-
-const selectClass =
-  "w-full p-3 border border-gray-300 rounded-lg bg-white text-black focus:ring-1 focus:ring-black focus:border-black outline-none transition disabled:bg-gray-50 disabled:text-gray-400";
-
-const searchClass =
-  "w-full mb-2 p-2 text-sm border border-gray-200 rounded-md bg-white text-black placeholder:text-gray-400 focus:ring-1 focus:ring-black focus:border-black outline-none transition disabled:bg-gray-50 disabled:text-gray-400";
+const STATE_KEY = "dz-address-picker:state";
 
 function normalize(json: unknown): Wilaya[] {
   return (Array.isArray(json) ? json : []).map((w) => {
@@ -124,9 +120,6 @@ export function AlgeriaAddressPicker() {
   const [dairaIndex, setDairaIndex] = useState("");
   const [communeIndex, setCommuneIndex] = useState("");
 
-  const [wilayaQuery, setWilayaQuery] = useState("");
-  const [dairaQuery, setDairaQuery] = useState("");
-  const [communeQuery, setCommuneQuery] = useState("");
 
   const [preset, setPreset] = useState<Preset>("full");
   const [copied, setCopied] = useState(false);
@@ -187,51 +180,74 @@ export function AlgeriaAddressPicker() {
   const daira = wilaya?.dairas[Number(dairaIndex)];
   const commune = daira?.communes[Number(communeIndex)];
 
-  const filteredWilayas = useMemo(() => {
-    const q = wilayaQuery.trim().toLowerCase();
-    if (!q) return data;
-    return data.filter(
-      (w) =>
-        w.arabic.toLowerCase().includes(q) ||
-        w.ascii.toLowerCase().includes(q) ||
-        String(w.code).includes(q),
-    );
-  }, [data, wilayaQuery]);
+  const wilayaOptions = useMemo(
+    () =>
+      data.map((w) => ({
+        value: String(w.code),
+        label: `${w.code} - ${w.arabic} (${w.ascii})`,
+        search: `${w.code} ${w.arabic} ${w.ascii}`,
+      })),
+    [data],
+  );
 
-  const filteredDairas = useMemo(() => {
-    const list = (wilaya?.dairas ?? []).map((d, i) => ({ d, i }));
-    const q = dairaQuery.trim().toLowerCase();
-    if (!q) return list;
-    return list.filter(
-      ({ d }) => d.arabic.toLowerCase().includes(q) || d.ascii.toLowerCase().includes(q),
-    );
-  }, [wilaya, dairaQuery]);
+  const dairaOptions = useMemo(
+    () =>
+      (wilaya?.dairas ?? []).map((d, i) => ({
+        value: String(i),
+        label: `${d.arabic} (${d.ascii})`,
+        search: `${d.arabic} ${d.ascii}`,
+      })),
+    [wilaya],
+  );
 
-  const filteredCommunes = useMemo(() => {
-    const list = (daira?.communes ?? []).map((c, i) => ({ c, i }));
-    const q = communeQuery.trim().toLowerCase();
-    if (!q) return list;
-    return list.filter(
-      ({ c }) => c.arabic.toLowerCase().includes(q) || c.ascii.toLowerCase().includes(q),
-    );
-  }, [daira, communeQuery]);
+  const communeOptions = useMemo(
+    () =>
+      (daira?.communes ?? []).map((c, i) => ({
+        value: String(i),
+        label: `${c.arabic} (${c.ascii})`,
+        search: `${c.arabic} ${c.ascii}`,
+      })),
+    [daira],
+  );
 
-  // Restore selection from the URL once the dataset is available.
+  // Restore selection from the URL, falling back to the persisted localStorage state.
   useEffect(() => {
     if (restored.current || !data.length || typeof window === "undefined") return;
     restored.current = true;
+
     const params = new URLSearchParams(window.location.search);
-    const w = params.get("wilaya") ?? "";
+    let w = params.get("wilaya") ?? "";
+    let d = params.get("daira");
+    let c = params.get("commune");
+
+    if (!w) {
+      try {
+        const raw = window.localStorage.getItem(STATE_KEY);
+        if (raw) {
+          const saved = JSON.parse(raw) as {
+            wilaya?: string;
+            daira?: string;
+            commune?: string;
+            preset?: Preset;
+          };
+          if (saved.preset && PRESETS.some((p) => p.id === saved.preset)) setPreset(saved.preset);
+          w = saved.wilaya ?? "";
+          d = saved.daira ?? null;
+          c = saved.commune ?? null;
+        }
+      } catch {
+        /* storage unavailable — non-fatal */
+      }
+    }
+
     if (!w) return;
     const found = data.find((x) => String(x.code) === w);
     if (!found) return;
     setWilayaCode(w);
-    const d = params.get("daira");
     if (d === null) return;
     const di = found.dairas.findIndex((x) => x.ascii === d || x.arabic === d);
     if (di < 0) return;
     setDairaIndex(String(di));
-    const c = params.get("commune");
     if (c === null) return;
     const ci = found.dairas[di]!.communes.findIndex((x) => x.ascii === c || x.arabic === c);
     if (ci >= 0) setCommuneIndex(String(ci));
@@ -252,6 +268,40 @@ export function AlgeriaAddressPicker() {
       null,
       "",
       `${window.location.pathname}${qs ? `?${qs}` : ""}${window.location.hash}`,
+    );
+  }, [wilaya, daira, commune]);
+
+  // Persist the selection and the output preset so they survive a reload.
+  useEffect(() => {
+    if (!restored.current || typeof window === "undefined") return;
+    try {
+      window.localStorage.setItem(
+        STATE_KEY,
+        JSON.stringify({
+          wilaya: wilaya ? String(wilaya.code) : "",
+          daira: daira?.ascii ?? "",
+          commune: commune?.ascii ?? "",
+          preset,
+        }),
+      );
+    } catch {
+      /* storage unavailable — non-fatal */
+    }
+  }, [wilaya, daira, commune, preset]);
+
+  // Broadcast every selection change so host pages can react (e.g. shipping rates).
+  useEffect(() => {
+    if (!restored.current || typeof window === "undefined") return;
+    window.dispatchEvent(
+      new CustomEvent("dz-address-update", {
+        detail: {
+          wilayaCode: wilaya ? String(wilaya.code) : "",
+          wilayaName: wilaya?.arabic ?? "",
+          dairaName: daira?.arabic ?? "",
+          communeName: commune?.arabic ?? "",
+        },
+        bubbles: true,
+      }),
     );
   }, [wilaya, daira, commune]);
 
@@ -345,100 +395,44 @@ export function AlgeriaAddressPicker() {
         </div>
       )}
 
-      <div>
-        <label htmlFor="dz-wilaya" className="mb-2 block text-sm font-medium text-gray-700">
-          Wilaya
-        </label>
-        <input
-          type="search"
-          value={wilayaQuery}
-          onChange={(e) => setWilayaQuery(e.target.value)}
-          placeholder="Search wilaya…"
-          aria-label="Search wilaya"
-          className={searchClass}
-        />
-        <select
-          id="dz-wilaya"
-          className={selectClass}
-          value={wilayaCode}
-          onChange={(e) => {
-            setWilayaCode(e.target.value);
-            setDairaIndex("");
-            setCommuneIndex("");
-            setDairaQuery("");
-            setCommuneQuery("");
-          }}
-        >
-          <option value="">Select a wilaya</option>
-          {filteredWilayas.map((w) => (
-            <option key={w.code} value={String(w.code)}>
-              {w.code} - {w.arabic} ({w.ascii})
-            </option>
-          ))}
-        </select>
-      </div>
+      <SearchableSelect
+        id="dz-wilaya"
+        label="Wilaya"
+        value={wilayaCode}
+        options={wilayaOptions}
+        placeholder="Select a wilaya"
+        searchPlaceholder="Search wilaya…"
+        onChange={(v) => {
+          setWilayaCode(v);
+          setDairaIndex("");
+          setCommuneIndex("");
+        }}
+      />
 
-      <div>
-        <label htmlFor="dz-daira" className="mb-2 block text-sm font-medium text-gray-700">
-          Daira
-        </label>
-        <input
-          type="search"
-          value={dairaQuery}
-          onChange={(e) => setDairaQuery(e.target.value)}
-          placeholder="Search daira…"
-          aria-label="Search daira"
-          disabled={!wilaya}
-          className={searchClass}
-        />
-        <select
-          id="dz-daira"
-          className={selectClass}
-          disabled={!wilaya}
-          value={dairaIndex}
-          onChange={(e) => {
-            setDairaIndex(e.target.value);
-            setCommuneIndex("");
-            setCommuneQuery("");
-          }}
-        >
-          <option value="">Select a daira</option>
-          {filteredDairas.map(({ d, i }) => (
-            <option key={`${d.ascii}-${i}`} value={String(i)}>
-              {d.arabic} ({d.ascii})
-            </option>
-          ))}
-        </select>
-      </div>
+      <SearchableSelect
+        id="dz-daira"
+        label="Daira"
+        value={dairaIndex}
+        options={dairaOptions}
+        disabled={!wilaya}
+        placeholder={wilaya ? "Select a daira" : "Select a wilaya first"}
+        searchPlaceholder="Search daira…"
+        onChange={(v) => {
+          setDairaIndex(v);
+          setCommuneIndex("");
+        }}
+      />
 
-      <div>
-        <label htmlFor="dz-commune" className="mb-2 block text-sm font-medium text-gray-700">
-          Commune
-        </label>
-        <input
-          type="search"
-          value={communeQuery}
-          onChange={(e) => setCommuneQuery(e.target.value)}
-          placeholder="Search commune…"
-          aria-label="Search commune"
-          disabled={!daira}
-          className={searchClass}
-        />
-        <select
-          id="dz-commune"
-          className={selectClass}
-          disabled={!daira}
-          value={communeIndex}
-          onChange={(e) => setCommuneIndex(e.target.value)}
-        >
-          <option value="">Select a commune</option>
-          {filteredCommunes.map(({ c, i }) => (
-            <option key={`${c.ascii}-${i}`} value={String(i)}>
-              {c.arabic} ({c.ascii})
-            </option>
-          ))}
-        </select>
-      </div>
+      <SearchableSelect
+        id="dz-commune"
+        label="Commune"
+        value={communeIndex}
+        options={communeOptions}
+        disabled={!daira}
+        placeholder={daira ? "Select a commune" : "Select a daira first"}
+        searchPlaceholder="Search commune…"
+        onChange={setCommuneIndex}
+      />
 
       <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
         <p

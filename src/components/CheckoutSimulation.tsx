@@ -8,10 +8,27 @@ const FIELDS = [
 
 const STEP_DELAY = 800;
 
-export function CheckoutSimulation() {
+export interface LiveAddress {
+  wilayaCode: string;
+  wilayaName: string;
+  dairaName: string;
+  communeName: string;
+}
+
+export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined }) {
   const [step, setStep] = useState(0);
   const [running, setRunning] = useState(false);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  const liveValues = [
+    live?.wilayaCode ? `${live.wilayaCode} - ${live.wilayaName}` : "",
+    live?.dairaName ?? "",
+    live?.communeName ?? "",
+  ];
+  const hasLive = liveValues.some(Boolean);
+  const livePostal = live?.wilayaCode
+    ? `${String(live.wilayaCode).padStart(2, "0")}000`
+    : "";
 
   useEffect(() => {
     return () => {
@@ -42,6 +59,11 @@ export function CheckoutSimulation() {
   };
 
   const stateFor = (index: number) => {
+    if (hasLive) {
+      if (liveValues[index]) return "done";
+      if (index === 0 || liveValues[index - 1]) return "ready";
+      return "locked";
+    }
     const fieldStep = index + 1;
     if (step === fieldStep) return "active";
     if (step > fieldStep) return "done";
@@ -49,18 +71,26 @@ export function CheckoutSimulation() {
     return "locked";
   };
 
+  const liveComplete = hasLive && liveValues.every(Boolean);
+  const validated = hasLive ? liveComplete : step >= 4;
+
   return (
     <div className="relative mx-auto mt-12 max-w-3xl overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
       <div className="flex flex-wrap items-start justify-between gap-4 border-b border-gray-200 pb-5">
         <div>
           <h3 className="text-base font-semibold text-black">Checkout</h3>
           <p className="mt-1 text-sm text-gray-500">Order Total: 4,500 DZD</p>
+          {hasLive && (
+            <p className="mt-2 inline-block rounded border border-gray-200 bg-gray-50 px-2 py-0.5 text-xs text-gray-600">
+              Synced with your live demo selection
+            </p>
+          )}
         </div>
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={play}
-            disabled={running}
+            disabled={running || hasLive}
             className="flex items-center gap-2 rounded-md bg-black px-4 py-2 text-xs text-white transition hover:bg-gray-800 disabled:bg-gray-300 disabled:text-gray-500"
           >
             ▶ Watch Auto-Demo
@@ -120,7 +150,7 @@ export function CheckoutSimulation() {
               <span className="mb-2 block text-sm font-medium text-gray-700">{f.label}</span>
               <div className={`${base} ${tone}`} aria-live="polite">
                 <span className="transition-opacity duration-500">
-                  {shown ? f.value : f.placeholder}
+                  {shown ? (liveValues[i] || f.value) : f.placeholder}
                 </span>
               </div>
             </div>
@@ -130,16 +160,17 @@ export function CheckoutSimulation() {
         <span className="mb-2 block text-sm font-medium text-gray-700">الرمز البريدي</span>
         <div
           className={`w-full rounded-lg border p-3 text-right font-medium transition-all duration-500 ease-out ${
-            step >= 4
+            hasLive ? (livePostal ? "border-gray-200 bg-white text-black opacity-100" : "border-gray-200 bg-gray-50 text-gray-400 opacity-70")
+              : step >= 4
               ? "border-gray-200 bg-white text-black opacity-100"
               : "border-gray-200 bg-gray-50 text-gray-400 opacity-70"
           }`}
         >
-          {step >= 4 ? "16000" : "00000"}
+          {hasLive ? livePostal || "00000" : step >= 4 ? "16000" : "00000"}
         </div>
         <div
           className={`mt-3 flex items-center justify-end gap-2 text-sm text-gray-600 transition-all duration-500 ease-out ${
-            step >= 4 ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
+            validated ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
           }`}
         >
           <span>Address validated</span>
@@ -160,7 +191,7 @@ export function CheckoutSimulation() {
         </div>
       </div>
 
-      {step === 0 && !running && (
+      {step === 0 && !running && !hasLive && (
         <button
           type="button"
           onClick={play}
