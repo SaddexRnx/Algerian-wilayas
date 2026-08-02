@@ -130,9 +130,20 @@ function Index() {
           </div>
         </section>
 
+        <section id="in-action" className="mt-20 scroll-mt-24">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-black">See It In Action</h2>
+            <p className="mx-auto mt-3 max-w-xl text-gray-500">
+              A simulated checkout showing exactly how the widget behaves once integrated.
+            </p>
+          </div>
+          <CheckoutSimulation />
+        </section>
+
         <section id="integration" className="scroll-mt-24">
           <DeveloperHub />
         </section>
+
 
         <section id="features" className="mx-auto mt-20 grid max-w-4xl gap-8 md:grid-cols-3">
           {features.map((f) => (
