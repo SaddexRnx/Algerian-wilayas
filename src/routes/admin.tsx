@@ -390,26 +390,93 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
 }
 
 
+function ConfirmSignOut({ onCancel, onConfirm }: { onCancel: () => void; onConfirm: () => void }) {
+  const { t } = useI18n();
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dz-signout-title"
+      onClick={onCancel}
+    >
+      <div
+        className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-6 shadow-lg"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h2 id="dz-signout-title" className="text-sm font-semibold text-black">
+          {t("admin.logout.title")}
+        </h2>
+        <p className="mt-2 text-sm text-gray-500">{t("admin.logout.body")}</p>
+        <div className="mt-6 flex justify-end gap-2">
+          <button
+            type="button"
+            onClick={onCancel}
+            className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 transition hover:bg-gray-100"
+          >
+            {t("admin.logout.cancel")}
+          </button>
+          <button
+            type="button"
+            autoFocus
+            onClick={onConfirm}
+            className="rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
+          >
+            {t("admin.logout.confirm")}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SessionToast() {
+  const { t } = useI18n();
+  return (
+    <div
+      role="status"
+      className="fixed inset-x-0 top-4 z-50 mx-auto w-fit max-w-[90vw] rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm text-black shadow-md"
+    >
+      {t("admin.sessionExpired")}
+    </div>
+  );
+}
+
 function AdminPage() {
   const navigate = useNavigate();
   const logout = useServerFn(adminLogout);
   const [authed, setAuthed] = useState(false);
+  const [expired, setExpired] = useState(false);
+  const [confirming, setConfirming] = useState(false);
 
   useEffect(() => {
-    if (isAdminAuthed()) setAuthed(true);
-    else void navigate({ to: "/login", replace: true });
+    if (isAdminAuthed()) {
+      setAuthed(true);
+      return;
+    }
+    // Invalid or expired session: surface a brief notice before redirecting.
+    setExpired(true);
+    const timer = setTimeout(() => void navigate({ to: "/login", replace: true }), 1200);
+    return () => clearTimeout(timer);
   }, [navigate]);
 
   const body: ReactNode = authed ? (
-    <Dashboard
-      onSignOut={() => {
-        clearAdminAuthed();
-        void logout().finally(() => navigate({ to: "/login", replace: true }));
-      }}
-    />
+    <>
+      <Dashboard onSignOut={() => setConfirming(true)} />
+      {confirming && (
+        <ConfirmSignOut
+          onCancel={() => setConfirming(false)}
+          onConfirm={() => {
+            clearAdminAuthed();
+            void logout().finally(() => navigate({ to: "/login", replace: true }));
+          }}
+        />
+      )}
+    </>
   ) : (
-    <div className="min-h-screen bg-gray-50" />
+    <div className="min-h-screen bg-gray-50">{expired && <SessionToast />}</div>
   );
 
   return <ForcedLanguageProvider lang="en">{body}</ForcedLanguageProvider>;
 }
+
