@@ -124,6 +124,16 @@ const fr = {
   "admin.table.empty": "Aucune wilaya ne correspond.",
   "admin.methods.title": "Méthodes d'intégration",
   "admin.methods.subtitle": "Répartition des installations par plateforme.",
+  "admin.empty.chart": "Aucune donnée disponible pour le moment.",
+  "admin.empty.methods": "Aucune installation enregistrée.",
+  "admin.login.title": "Accès administrateur",
+  "admin.login.subtitle": "Connectez-vous pour consulter le tableau de bord.",
+  "admin.login.email": "Adresse e-mail",
+  "admin.login.password": "Mot de passe",
+  "admin.login.submit": "Se connecter",
+  "admin.login.loading": "Connexion…",
+  "admin.login.error": "Identifiants incorrects.",
+  "admin.logout": "Se déconnecter",
 } as const;
 
 export type TranslationKey = keyof typeof fr;
@@ -238,6 +248,16 @@ const ar: Record<TranslationKey, string> = {
   "admin.table.empty": "لا توجد ولاية مطابقة.",
   "admin.methods.title": "طرق الدمج",
   "admin.methods.subtitle": "توزيع عمليات التركيب حسب المنصة.",
+  "admin.empty.chart": "لا توجد بيانات حالياً.",
+  "admin.empty.methods": "لم يتم تسجيل أي تركيب بعد.",
+  "admin.login.title": "دخول المشرف",
+  "admin.login.subtitle": "سجّل الدخول لعرض لوحة التحكم.",
+  "admin.login.email": "البريد الإلكتروني",
+  "admin.login.password": "كلمة المرور",
+  "admin.login.submit": "تسجيل الدخول",
+  "admin.login.loading": "جارٍ الدخول…",
+  "admin.login.error": "بيانات الدخول غير صحيحة.",
+  "admin.logout": "تسجيل الخروج",
 };
 
 const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar };

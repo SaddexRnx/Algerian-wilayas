@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
 import { CheckoutSimulation, type LiveAddress } from "@/components/CheckoutSimulation";
@@ -178,9 +178,6 @@ function Index() {
                   {l.label}
                 </a>
               ))}
-              <Link to="/admin" className="text-gray-600 transition hover:text-black">
-                {t("nav.admin")}
-              </Link>
             </nav>
             <LanguageToggle />
           </div>
@@ -191,9 +188,6 @@ function Index() {
               {l.label}
             </a>
           ))}
-          <Link to="/admin" className="text-gray-600 transition hover:text-black">
-            {t("nav.admin")}
-          </Link>
         </nav>
       </header>
 
