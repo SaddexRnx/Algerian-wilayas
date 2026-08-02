@@ -189,30 +189,31 @@ export function AlgeriaAddressPicker() {
     () =>
       data.map((w) => ({
         value: String(w.code),
-        label: `${w.code} - ${w.arabic} (${w.ascii})`,
+        label: lang === "ar" ? `${w.code} - ${w.arabic}` : `${w.code} - ${w.ascii}`,
         search: `${w.code} ${w.arabic} ${w.ascii}`,
       })),
-    [data],
+    [data, lang],
   );
 
   const dairaOptions = useMemo(
     () =>
       (wilaya?.dairas ?? []).map((d, i) => ({
         value: String(i),
-        label: `${d.arabic} (${d.ascii})`,
+        label: lang === "ar" ? d.arabic : d.ascii,
         search: `${d.arabic} ${d.ascii}`,
       })),
-    [wilaya],
+    [wilaya, lang],
   );
 
   const communeOptions = useMemo(
     () =>
       (daira?.communes ?? []).map((c, i) => ({
         value: String(i),
-        label: `${c.arabic} (${c.ascii})`,
+        label: lang === "ar" ? c.arabic : c.ascii,
         search: `${c.arabic} ${c.ascii}`,
       })),
-    [daira],
+    [daira, lang],
+
   );
 
   // Restore selection from the URL, falling back to the persisted localStorage state.
