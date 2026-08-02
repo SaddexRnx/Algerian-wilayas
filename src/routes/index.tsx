@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
+import { CheckoutSimulation } from "@/components/CheckoutSimulation";
 import { DeveloperHub, SNIPPETS } from "@/components/DeveloperHub";
 
 export const Route = createFileRoute("/")({
@@ -90,6 +91,10 @@ function Index() {
             <a href="#demo" className="text-gray-600 transition hover:text-black">
               Demo
             </a>
+            <a href="#in-action" className="text-gray-600 transition hover:text-black">
+              In Action
+            </a>
+
             <a href="#integration" className="text-gray-600 transition hover:text-black">
               Integration
             </a>
