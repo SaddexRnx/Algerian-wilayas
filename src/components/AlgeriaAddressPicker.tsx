@@ -112,7 +112,20 @@ function csvEscape(value: string) {
   return `"${value.replace(/"/g, '""')}"`;
 }
 
-export function AlgeriaAddressPicker() {
+export interface AlgeriaAddressPickerProps {
+  /** Pre-select a wilaya by its official code (e.g. 16). */
+  defaultWilayaCode?: string | number;
+  /** Pre-select a daira by its Latin or Arabic name. */
+  defaultDairaName?: string;
+  /** Pre-select a commune by its Latin or Arabic name. */
+  defaultCommuneName?: string;
+}
+
+export function AlgeriaAddressPicker({
+  defaultWilayaCode,
+  defaultDairaName,
+  defaultCommuneName,
+}: AlgeriaAddressPickerProps = {}) {
   const { t, lang } = useI18n();
   const [data, setData] = useState<Wilaya[]>([]);
 
