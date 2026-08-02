@@ -270,7 +270,7 @@ export function AlgeriaAddressPicker({
     if (c === null) return;
     const ci = found.dairas[di]!.communes.findIndex((x) => x.ascii === c || x.arabic === c);
     if (ci >= 0) setCommuneIndex(String(ci));
-  }, [data]);
+  }, [data, defaultWilayaCode, defaultDairaName, defaultCommuneName]);
 
   // Keep the URL in sync so the selection is shareable.
   useEffect(() => {
