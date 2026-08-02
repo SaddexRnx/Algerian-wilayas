@@ -91,7 +91,7 @@ function writeCache(data: unknown) {
 
 function Skeleton() {
   return (
-    <div className="animate-pulse space-y-5">
+    <div className="animate-pulse space-y-5" role="status" aria-label="Loading address data">
       {[0, 1, 2].map((i) => (
         <div key={i} className="space-y-2">
           <div className="h-3 w-24 rounded bg-gray-100" />
@@ -100,6 +100,18 @@ function Skeleton() {
       ))}
     </div>
   );
+}
+
+type Preset = "short" | "full" | "compact";
+
+const PRESETS: { id: Preset; label: string; hint: string }[] = [
+  { id: "short", label: "Short", hint: "Commune, Wilaya" },
+  { id: "full", label: "Full", hint: "Commune, Daira, Wilaya (Latin)" },
+  { id: "compact", label: "Compact", hint: "Commune-Wilaya code" },
+];
+
+function csvEscape(value: string) {
+  return `"${value.replace(/"/g, '""')}"`;
 }
 
 export function AlgeriaAddressPicker() {
@@ -116,7 +128,10 @@ export function AlgeriaAddressPicker() {
   const [dairaQuery, setDairaQuery] = useState("");
   const [communeQuery, setCommuneQuery] = useState("");
 
+  const [preset, setPreset] = useState<Preset>("full");
   const [copied, setCopied] = useState(false);
+  const restored = useRef(false);
+
 
   const load = useCallback((useCache = true) => {
     setIsLoading(true);
