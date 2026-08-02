@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from "react";
 
-export type Lang = "ar" | "fr";
+export type Lang = "ar" | "fr" | "en";
 
 const LANG_KEY = "dz-address-picker:lang";
 
@@ -260,7 +260,129 @@ const ar: Record<TranslationKey, string> = {
   "admin.logout": "تسجيل الخروج",
 };
 
-const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar };
+const en: Record<TranslationKey, string> = {
+  "nav.demo": "Demo",
+  "nav.inAction": "In action",
+  "nav.integration": "Integration",
+  "nav.api": "API",
+  "nav.features": "Features",
+  "nav.admin": "Dashboard",
+  "nav.backHome": "Back to site",
+  "nav.language": "Language",
+
+  "hero.title": "The modern way to integrate Algerian addresses.",
+  "hero.subtitle":
+    "The complete, up-to-date dataset of all 69 wilayas and 1,541 communes. Ready for e-commerce, forms and maps. Zero dependencies.",
+  "hero.ctaDemo": "See the demo",
+  "hero.ctaCopy": "Copy integration code",
+
+  "demo.title": "Interactive demo",
+  "demo.console": "Event console",
+  "demo.waiting": "Waiting for events",
+
+  "picker.wilaya": "Wilaya",
+  "picker.daira": "Daira",
+  "picker.commune": "Commune",
+  "picker.selectWilaya": "Select wilaya",
+  "picker.selectDaira": "Select daira",
+  "picker.selectCommune": "Select commune",
+  "picker.wilayaFirst": "Pick a wilaya first",
+  "picker.dairaFirst": "Pick a daira first",
+  "picker.searchWilaya": "Search a wilaya…",
+  "picker.searchDaira": "Search a daira…",
+  "picker.searchCommune": "Search a commune…",
+  "picker.noMatches": "No results",
+  "picker.preview": "Address preview",
+  "picker.previewEmpty": "Select a wilaya, a daira and a commune.",
+  "picker.presetShort": "Short",
+  "picker.presetFull": "Full",
+  "picker.presetCompact": "Compact",
+  "picker.copy": "Copy address",
+  "picker.copied": "Copied!",
+  "picker.export": "Export as CSV",
+  "picker.loading": "Loading data",
+  "picker.error": "Could not load the data. Check your connection.",
+  "picker.retry": "Retry",
+  "picker.stale": "Network unavailable — showing a local copy.",
+
+  "checkout.title": "See it in action",
+  "checkout.subtitle": "A mock checkout showing how the widget behaves once integrated.",
+  "checkout.header": "Checkout",
+  "checkout.total": "Total: 4,500 DZD",
+  "checkout.name": "Full name",
+  "checkout.phone": "Phone number",
+  "checkout.play": "▶ Play animation",
+  "checkout.auto": "▶ Auto demo",
+  "checkout.reset": "Reset",
+  "checkout.validated": "Address validated",
+  "checkout.synced": "Synced with your live selection",
+
+  "hub.title": "Developer hub",
+  "hub.subtitle": "Pick your platform and paste the code. No build step, no dependencies.",
+  "hub.liveConfig": "Widget configuration",
+  "hub.liveConfigDesc": "Change these values — every snippet regenerates instantly.",
+  "hub.target": "Target element",
+  "hub.format": "Output format",
+  "hub.inputName": "Field name",
+  "hub.options": "Available attributes",
+  "hub.optionsDesc": "Set these attributes on the container to control mounting and output format.",
+  "hub.copy": "Copy",
+  "hub.copied": "Copied!",
+
+  "api.title": "API documentation",
+  "api.subtitle": "Three read-only endpoints, served from the CDN.",
+  "api.params": "Parameters",
+  "api.response": "Response",
+  "api.wilayasDesc": "Full list of the 69 wilayas with code, Arabic name and Latin name.",
+  "api.dairasDesc": "All dairas of a given wilaya, identified by its code.",
+  "api.communesDesc": "All communes of a given daira.",
+
+  "features.title": "Features",
+  "features.fast": "Blazing fast",
+  "features.fastDesc": "Served from a global CDN, the minified data loads in milliseconds.",
+  "features.agnostic": "Works everywhere",
+  "features.agnosticDesc": "Vanilla JS, React, Vue, WordPress and Shopify.",
+  "features.updated": "Always up to date",
+  "features.updatedDesc": "Reflects the latest official administrative reforms.",
+
+  "footer.text": "Built for the Algerian developer community. Free and open to use.",
+
+  "admin.title": "Dashboard",
+  "admin.subtitle": "Widget and API usage monitoring.",
+  "admin.export": "Export data",
+  "admin.kpi.calls": "Total API calls",
+  "admin.kpi.stores": "Active stores",
+  "admin.kpi.loads": "Widget loads",
+  "admin.kpi.latency": "Average response time",
+  "admin.chart.title": "API traffic and widget usage",
+  "admin.range.7": "Last 7 days",
+  "admin.range.30": "Last 30 days",
+  "admin.range.90": "Last 90 days",
+  "admin.series.api": "API calls",
+  "admin.series.widget": "Widget loads",
+  "admin.table.title": "Most selected wilayas",
+  "admin.table.search": "Filter wilayas…",
+  "admin.table.rank": "Rank",
+  "admin.table.name": "Wilaya",
+  "admin.table.code": "Code",
+  "admin.table.count": "Selections",
+  "admin.table.share": "Share",
+  "admin.table.empty": "No wilaya matches.",
+  "admin.methods.title": "Integration methods",
+  "admin.methods.subtitle": "Installs broken down by platform.",
+  "admin.empty.chart": "No data available yet.",
+  "admin.empty.methods": "No installs recorded.",
+  "admin.login.title": "Admin access",
+  "admin.login.subtitle": "Sign in to view the dashboard.",
+  "admin.login.email": "Email address",
+  "admin.login.password": "Password",
+  "admin.login.submit": "Sign in",
+  "admin.login.loading": "Signing in…",
+  "admin.login.error": "Incorrect credentials.",
+  "admin.logout": "Sign out",
+};
+
+const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar, en };
 
 interface I18nValue {
   lang: Lang;
