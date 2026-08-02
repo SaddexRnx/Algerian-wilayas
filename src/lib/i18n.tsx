@@ -153,6 +153,30 @@ const fr = {
   "admin.login.loading": "Connexion…",
   "admin.login.error": "Identifiants incorrects.",
   "admin.logout": "Se déconnecter",
+  "admin.kpi.sessions": "Sessions actives",
+  "admin.endpoints.title": "Points de terminaison les plus demandés",
+  "admin.sources.title": "Trafic par source",
+  "admin.refresh": "Actualiser",
+  "admin.loading": "Chargement…",
+  "admin.live": "Données en direct",
+
+  "hub.wpTitle": "Extension WordPress",
+  "hub.wpDesc":
+    "Téléchargez l'extension prête à l'emploi : le zip est généré dans votre navigateur.",
+  "hub.download": "Télécharger l'extension (.zip)",
+  "hub.downloading": "Création du zip…",
+  "hub.downloadError": "Échec de la génération du zip.",
+
+  "tester.inputLabel": "Entrez le code ou le nom de la wilaya (ex. 16, Alger, أو وهران)",
+  "tester.inputPlaceholder": "16 / Alger / وهران",
+  "tester.notFound": "Aucune wilaya ne correspond à ce code ou nom.",
+  "tester.resolved": "Résolu en",
+
+  "api.indexDesc": "Index de découverte listant tous les points de terminaison disponibles.",
+  "api.wilayaDesc": "Détail complet d'une wilaya : ses dairas et leurs communes.",
+  "api.wilayaDairasDesc": "Liste des dairas d'une wilaya, avec le nombre de communes.",
+  "api.wilayaCommunesDesc": "Liste à plat de toutes les communes d'une wilaya.",
+  "api.dairaDetailDesc": "Détail d'une daira précise et de ses communes.",
 } as const;
 
 export type TranslationKey = keyof typeof fr;
