@@ -3,6 +3,18 @@ import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { ForcedLanguageProvider, useI18n, type TranslationKey } from "@/lib/i18n";
 import { adminLogin, adminLogout, adminStatus } from "@/lib/admin-auth.functions";
+import { adminAnalytics, type AnalyticsPayload } from "@/lib/admin-analytics.functions";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 export const Route = createFileRoute("/admin")({
   ssr: false,
@@ -134,10 +146,94 @@ function LoginScreen({ onSuccess }: { onSuccess: () => void }) {
   );
 }
 
+interface WilayaRef {
+  code: number;
+  arabic: string;
+  ascii: string;
+}
+
+function Sparkline({ values }: { values: number[] }) {
+  if (values.length < 2 || values.every((v) => v === 0)) {
+    return <div className="mt-3 h-10 rounded-lg border border-dashed border-gray-200 bg-gray-50" />;
+  }
+  const max = Math.max(...values);
+  const step = 100 / (values.length - 1);
+  const points = values
+    .map((v, i) => `${(i * step).toFixed(2)},${(100 - (v / max) * 100).toFixed(2)}`)
+    .join(" ");
+  return (
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="mt-3 h-10 w-full" aria-hidden>
+      <polyline points={points} fill="none" stroke="#111827" strokeWidth="3" vectorEffect="non-scaling-stroke" />
+    </svg>
+  );
+}
+
 function Dashboard({ onSignOut }: { onSignOut: () => void }) {
   const { t, dir } = useI18n();
   const [range, setRange] = useState<7 | 30 | 90>(30);
   const [query, setQuery] = useState("");
+  const analytics = useServerFn(adminAnalytics);
+  const [data, setData] = useState<AnalyticsPayload | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [failed, setFailed] = useState(false);
+  const [wilayaRefs, setWilayaRefs] = useState<WilayaRef[]>([]);
+
+  useEffect(() => {
+    let active = true;
+    setLoading(true);
+    setFailed(false);
+    void analytics({ data: { days: range } })
+      .then((res) => {
+        if (active) setData(res);
+      })
+      .catch(() => {
+        if (active) setFailed(true);
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [analytics, range]);
+
+  useEffect(() => {
+    let active = true;
+    void fetch("/api/wilayas.json")
+      .then((r) => r.json())
+      .then((json: WilayaRef[]) => {
+        if (active) setWilayaRefs(json);
+      })
+      .catch(() => undefined);
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const kpiValues = [
+    data ? data.totalCalls.toLocaleString("en-US") : "—",
+    data ? data.sessions.toLocaleString("en-US") : "—",
+    data ? data.widgetLoads.toLocaleString("en-US") : "—",
+    data ? `${data.avgLatency} ms` : "—",
+  ];
+
+  const wilayaRows = (data?.wilayas ?? []).map((w) => {
+    const ref = wilayaRefs.find((r) => r.code === w.code);
+    return {
+      code: w.code,
+      count: w.count,
+      name: ref ? `${ref.ascii} — ${ref.arabic}` : `Wilaya ${w.code}`,
+    };
+  });
+  const totalWilayaCalls = wilayaRows.reduce((sum, r) => sum + r.count, 0);
+  const filteredRows = wilayaRows.filter(
+    (r) =>
+      !query.trim() ||
+      r.name.toLowerCase().includes(query.trim().toLowerCase()) ||
+      String(r.code).includes(query.trim()),
+  );
+
+  const hasSeries = (data?.series ?? []).some((p) => p.calls > 0);
 
   return (
     <div
@@ -174,25 +270,28 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             <h1 className="truncate text-2xl font-bold tracking-tight text-black sm:text-3xl">
               {t("admin.title")}
             </h1>
-            <p className="mt-1 text-sm text-gray-500">{t("admin.subtitle")}</p>
+            <p className="mt-1 text-sm text-gray-500">
+              {loading ? t("admin.loading") : failed ? t("admin.login.error") : t("admin.live")}
+            </p>
           </div>
           <button
             type="button"
-            disabled
-            className="shrink-0 rounded-md bg-black px-4 py-2 text-sm font-medium text-white opacity-40"
+            onClick={() => setRange((r) => r)}
+            disabled={loading}
+            className="shrink-0 rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-40"
           >
-            {t("admin.export")}
+            {t("admin.refresh")}
           </button>
         </div>
 
         <section className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {KPI_KEYS.map((k) => (
+          {KPI_KEYS.map((k, i) => (
             <div key={k} className={cardClass}>
               <p className="truncate text-xs font-medium text-gray-500">{t(k)}</p>
               <p className="mt-2 text-2xl font-bold tracking-tight text-black sm:text-3xl" dir="ltr">
-                —
+                {kpiValues[i]}
               </p>
-              <EmptyBox label={t("admin.empty.chart")} className="mt-3 h-10 px-2 text-[10px]" />
+              <Sparkline values={data?.sparkline ?? []} />
             </div>
           ))}
         </section>
@@ -213,7 +312,52 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               <option value={90}>{t("admin.range.90")}</option>
             </select>
           </div>
-          <EmptyBox label={t("admin.empty.chart")} className="mt-5 h-64 w-full sm:h-80" />
+          {hasSeries ? (
+            <div className="mt-5 h-64 w-full sm:h-80" dir="ltr">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={data!.series} margin={{ top: 8, right: 8, bottom: 0, left: -20 }}>
+                  <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" vertical={false} />
+                  <XAxis
+                    dataKey="day"
+                    tick={{ fill: "#6b7280", fontSize: 11 }}
+                    tickLine={false}
+                    axisLine={{ stroke: "#e5e7eb" }}
+                    tickFormatter={(v: string) => v.slice(5)}
+                    minTickGap={24}
+                  />
+                  <YAxis
+                    tick={{ fill: "#6b7280", fontSize: 11 }}
+                    tickLine={false}
+                    axisLine={false}
+                    allowDecimals={false}
+                  />
+                  <Tooltip
+                    contentStyle={{
+                      background: "#ffffff",
+                      border: "1px solid #d1d5db",
+                      borderRadius: 8,
+                      color: "#111827",
+                      fontSize: 12,
+                    }}
+                  />
+                  <Line type="monotone" dataKey="calls" stroke="#111827" strokeWidth={2} dot={false} />
+                  <Line
+                    type="monotone"
+                    dataKey="widget"
+                    stroke="#9ca3af"
+                    strokeWidth={2}
+                    strokeDasharray="4 3"
+                    dot={false}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          ) : (
+            <EmptyBox
+              label={loading ? t("admin.loading") : t("admin.empty.chart")}
+              className="mt-5 h-64 w-full sm:h-80"
+            />
+          )}
         </section>
 
         <div className="mt-6 grid min-w-0 gap-6 lg:grid-cols-3">
@@ -244,26 +388,94 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td colSpan={5} className="py-10 text-center text-sm text-gray-400">
-                      {t("admin.table.empty")}
-                    </td>
-                  </tr>
+                  {filteredRows.length === 0 && (
+                    <tr>
+                      <td colSpan={5} className="py-10 text-center text-sm text-gray-400">
+                        {loading ? t("admin.loading") : t("admin.table.empty")}
+                      </td>
+                    </tr>
+                  )}
+                  {filteredRows.map((r, i) => {
+                    const share = totalWilayaCalls ? (r.count / totalWilayaCalls) * 100 : 0;
+                    return (
+                      <tr key={r.code} className="border-b border-gray-100 last:border-0">
+                        <td className="py-2.5 pe-3 text-gray-500">{i + 1}</td>
+                        <td className="py-2.5 pe-3 text-black">{r.name}</td>
+                        <td className="py-2.5 pe-3 text-gray-600" dir="ltr">
+                          {r.code}
+                        </td>
+                        <td className="py-2.5 pe-3 text-black" dir="ltr">
+                          {r.count}
+                        </td>
+                        <td className="py-2.5">
+                          <div className="flex items-center gap-2">
+                            <div className="h-1.5 w-24 rounded-full bg-gray-200">
+                              <div
+                                className="h-1.5 rounded-full bg-black"
+                                style={{ width: `${share.toFixed(1)}%` }}
+                              />
+                            </div>
+                            <span className="text-xs text-gray-500" dir="ltr">
+                              {share.toFixed(1)}%
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
           </section>
 
           <section className={`${cardClass} min-w-0`}>
-            <h2 className="text-sm font-semibold text-black">{t("admin.methods.title")}</h2>
+            <h2 className="text-sm font-semibold text-black">{t("admin.endpoints.title")}</h2>
             <p className="mt-1 text-xs text-gray-500">{t("admin.methods.subtitle")}</p>
-            <EmptyBox label={t("admin.empty.methods")} className="mt-4 h-48" />
+            {data && data.endpoints.length > 0 ? (
+              <div className="mt-4 h-64 w-full" dir="ltr">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={data.endpoints}
+                    layout="vertical"
+                    margin={{ top: 4, right: 12, bottom: 4, left: 4 }}
+                  >
+                    <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" horizontal={false} />
+                    <XAxis type="number" hide allowDecimals={false} />
+                    <YAxis
+                      type="category"
+                      dataKey="label"
+                      width={130}
+                      tick={{ fill: "#6b7280", fontSize: 10 }}
+                      tickLine={false}
+                      axisLine={false}
+                    />
+                    <Tooltip
+                      cursor={{ fill: "#f3f4f6" }}
+                      contentStyle={{
+                        background: "#ffffff",
+                        border: "1px solid #d1d5db",
+                        borderRadius: 8,
+                        color: "#111827",
+                        fontSize: 12,
+                      }}
+                    />
+                    <Bar dataKey="value" fill="#111827" radius={[0, 4, 4, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            ) : (
+              <EmptyBox
+                label={loading ? t("admin.loading") : t("admin.empty.methods")}
+                className="mt-4 h-48"
+              />
+            )}
           </section>
         </div>
       </main>
     </div>
   );
 }
+
 
 function AdminPage() {
   const status = useServerFn(adminStatus);
