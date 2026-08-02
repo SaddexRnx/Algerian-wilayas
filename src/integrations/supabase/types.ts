@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      api_logs: {
+        Row: {
+          created_at: string
+          endpoint: string
+          id: string
+          response_time_ms: number
+          session_id: string | null
+          source: string
+          status: number
+          wilaya_code: number | null
+        }
+        Insert: {
+          created_at?: string
+          endpoint: string
+          id?: string
+          response_time_ms?: number
+          session_id?: string | null
+          source?: string
+          status?: number
+          wilaya_code?: number | null
+        }
+        Update: {
+          created_at?: string
+          endpoint?: string
+          id?: string
+          response_time_ms?: number
+          session_id?: string | null
+          source?: string
+          status?: number
+          wilaya_code?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
