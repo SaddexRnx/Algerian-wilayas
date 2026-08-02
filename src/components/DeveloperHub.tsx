@@ -1,4 +1,6 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+
+const CONFIG_KEY = "dz-address-picker:widget-config";
 
 const CDN_BASE = "https://cdn.jsdelivr.net/gh/SaddexRnx/Algeria-wilayas@main";
 
@@ -230,6 +232,38 @@ const fieldClass =
 
 export function DeveloperHub() {
   const [config, setConfig] = useState<WidgetConfig>(DEFAULT_CONFIG);
+  const configLoaded = useRef(false);
+
+  // Restore the saved widget configuration on mount.
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(CONFIG_KEY);
+      if (raw) {
+        const saved = JSON.parse(raw) as Partial<WidgetConfig>;
+        setConfig((c) => ({
+          target: typeof saved.target === "string" ? saved.target : c.target,
+          format:
+            saved.format === "arabic" || saved.format === "latin" || saved.format === "json"
+              ? saved.format
+              : c.format,
+          inputName: typeof saved.inputName === "string" ? saved.inputName : c.inputName,
+        }));
+      }
+    } catch {
+      /* storage unavailable — non-fatal */
+    }
+    configLoaded.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (!configLoaded.current) return;
+    try {
+      window.localStorage.setItem(CONFIG_KEY, JSON.stringify(config));
+    } catch {
+      /* storage unavailable — non-fatal */
+    }
+  }, [config]);
+
   const snippets = useMemo(() => buildSnippets(config), [config]);
   const [activeTab, setActiveTab] = useState(snippets[0]!.id);
   const active = snippets.find((s) => s.id === activeTab) ?? snippets[0]!;
