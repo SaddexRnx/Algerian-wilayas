@@ -216,15 +216,98 @@ export function AlgeriaAddressPicker() {
     );
   }, [daira, communeQuery]);
 
+  // Restore selection from the URL once the dataset is available.
+  useEffect(() => {
+    if (restored.current || !data.length || typeof window === "undefined") return;
+    restored.current = true;
+    const params = new URLSearchParams(window.location.search);
+    const w = params.get("wilaya") ?? "";
+    if (!w) return;
+    const found = data.find((x) => String(x.code) === w);
+    if (!found) return;
+    setWilayaCode(w);
+    const d = params.get("daira");
+    if (d === null) return;
+    const di = found.dairas.findIndex((x) => x.ascii === d || x.arabic === d);
+    if (di < 0) return;
+    setDairaIndex(String(di));
+    const c = params.get("commune");
+    if (c === null) return;
+    const ci = found.dairas[di]!.communes.findIndex((x) => x.ascii === c || x.arabic === c);
+    if (ci >= 0) setCommuneIndex(String(ci));
+  }, [data]);
+
+  // Keep the URL in sync so the selection is shareable.
+  useEffect(() => {
+    if (!restored.current || typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    params.delete("wilaya");
+    params.delete("daira");
+    params.delete("commune");
+    if (wilaya) params.set("wilaya", String(wilaya.code));
+    if (daira) params.set("daira", daira.ascii);
+    if (commune) params.set("commune", commune.ascii);
+    const qs = params.toString();
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}${qs ? `?${qs}` : ""}${window.location.hash}`,
+    );
+  }, [wilaya, daira, commune]);
+
   const fullAddressAr = [commune?.arabic, daira?.arabic, wilaya?.arabic]
     .filter(Boolean)
     .join("، ");
   const fullAddressLatin = [commune?.ascii, daira?.ascii, wilaya?.ascii]
     .filter(Boolean)
     .join(", ");
-  const fullAddress = fullAddressAr
-    ? `${fullAddressAr}${fullAddressLatin ? ` (${fullAddressLatin})` : ""}`
-    : "";
+
+  const formatted = (() => {
+    if (!wilaya) return "";
+    if (preset === "short") {
+      return [commune?.arabic ?? daira?.arabic, wilaya.arabic].filter(Boolean).join("، ");
+    }
+    if (preset === "compact") {
+      return `${commune?.ascii ?? daira?.ascii ?? wilaya.ascii}-${String(wilaya.code).padStart(2, "0")}`;
+    }
+    return fullAddressAr
+      ? `${fullAddressAr}${fullAddressLatin ? ` (${fullAddressLatin})` : ""}`
+      : "";
+  })();
+
+  const fullAddress = formatted;
+
+  const exportCsv = () => {
+    const rows: string[] = ["wilaya_code,wilaya_ar,wilaya_latin,daira_ar,daira_latin,commune_ar,commune_latin"];
+    const source = wilaya ? [wilaya] : data;
+    source.forEach((w) => {
+      w.dairas.forEach((d) => {
+        d.communes.forEach((c) => {
+          rows.push(
+            [
+              String(w.code),
+              w.arabic,
+              w.ascii,
+              d.arabic,
+              d.ascii,
+              c.arabic,
+              c.ascii,
+            ]
+              .map(csvEscape)
+              .join(","),
+          );
+        });
+      });
+    });
+    const blob = new Blob(["\uFEFF" + rows.join("\n")], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = wilaya ? `dz-addresses-wilaya-${wilaya.code}.csv` : "dz-addresses.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
 
   if (isLoading) return <Skeleton />;
 
