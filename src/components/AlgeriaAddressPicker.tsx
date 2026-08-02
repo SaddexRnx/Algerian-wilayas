@@ -287,7 +287,9 @@ export function AlgeriaAddressPicker({
     window.history.replaceState(
       null,
       "",
-      `${window.location.pathname}${qs ? `?${qs}` : ""}${window.location.hash}`,
+      // NOTE: the hash is intentionally dropped — re-writing it makes the
+      // browser re-anchor and scroll the page on every dropdown change.
+      `${window.location.pathname}${qs ? `?${qs}` : ""}`,
     );
   }, [wilaya, daira, commune]);
 
