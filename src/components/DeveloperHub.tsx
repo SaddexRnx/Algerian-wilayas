@@ -399,7 +399,10 @@ export function DeveloperHub() {
         </pre>
       </div>
 
+      <PluginDownload />
+
       <div className="mt-8 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+
         <h3 className="text-sm font-semibold text-black">{t("hub.options")}</h3>
         <p className="mt-1 text-sm text-gray-500">{t("hub.optionsDesc")}</p>
         <dl className="mt-4 divide-y divide-gray-200">
