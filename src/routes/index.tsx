@@ -4,6 +4,8 @@ import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
 import { CheckoutSimulation, type LiveAddress } from "@/components/CheckoutSimulation";
 import { DeveloperHub, SNIPPETS } from "@/components/DeveloperHub";
 import { ApiDocs } from "@/components/ApiDocs";
+import { ApiTester } from "@/components/ApiTester";
+import logo from "@/assets/logo.png";
 import { LanguageToggle, useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
@@ -123,6 +125,7 @@ function Index() {
   const navLinks = [
     { href: "#demo", label: t("nav.demo") },
     { href: "#in-action", label: t("nav.inAction") },
+    { href: "#tester", label: t("nav.tester") },
     { href: "#integration", label: t("nav.integration") },
     { href: "#api", label: t("nav.api") },
     { href: "#features", label: t("nav.features") },
@@ -164,9 +167,15 @@ function Index() {
     >
       <header className="sticky top-0 z-20 border-b border-gray-200 bg-white/90 backdrop-blur">
         <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-4 sm:px-6 sm:py-5">
-          <span className="min-w-0 truncate text-lg font-bold text-black sm:text-xl">
-            DZ Address Picker
-          </span>
+          <div className="flex min-w-0 items-center gap-2">
+            <img src={logo} alt="DZ Address Picker logo" className="h-8 w-8 shrink-0" />
+            <span className="min-w-0 truncate text-lg font-bold text-black sm:text-xl">
+              DZ Address Picker
+            </span>
+            <span className="ml-2 inline-flex shrink-0 items-center rounded-full border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
+              v1.0.0-beta
+            </span>
+          </div>
           <div className="flex shrink-0 items-center gap-3">
             <nav className="hidden items-center gap-5 text-sm lg:flex">
               {navLinks.map((l) => (
