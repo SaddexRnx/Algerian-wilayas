@@ -182,16 +182,22 @@ function PluginDownload() {
   async function onDownload() {
     setState("working");
     try {
-      const [JSZipMod, fileSaver] = await Promise.all([
-        import("jszip"),
-        import("file-saver"),
-      ]);
       const files = ["dz-address-picker.php", "dz-checkout.js", "readme.txt"];
+
+      // Preflight: make sure every plugin file is actually served before zipping.
+      const heads = await Promise.all(
+        files.map((name) => fetch(`/wp-plugin/${name}`, { method: "HEAD" }).catch(() => null)),
+      );
+      if (heads.some((res) => !res || !res.ok)) throw new Error("missing plugin file");
+
+      const [JSZipMod, fileSaver] = await Promise.all([import("jszip"), import("file-saver")]);
       const contents = await Promise.all(
         files.map(async (name) => {
           const res = await fetch(`/wp-plugin/${name}`);
           if (!res.ok) throw new Error(name);
-          return res.text();
+          const text = await res.text();
+          if (!text.trim()) throw new Error(name);
+          return text;
         }),
       );
       const zip = new JSZipMod.default();
@@ -204,6 +210,7 @@ function PluginDownload() {
       setState("error");
     }
   }
+
 
   return (
     <div className="mt-8 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
