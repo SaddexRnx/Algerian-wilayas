@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
-import { CheckoutSimulation } from "@/components/CheckoutSimulation";
+import { CheckoutSimulation, type LiveAddress } from "@/components/CheckoutSimulation";
 import { DeveloperHub, SNIPPETS } from "@/components/DeveloperHub";
 
 export const Route = createFileRoute("/")({
