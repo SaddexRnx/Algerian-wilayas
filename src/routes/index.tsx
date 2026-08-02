@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
+import { CheckoutSimulation } from "@/components/CheckoutSimulation";
 import { DeveloperHub, SNIPPETS } from "@/components/DeveloperHub";
 
 export const Route = createFileRoute("/")({
@@ -90,6 +91,10 @@ function Index() {
             <a href="#demo" className="text-gray-600 transition hover:text-black">
               Demo
             </a>
+            <a href="#in-action" className="text-gray-600 transition hover:text-black">
+              In Action
+            </a>
+
             <a href="#integration" className="text-gray-600 transition hover:text-black">
               Integration
             </a>
@@ -130,9 +135,20 @@ function Index() {
           </div>
         </section>
 
+        <section id="in-action" className="mt-20 scroll-mt-24">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-black">See It In Action</h2>
+            <p className="mx-auto mt-3 max-w-xl text-gray-500">
+              A simulated checkout showing exactly how the widget behaves once integrated.
+            </p>
+          </div>
+          <CheckoutSimulation />
+        </section>
+
         <section id="integration" className="scroll-mt-24">
           <DeveloperHub />
         </section>
+
 
         <section id="features" className="mx-auto mt-20 grid max-w-4xl gap-8 md:grid-cols-3">
           {features.map((f) => (

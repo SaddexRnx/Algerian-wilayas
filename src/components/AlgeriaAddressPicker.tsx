@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export interface Commune {
   arabic: string;
@@ -91,7 +91,7 @@ function writeCache(data: unknown) {
 
 function Skeleton() {
   return (
-    <div className="animate-pulse space-y-5">
+    <div className="animate-pulse space-y-5" role="status" aria-label="Loading address data">
       {[0, 1, 2].map((i) => (
         <div key={i} className="space-y-2">
           <div className="h-3 w-24 rounded bg-gray-100" />
@@ -100,6 +100,18 @@ function Skeleton() {
       ))}
     </div>
   );
+}
+
+type Preset = "short" | "full" | "compact";
+
+const PRESETS: { id: Preset; label: string; hint: string }[] = [
+  { id: "short", label: "Short", hint: "Commune, Wilaya" },
+  { id: "full", label: "Full", hint: "Commune, Daira, Wilaya (Latin)" },
+  { id: "compact", label: "Compact", hint: "Commune-Wilaya code" },
+];
+
+function csvEscape(value: string) {
+  return `"${value.replace(/"/g, '""')}"`;
 }
 
 export function AlgeriaAddressPicker() {
@@ -116,7 +128,10 @@ export function AlgeriaAddressPicker() {
   const [dairaQuery, setDairaQuery] = useState("");
   const [communeQuery, setCommuneQuery] = useState("");
 
+  const [preset, setPreset] = useState<Preset>("full");
   const [copied, setCopied] = useState(false);
+  const restored = useRef(false);
+
 
   const load = useCallback((useCache = true) => {
     setIsLoading(true);
@@ -201,15 +216,98 @@ export function AlgeriaAddressPicker() {
     );
   }, [daira, communeQuery]);
 
+  // Restore selection from the URL once the dataset is available.
+  useEffect(() => {
+    if (restored.current || !data.length || typeof window === "undefined") return;
+    restored.current = true;
+    const params = new URLSearchParams(window.location.search);
+    const w = params.get("wilaya") ?? "";
+    if (!w) return;
+    const found = data.find((x) => String(x.code) === w);
+    if (!found) return;
+    setWilayaCode(w);
+    const d = params.get("daira");
+    if (d === null) return;
+    const di = found.dairas.findIndex((x) => x.ascii === d || x.arabic === d);
+    if (di < 0) return;
+    setDairaIndex(String(di));
+    const c = params.get("commune");
+    if (c === null) return;
+    const ci = found.dairas[di]!.communes.findIndex((x) => x.ascii === c || x.arabic === c);
+    if (ci >= 0) setCommuneIndex(String(ci));
+  }, [data]);
+
+  // Keep the URL in sync so the selection is shareable.
+  useEffect(() => {
+    if (!restored.current || typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    params.delete("wilaya");
+    params.delete("daira");
+    params.delete("commune");
+    if (wilaya) params.set("wilaya", String(wilaya.code));
+    if (daira) params.set("daira", daira.ascii);
+    if (commune) params.set("commune", commune.ascii);
+    const qs = params.toString();
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}${qs ? `?${qs}` : ""}${window.location.hash}`,
+    );
+  }, [wilaya, daira, commune]);
+
   const fullAddressAr = [commune?.arabic, daira?.arabic, wilaya?.arabic]
     .filter(Boolean)
     .join("، ");
   const fullAddressLatin = [commune?.ascii, daira?.ascii, wilaya?.ascii]
     .filter(Boolean)
     .join(", ");
-  const fullAddress = fullAddressAr
-    ? `${fullAddressAr}${fullAddressLatin ? ` (${fullAddressLatin})` : ""}`
-    : "";
+
+  const formatted = (() => {
+    if (!wilaya) return "";
+    if (preset === "short") {
+      return [commune?.arabic ?? daira?.arabic, wilaya.arabic].filter(Boolean).join("، ");
+    }
+    if (preset === "compact") {
+      return `${commune?.ascii ?? daira?.ascii ?? wilaya.ascii}-${String(wilaya.code).padStart(2, "0")}`;
+    }
+    return fullAddressAr
+      ? `${fullAddressAr}${fullAddressLatin ? ` (${fullAddressLatin})` : ""}`
+      : "";
+  })();
+
+  const fullAddress = formatted;
+
+  const exportCsv = () => {
+    const rows: string[] = ["wilaya_code,wilaya_ar,wilaya_latin,daira_ar,daira_latin,commune_ar,commune_latin"];
+    const source = wilaya ? [wilaya] : data;
+    source.forEach((w) => {
+      w.dairas.forEach((d) => {
+        d.communes.forEach((c) => {
+          rows.push(
+            [
+              String(w.code),
+              w.arabic,
+              w.ascii,
+              d.arabic,
+              d.ascii,
+              c.arabic,
+              c.ascii,
+            ]
+              .map(csvEscape)
+              .join(","),
+          );
+        });
+      });
+    });
+    const blob = new Blob(["\uFEFF" + rows.join("\n")], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = wilaya ? `dz-addresses-wilaya-${wilaya.code}.csv` : "dz-addresses.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
 
   if (isLoading) return <Skeleton />;
 
@@ -343,28 +441,79 @@ export function AlgeriaAddressPicker() {
       </div>
 
       <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-        <p className="text-xs font-medium tracking-wide text-gray-500 uppercase">
+        <p
+          id="dz-preview-label"
+          className="text-xs font-medium tracking-wide text-gray-500 uppercase"
+        >
           Live address preview
         </p>
+
+        <div
+          role="radiogroup"
+          aria-label="Address output format preset"
+          className="mt-3 flex flex-wrap gap-2"
+        >
+          {PRESETS.map((p) => {
+            const isActive = p.id === preset;
+            return (
+              <button
+                key={p.id}
+                type="button"
+                role="radio"
+                aria-checked={isActive}
+                title={p.hint}
+                onClick={() => setPreset(p.id)}
+                className={
+                  (isActive
+                    ? "bg-black text-white "
+                    : "border border-gray-300 bg-white text-gray-600 hover:bg-gray-100 ") +
+                  "rounded-md px-3 py-1.5 text-xs font-medium transition focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
+                }
+              >
+                {p.label}
+              </button>
+            );
+          })}
+        </div>
+
         <p
-          className={`mt-2 text-sm ${fullAddress ? "text-black" : "text-gray-400"}`}
+          className={`mt-3 text-sm ${fullAddress ? "text-black" : "text-gray-400"}`}
           dir="auto"
+          aria-live="polite"
+          aria-labelledby="dz-preview-label"
         >
           {fullAddress || "Select a wilaya, daira and commune to build the address."}
         </p>
-        <button
-          type="button"
-          disabled={!fullAddress}
-          onClick={() => {
-            void navigator.clipboard.writeText(fullAddress);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
-          }}
-          className="mt-4 rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
-        >
-          {copied ? "Copied!" : "Copy full address"}
-        </button>
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          <button
+            type="button"
+            disabled={!fullAddress}
+            aria-label="Copy the formatted address to clipboard"
+            onClick={() => {
+              void navigator.clipboard.writeText(fullAddress);
+              setCopied(true);
+              setTimeout(() => setCopied(false), 2000);
+            }}
+            className="rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
+          >
+            {copied ? "Copied!" : "Copy address"}
+          </button>
+          <button
+            type="button"
+            onClick={exportCsv}
+            aria-label={
+              wilaya
+                ? "Download the selected wilaya's dairas and communes as CSV"
+                : "Download all wilayas, dairas and communes as CSV"
+            }
+            className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
+          >
+            Export CSV
+          </button>
+        </div>
       </div>
+
     </div>
   );
 }

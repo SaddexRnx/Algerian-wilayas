@@ -1,8 +1,20 @@
-import { useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 const CDN_BASE = "https://cdn.jsdelivr.net/gh/SaddexRnx/Algeria-wilayas@main";
 
 export const WIDGET_DATA_URL = `${CDN_BASE}/json/wilaya-daira-commune/wilaya-daira-commune.json`;
+
+export interface WidgetConfig {
+  target: string;
+  format: "arabic" | "latin" | "json";
+  inputName: string;
+}
+
+export const DEFAULT_CONFIG: WidgetConfig = {
+  target: ".dz-address-picker",
+  format: "arabic",
+  inputName: "shipping_address",
+};
 
 export interface Snippet {
   id: string;
@@ -10,20 +22,32 @@ export interface Snippet {
   code: string;
 }
 
-export const SNIPPETS: Snippet[] = [
-  {
-    id: "vanilla",
-    label: "Vanilla JS",
-    code: `<!-- 1. Add this container where you want the dropdowns -->
-<div class="dz-address-picker"></div>
+function containerClass(target: string) {
+  return target.startsWith(".") ? target.slice(1) : "dz-address-picker";
+}
+
+function containerMarkup(c: WidgetConfig) {
+  const isId = c.target.startsWith("#");
+  const attrs = `${isId ? `id="${c.target.slice(1)}"` : `class="${containerClass(c.target)}"`} data-target="${c.target}" data-format="${c.format}" data-input-name="${c.inputName}"`;
+  return `<div ${attrs}></div>`;
+}
+
+export function buildSnippets(c: WidgetConfig): Snippet[] {
+  const container = containerMarkup(c);
+  return [
+    {
+      id: "vanilla",
+      label: "Vanilla JS",
+      code: `<!-- 1. Add this container where you want the dropdowns -->
+${container}
 
 <!-- 2. Add this script before the closing </body> tag -->
 <script src="${CDN_BASE}/dist/widget.js"></script>`,
-  },
-  {
-    id: "react",
-    label: "React / Next.js",
-    code: `import { useState, useEffect } from 'react';
+    },
+    {
+      id: "react",
+      label: "React / Next.js",
+      code: `import { useState, useEffect } from 'react';
 
 export default function DzAddressPicker() {
   const [data, setData] = useState<any[]>([]);
@@ -40,51 +64,63 @@ export default function DzAddressPicker() {
   const selectedWilaya = data.find(w => w.code == wilaya);
   const selectedDaira = selectedWilaya?.dairas.find(d => d.arabic === daira);
 
+  const key = '${c.format === "latin" ? "ascii" : "arabic"}';
+  const value = ${
+    c.format === "json"
+      ? "JSON.stringify({ wilaya, daira, commune })"
+      : "[commune, daira, selectedWilaya?.[key]].filter(Boolean).join(', ')"
+  };
+
   return (
-    <div className="dz-address-picker">
+    <div className="${containerClass(c.target)}">
+      <input type="hidden" name="${c.inputName}" value={value} />
+
       <select
+        aria-label="Wilaya"
         value={wilaya}
         onChange={e => { setWilaya(e.target.value); setDaira(''); setCommune(''); }}
       >
         <option value="">اختر الولاية</option>
         {data.map(w => (
-          <option key={w.code} value={w.code}>{w.code} - {w.arabic}</option>
+          <option key={w.code} value={w.code}>{w.code} - {w[key]}</option>
         ))}
       </select>
 
       <select
+        aria-label="Daira"
         value={daira}
         onChange={e => { setDaira(e.target.value); setCommune(''); }}
         disabled={!wilaya}
       >
         <option value="">اختر الدائرة</option>
         {selectedWilaya?.dairas.map((d: any) => (
-          <option key={d.arabic} value={d.arabic}>{d.arabic}</option>
+          <option key={d.arabic} value={d.arabic}>{d[key]}</option>
         ))}
       </select>
 
       <select
+        aria-label="Commune"
         value={commune}
         onChange={e => setCommune(e.target.value)}
         disabled={!daira}
       >
         <option value="">اختر البلدية</option>
         {selectedDaira?.communes.map((c: any) => (
-          <option key={c.arabic} value={c.arabic}>{c.arabic}</option>
+          <option key={c.arabic} value={c.arabic}>{c[key]}</option>
         ))}
       </select>
     </div>
   );
 }`,
-  },
-  {
-    id: "wordpress",
-    label: "WordPress / WooCommerce",
-    code: `// Add this to your theme's functions.php file
+    },
+    {
+      id: "wordpress",
+      label: "WordPress / WooCommerce",
+      code: `// Add this to your theme's functions.php file
 add_action('wp_footer', 'dz_inject_address_widget');
 function dz_inject_address_widget() {
     if (is_checkout()) {
-        echo '<div class="dz-address-picker"></div>
+        echo '${container}
         <script>
         document.addEventListener("DOMContentLoaded", function() {
             var script = document.createElement("script");
@@ -94,14 +130,17 @@ function dz_inject_address_widget() {
         </script>';
     }
 }`,
-  },
-  {
-    id: "prestashop",
-    label: "PrestaShop",
-    code: `// Add this to your theme's custom JS file or footer hook
+    },
+    {
+      id: "prestashop",
+      label: "PrestaShop",
+      code: `// Add this to your theme's custom JS file or footer hook
 document.addEventListener("DOMContentLoaded", function() {
     const container = document.createElement("div");
-    container.className = "dz-address-picker";
+    container.className = "${containerClass(c.target)}";
+    container.dataset.target = "${c.target}";
+    container.dataset.format = "${c.format}";
+    container.dataset.inputName = "${c.inputName}";
     // Target PrestaShop state/city fields (adjust selectors if needed)
     const stateField = document.querySelector("#id_state");
     if (stateField) {
@@ -113,12 +152,12 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.appendChild(script);
     }
 });`,
-  },
-  {
-    id: "shopify",
-    label: "Shopify",
-    code: `<!-- Add this to your checkout.liquid or theme JS -->
-<div class="dz-address-picker"></div>
+    },
+    {
+      id: "shopify",
+      label: "Shopify",
+      code: `<!-- Add this to your checkout.liquid or theme JS -->
+${container}
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var script = document.createElement("script");
@@ -126,14 +165,17 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(script);
   });
 </script>`,
-  },
-];
+    },
+  ];
+}
+
+export const SNIPPETS = buildSnippets(DEFAULT_CONFIG);
 
 export const WIDGET_OPTIONS: { attr: string; description: string; example: string }[] = [
   {
     attr: "data-target",
     description: "CSS selector of the element the widget mounts into.",
-    example: '.dz-address-picker',
+    example: ".dz-address-picker",
   },
   {
     attr: "data-source",
@@ -162,26 +204,58 @@ export const WIDGET_OPTIONS: { attr: string; description: string; example: strin
   },
 ];
 
-function CopyCodeButton({ code }: { code: string }) {
+function CopyCodeButton({ code, label }: { code: string; label: string }) {
   const [copied, setCopied] = useState(false);
   return (
     <button
       type="button"
+      aria-label={`Copy ${label} snippet to clipboard`}
       onClick={() => {
         void navigator.clipboard.writeText(code);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       }}
-      className="absolute top-4 right-4 rounded bg-gray-800 px-3 py-1.5 text-xs text-white transition hover:bg-gray-700"
+      className="absolute top-4 right-4 rounded bg-gray-800 px-3 py-1.5 text-xs text-white transition hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
     >
       {copied ? "Copied!" : "Copy"}
+      <span className="sr-only" aria-live="polite">
+        {copied ? "Snippet copied to clipboard" : ""}
+      </span>
     </button>
   );
 }
 
+const fieldClass =
+  "w-full rounded-md border border-gray-300 bg-white p-2.5 text-sm text-black focus:border-black focus:ring-1 focus:ring-black outline-none transition";
+
 export function DeveloperHub() {
-  const [activeTab, setActiveTab] = useState(SNIPPETS[0]!.id);
-  const active = SNIPPETS.find((s) => s.id === activeTab) ?? SNIPPETS[0]!;
+  const [config, setConfig] = useState<WidgetConfig>(DEFAULT_CONFIG);
+  const snippets = useMemo(() => buildSnippets(config), [config]);
+  const [activeTab, setActiveTab] = useState(snippets[0]!.id);
+  const active = snippets.find((s) => s.id === activeTab) ?? snippets[0]!;
+  const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  const onTabKeyDown = (e: React.KeyboardEvent, index: number) => {
+    const keys = ["ArrowRight", "ArrowLeft", "Home", "End"];
+    if (!keys.includes(e.key)) return;
+    e.preventDefault();
+    const last = snippets.length - 1;
+    const next =
+      e.key === "ArrowRight"
+        ? index === last
+          ? 0
+          : index + 1
+        : e.key === "ArrowLeft"
+          ? index === 0
+            ? last
+            : index - 1
+          : e.key === "Home"
+            ? 0
+            : last;
+    const id = snippets[next]!.id;
+    setActiveTab(id);
+    tabRefs.current[id]?.focus();
+  };
 
   return (
     <div className="mx-auto mt-16 max-w-3xl">
@@ -190,24 +264,82 @@ export function DeveloperHub() {
         Pick your platform and drop the snippet in. No build step, no dependencies.
       </p>
 
+      <div className="mt-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+        <h3 className="text-sm font-semibold text-black">Live widget configuration</h3>
+        <p className="mt-1 text-sm text-gray-500">
+          Change these values and every snippet below regenerates instantly.
+        </p>
+        <div className="mt-4 grid gap-4 sm:grid-cols-3">
+          <div>
+            <label htmlFor="cfg-target" className="mb-1.5 block text-xs font-medium text-gray-700">
+              Target element
+            </label>
+            <input
+              id="cfg-target"
+              type="text"
+              value={config.target}
+              onChange={(e) => setConfig((c) => ({ ...c, target: e.target.value }))}
+              className={fieldClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="cfg-format" className="mb-1.5 block text-xs font-medium text-gray-700">
+              Output format
+            </label>
+            <select
+              id="cfg-format"
+              value={config.format}
+              onChange={(e) =>
+                setConfig((c) => ({ ...c, format: e.target.value as WidgetConfig["format"] }))
+              }
+              className={fieldClass}
+            >
+              <option value="arabic">arabic</option>
+              <option value="latin">latin</option>
+              <option value="json">json</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="cfg-name" className="mb-1.5 block text-xs font-medium text-gray-700">
+              Input name
+            </label>
+            <input
+              id="cfg-name"
+              type="text"
+              value={config.inputName}
+              onChange={(e) => setConfig((c) => ({ ...c, inputName: e.target.value }))}
+              className={fieldClass}
+            />
+          </div>
+        </div>
+      </div>
+
       <div
         role="tablist"
         aria-label="Integration platforms"
         className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap"
       >
-        {SNIPPETS.map((s) => {
+        {snippets.map((s, i) => {
           const isActive = s.id === active.id;
           return (
             <button
               key={s.id}
               type="button"
               role="tab"
+              id={`tab-${s.id}`}
               aria-selected={isActive}
+              aria-controls={`panel-${s.id}`}
+              tabIndex={isActive ? 0 : -1}
+              ref={(el) => {
+                tabRefs.current[s.id] = el;
+              }}
+              onKeyDown={(e) => onTabKeyDown(e, i)}
               onClick={() => setActiveTab(s.id)}
               className={
-                isActive
-                  ? "rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition"
-                  : "rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-50"
+                (isActive
+                  ? "bg-black text-white "
+                  : "border border-gray-300 bg-white text-gray-600 hover:bg-gray-50 ") +
+                "rounded-md px-4 py-2 text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
               }
             >
               {s.label}
@@ -216,8 +348,14 @@ export function DeveloperHub() {
         })}
       </div>
 
-      <div className="relative mt-4 overflow-x-auto rounded-xl bg-gray-950 p-6 text-gray-100">
-        <CopyCodeButton code={active.code} />
+      <div
+        role="tabpanel"
+        id={`panel-${active.id}`}
+        aria-labelledby={`tab-${active.id}`}
+        tabIndex={0}
+        className="relative mt-4 overflow-x-auto rounded-xl bg-gray-950 p-6 text-gray-100 focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none"
+      >
+        <CopyCodeButton code={active.code} label={active.label} />
         <pre className="pt-6 font-mono text-sm leading-relaxed sm:pt-0 sm:pr-20">
           <code>{active.code}</code>
         </pre>
