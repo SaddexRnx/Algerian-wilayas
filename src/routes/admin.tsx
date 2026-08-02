@@ -168,7 +168,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             <button
               type="button"
               onClick={onSignOut}
-              className="text-sm text-gray-600 transition hover:text-black"
+              className="rounded border border-gray-300 px-3 py-1 text-sm text-gray-600 transition hover:text-black"
             >
               {t("admin.logout")}
             </button>
