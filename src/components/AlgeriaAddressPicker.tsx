@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 export interface Commune {
   arabic: string;
   ascii: string;
-  postal_code?: string;
+  postal_code?: string | undefined;
 }
 
 export interface Daira {
@@ -58,28 +58,30 @@ export function AlgeriaAddressPicker() {
       })
       .then((json: unknown) => {
         if (!active) return;
-        const list = (Array.isArray(json) ? json : []).map((w) => {
+        const list: Wilaya[] = (Array.isArray(json) ? json : []).map((w) => {
           const raw = w as Record<string, unknown>;
           return {
-            code: Number(raw.code),
-            arabic: String(raw.arabic ?? ""),
-            ascii: String(raw.ascii ?? ""),
-            dairas: (Array.isArray(raw.dairas) ? raw.dairas : []).map((d) => {
+            code: Number(raw["code"]),
+            arabic: String(raw["arabic"] ?? ""),
+            ascii: String(raw["ascii"] ?? ""),
+            dairas: (Array.isArray(raw["dairas"]) ? raw["dairas"] : []).map((d: unknown) => {
               const rd = d as Record<string, unknown>;
               return {
-                arabic: String(rd.arabic ?? ""),
-                ascii: String(rd.ascii ?? ""),
-                communes: (Array.isArray(rd.communes) ? rd.communes : []).map((c) => {
-                  const rc = c as Record<string, unknown>;
-                  return {
-                    arabic: String(rc.arabic ?? ""),
-                    ascii: String(rc.ascii ?? ""),
-                    postal_code: rc.postal_code ? String(rc.postal_code) : undefined,
-                  };
-                }),
+                arabic: String(rd["arabic"] ?? ""),
+                ascii: String(rd["ascii"] ?? ""),
+                communes: (Array.isArray(rd["communes"]) ? rd["communes"] : []).map(
+                  (c: unknown) => {
+                    const rc = c as Record<string, unknown>;
+                    return {
+                      arabic: String(rc["arabic"] ?? ""),
+                      ascii: String(rc["ascii"] ?? ""),
+                      postal_code: rc["postal_code"] ? String(rc["postal_code"]) : undefined,
+                    };
+                  },
+                ),
               };
             }),
-          } satisfies Wilaya;
+          };
         });
         setData(list);
         setIsLoading(false);
