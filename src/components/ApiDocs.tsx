@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
 
-const BASE = "https://your-domain.vercel.app";
+const BASE = "https://dz-address-select.vercel.app";
 
 interface Endpoint {
   method: "GET";
