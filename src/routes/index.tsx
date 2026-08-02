@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
+import { DeveloperHub, SNIPPETS } from "@/components/DeveloperHub";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,11 +25,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const WIDGET_DATA_URL =
-  "https://cdn.jsdelivr.net/gh/SaddexRnx/Algeria-wilayas@main/json/wilaya-daira-commune/wilaya-daira-commune.json";
-
-const SNIPPET = `<div class="dz-address-picker" data-source="${WIDGET_DATA_URL}"></div>
-<script src="https://cdn.jsdelivr.net/gh/SaddexRnx/Algeria-wilayas@main/dist/widget.js"></script>`;
+const SNIPPET = SNIPPETS[0]!.code;
 
 function CopyButton({
   className,
@@ -134,18 +131,7 @@ function Index() {
         </section>
 
         <section id="integration" className="scroll-mt-24">
-          <div className="mx-auto mt-16 max-w-2xl rounded-xl bg-gray-950 p-8 text-white">
-            <h2 className="mb-4 text-lg font-semibold">Integrate in 30 Seconds</h2>
-            <p className="mb-4 text-sm text-gray-400">
-              Add this single line of code before the closing &lt;/body&gt; tag of your website.
-            </p>
-            <div className="relative rounded-lg bg-gray-900 p-4">
-              <CopyButton className="absolute top-4 right-4 rounded bg-gray-800 px-3 py-1 text-xs text-white transition hover:bg-gray-700" />
-              <pre className="overflow-x-auto pr-20 text-xs leading-relaxed text-gray-300">
-                <code>{SNIPPET}</code>
-              </pre>
-            </div>
-          </div>
+          <DeveloperHub />
         </section>
 
         <section id="features" className="mx-auto mt-20 grid max-w-4xl gap-8 md:grid-cols-3">
