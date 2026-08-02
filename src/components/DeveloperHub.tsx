@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useI18n } from "@/lib/i18n";
+
 
 const CONFIG_KEY = "dz-address-picker:widget-config";
 
@@ -207,32 +209,33 @@ export const WIDGET_OPTIONS: { attr: string; description: string; example: strin
 ];
 
 function CopyCodeButton({ code, label }: { code: string; label: string }) {
+  const { t } = useI18n();
   const [copied, setCopied] = useState(false);
   return (
     <button
       type="button"
-      aria-label={`Copy ${label} snippet to clipboard`}
+      aria-label={`${t("hub.copy")} — ${label}`}
       onClick={() => {
         void navigator.clipboard.writeText(code);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       }}
-      className="absolute top-4 right-4 rounded bg-gray-800 px-3 py-1.5 text-xs text-white transition hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+      className="absolute top-3 right-3 rounded bg-gray-800 px-3 py-1.5 text-xs text-white transition hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none sm:top-4 sm:right-4"
     >
-      {copied ? "Copied!" : "Copy"}
-      <span className="sr-only" aria-live="polite">
-        {copied ? "Snippet copied to clipboard" : ""}
-      </span>
+      {copied ? t("hub.copied") : t("hub.copy")}
     </button>
   );
 }
+
 
 const fieldClass =
   "w-full rounded-md border border-gray-300 bg-white p-2.5 text-sm text-black focus:border-black focus:ring-1 focus:ring-black outline-none transition";
 
 export function DeveloperHub() {
+  const { t } = useI18n();
   const [config, setConfig] = useState<WidgetConfig>(DEFAULT_CONFIG);
   const configLoaded = useRef(false);
+
 
   // Restore the saved widget configuration on mount.
   useEffect(() => {
@@ -293,24 +296,21 @@ export function DeveloperHub() {
 
   return (
     <div className="mx-auto mt-16 max-w-3xl">
-      <h2 className="text-lg font-semibold text-black">Developer Hub</h2>
-      <p className="mt-2 text-sm text-gray-500">
-        Pick your platform and drop the snippet in. No build step, no dependencies.
-      </p>
+      <h2 className="text-lg font-semibold text-black">{t("hub.title")}</h2>
+      <p className="mt-2 text-sm text-gray-500">{t("hub.subtitle")}</p>
 
-      <div className="mt-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h3 className="text-sm font-semibold text-black">Live widget configuration</h3>
-        <p className="mt-1 text-sm text-gray-500">
-          Change these values and every snippet below regenerates instantly.
-        </p>
+      <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+        <h3 className="text-sm font-semibold text-black">{t("hub.liveConfig")}</h3>
+        <p className="mt-1 text-sm text-gray-500">{t("hub.liveConfigDesc")}</p>
         <div className="mt-4 grid gap-4 sm:grid-cols-3">
           <div>
             <label htmlFor="cfg-target" className="mb-1.5 block text-xs font-medium text-gray-700">
-              Target element
+              {t("hub.target")}
             </label>
             <input
               id="cfg-target"
               type="text"
+              dir="ltr"
               value={config.target}
               onChange={(e) => setConfig((c) => ({ ...c, target: e.target.value }))}
               className={fieldClass}
@@ -318,11 +318,12 @@ export function DeveloperHub() {
           </div>
           <div>
             <label htmlFor="cfg-format" className="mb-1.5 block text-xs font-medium text-gray-700">
-              Output format
+              {t("hub.format")}
             </label>
             <select
               id="cfg-format"
               value={config.format}
+              dir="ltr"
               onChange={(e) =>
                 setConfig((c) => ({ ...c, format: e.target.value as WidgetConfig["format"] }))
               }
@@ -335,11 +336,12 @@ export function DeveloperHub() {
           </div>
           <div>
             <label htmlFor="cfg-name" className="mb-1.5 block text-xs font-medium text-gray-700">
-              Input name
+              {t("hub.inputName")}
             </label>
             <input
               id="cfg-name"
               type="text"
+              dir="ltr"
               value={config.inputName}
               onChange={(e) => setConfig((c) => ({ ...c, inputName: e.target.value }))}
               className={fieldClass}
@@ -347,6 +349,7 @@ export function DeveloperHub() {
           </div>
         </div>
       </div>
+
 
       <div
         role="tablist"
@@ -387,27 +390,27 @@ export function DeveloperHub() {
         id={`panel-${active.id}`}
         aria-labelledby={`tab-${active.id}`}
         tabIndex={0}
-        className="relative mt-4 overflow-x-auto rounded-xl bg-gray-950 p-6 text-gray-100 focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none"
+        dir="ltr"
+        className="relative mt-4 overflow-x-auto rounded-xl bg-gray-950 p-4 text-gray-100 focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none sm:p-6"
       >
         <CopyCodeButton code={active.code} label={active.label} />
-        <pre className="pt-6 font-mono text-sm leading-relaxed sm:pt-0 sm:pr-20">
+        <pre className="pt-8 font-mono text-xs leading-relaxed sm:pt-0 sm:pr-20 sm:text-sm">
           <code>{active.code}</code>
         </pre>
       </div>
 
-      <div className="mt-8 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h3 className="text-sm font-semibold text-black">Widget configuration</h3>
-        <p className="mt-1 text-sm text-gray-500">
-          Set these attributes on the container element to control mounting, output format and
-          callbacks.
-        </p>
+      <div className="mt-8 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+        <h3 className="text-sm font-semibold text-black">{t("hub.options")}</h3>
+        <p className="mt-1 text-sm text-gray-500">{t("hub.optionsDesc")}</p>
         <dl className="mt-4 divide-y divide-gray-200">
           {WIDGET_OPTIONS.map((o) => (
             <div key={o.attr} className="grid gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-              <dt className="font-mono text-xs text-black">{o.attr}</dt>
+              <dt className="font-mono text-xs text-black" dir="ltr">
+                {o.attr}
+              </dt>
               <dd className="text-sm text-gray-600 sm:col-span-2">
                 {o.description}
-                <span className="mt-1 block font-mono text-xs break-all text-gray-400">
+                <span className="mt-1 block font-mono text-xs break-all text-gray-400" dir="ltr">
                   {o.example}
                 </span>
               </dd>
@@ -415,6 +418,7 @@ export function DeveloperHub() {
           ))}
         </dl>
       </div>
+
     </div>
   );
 }
