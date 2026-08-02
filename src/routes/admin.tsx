@@ -270,6 +270,14 @@ function AdminPage() {
                   minTickGap={24}
                 />
                 <YAxis
+                  yAxisId="left"
+                  tick={{ fill: "#9ca3af", fontSize: 11 }}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <YAxis
+                  yAxisId="right"
+                  orientation="right"
                   tick={{ fill: "#9ca3af", fontSize: 11 }}
                   axisLine={false}
                   tickLine={false}
@@ -277,6 +285,7 @@ function AdminPage() {
                 <Tooltip {...tooltipStyle} cursor={{ fill: "#f3f4f6" }} />
                 <Legend wrapperStyle={{ fontSize: 12, color: "#4b5563" }} />
                 <Bar
+                  yAxisId="right"
                   dataKey="widget"
                   name={t("admin.series.widget")}
                   fill="#d1d5db"
@@ -284,6 +293,7 @@ function AdminPage() {
                   isAnimationActive={false}
                 />
                 <Line
+                  yAxisId="left"
                   type="monotone"
                   dataKey="api"
                   name={t("admin.series.api")}
