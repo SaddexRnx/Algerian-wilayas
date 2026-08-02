@@ -240,7 +240,11 @@ function Index() {
           <CheckoutSimulation live={live} />
         </section>
 
-        <section id="integration" className="scroll-mt-32">
+        <section id="tester" className="scroll-mt-32">
+          <ApiTester />
+        </section>
+
+        <section id="integration" className="scroll-mt-32">ic
           <DeveloperHub />
         </section>
 
