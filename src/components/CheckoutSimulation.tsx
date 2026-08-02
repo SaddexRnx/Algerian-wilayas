@@ -191,7 +191,7 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress }) {
         </div>
       </div>
 
-      {step === 0 && !running && (
+      {step === 0 && !running && !hasLive && (
         <button
           type="button"
           onClick={play}
