@@ -84,10 +84,15 @@ const fr = {
   "hub.copied": "Copié !",
 
   "api.title": "Documentation de l'API",
-  "api.subtitle": "Trois points de terminaison en lecture seule, servis depuis le CDN.",
+  "api.subtitle": "Deux points de terminaison statiques en lecture seule, servis depuis le CDN.",
   "api.params": "Paramètres",
   "api.response": "Réponse",
-  "api.wilayasDesc": "Liste complète des 69 wilayas avec code, nom arabe et nom latin.",
+  "api.example": "Exemple",
+  "api.note":
+    "Ce sont des points de terminaison statiques, mis en cache sur le CDN. Ils se chargent en moins de 50 ms partout dans le monde et ne nécessitent aucune clé d'API.",
+  "api.wilayasDesc": "Liste légère des 69 wilayas avec code, nom arabe et nom latin.",
+  "api.fullDesc":
+    "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
   "api.dairasDesc": "Toutes les dairas d'une wilaya donnée, identifiée par son code.",
   "api.communesDesc": "Toutes les communes d'une daira donnée.",
 
@@ -208,10 +213,14 @@ const ar: Record<TranslationKey, string> = {
   "hub.copied": "تم النسخ!",
 
   "api.title": "توثيق الواجهة البرمجية",
-  "api.subtitle": "ثلاث نقاط وصول للقراءة فقط، مقدَّمة عبر شبكة توزيع المحتوى.",
+  "api.subtitle": "نقطتا وصول ثابتتان للقراءة فقط، مقدَّمتان عبر شبكة توزيع المحتوى.",
   "api.params": "المعاملات",
   "api.response": "الاستجابة",
-  "api.wilayasDesc": "قائمة كاملة بالولايات الـ69 مع الرمز والاسم بالعربية واللاتينية.",
+  "api.example": "مثال",
+  "api.note":
+    "هذه نقاط وصول ثابتة ومخزَّنة مؤقتًا على شبكة CDN. تُحمَّل في أقل من 50 مللي ثانية عالميًا ولا تتطلب أي مفتاح API.",
+  "api.wilayasDesc": "قائمة خفيفة بالولايات الـ69 مع الرمز والاسم بالعربية واللاتينية.",
+  "api.fullDesc": "مجموعة البيانات الهرمية الكاملة: الولايات والدوائر والبلديات في ملف واحد.",
   "api.dairasDesc": "كل دوائر ولاية محددة عبر رمزها.",
   "api.communesDesc": "كل بلديات دائرة محددة.",
 
@@ -330,10 +339,14 @@ const en: Record<TranslationKey, string> = {
   "hub.copied": "Copied!",
 
   "api.title": "API documentation",
-  "api.subtitle": "Three read-only endpoints, served from the CDN.",
+  "api.subtitle": "Two static read-only endpoints, served from the CDN.",
   "api.params": "Parameters",
   "api.response": "Response",
-  "api.wilayasDesc": "Full list of the 69 wilayas with code, Arabic name and Latin name.",
+  "api.example": "Example",
+  "api.note":
+    "These are static, CDN-cached endpoints. They load in <50ms globally and require no API keys.",
+  "api.wilayasDesc": "Lightweight list of the 69 wilayas with code, Arabic name and Latin name.",
+  "api.fullDesc": "Complete hierarchical dataset: wilayas, dairas and communes in a single file.",
   "api.dairasDesc": "All dairas of a given wilaya, identified by its code.",
   "api.communesDesc": "All communes of a given daira.",
 

@@ -21,8 +21,7 @@ export interface Wilaya {
   dairas: Daira[];
 }
 
-const DEMO_DATA_URL =
-  "https://raw.githubusercontent.com/islam-re/Algeria-wilayas/main/json/wilaya-daira-commune/wilaya-daira-commune.json";
+const DEMO_DATA_URL = "/api/full-data.json";
 
 const CACHE_KEY = "dz-address-picker:data";
 const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours

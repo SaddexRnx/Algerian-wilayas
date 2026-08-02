@@ -1,46 +1,55 @@
 import { useState } from "react";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
 
-const BASE = "https://api.dz-address-picker.dev/v1";
+const BASE = "https://your-domain.vercel.app";
 
 interface Endpoint {
   method: "GET";
   path: string;
   descKey: TranslationKey;
-  params: { name: string; desc: string }[];
   response: string;
+  example: string;
 }
 
 const ENDPOINTS: Endpoint[] = [
   {
     method: "GET",
-    path: "/wilayas",
+    path: "/api/wilayas.json",
     descKey: "api.wilayasDesc",
-    params: [{ name: "lang", desc: "ar | fr — preferred label language (optional)" }],
     response: `[
   { "code": 16, "arabic": "الجزائر", "ascii": "Alger" },
   { "code": 31, "arabic": "وهران", "ascii": "Oran" }
 ]`,
+    example: `const wilayas = await fetch(
+  "${BASE}/api/wilayas.json"
+).then((r) => r.json());`,
   },
   {
     method: "GET",
-    path: "/wilayas/{code}/dairas",
-    descKey: "api.dairasDesc",
-    params: [{ name: "code", desc: "1 – 58 — wilaya code (required)" }],
+    path: "/api/full-data.json",
+    descKey: "api.fullDesc",
     response: `[
-  { "arabic": "سيدي امحمد", "ascii": "Sidi M'Hamed", "communes": 3 },
-  { "arabic": "بئر مراد رايس", "ascii": "Bir Mourad Rais", "communes": 4 }
-]`,
-  },
   {
-    method: "GET",
-    path: "/dairas/{daira}/communes",
-    descKey: "api.communesDesc",
-    params: [{ name: "daira", desc: "slug or latin name of the daira (required)" }],
-    response: `[
-  { "arabic": "الجزائر الوسطى", "ascii": "Alger Centre" },
-  { "arabic": "المدنية", "ascii": "El Madania" }
+    "code": 16,
+    "arabic": "الجزائر",
+    "ascii": "Alger",
+    "dairas": [
+      {
+        "arabic": "سيدي امحمد",
+        "ascii": "Sidi M'Hamed",
+        "communes": [
+          { "arabic": "الجزائر الوسطى", "ascii": "Alger Centre" }
+        ]
+      }
+    ]
+  }
 ]`,
+    example: `const data = await fetch(
+  "${BASE}/api/full-data.json"
+).then((r) => r.json());
+
+const alger = data.find((w) => w.code === 16);
+const communes = alger.dairas.flatMap((d) => d.communes);`,
   },
 ];
 
@@ -52,6 +61,10 @@ export function ApiDocs() {
     <div className="mx-auto mt-16 max-w-3xl">
       <h2 className="text-lg font-semibold text-black">{t("api.title")}</h2>
       <p className="mt-2 text-sm text-gray-500">{t("api.subtitle")}</p>
+
+      <p className="mt-4 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
+        {t("api.note")}
+      </p>
 
       <div className="mt-6 space-y-4">
         {ENDPOINTS.map((e) => {
@@ -70,37 +83,31 @@ export function ApiDocs() {
               <p className="mt-3 text-sm text-gray-600">{t(e.descKey)}</p>
 
               <p className="mt-4 text-xs font-medium tracking-wide text-gray-500 uppercase">
-                {t("api.params")}
-              </p>
-              <dl className="mt-2 divide-y divide-gray-100 border-t border-gray-100">
-                {e.params.map((p) => (
-                  <div key={p.name} className="grid gap-1 py-2 sm:grid-cols-3 sm:gap-4">
-                    <dt className="font-mono text-xs text-black" dir="ltr">
-                      {p.name}
-                    </dt>
-                    <dd className="text-sm text-gray-600 sm:col-span-2" dir="ltr">
-                      {p.desc}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-
-              <p className="mt-4 text-xs font-medium tracking-wide text-gray-500 uppercase">
-                {t("api.response")}
+                {t("api.example")}
               </p>
               <div className="relative mt-2 overflow-x-auto rounded-lg bg-gray-950 p-4" dir="ltr">
                 <button
                   type="button"
+                  aria-label={t("hub.copy")}
                   onClick={() => {
                     void navigator.clipboard.writeText(url);
                     setCopied(e.path);
                     setTimeout(() => setCopied(null), 2000);
                   }}
-                  className="absolute top-2 right-2 rounded bg-gray-800 px-2.5 py-1 text-[11px] text-white transition hover:bg-gray-700"
+                  className="absolute top-2 right-2 rounded bg-gray-800 px-2.5 py-1 text-[11px] text-white transition hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
                 >
                   {copied === e.path ? t("hub.copied") : t("hub.copy")}
                 </button>
                 <pre className="pt-6 font-mono text-xs leading-relaxed text-gray-100 sm:pt-0 sm:pr-16">
+                  <code>{e.example}</code>
+                </pre>
+              </div>
+
+              <p className="mt-4 text-xs font-medium tracking-wide text-gray-500 uppercase">
+                {t("api.response")}
+              </p>
+              <div className="mt-2 overflow-x-auto rounded-lg bg-gray-950 p-4" dir="ltr">
+                <pre className="font-mono text-xs leading-relaxed text-gray-100">
                   <code>{e.response}</code>
                 </pre>
               </div>
