@@ -350,6 +350,18 @@ const en: Record<TranslationKey, string> = {
   "api.dairasDesc": "All dairas of a given wilaya, identified by its code.",
   "api.communesDesc": "All communes of a given daira.",
 
+  "tester.title": "Live API Tester",
+  "tester.subtitle": "Send a real request to the static endpoints and inspect the response.",
+  "tester.endpoint": "Endpoint",
+  "tester.send": "Send Request",
+  "tester.sending": "Sending…",
+  "tester.status": "Status",
+  "tester.time": "Time",
+  "tester.responseBody": "Response",
+  "tester.empty": "No request sent yet.",
+  "tester.error": "Request failed.",
+  "nav.tester": "API Tester",
+
   "features.title": "Features",
   "features.fast": "Blazing fast",
   "features.fastDesc": "Served from a global CDN, the minified data loads in milliseconds.",
