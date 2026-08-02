@@ -449,7 +449,7 @@ export function AlgeriaAddressPicker() {
 
         <div
           role="radiogroup"
-          aria-label="Address output format preset"
+          aria-label={t("picker.preview")}
           className="mt-3 flex flex-wrap gap-2"
         >
           {PRESETS.map((p) => {
@@ -460,7 +460,6 @@ export function AlgeriaAddressPicker() {
                 type="button"
                 role="radio"
                 aria-checked={isActive}
-                title={p.hint}
                 onClick={() => setPreset(p.id)}
                 className={
                   (isActive
@@ -469,7 +468,7 @@ export function AlgeriaAddressPicker() {
                   "rounded-md px-3 py-1.5 text-xs font-medium transition focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
                 }
               >
-                {p.label}
+                {t(p.labelKey)}
               </button>
             );
           })}
@@ -481,14 +480,14 @@ export function AlgeriaAddressPicker() {
           aria-live="polite"
           aria-labelledby="dz-preview-label"
         >
-          {fullAddress || "Select a wilaya, daira and commune to build the address."}
+          {fullAddress || t("picker.previewEmpty")}
         </p>
 
         <div className="mt-4 flex flex-wrap gap-2">
           <button
             type="button"
             disabled={!fullAddress}
-            aria-label="Copy the formatted address to clipboard"
+            aria-label={t("picker.copy")}
             onClick={() => {
               void navigator.clipboard.writeText(fullAddress);
               setCopied(true);
@@ -496,20 +495,17 @@ export function AlgeriaAddressPicker() {
             }}
             className="rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
           >
-            {copied ? "Copied!" : "Copy address"}
+            {copied ? t("picker.copied") : t("picker.copy")}
           </button>
           <button
             type="button"
             onClick={exportCsv}
-            aria-label={
-              wilaya
-                ? "Download the selected wilaya's dairas and communes as CSV"
-                : "Download all wilayas, dairas and communes as CSV"
-            }
+            aria-label={t("picker.export")}
             className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
           >
-            Export CSV
+            {t("picker.export")}
           </button>
+
         </div>
       </div>
 
