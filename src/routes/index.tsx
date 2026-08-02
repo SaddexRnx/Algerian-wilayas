@@ -1,8 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
 import { CheckoutSimulation, type LiveAddress } from "@/components/CheckoutSimulation";
 import { DeveloperHub, SNIPPETS } from "@/components/DeveloperHub";
+import { ApiDocs } from "@/components/ApiDocs";
+import { LanguageToggle, useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -11,7 +13,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Plug-and-play cascading address picker with all 69 Algerian wilayas, dairas and communes. Zero dependencies, ready for e-commerce and forms.",
+          "Bilingual (AR/FR) cascading address picker with all Algerian wilayas, dairas and communes. Zero dependencies, ready for e-commerce and forms.",
       },
       { property: "og:title", content: "DZ Address Picker — Algerian Address Integration" },
       {
@@ -28,13 +30,8 @@ export const Route = createFileRoute("/")({
 
 const SNIPPET = SNIPPETS[0]!.code;
 
-function CopyButton({
-  className,
-  label = "Copy",
-}: {
-  className?: string;
-  label?: string;
-}) {
+function CopyButton({ className, label }: { className?: string; label: string }) {
+  const { t } = useI18n();
   const [copied, setCopied] = useState(false);
   return (
     <button
@@ -46,42 +43,13 @@ function CopyButton({
       }}
       className={className}
     >
-      {copied ? "Copied!" : label}
+      {copied ? t("picker.copied") : label}
     </button>
   );
 }
 
-const features = [
-  {
-    title: "Blazing Fast",
-    description: "Hosted on global CDN, minified data loads in milliseconds.",
-    icon: (
-      <path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5Z" />
-    ),
-  },
-  {
-    title: "Framework Agnostic",
-    description: "Works with Vanilla JS, React, Vue, WordPress, and Shopify.",
-    icon: (
-      <>
-        <path d="M9 4H5a1 1 0 0 0-1 1v4M15 4h4a1 1 0 0 1 1 1v4M9 20H5a1 1 0 0 1-1-1v-4M15 20h4a1 1 0 0 0 1-1v-4" />
-        <circle cx="12" cy="12" r="3" />
-      </>
-    ),
-  },
-  {
-    title: "Always Updated",
-    description: "Reflects the latest official administrative reforms.",
-    icon: (
-      <>
-        <path d="M21 12a9 9 0 1 1-2.64-6.36" />
-        <path d="M21 3v6h-6" />
-      </>
-    ),
-  },
-];
-
 function EventConsole({ lines }: { lines: string[] }) {
+  const { t } = useI18n();
   const boxRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (boxRef.current) boxRef.current.scrollTop = boxRef.current.scrollHeight;
@@ -89,18 +57,19 @@ function EventConsole({ lines }: { lines: string[] }) {
   return (
     <div className="mt-6">
       <p className="mb-2 text-xs font-medium tracking-wide text-gray-500 uppercase">
-        Event listener console
+        {t("demo.console")}
       </p>
       <div
         ref={boxRef}
         role="log"
         aria-live="polite"
-        aria-label="dz-address-update event log"
+        aria-label={t("demo.console")}
+        dir="ltr"
         className="h-32 overflow-y-auto rounded-lg bg-gray-950 p-4 font-mono text-xs text-gray-300"
       >
         {lines.length === 0 ? (
           <p className="text-gray-500">
-            Waiting for <span className="text-gray-300">dz-address-update</span> events…
+            {t("demo.waiting")} <span className="text-gray-300">dz-address-update</span>…
           </p>
         ) : (
           lines.map((l, i) => (
@@ -115,6 +84,7 @@ function EventConsole({ lines }: { lines: string[] }) {
 }
 
 function Index() {
+  const { t, dir, lang } = useI18n();
   const [live, setLive] = useState<LiveAddress | undefined>(undefined);
   const [logs, setLogs] = useState<string[]>([]);
   const prev = useRef<LiveAddress>({
@@ -133,15 +103,15 @@ function Index() {
       if (detail.wilayaCode !== prev.current.wilayaCode) {
         entries.push(
           detail.wilayaCode
-            ? `[Event] Wilaya changed to: ${detail.wilayaCode} - ${detail.wilayaName}`
-            : "[Event] Wilaya cleared",
+            ? `[Event] wilaya → ${detail.wilayaCode} - ${detail.wilayaName}`
+            : "[Event] wilaya → cleared",
         );
       }
       if (detail.dairaName !== prev.current.dairaName && detail.dairaName) {
-        entries.push(`[Event] Daira changed to: ${detail.dairaName}`);
+        entries.push(`[Event] daira → ${detail.dairaName}`);
       }
       if (detail.communeName !== prev.current.communeName && detail.communeName) {
-        entries.push(`[Event] Commune changed to: ${detail.communeName}`);
+        entries.push(`[Event] commune → ${detail.communeName}`);
       }
       prev.current = detail;
       if (entries.length) setLogs((l) => [...l, ...entries].slice(-50));
@@ -150,102 +120,159 @@ function Index() {
     return () => window.removeEventListener("dz-address-update", onUpdate);
   }, []);
 
-  return (
-    <div className="min-h-screen bg-white font-[system-ui,Inter,sans-serif] antialiased">
-      <header className="border-b border-gray-200">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-          <span className="text-xl font-bold text-black">DZ Address Picker</span>
-          <nav className="flex items-center gap-6 text-sm">
-            <a href="#demo" className="text-gray-600 transition hover:text-black">
-              Demo
-            </a>
-            <a href="#in-action" className="text-gray-600 transition hover:text-black">
-              In Action
-            </a>
+  const navLinks = [
+    { href: "#demo", label: t("nav.demo") },
+    { href: "#in-action", label: t("nav.inAction") },
+    { href: "#integration", label: t("nav.integration") },
+    { href: "#api", label: t("nav.api") },
+    { href: "#features", label: t("nav.features") },
+  ];
 
-            <a href="#integration" className="text-gray-600 transition hover:text-black">
-              Integration
-            </a>
-            <a href="#features" className="text-gray-600 transition hover:text-black">
-              Features
-            </a>
-          </nav>
+  const features = [
+    {
+      title: t("features.fast"),
+      description: t("features.fastDesc"),
+      icon: <path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5Z" />,
+    },
+    {
+      title: t("features.agnostic"),
+      description: t("features.agnosticDesc"),
+      icon: (
+        <>
+          <path d="M9 4H5a1 1 0 0 0-1 1v4M15 4h4a1 1 0 0 1 1 1v4M9 20H5a1 1 0 0 1-1-1v-4M15 20h4a1 1 0 0 0 1-1v-4" />
+          <circle cx="12" cy="12" r="3" />
+        </>
+      ),
+    },
+    {
+      title: t("features.updated"),
+      description: t("features.updatedDesc"),
+      icon: (
+        <>
+          <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+          <path d="M21 3v6h-6" />
+        </>
+      ),
+    },
+  ];
+
+  return (
+    <div
+      dir={dir}
+      key={lang}
+      className="min-h-screen animate-[fadeIn_400ms_ease-out] bg-white font-[system-ui,Inter,sans-serif] antialiased"
+    >
+      <header className="sticky top-0 z-20 border-b border-gray-200 bg-white/90 backdrop-blur">
+        <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-4 sm:px-6 sm:py-5">
+          <span className="min-w-0 truncate text-lg font-bold text-black sm:text-xl">
+            DZ Address Picker
+          </span>
+          <div className="flex shrink-0 items-center gap-3">
+            <nav className="hidden items-center gap-5 text-sm lg:flex">
+              {navLinks.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className="text-gray-600 transition-colors duration-300 hover:text-black"
+                >
+                  {l.label}
+                </a>
+              ))}
+              <Link to="/admin" className="text-gray-600 transition hover:text-black">
+                {t("nav.admin")}
+              </Link>
+            </nav>
+            <LanguageToggle />
+          </div>
         </div>
+        <nav className="flex gap-4 overflow-x-auto border-t border-gray-100 px-4 py-2 text-sm whitespace-nowrap lg:hidden">
+          {navLinks.map((l) => (
+            <a key={l.href} href={l.href} className="text-gray-600 transition hover:text-black">
+              {l.label}
+            </a>
+          ))}
+          <Link to="/admin" className="text-gray-600 transition hover:text-black">
+            {t("nav.admin")}
+          </Link>
+        </nav>
       </header>
 
-      <main className="mx-auto max-w-5xl px-6 pb-8">
-        <section className="py-20 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-black md:text-5xl">
-            The Modern Algerian Address Integration.
+      <main className="mx-auto max-w-5xl px-4 pb-8 sm:px-6">
+        <section className="py-14 text-center sm:py-20">
+          <h1 className="text-3xl font-bold tracking-tight text-black sm:text-4xl md:text-5xl">
+            {t("hero.title")}
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-xl text-gray-500">
-            The complete, up-to-date dataset of all 69 Wilayas and 1,541 Communes. Ready for
-            e-commerce, forms, and maps. Zero dependencies.
+          <p className="mx-auto mt-4 max-w-2xl text-base text-gray-500 sm:text-xl">
+            {t("hero.subtitle")}
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
             <a
               href="#demo"
-              className="rounded-lg bg-black px-6 py-3 text-white transition hover:bg-gray-800"
+              className="rounded-lg bg-black px-6 py-3 text-center text-white transition hover:bg-gray-800"
             >
-              View Live Demo
+              {t("hero.ctaDemo")}
             </a>
             <CopyButton
-              label="Copy Integration Code"
+              label={t("hero.ctaCopy")}
               className="rounded-lg border border-gray-300 bg-white px-6 py-3 text-black transition hover:bg-gray-50"
             />
           </div>
         </section>
 
-        <section id="demo" className="scroll-mt-24">
-          <div className="mx-auto max-w-2xl rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
-            <h2 className="mb-6 text-lg font-semibold text-black">Live Interactive Demo</h2>
+        <section id="demo" className="scroll-mt-32">
+          <div className="mx-auto max-w-2xl rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-8">
+            <h2 className="mb-6 text-lg font-semibold text-black">{t("demo.title")}</h2>
             <AlgeriaAddressPicker />
             <EventConsole lines={logs} />
           </div>
         </section>
 
-        <section id="in-action" className="mt-20 scroll-mt-24">
+        <section id="in-action" className="mt-16 scroll-mt-32 sm:mt-20">
           <div className="text-center">
-            <h2 className="text-2xl font-bold tracking-tight text-black">See It In Action</h2>
-            <p className="mx-auto mt-3 max-w-xl text-gray-500">
-              A simulated checkout showing exactly how the widget behaves once integrated.
-            </p>
+            <h2 className="text-xl font-bold tracking-tight text-black sm:text-2xl">
+              {t("checkout.title")}
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-gray-500">{t("checkout.subtitle")}</p>
           </div>
           <CheckoutSimulation live={live} />
         </section>
 
-        <section id="integration" className="scroll-mt-24">
+        <section id="integration" className="scroll-mt-32">
           <DeveloperHub />
         </section>
 
+        <section id="api" className="scroll-mt-32">
+          <ApiDocs />
+        </section>
 
-        <section id="features" className="mx-auto mt-20 grid max-w-4xl gap-8 md:grid-cols-3">
-          {features.map((f) => (
-            <div key={f.title}>
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-gray-600"
-                aria-hidden="true"
-              >
-                {f.icon}
-              </svg>
-              <h3 className="mt-4 font-semibold text-black">{f.title}</h3>
-              <p className="mt-2 text-sm text-gray-500">{f.description}</p>
-            </div>
-          ))}
+        <section id="features" className="mx-auto mt-16 max-w-4xl scroll-mt-32 sm:mt-20">
+          <h2 className="sr-only">{t("features.title")}</h2>
+          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+            {features.map((f) => (
+              <div key={f.title}>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-600"
+                  aria-hidden="true"
+                >
+                  {f.icon}
+                </svg>
+                <h3 className="mt-4 font-semibold text-black">{f.title}</h3>
+                <p className="mt-2 text-sm text-gray-500">{f.description}</p>
+              </div>
+            ))}
+          </div>
         </section>
       </main>
 
-      <footer className="py-12 text-center text-sm text-gray-400">
-        Built for the Algerian developer community. Open source and free to use.
-      </footer>
+      <footer className="py-12 text-center text-sm text-gray-400">{t("footer.text")}</footer>
     </div>
   );
 }
