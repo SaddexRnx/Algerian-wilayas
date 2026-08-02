@@ -99,7 +99,7 @@ export function CheckoutSimulation() {
           readOnly
           dir="ltr"
           tabIndex={-1}
-          className="mb-4 w-full rounded-lg border border-gray-200 bg-gray-50 p-3 text-gray-500"
+          className="mb-4 w-full rounded-lg border border-gray-200 bg-gray-50 p-3 text-right text-gray-500"
         />
 
         {FIELDS.map((f, i) => {
