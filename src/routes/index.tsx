@@ -200,6 +200,7 @@ function Index() {
           <div className="mx-auto max-w-2xl rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
             <h2 className="mb-6 text-lg font-semibold text-black">Live Interactive Demo</h2>
             <AlgeriaAddressPicker />
+            <EventConsole lines={logs} />
           </div>
         </section>
 
@@ -210,7 +211,7 @@ function Index() {
               A simulated checkout showing exactly how the widget behaves once integrated.
             </p>
           </div>
-          <CheckoutSimulation />
+          <CheckoutSimulation live={live} />
         </section>
 
         <section id="integration" className="scroll-mt-24">
