@@ -244,7 +244,7 @@ function Index() {
           <ApiTester />
         </section>
 
-        <section id="integration" className="scroll-mt-32">ic
+        <section id="integration" className="scroll-mt-32">
           <DeveloperHub />
         </section>
 
