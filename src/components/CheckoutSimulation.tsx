@@ -15,7 +15,7 @@ export interface LiveAddress {
   communeName: string;
 }
 
-export function CheckoutSimulation({ live }: { live?: LiveAddress }) {
+export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined }) {
   const [step, setStep] = useState(0);
   const [running, setRunning] = useState(false);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
