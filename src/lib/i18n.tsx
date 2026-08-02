@@ -497,7 +497,7 @@ const en: Record<TranslationKey, string> = {
   "hub.wpDesc": "Download the ready-to-install plugin — the zip is built right in your browser.",
   "hub.download": "Download plugin (.zip)",
   "hub.downloading": "Building zip…",
-  "hub.downloadError": "Could not build the zip file.",
+  "hub.downloadError": "Plugin file temporarily unavailable.",
 
   "tester.inputLabel": "Enter a wilaya code or name (e.g. 16, Alger, وهران)",
   "tester.inputPlaceholder": "16 / Alger / وهران",
