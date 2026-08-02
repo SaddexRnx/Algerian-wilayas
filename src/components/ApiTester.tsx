@@ -1,22 +1,30 @@
 import { useState } from "react";
-import { Play, Loader2 } from "lucide-react";
+import { Play, Loader2, Copy, Check } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { trackApiCall } from "@/lib/analytics";
 
-type Shape = "wilaya" | "dairas" | "dairasFlat" | "communes" | "global";
+type Shape = "wilaya" | "wilayaDairas" | "dairas" | "communes" | "daira" | "global";
 
-const SHAPES: { id: Shape; template: string; needsCode: boolean }[] = [
-  { id: "wilaya", template: "/api/wilayas/{code}.json", needsCode: true },
-  { id: "dairas", template: "/api/wilayas/{code}/dairas.json", needsCode: true },
-  { id: "dairasFlat", template: "/api/wilayas/{code}-dairas.json", needsCode: true },
-  { id: "communes", template: "/api/wilayas/{code}/communes.json", needsCode: true },
-  { id: "global", template: "/api/wilayas.json", needsCode: false },
+const SHAPES: { id: Shape; template: string; needs: "wilaya" | "daira" | "none" }[] = [
+  { id: "global", template: "/api/wilayas.json", needs: "none" },
+  { id: "wilaya", template: "/api/wilayas/{code}.json", needs: "wilaya" },
+  { id: "wilayaDairas", template: "/api/wilayas/{code}-dairas.json", needs: "wilaya" },
+  { id: "dairas", template: "/api/wilayas/{code}/dairas.json", needs: "wilaya" },
+  { id: "communes", template: "/api/wilayas/{code}/communes.json", needs: "wilaya" },
+  { id: "daira", template: "/api/dairas/{daira}.json", needs: "daira" },
 ];
 
 interface WilayaIndexEntry {
   code: number;
   arabic: string;
   ascii: string;
+}
+
+interface DairaIndexEntry {
+  wilaya_code: number;
+  slug: string;
+  name_ar: string;
+  name_ascii: string;
 }
 
 type Result = {
@@ -29,32 +37,60 @@ type Result = {
   resolved?: string;
 };
 
-let indexCache: WilayaIndexEntry[] | null = null;
+let wilayaCache: WilayaIndexEntry[] | null = null;
+let dairaCache: DairaIndexEntry[] | null = null;
 
-async function loadIndex(): Promise<WilayaIndexEntry[]> {
-  if (indexCache) return indexCache;
+async function loadWilayas(): Promise<WilayaIndexEntry[]> {
+  if (wilayaCache) return wilayaCache;
   const res = await fetch("/api/wilayas.json", { cache: "force-cache" });
-  const json = (await res.json()) as WilayaIndexEntry[];
-  indexCache = json;
-  return json;
+  wilayaCache = (await res.json()) as WilayaIndexEntry[];
+  return wilayaCache;
+}
+
+async function loadDairas(): Promise<DairaIndexEntry[]> {
+  if (dairaCache) return dairaCache;
+  const res = await fetch("/api/dairas/index.json", { cache: "force-cache" });
+  dairaCache = (await res.json()) as DairaIndexEntry[];
+  return dairaCache;
+}
+
+function norm(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/['\u2019]/g, "")
+    .trim();
 }
 
 function matchWilaya(list: WilayaIndexEntry[], query: string): WilayaIndexEntry | undefined {
-  const q = query.trim().toLowerCase();
+  const raw = query.trim();
+  const q = norm(raw);
   if (!q) return undefined;
   if (/^\d+$/.test(q)) return list.find((w) => w.code === Number(q));
   return (
-    list.find((w) => w.ascii.toLowerCase() === q || w.arabic === query.trim()) ??
-    list.find((w) => w.ascii.toLowerCase().includes(q) || w.arabic.includes(query.trim()))
+    list.find((w) => norm(w.ascii) === q || w.arabic === raw) ??
+    list.find((w) => norm(w.ascii).includes(q) || w.arabic.includes(raw))
+  );
+}
+
+function matchDaira(list: DairaIndexEntry[], query: string): DairaIndexEntry | undefined {
+  const raw = query.trim();
+  const q = norm(raw);
+  if (!q) return undefined;
+  return (
+    list.find((d) => norm(d.name_ascii) === q || d.slug === q || d.name_ar === raw) ??
+    list.find((d) => norm(d.name_ascii).includes(q) || d.name_ar.includes(raw))
   );
 }
 
 export function ApiTester() {
   const { t } = useI18n();
-  const [shape, setShape] = useState<Shape>("wilaya");
+  const [shape, setShape] = useState<Shape>("wilayaDairas");
   const [query, setQuery] = useState("16");
   const [loading, setLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
+  const [copied, setCopied] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
 
   const current = SHAPES.find((s) => s.id === shape)!;
@@ -69,9 +105,8 @@ export function ApiTester() {
     let wilayaCode: number | null = null;
 
     try {
-      if (current.needsCode) {
-        const list = await loadIndex();
-        const match = matchWilaya(list, query);
+      if (current.needs === "wilaya") {
+        const match = matchWilaya(await loadWilayas(), query);
         if (!match) {
           setNotFound(true);
           setLoading(false);
@@ -80,6 +115,16 @@ export function ApiTester() {
         wilayaCode = match.code;
         resolved = `${match.code} — ${match.ascii} / ${match.arabic}`;
         url = current.template.replace("{code}", String(match.code));
+      } else if (current.needs === "daira") {
+        const match = matchDaira(await loadDairas(), query);
+        if (!match) {
+          setNotFound(true);
+          setLoading(false);
+          return;
+        }
+        wilayaCode = match.wilaya_code;
+        resolved = `${match.name_ascii} / ${match.name_ar} — wilaya ${match.wilaya_code}`;
+        url = current.template.replace("{daira}", `${match.wilaya_code}-${match.slug}`);
       }
 
       const started = performance.now();
@@ -146,10 +191,13 @@ export function ApiTester() {
             <input
               type="text"
               value={query}
-              disabled={!current.needsCode}
+              disabled={current.needs === "none"}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === "Enter") void send();
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  void send();
+                }
               }}
               placeholder={t("tester.inputPlaceholder")}
               dir="auto"
@@ -171,7 +219,7 @@ export function ApiTester() {
           </button>
         </div>
 
-        <div className="mt-5" dir="ltr">
+        <div className="mt-5 min-h-[13rem]" dir="ltr">
           {notFound && (
             <p className="rounded-lg border border-gray-300 bg-gray-50 p-4 text-sm text-gray-700">
               {t("tester.notFound")}
@@ -190,6 +238,23 @@ export function ApiTester() {
                 <span className="truncate rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 font-mono text-gray-600">
                   {result.url}
                 </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    void navigator.clipboard.writeText(result.body);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  }}
+                  aria-label={t("hub.copy")}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-2.5 py-1 font-mono text-gray-700 transition hover:bg-gray-100"
+                >
+                  {copied ? (
+                    <Check className="h-3 w-3" aria-hidden="true" />
+                  ) : (
+                    <Copy className="h-3 w-3" aria-hidden="true" />
+                  )}
+                  {copied ? t("hub.copied") : t("hub.copy")}
+                </button>
               </div>
               {result.resolved && (
                 <p className="mt-2 text-xs text-gray-500">
