@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SearchableSelect } from "@/components/SearchableSelect";
+import { useI18n, type TranslationKey } from "@/lib/i18n";
+
 
 export interface Commune {
   arabic: string;
@@ -100,18 +102,21 @@ function Skeleton() {
 
 type Preset = "short" | "full" | "compact";
 
-const PRESETS: { id: Preset; label: string; hint: string }[] = [
-  { id: "short", label: "Short", hint: "Commune, Wilaya" },
-  { id: "full", label: "Full", hint: "Commune, Daira, Wilaya (Latin)" },
-  { id: "compact", label: "Compact", hint: "Commune-Wilaya code" },
+const PRESETS: { id: Preset; labelKey: TranslationKey }[] = [
+  { id: "short", labelKey: "picker.presetShort" },
+  { id: "full", labelKey: "picker.presetFull" },
+  { id: "compact", labelKey: "picker.presetCompact" },
 ];
+
 
 function csvEscape(value: string) {
   return `"${value.replace(/"/g, '""')}"`;
 }
 
 export function AlgeriaAddressPicker() {
+  const { t, lang } = useI18n();
   const [data, setData] = useState<Wilaya[]>([]);
+
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [isStale, setIsStale] = useState(false);
