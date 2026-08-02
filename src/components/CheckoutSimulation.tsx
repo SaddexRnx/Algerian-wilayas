@@ -59,12 +59,20 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress }) {
   };
 
   const stateFor = (index: number) => {
+    if (hasLive) {
+      if (liveValues[index]) return "done";
+      if (index === 0 || liveValues[index - 1]) return "ready";
+      return "locked";
+    }
     const fieldStep = index + 1;
     if (step === fieldStep) return "active";
     if (step > fieldStep) return "done";
     if (step >= index) return "ready";
     return "locked";
   };
+
+  const liveComplete = hasLive && liveValues.every(Boolean);
+  const validated = hasLive ? liveComplete : step >= 4;
 
   return (
     <div className="relative mx-auto mt-12 max-w-3xl overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
