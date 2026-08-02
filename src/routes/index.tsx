@@ -151,6 +151,7 @@ function Index() {
   }, []);
 
   return (
+    <div className="min-h-screen bg-white font-[system-ui,Inter,sans-serif] antialiased">
       <header className="border-b border-gray-200">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <span className="text-xl font-bold text-black">DZ Address Picker</span>
