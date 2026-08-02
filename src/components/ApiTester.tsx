@@ -3,11 +3,12 @@ import { Play, Loader2 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { trackApiCall } from "@/lib/analytics";
 
-type Shape = "wilaya" | "dairas" | "communes" | "global";
+type Shape = "wilaya" | "dairas" | "dairasFlat" | "communes" | "global";
 
 const SHAPES: { id: Shape; template: string; needsCode: boolean }[] = [
   { id: "wilaya", template: "/api/wilayas/{code}.json", needsCode: true },
   { id: "dairas", template: "/api/wilayas/{code}/dairas.json", needsCode: true },
+  { id: "dairasFlat", template: "/api/wilayas/{code}-dairas.json", needsCode: true },
   { id: "communes", template: "/api/wilayas/{code}/communes.json", needsCode: true },
   { id: "global", template: "/api/wilayas.json", needsCode: false },
 ];
