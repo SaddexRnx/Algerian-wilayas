@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { useI18n, type TranslationKey } from "@/lib/i18n";
 
-const FIELDS = [
-  { label: "الولاية", placeholder: "اختر الولاية", value: "16 - الجزائر (Algiers)" },
-  { label: "الدائرة", placeholder: "اختر الدائرة", value: "سيدي امحمد" },
-  { label: "البلدية", placeholder: "اختر البلدية", value: "الجزائر الوسطى" },
+const FIELDS: { labelKey: TranslationKey; placeholderKey: TranslationKey; value: string }[] = [
+  { labelKey: "picker.wilaya", placeholderKey: "picker.selectWilaya", value: "16 - الجزائر" },
+  { labelKey: "picker.daira", placeholderKey: "picker.selectDaira", value: "سيدي امحمد" },
+  { labelKey: "picker.commune", placeholderKey: "picker.selectCommune", value: "الجزائر الوسطى" },
 ];
 
 const STEP_DELAY = 800;
@@ -16,6 +17,7 @@ export interface LiveAddress {
 }
 
 export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined }) {
+  const { t } = useI18n();
   const [step, setStep] = useState(0);
   const [running, setRunning] = useState(false);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -26,9 +28,6 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
     live?.communeName ?? "",
   ];
   const hasLive = liveValues.some(Boolean);
-  const livePostal = live?.wilayaCode
-    ? `${String(live.wilayaCode).padStart(2, "0")}000`
-    : "";
 
   useEffect(() => {
     return () => {
@@ -75,25 +74,25 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
   const validated = hasLive ? liveComplete : step >= 4;
 
   return (
-    <div className="relative mx-auto mt-12 max-w-3xl overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
-      <div className="flex flex-wrap items-start justify-between gap-4 border-b border-gray-200 pb-5">
-        <div>
-          <h3 className="text-base font-semibold text-black">Checkout</h3>
-          <p className="mt-1 text-sm text-gray-500">Order Total: 4,500 DZD</p>
+    <div className="relative mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:mt-12 sm:p-8">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 border-b border-gray-200 pb-5 sm:flex sm:flex-wrap sm:justify-between">
+        <div className="min-w-0">
+          <h3 className="truncate text-base font-semibold text-black">{t("checkout.header")}</h3>
+          <p className="mt-1 text-sm text-gray-500">{t("checkout.total")}</p>
           {hasLive && (
             <p className="mt-2 inline-block rounded border border-gray-200 bg-gray-50 px-2 py-0.5 text-xs text-gray-600">
-              Synced with your live demo selection
+              {t("checkout.synced")}
             </p>
           )}
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 flex-col items-stretch gap-2 sm:flex-row sm:items-center">
           <button
             type="button"
             onClick={play}
             disabled={running || hasLive}
-            className="flex items-center gap-2 rounded-md bg-black px-4 py-2 text-xs text-white transition hover:bg-gray-800 disabled:bg-gray-300 disabled:text-gray-500"
+            className="flex items-center justify-center gap-2 rounded-md bg-black px-4 py-2 text-xs text-white transition hover:bg-gray-800 disabled:bg-gray-300 disabled:text-gray-500"
           >
-            ▶ Watch Auto-Demo
+            {t("checkout.auto")}
           </button>
           {step === 4 && !running && (
             <button
@@ -101,7 +100,7 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
               onClick={reset}
               className="rounded-md border border-gray-300 bg-white px-4 py-2 text-xs text-gray-700 transition hover:bg-gray-50"
             >
-              Reset
+              {t("checkout.reset")}
             </button>
           )}
         </div>
@@ -109,7 +108,7 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
 
       <div className="mt-6" dir="rtl">
         <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="sim-name">
-          الاسم الكامل
+          {t("checkout.name")}
         </label>
         <input
           id="sim-name"
@@ -120,7 +119,7 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
           className="mb-4 w-full rounded-lg border border-gray-200 bg-gray-50 p-3 text-gray-500"
         />
         <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="sim-phone">
-          رقم الهاتف
+          {t("checkout.phone")}
         </label>
         <input
           id="sim-phone"
@@ -146,34 +145,25 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
                   ? "border-gray-300 bg-white text-gray-400"
                   : "border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed";
           return (
-            <div key={f.label}>
-              <span className="mb-2 block text-sm font-medium text-gray-700">{f.label}</span>
+            <div key={f.labelKey}>
+              <span className="mb-2 block text-sm font-medium text-gray-700">
+                {t(f.labelKey)}
+              </span>
               <div className={`${base} ${tone}`} aria-live="polite">
-                <span className="transition-opacity duration-500">
-                  {shown ? (liveValues[i] || f.value) : f.placeholder}
+                <span className="truncate transition-opacity duration-500">
+                  {shown ? liveValues[i] || f.value : t(f.placeholderKey)}
                 </span>
               </div>
             </div>
           );
         })}
 
-        <span className="mb-2 block text-sm font-medium text-gray-700">الرمز البريدي</span>
-        <div
-          className={`w-full rounded-lg border p-3 text-right font-medium transition-all duration-500 ease-out ${
-            hasLive ? (livePostal ? "border-gray-200 bg-white text-black opacity-100" : "border-gray-200 bg-gray-50 text-gray-400 opacity-70")
-              : step >= 4
-              ? "border-gray-200 bg-white text-black opacity-100"
-              : "border-gray-200 bg-gray-50 text-gray-400 opacity-70"
-          }`}
-        >
-          {hasLive ? livePostal || "00000" : step >= 4 ? "16000" : "00000"}
-        </div>
         <div
           className={`mt-3 flex items-center justify-end gap-2 text-sm text-gray-600 transition-all duration-500 ease-out ${
             validated ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
           }`}
         >
-          <span>Address validated</span>
+          <span>{t("checkout.validated")}</span>
           <svg
             width="16"
             height="16"
@@ -195,10 +185,10 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
         <button
           type="button"
           onClick={play}
-          className="absolute inset-x-0 bottom-0 top-28 flex items-start justify-center bg-white/60 pt-16 text-sm font-medium text-black backdrop-blur-[1px] transition hover:bg-white/70"
+          className="absolute inset-x-0 top-32 bottom-0 flex items-start justify-center bg-white/60 pt-16 text-sm font-medium text-black backdrop-blur-[1px] transition hover:bg-white/70"
         >
           <span className="rounded-md border border-gray-300 bg-white px-5 py-2.5 shadow-sm">
-            ▶ Play Animation
+            {t("checkout.play")}
           </span>
         </button>
       )}
