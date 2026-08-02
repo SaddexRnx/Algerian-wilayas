@@ -20,7 +20,13 @@ const ENDPOINTS: Endpoint[] = [
   "endpoints": [
     "/api/wilayas.json",
     "/api/full-data.json",
-    "/api/wilayas/{code}.json"
+    "/api/wilayas/{code}.json",
+    "/api/wilayas/{code}/dairas.json",
+    "/api/wilayas/{code}/communes.json",
+    "/api/wilayas/{code}/dairas/{daira_slug}.json"
+  ],
+  "wilayas": [
+    { "code": 16, "ascii": "Alger", "dairas": ["bab-el-oued", "baraki"] }
   ]
 }`,
     example: `const index = await fetch(
@@ -98,7 +104,7 @@ const communes = alger.dairas.flatMap((d) => d.communes);`,
     "arabic": "سيدي امحمد",
     "ascii": "Sidi M'Hamed",
     "slug": "sidi-mhamed",
-    "communeCount": 2
+    "communes": 2
   }
 ]`,
     example: `const dairas = await fetch(
@@ -113,7 +119,7 @@ const communes = alger.dairas.flatMap((d) => d.communes);`,
   {
     "arabic": "الجزائر الوسطى",
     "ascii": "Alger Centre",
-    "daira": "Sidi M'Hamed"
+    "daira_ascii": "Sidi M'Hamed"
   }
 ]`,
     example: `const communes = await fetch(
