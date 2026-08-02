@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { LanguageToggle, useI18n, type TranslationKey } from "@/lib/i18n";
+import { ForcedLanguageProvider, useI18n, type TranslationKey } from "@/lib/i18n";
 import { adminLogin, adminLogout, adminStatus } from "@/lib/admin-auth.functions";
 
 export const Route = createFileRoute("/admin")({
@@ -163,7 +163,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             >
               {t("admin.logout")}
             </button>
-            <LanguageToggle />
+            
           </div>
         </div>
       </header>
@@ -284,13 +284,17 @@ function AdminPage() {
     };
   }, [status]);
 
-  if (authed === null) return <div className="min-h-screen bg-gray-50" />;
-  if (!authed) return <LoginScreen onSuccess={() => setAuthed(true)} />;
-  return (
-    <Dashboard
-      onSignOut={() => {
-        void logout().finally(() => setAuthed(false));
-      }}
-    />
-  );
+  let body: ReactNode;
+  if (authed === null) body = <div className="min-h-screen bg-gray-50" />;
+  else if (!authed) body = <LoginScreen onSuccess={() => setAuthed(true)} />;
+  else
+    body = (
+      <Dashboard
+        onSignOut={() => {
+          void logout().finally(() => setAuthed(false));
+        }}
+      />
+    );
+
+  return <ForcedLanguageProvider lang="en">{body}</ForcedLanguageProvider>;
 }
