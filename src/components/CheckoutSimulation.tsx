@@ -124,7 +124,7 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
         <input
           id="sim-phone"
           type="text"
-          value="0550 12 34 56"
+          value="0000 00 00 00"
           readOnly
           dir="ltr"
           tabIndex={-1}
