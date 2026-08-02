@@ -1,0 +1,347 @@
+[
+  {
+    "code": 1,
+    "arabic": "أدرار",
+    "ascii": "Adrar"
+  },
+  {
+    "code": 2,
+    "arabic": "الشلف",
+    "ascii": "Chlef"
+  },
+  {
+    "code": 3,
+    "arabic": "الأغواط",
+    "ascii": "Laghouat"
+  },
+  {
+    "code": 4,
+    "arabic": "أم البواقي",
+    "ascii": "Oum El Bouaghi"
+  },
+  {
+    "code": 5,
+    "arabic": "باتنة",
+    "ascii": "Batna"
+  },
+  {
+    "code": 6,
+    "arabic": "بجاية",
+    "ascii": "Bejaia"
+  },
+  {
+    "code": 7,
+    "arabic": "بسكرة",
+    "ascii": "Biskra"
+  },
+  {
+    "code": 8,
+    "arabic": "بشار",
+    "ascii": "Bechar"
+  },
+  {
+    "code": 9,
+    "arabic": "البليدة",
+    "ascii": "Blida"
+  },
+  {
+    "code": 10,
+    "arabic": "البويرة",
+    "ascii": "Bouira"
+  },
+  {
+    "code": 11,
+    "arabic": "تمنراست",
+    "ascii": "Tamanrasset"
+  },
+  {
+    "code": 12,
+    "arabic": "تبسة",
+    "ascii": "Tebessa"
+  },
+  {
+    "code": 13,
+    "arabic": "تلمسان",
+    "ascii": "Tlemcen"
+  },
+  {
+    "code": 14,
+    "arabic": "تيارت",
+    "ascii": "Tiaret"
+  },
+  {
+    "code": 15,
+    "arabic": "تيزي وزو",
+    "ascii": "Tizi Ouzou"
+  },
+  {
+    "code": 16,
+    "arabic": "الجزائر",
+    "ascii": "Alger"
+  },
+  {
+    "code": 17,
+    "arabic": "الجلفة",
+    "ascii": "Djelfa"
+  },
+  {
+    "code": 18,
+    "arabic": "جيجل",
+    "ascii": "Jijel"
+  },
+  {
+    "code": 19,
+    "arabic": "سطيف",
+    "ascii": "Setif"
+  },
+  {
+    "code": 20,
+    "arabic": "سعيدة",
+    "ascii": "Saida"
+  },
+  {
+    "code": 21,
+    "arabic": "سكيكدة",
+    "ascii": "Skikda"
+  },
+  {
+    "code": 22,
+    "arabic": "سيدي بلعباس",
+    "ascii": "Sidi Bel Abbes"
+  },
+  {
+    "code": 23,
+    "arabic": "عنابة",
+    "ascii": "Annaba"
+  },
+  {
+    "code": 24,
+    "arabic": "قالمة",
+    "ascii": "Guelma"
+  },
+  {
+    "code": 25,
+    "arabic": "قسنطينة",
+    "ascii": "Constantine"
+  },
+  {
+    "code": 26,
+    "arabic": "المدية",
+    "ascii": "Medea"
+  },
+  {
+    "code": 27,
+    "arabic": "مستغانم",
+    "ascii": "Mostaganem"
+  },
+  {
+    "code": 28,
+    "arabic": "المسيلة",
+    "ascii": "M'Sila"
+  },
+  {
+    "code": 29,
+    "arabic": "معسكر",
+    "ascii": "Mascara"
+  },
+  {
+    "code": 30,
+    "arabic": "ورقلة",
+    "ascii": "Ouargla"
+  },
+  {
+    "code": 31,
+    "arabic": "وهران",
+    "ascii": "Oran"
+  },
+  {
+    "code": 32,
+    "arabic": "البيض",
+    "ascii": "El Bayadh"
+  },
+  {
+    "code": 33,
+    "arabic": "إليزي",
+    "ascii": "Illizi"
+  },
+  {
+    "code": 34,
+    "arabic": "برج بوعريريج",
+    "ascii": "Bordj Bou Arreridj"
+  },
+  {
+    "code": 35,
+    "arabic": "بومرداس",
+    "ascii": "Boumerdes"
+  },
+  {
+    "code": 36,
+    "arabic": "الطارف",
+    "ascii": "El Tarf"
+  },
+  {
+    "code": 37,
+    "arabic": "تندوف",
+    "ascii": "Tindouf"
+  },
+  {
+    "code": 38,
+    "arabic": "تسمسيلت",
+    "ascii": "Tissemsilt"
+  },
+  {
+    "code": 39,
+    "arabic": "الوادي",
+    "ascii": "El Oued"
+  },
+  {
+    "code": 40,
+    "arabic": "خنشلة",
+    "ascii": "Khenchela"
+  },
+  {
+    "code": 41,
+    "arabic": "سوق أهراس",
+    "ascii": "Souk Ahras"
+  },
+  {
+    "code": 42,
+    "arabic": "تيبازة",
+    "ascii": "Tipaza"
+  },
+  {
+    "code": 43,
+    "arabic": "ميلة",
+    "ascii": "Mila"
+  },
+  {
+    "code": 44,
+    "arabic": "عين الدفلى",
+    "ascii": "Ain Defla"
+  },
+  {
+    "code": 45,
+    "arabic": "النعامة",
+    "ascii": "Naama"
+  },
+  {
+    "code": 46,
+    "arabic": "عين تموشنت",
+    "ascii": "Ain Temouchent"
+  },
+  {
+    "code": 47,
+    "arabic": "غرداية",
+    "ascii": "Ghardaia"
+  },
+  {
+    "code": 48,
+    "arabic": "غليزان",
+    "ascii": "Relizane"
+  },
+  {
+    "code": 49,
+    "arabic": "تيميمون",
+    "ascii": "Timimoun"
+  },
+  {
+    "code": 50,
+    "arabic": "برج باجي مختار",
+    "ascii": "Bordj Badji Mokhtar"
+  },
+  {
+    "code": 51,
+    "arabic": "أولاد جلال",
+    "ascii": "Ouled Djellal"
+  },
+  {
+    "code": 52,
+    "arabic": "بني عباس",
+    "ascii": "Beni Abbes"
+  },
+  {
+    "code": 53,
+    "arabic": "عين صالح",
+    "ascii": "In Salah"
+  },
+  {
+    "code": 54,
+    "arabic": "عين قزام",
+    "ascii": "In Guezzam"
+  },
+  {
+    "code": 55,
+    "arabic": "تقرت",
+    "ascii": "Touggourt"
+  },
+  {
+    "code": 56,
+    "arabic": "جانت",
+    "ascii": "Djanet"
+  },
+  {
+    "code": 57,
+    "arabic": "المغير",
+    "ascii": "El M'Ghair"
+  },
+  {
+    "code": 58,
+    "arabic": "المنيعة",
+    "ascii": "El Meniaa"
+  },
+  {
+    "code": 59,
+    "arabic": "أفلو",
+    "ascii": "Aflou"
+  },
+  {
+    "code": 60,
+    "arabic": "بريكة",
+    "ascii": "Barika"
+  },
+  {
+    "code": 61,
+    "arabic": "القنطرة",
+    "ascii": "El Kantara"
+  },
+  {
+    "code": 62,
+    "arabic": "بئر العاتر",
+    "ascii": "Bir El Ater"
+  },
+  {
+    "code": 63,
+    "arabic": "العريشة",
+    "ascii": "El Aricha"
+  },
+  {
+    "code": 64,
+    "arabic": "قصر الشلالة",
+    "ascii": "Ksar Chellala"
+  },
+  {
+    "code": 65,
+    "arabic": "عين وسارة",
+    "ascii": "Ain Oussara"
+  },
+  {
+    "code": 66,
+    "arabic": "مسعد",
+    "ascii": "Messaad"
+  },
+  {
+    "code": 67,
+    "arabic": "قصر البخاري",
+    "ascii": "Ksar El Boukhari"
+  },
+  {
+    "code": 68,
+    "arabic": "بوسعادة",
+    "ascii": "Bou Saada"
+  },
+  {
+    "code": 69,
+    "arabic": "الأبيض سيدي الشيخ",
+    "ascii": "El Abiodh Sidi Cheikh"
+  }
+]
