@@ -170,7 +170,7 @@ const fr = {
     "Téléchargez l'extension prête à l'emploi : le zip est généré dans votre navigateur.",
   "hub.download": "Télécharger l'extension (.zip)",
   "hub.downloading": "Création du zip…",
-  "hub.downloadError": "Échec de la génération du zip.",
+  "hub.downloadError": "Fichier du plugin temporairement indisponible.",
 
   "tester.inputLabel": "Entrez le code ou le nom de la wilaya (ex. 16, Alger, أو وهران)",
   "tester.inputPlaceholder": "16 / Alger / وهران",
@@ -342,7 +342,7 @@ const ar: Record<TranslationKey, string> = {
   "hub.wpDesc": "نزّل الإضافة الجاهزة، يتم إنشاء ملف الـ zip داخل متصفحك.",
   "hub.download": "تنزيل الإضافة (.zip)",
   "hub.downloading": "جارٍ إنشاء الملف…",
-  "hub.downloadError": "تعذّر إنشاء ملف الـ zip.",
+  "hub.downloadError": "ملف الإضافة غير متاح مؤقتًا.",
 
   "tester.inputLabel": "أدخل رمز الولاية أو اسمها (مثال: 16، Alger، وهران)",
   "tester.inputPlaceholder": "16 / Alger / وهران",
