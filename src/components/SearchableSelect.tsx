@@ -17,6 +17,7 @@ export function SearchableSelect({
   disabled = false,
   placeholder = "Select an option",
   searchPlaceholder = "Search…",
+  emptyLabel = "No matches",
 }: {
   id?: string;
   label: string;
@@ -26,7 +27,9 @@ export function SearchableSelect({
   disabled?: boolean;
   placeholder?: string;
   searchPlaceholder?: string;
+  emptyLabel?: string;
 }) {
+
   const reactId = useId();
   const baseId = id ?? reactId;
   const listId = `${baseId}-listbox`;
@@ -171,8 +174,9 @@ export function SearchableSelect({
           </div>
           <ul id={listId} role="listbox" aria-label={label} ref={listRef} className="py-1">
             {filtered.length === 0 && (
-              <li className="px-3 py-2 text-sm text-gray-400">No matches</li>
+              <li className="px-3 py-2 text-sm text-gray-400">{emptyLabel}</li>
             )}
+
             {filtered.map((o, i) => {
               const isSelected = o.value === value;
               return (

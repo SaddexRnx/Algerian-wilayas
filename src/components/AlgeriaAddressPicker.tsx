@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SearchableSelect } from "@/components/SearchableSelect";
+import { useI18n, type TranslationKey } from "@/lib/i18n";
+
 
 export interface Commune {
   arabic: string;
@@ -100,18 +102,21 @@ function Skeleton() {
 
 type Preset = "short" | "full" | "compact";
 
-const PRESETS: { id: Preset; label: string; hint: string }[] = [
-  { id: "short", label: "Short", hint: "Commune, Wilaya" },
-  { id: "full", label: "Full", hint: "Commune, Daira, Wilaya (Latin)" },
-  { id: "compact", label: "Compact", hint: "Commune-Wilaya code" },
+const PRESETS: { id: Preset; labelKey: TranslationKey }[] = [
+  { id: "short", labelKey: "picker.presetShort" },
+  { id: "full", labelKey: "picker.presetFull" },
+  { id: "compact", labelKey: "picker.presetCompact" },
 ];
+
 
 function csvEscape(value: string) {
   return `"${value.replace(/"/g, '""')}"`;
 }
 
 export function AlgeriaAddressPicker() {
+  const { t, lang } = useI18n();
   const [data, setData] = useState<Wilaya[]>([]);
+
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [isStale, setIsStale] = useState(false);
@@ -184,30 +189,31 @@ export function AlgeriaAddressPicker() {
     () =>
       data.map((w) => ({
         value: String(w.code),
-        label: `${w.code} - ${w.arabic} (${w.ascii})`,
+        label: lang === "ar" ? `${w.code} - ${w.arabic}` : `${w.code} - ${w.ascii}`,
         search: `${w.code} ${w.arabic} ${w.ascii}`,
       })),
-    [data],
+    [data, lang],
   );
 
   const dairaOptions = useMemo(
     () =>
       (wilaya?.dairas ?? []).map((d, i) => ({
         value: String(i),
-        label: `${d.arabic} (${d.ascii})`,
+        label: lang === "ar" ? d.arabic : d.ascii,
         search: `${d.arabic} ${d.ascii}`,
       })),
-    [wilaya],
+    [wilaya, lang],
   );
 
   const communeOptions = useMemo(
     () =>
       (daira?.communes ?? []).map((c, i) => ({
         value: String(i),
-        label: `${c.arabic} (${c.ascii})`,
+        label: lang === "ar" ? c.arabic : c.ascii,
         search: `${c.arabic} ${c.ascii}`,
       })),
-    [daira],
+    [daira, lang],
+
   );
 
   // Restore selection from the URL, falling back to the persisted localStorage state.
@@ -364,15 +370,13 @@ export function AlgeriaAddressPicker() {
   if (isError) {
     return (
       <div className="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center">
-        <p className="text-sm text-gray-600">
-          We couldn&apos;t load the address data. Check your connection and try again.
-        </p>
+        <p className="text-sm text-gray-600">{t("picker.error")}</p>
         <button
           type="button"
           onClick={() => load(false)}
           className="mt-4 rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
         >
-          Retry
+          {t("picker.retry")}
         </button>
       </div>
     );
@@ -382,26 +386,25 @@ export function AlgeriaAddressPicker() {
     <div className="space-y-5">
       {isStale && (
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-gray-200 bg-gray-50 px-3 py-2">
-          <p className="text-xs text-gray-500">
-            Network unavailable — showing a locally cached copy of the data.
-          </p>
+          <p className="text-xs text-gray-500">{t("picker.stale")}</p>
           <button
             type="button"
             onClick={() => load(false)}
             className="rounded border border-gray-300 bg-white px-2.5 py-1 text-xs text-gray-700 transition hover:bg-gray-100"
           >
-            Retry
+            {t("picker.retry")}
           </button>
         </div>
       )}
 
       <SearchableSelect
         id="dz-wilaya"
-        label="Wilaya"
+        label={t("picker.wilaya")}
         value={wilayaCode}
         options={wilayaOptions}
-        placeholder="Select a wilaya"
-        searchPlaceholder="Search wilaya…"
+        placeholder={t("picker.selectWilaya")}
+        searchPlaceholder={t("picker.searchWilaya")}
+        emptyLabel={t("picker.noMatches")}
         onChange={(v) => {
           setWilayaCode(v);
           setDairaIndex("");
@@ -411,12 +414,13 @@ export function AlgeriaAddressPicker() {
 
       <SearchableSelect
         id="dz-daira"
-        label="Daira"
+        label={t("picker.daira")}
         value={dairaIndex}
         options={dairaOptions}
         disabled={!wilaya}
-        placeholder={wilaya ? "Select a daira" : "Select a wilaya first"}
-        searchPlaceholder="Search daira…"
+        placeholder={wilaya ? t("picker.selectDaira") : t("picker.wilayaFirst")}
+        searchPlaceholder={t("picker.searchDaira")}
+        emptyLabel={t("picker.noMatches")}
         onChange={(v) => {
           setDairaIndex(v);
           setCommuneIndex("");
@@ -425,12 +429,13 @@ export function AlgeriaAddressPicker() {
 
       <SearchableSelect
         id="dz-commune"
-        label="Commune"
+        label={t("picker.commune")}
         value={communeIndex}
         options={communeOptions}
         disabled={!daira}
-        placeholder={daira ? "Select a commune" : "Select a daira first"}
-        searchPlaceholder="Search commune…"
+        placeholder={daira ? t("picker.selectCommune") : t("picker.dairaFirst")}
+        searchPlaceholder={t("picker.searchCommune")}
+        emptyLabel={t("picker.noMatches")}
         onChange={setCommuneIndex}
       />
 
@@ -439,12 +444,13 @@ export function AlgeriaAddressPicker() {
           id="dz-preview-label"
           className="text-xs font-medium tracking-wide text-gray-500 uppercase"
         >
-          Live address preview
+          {t("picker.preview")}
         </p>
+
 
         <div
           role="radiogroup"
-          aria-label="Address output format preset"
+          aria-label={t("picker.preview")}
           className="mt-3 flex flex-wrap gap-2"
         >
           {PRESETS.map((p) => {
@@ -455,7 +461,6 @@ export function AlgeriaAddressPicker() {
                 type="button"
                 role="radio"
                 aria-checked={isActive}
-                title={p.hint}
                 onClick={() => setPreset(p.id)}
                 className={
                   (isActive
@@ -464,7 +469,7 @@ export function AlgeriaAddressPicker() {
                   "rounded-md px-3 py-1.5 text-xs font-medium transition focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
                 }
               >
-                {p.label}
+                {t(p.labelKey)}
               </button>
             );
           })}
@@ -476,14 +481,14 @@ export function AlgeriaAddressPicker() {
           aria-live="polite"
           aria-labelledby="dz-preview-label"
         >
-          {fullAddress || "Select a wilaya, daira and commune to build the address."}
+          {fullAddress || t("picker.previewEmpty")}
         </p>
 
         <div className="mt-4 flex flex-wrap gap-2">
           <button
             type="button"
             disabled={!fullAddress}
-            aria-label="Copy the formatted address to clipboard"
+            aria-label={t("picker.copy")}
             onClick={() => {
               void navigator.clipboard.writeText(fullAddress);
               setCopied(true);
@@ -491,20 +496,17 @@ export function AlgeriaAddressPicker() {
             }}
             className="rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
           >
-            {copied ? "Copied!" : "Copy address"}
+            {copied ? t("picker.copied") : t("picker.copy")}
           </button>
           <button
             type="button"
             onClick={exportCsv}
-            aria-label={
-              wilaya
-                ? "Download the selected wilaya's dairas and communes as CSV"
-                : "Download all wilayas, dairas and communes as CSV"
-            }
+            aria-label={t("picker.export")}
             className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
           >
-            Export CSV
+            {t("picker.export")}
           </button>
+
         </div>
       </div>
 
