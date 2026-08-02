@@ -128,7 +128,7 @@ function dz_inject_address_widget() {
         <script>
         document.addEventListener("DOMContentLoaded", function() {
             var script = document.createElement("script");
-            script.src = "${CDN_BASE}/dist/widget.js";
+            script.src = "https://your-domain.vercel.app/widget.js";
             document.body.appendChild(script);
         });
         </script>';
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
         stateField.style.display = "none"; // Hide default dropdown
 
         const script = document.createElement("script");
-        script.src = "${CDN_BASE}/dist/widget.js";
+        script.src = "https://your-domain.vercel.app/widget.js";
         document.body.appendChild(script);
     }
 });`,
@@ -165,7 +165,7 @@ ${container}
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var script = document.createElement("script");
-    script.src = "${CDN_BASE}/dist/widget.js";
+    script.src = "https://your-domain.vercel.app/widget.js";
     document.body.appendChild(script);
   });
 </script>`,
