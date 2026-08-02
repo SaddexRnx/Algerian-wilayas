@@ -81,9 +81,76 @@ const features = [
   },
 ];
 
-function Index() {
+function EventConsole({ lines }: { lines: string[] }) {
+  const boxRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (boxRef.current) boxRef.current.scrollTop = boxRef.current.scrollHeight;
+  }, [lines]);
   return (
-    <div className="min-h-screen bg-white font-[system-ui,Inter,sans-serif] antialiased">
+    <div className="mt-6">
+      <p className="mb-2 text-xs font-medium tracking-wide text-gray-500 uppercase">
+        Event listener console
+      </p>
+      <div
+        ref={boxRef}
+        role="log"
+        aria-live="polite"
+        aria-label="dz-address-update event log"
+        className="h-32 overflow-y-auto rounded-lg bg-gray-950 p-4 font-mono text-xs text-gray-300"
+      >
+        {lines.length === 0 ? (
+          <p className="text-gray-500">
+            Waiting for <span className="text-gray-300">dz-address-update</span> events…
+          </p>
+        ) : (
+          lines.map((l, i) => (
+            <p key={`${i}-${l}`} dir="auto" className="whitespace-pre-wrap">
+              {l}
+            </p>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Index() {
+  const [live, setLive] = useState<LiveAddress | undefined>(undefined);
+  const [logs, setLogs] = useState<string[]>([]);
+  const prev = useRef<LiveAddress>({
+    wilayaCode: "",
+    wilayaName: "",
+    dairaName: "",
+    communeName: "",
+  });
+
+  useEffect(() => {
+    const onUpdate = (e: Event) => {
+      const detail = (e as CustomEvent<LiveAddress>).detail;
+      if (!detail) return;
+      setLive(detail);
+      const entries: string[] = [];
+      if (detail.wilayaCode !== prev.current.wilayaCode) {
+        entries.push(
+          detail.wilayaCode
+            ? `[Event] Wilaya changed to: ${detail.wilayaCode} - ${detail.wilayaName}`
+            : "[Event] Wilaya cleared",
+        );
+      }
+      if (detail.dairaName !== prev.current.dairaName && detail.dairaName) {
+        entries.push(`[Event] Daira changed to: ${detail.dairaName}`);
+      }
+      if (detail.communeName !== prev.current.communeName && detail.communeName) {
+        entries.push(`[Event] Commune changed to: ${detail.communeName}`);
+      }
+      prev.current = detail;
+      if (entries.length) setLogs((l) => [...l, ...entries].slice(-50));
+    };
+    window.addEventListener("dz-address-update", onUpdate);
+    return () => window.removeEventListener("dz-address-update", onUpdate);
+  }, []);
+
+  return (
       <header className="border-b border-gray-200">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <span className="text-xl font-bold text-black">DZ Address Picker</span>
