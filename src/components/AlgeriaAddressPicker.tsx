@@ -112,7 +112,20 @@ function csvEscape(value: string) {
   return `"${value.replace(/"/g, '""')}"`;
 }
 
-export function AlgeriaAddressPicker() {
+export interface AlgeriaAddressPickerProps {
+  /** Pre-select a wilaya by its official code (e.g. 16). */
+  defaultWilayaCode?: string | number;
+  /** Pre-select a daira by its Latin or Arabic name. */
+  defaultDairaName?: string;
+  /** Pre-select a commune by its Latin or Arabic name. */
+  defaultCommuneName?: string;
+}
+
+export function AlgeriaAddressPicker({
+  defaultWilayaCode,
+  defaultDairaName,
+  defaultCommuneName,
+}: AlgeriaAddressPickerProps = {}) {
   const { t, lang } = useI18n();
   const [data, setData] = useState<Wilaya[]>([]);
 
@@ -215,15 +228,16 @@ export function AlgeriaAddressPicker() {
 
   );
 
-  // Restore selection from the URL, falling back to the persisted localStorage state.
+  // Restore selection from props, then the URL, then the persisted localStorage state.
   useEffect(() => {
     if (restored.current || !data.length || typeof window === "undefined") return;
     restored.current = true;
 
     const params = new URLSearchParams(window.location.search);
-    let w = params.get("wilaya") ?? "";
-    let d = params.get("daira");
-    let c = params.get("commune");
+    let w = defaultWilayaCode !== undefined ? String(defaultWilayaCode) : (params.get("wilaya") ?? "");
+    let d = defaultWilayaCode !== undefined ? (defaultDairaName ?? null) : params.get("daira");
+    let c =
+      defaultWilayaCode !== undefined ? (defaultCommuneName ?? null) : params.get("commune");
 
     if (!w) {
       try {
@@ -256,7 +270,7 @@ export function AlgeriaAddressPicker() {
     if (c === null) return;
     const ci = found.dairas[di]!.communes.findIndex((x) => x.ascii === c || x.arabic === c);
     if (ci >= 0) setCommuneIndex(String(ci));
-  }, [data]);
+  }, [data, defaultWilayaCode, defaultDairaName, defaultCommuneName]);
 
   // Keep the URL in sync so the selection is shareable.
   useEffect(() => {

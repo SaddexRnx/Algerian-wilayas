@@ -95,6 +95,7 @@ const fr = {
     "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
   "api.dairasDesc": "Toutes les dairas d'une wilaya donnée, identifiée par son code.",
   "api.communesDesc": "Toutes les communes d'une daira donnée.",
+  "api.theming": "Envie de l'assortir à votre marque ? Surchargez nos variables CSS :",
 
   "tester.title": "Testeur d'API en direct",
   "tester.subtitle":
@@ -236,6 +237,7 @@ const ar: Record<TranslationKey, string> = {
   "api.fullDesc": "مجموعة البيانات الهرمية الكاملة: الولايات والدوائر والبلديات في ملف واحد.",
   "api.dairasDesc": "كل دوائر ولاية محددة عبر رمزها.",
   "api.communesDesc": "كل بلديات دائرة محددة.",
+  "api.theming": "تريد مطابقة هوية علامتك؟ عدِّل متغيرات CSS الخاصة بنا:",
 
   "tester.title": "مُختبِر الواجهة البرمجية",
   "tester.subtitle": "أرسل طلبًا حقيقيًا إلى نقاط الوصول الثابتة وافحص الاستجابة.",
@@ -374,6 +376,7 @@ const en: Record<TranslationKey, string> = {
   "api.fullDesc": "Complete hierarchical dataset: wilayas, dairas and communes in a single file.",
   "api.dairasDesc": "All dairas of a given wilaya, identified by its code.",
   "api.communesDesc": "All communes of a given daira.",
+  "api.theming": "Want to match your brand? Override our CSS variables:",
 
   "tester.title": "Live API Tester",
   "tester.subtitle": "Send a real request to the static endpoints and inspect the response.",

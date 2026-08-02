@@ -11,21 +11,25 @@ import { LanguageToggle, useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DZ Address Picker — Algerian Wilaya, Daira & Commune Data" },
+      { title: "DZ Address Picker | The Modern Algerian Address API" },
       {
         name: "description",
         content:
-          "Bilingual (AR/FR) cascading address picker with all Algerian wilayas, dairas and communes. Zero dependencies, ready for e-commerce and forms.",
+          "Free, fast, and multilingual (AR/FR/EN) dataset of all 69 Wilayas and 1,541 Communes. Perfect for e-commerce checkouts and delivery apps.",
       },
-      { property: "og:title", content: "DZ Address Picker — Algerian Address Integration" },
+      { property: "og:title", content: "DZ Address Picker | The Modern Algerian Address API" },
       {
         property: "og:description",
         content:
-          "Complete, up-to-date dataset of Algerian wilayas, dairas and communes with a one-line integration snippet.",
+          "Free, fast, and multilingual (AR/FR/EN) dataset of all 69 Wilayas and 1,541 Communes. Perfect for e-commerce checkouts and delivery apps.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { property: "og:image", content: "/og-image.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "/og-image.png" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });

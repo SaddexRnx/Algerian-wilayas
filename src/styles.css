@@ -153,3 +153,16 @@
     transform: none;
   }
 }
+
+/*
+ * DZ Address Picker widget theming.
+ * Store owners can override these on :root (or any wrapper element)
+ * to match their brand, e.g. --dz-border-color: #ff0000;
+ */
+:root {
+  --dz-bg-color: #ffffff;
+  --dz-text-color: #000000;
+  --dz-border-color: #d1d5db;
+  --dz-focus-ring-color: #000000;
+  --dz-disabled-bg: #f9fafb;
+}
