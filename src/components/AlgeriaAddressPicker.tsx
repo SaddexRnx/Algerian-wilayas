@@ -369,15 +369,13 @@ export function AlgeriaAddressPicker() {
   if (isError) {
     return (
       <div className="rounded-lg border border-gray-200 bg-gray-50 p-6 text-center">
-        <p className="text-sm text-gray-600">
-          We couldn&apos;t load the address data. Check your connection and try again.
-        </p>
+        <p className="text-sm text-gray-600">{t("picker.error")}</p>
         <button
           type="button"
           onClick={() => load(false)}
           className="mt-4 rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
         >
-          Retry
+          {t("picker.retry")}
         </button>
       </div>
     );
@@ -387,26 +385,25 @@ export function AlgeriaAddressPicker() {
     <div className="space-y-5">
       {isStale && (
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-gray-200 bg-gray-50 px-3 py-2">
-          <p className="text-xs text-gray-500">
-            Network unavailable — showing a locally cached copy of the data.
-          </p>
+          <p className="text-xs text-gray-500">{t("picker.stale")}</p>
           <button
             type="button"
             onClick={() => load(false)}
             className="rounded border border-gray-300 bg-white px-2.5 py-1 text-xs text-gray-700 transition hover:bg-gray-100"
           >
-            Retry
+            {t("picker.retry")}
           </button>
         </div>
       )}
 
       <SearchableSelect
         id="dz-wilaya"
-        label="Wilaya"
+        label={t("picker.wilaya")}
         value={wilayaCode}
         options={wilayaOptions}
-        placeholder="Select a wilaya"
-        searchPlaceholder="Search wilaya…"
+        placeholder={t("picker.selectWilaya")}
+        searchPlaceholder={t("picker.searchWilaya")}
+        emptyLabel={t("picker.noMatches")}
         onChange={(v) => {
           setWilayaCode(v);
           setDairaIndex("");
@@ -416,12 +413,13 @@ export function AlgeriaAddressPicker() {
 
       <SearchableSelect
         id="dz-daira"
-        label="Daira"
+        label={t("picker.daira")}
         value={dairaIndex}
         options={dairaOptions}
         disabled={!wilaya}
-        placeholder={wilaya ? "Select a daira" : "Select a wilaya first"}
-        searchPlaceholder="Search daira…"
+        placeholder={wilaya ? t("picker.selectDaira") : t("picker.wilayaFirst")}
+        searchPlaceholder={t("picker.searchDaira")}
+        emptyLabel={t("picker.noMatches")}
         onChange={(v) => {
           setDairaIndex(v);
           setCommuneIndex("");
@@ -430,12 +428,13 @@ export function AlgeriaAddressPicker() {
 
       <SearchableSelect
         id="dz-commune"
-        label="Commune"
+        label={t("picker.commune")}
         value={communeIndex}
         options={communeOptions}
         disabled={!daira}
-        placeholder={daira ? "Select a commune" : "Select a daira first"}
-        searchPlaceholder="Search commune…"
+        placeholder={daira ? t("picker.selectCommune") : t("picker.dairaFirst")}
+        searchPlaceholder={t("picker.searchCommune")}
+        emptyLabel={t("picker.noMatches")}
         onChange={setCommuneIndex}
       />
 
@@ -444,8 +443,9 @@ export function AlgeriaAddressPicker() {
           id="dz-preview-label"
           className="text-xs font-medium tracking-wide text-gray-500 uppercase"
         >
-          Live address preview
+          {t("picker.preview")}
         </p>
+
 
         <div
           role="radiogroup"
