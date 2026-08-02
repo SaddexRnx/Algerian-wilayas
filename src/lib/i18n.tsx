@@ -248,6 +248,16 @@ const ar: Record<TranslationKey, string> = {
   "admin.table.empty": "لا توجد ولاية مطابقة.",
   "admin.methods.title": "طرق الدمج",
   "admin.methods.subtitle": "توزيع عمليات التركيب حسب المنصة.",
+  "admin.empty.chart": "لا توجد بيانات حالياً.",
+  "admin.empty.methods": "لم يتم تسجيل أي تركيب بعد.",
+  "admin.login.title": "دخول المشرف",
+  "admin.login.subtitle": "سجّل الدخول لعرض لوحة التحكم.",
+  "admin.login.email": "البريد الإلكتروني",
+  "admin.login.password": "كلمة المرور",
+  "admin.login.submit": "تسجيل الدخول",
+  "admin.login.loading": "جارٍ الدخول…",
+  "admin.login.error": "بيانات الدخول غير صحيحة.",
+  "admin.logout": "تسجيل الخروج",
 };
 
 const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar };
