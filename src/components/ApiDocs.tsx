@@ -113,6 +113,25 @@ const communes = alger.dairas.flatMap((d) => d.communes);`,
   },
   {
     method: "GET",
+    path: "/api/wilayas/{code}-dairas.json",
+    descKey: "api.wilayaDairasFlatDesc",
+    response: `[
+  {
+    "name_ar": "صالح باي",
+    "name_ascii": "Salah Bey",
+    "communes": [
+      { "name_ar": "الرصفة", "name_ascii": "Rosfa" }
+    ]
+  }
+]`,
+    example: `const dairas = await fetch(
+  "${BASE}/api/wilayas/19-dairas.json"
+).then((r) => r.json());
+
+const found = dairas.find((d) => d.name_ascii === "Salah Bey");`,
+  },
+  {
+    method: "GET",
     path: "/api/wilayas/{code}/communes.json",
     descKey: "api.wilayaCommunesDesc",
     response: `[

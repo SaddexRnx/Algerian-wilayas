@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
 import { CheckoutSimulation, type LiveAddress } from "@/components/CheckoutSimulation";
@@ -7,6 +7,7 @@ import { ApiDocs } from "@/components/ApiDocs";
 import { ApiTester } from "@/components/ApiTester";
 import logo from "@/assets/logo.png";
 import { LanguageToggle, useI18n } from "@/lib/i18n";
+import { isAdminAuthed } from "@/lib/admin-mock-auth";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -51,6 +52,22 @@ function CopyButton({ className, label }: { className?: string; label: string })
     >
       {copied ? t("picker.copied") : label}
     </button>
+  );
+}
+
+function AdminNavLink({ className }: { className?: string }) {
+  const { t } = useI18n();
+  const [authed, setAuthed] = useState(false);
+  useEffect(() => {
+    setAuthed(isAdminAuthed());
+  }, []);
+  return (
+    <Link
+      to={authed ? "/admin" : "/login"}
+      className={className ?? "text-sm text-gray-600 transition hover:text-black"}
+    >
+      {authed ? t("nav.dashboard") : t("nav.adminLogin")}
+    </Link>
   );
 }
 
@@ -192,6 +209,7 @@ function Index() {
                 </a>
               ))}
             </nav>
+            <AdminNavLink />
             <LanguageToggle />
           </div>
         </div>
@@ -201,6 +219,7 @@ function Index() {
               {l.label}
             </a>
           ))}
+          <AdminNavLink className="shrink-0 text-gray-600 transition hover:text-black" />
         </nav>
       </header>
 
