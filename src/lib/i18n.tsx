@@ -318,6 +318,29 @@ const ar: Record<TranslationKey, string> = {
   "admin.login.loading": "جارٍ الدخول…",
   "admin.login.error": "بيانات الدخول غير صحيحة.",
   "admin.logout": "تسجيل الخروج",
+  "admin.kpi.sessions": "الجلسات النشطة",
+  "admin.endpoints.title": "أكثر المسارات طلبًا",
+  "admin.sources.title": "حركة المرور حسب المصدر",
+  "admin.refresh": "تحديث",
+  "admin.loading": "جارٍ التحميل…",
+  "admin.live": "بيانات مباشرة",
+
+  "hub.wpTitle": "إضافة ووردبريس",
+  "hub.wpDesc": "نزّل الإضافة الجاهزة، يتم إنشاء ملف الـ zip داخل متصفحك.",
+  "hub.download": "تنزيل الإضافة (.zip)",
+  "hub.downloading": "جارٍ إنشاء الملف…",
+  "hub.downloadError": "تعذّر إنشاء ملف الـ zip.",
+
+  "tester.inputLabel": "أدخل رمز الولاية أو اسمها (مثال: 16، Alger، وهران)",
+  "tester.inputPlaceholder": "16 / Alger / وهران",
+  "tester.notFound": "لا توجد ولاية مطابقة لهذا الرمز أو الاسم.",
+  "tester.resolved": "تم التعرف على",
+
+  "api.indexDesc": "فهرس يعرض جميع المسارات المتاحة.",
+  "api.wilayaDesc": "تفاصيل ولاية واحدة مع دوائرها وبلدياتها.",
+  "api.wilayaDairasDesc": "قائمة دوائر ولاية معينة مع عدد البلديات.",
+  "api.wilayaCommunesDesc": "قائمة مسطحة بكل بلديات الولاية.",
+  "api.dairaDetailDesc": "تفاصيل دائرة محددة وبلدياتها.",
 };
 
 const en: Record<TranslationKey, string> = {
