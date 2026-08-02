@@ -20,7 +20,7 @@ define('DZ_ADDRESS_PICKER_VERSION', '1.0.0');
  */
 function dz_address_picker_api_base()
 {
-    $default = 'https://your-domain.example/api';
+    $default = 'https://dz-address-select.vercel.app/api';
     return untrailingslashit(get_option('dz_address_picker_api_base', $default));
 }
 
@@ -163,7 +163,7 @@ function dz_address_picker_settings_page()
                     <td>
                         <input name="dz_address_picker_api_base" id="dz_api_base" type="url" class="regular-text"
                                value="<?php echo esc_attr(dz_address_picker_api_base()); ?>" />
-                        <p class="description"><?php echo esc_html__('Static JSON endpoints, e.g. https://your-domain.example/api', 'dz-address-picker'); ?></p>
+                        <p class="description"><?php echo esc_html__('Static JSON endpoints, e.g. https://dz-address-select.vercel.app/api', 'dz-address-picker'); ?></p>
                     </td>
                 </tr>
                 <tr>

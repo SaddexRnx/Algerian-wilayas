@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
 
-const BASE = "https://your-domain.vercel.app";
+const BASE = "https://dz-address-select.vercel.app";
 
 interface Endpoint {
   method: "GET";
@@ -113,54 +113,21 @@ const communes = alger.dairas.flatMap((d) => d.communes);`,
   },
   {
     method: "GET",
-    path: "/api/wilayas/{code}-dairas.json",
-    descKey: "api.wilayaDairasFlatDesc",
-    response: `[
-  {
-    "name_ar": "صالح باي",
-    "name_ascii": "Salah Bey",
-    "communes": [
-      { "name_ar": "الرصفة", "name_ascii": "Rosfa" }
-    ]
-  }
-]`,
-    example: `const dairas = await fetch(
-  "${BASE}/api/wilayas/19-dairas.json"
-).then((r) => r.json());
-
-const found = dairas.find((d) => d.name_ascii === "Salah Bey");`,
-  },
-  {
-    method: "GET",
-    path: "/api/wilayas/{code}/communes.json",
-    descKey: "api.wilayaCommunesDesc",
-    response: `[
-  {
-    "arabic": "الجزائر الوسطى",
-    "ascii": "Alger Centre",
-    "daira_ascii": "Sidi M'Hamed"
-  }
-]`,
-    example: `const communes = await fetch(
-  "${BASE}/api/wilayas/16/communes.json"
-).then((r) => r.json());`,
-  },
-  {
-    method: "GET",
-    path: "/api/wilayas/{code}/dairas/{daira}.json",
+    path: "/api/wilayas/{code}/dairas/{daira-slug}.json",
     descKey: "api.dairaDetailDesc",
     response: `{
-  "arabic": "باب الوادي",
-  "ascii": "Bab El Oued",
-  "slug": "bab-el-oued",
-  "wilayaCode": 16,
+  "arabic": "بوانداس",
+  "ascii": "Bouandas",
+  "slug": "bouandas",
+  "wilayaCode": 19,
   "communes": [
-    { "arabic": "باب الوادي", "ascii": "Bab El Oued" }
+    { "arabic": "بوانداس", "ascii": "Bouandas" }
   ]
 }`,
     example: `const daira = await fetch(
-  "${BASE}/api/wilayas/16/dairas/bab-el-oued.json"
+  "${BASE}/api/wilayas/19/dairas/bouandas.json"
 ).then((r) => r.json());`,
+
   },
 ];
 

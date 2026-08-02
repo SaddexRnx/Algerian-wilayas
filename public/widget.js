@@ -1,6 +1,6 @@
 /* DZ Address Picker — embeddable widget.
    Usage: <div class="dz-address-picker"></div>
-          <script src="https://your-domain.vercel.app/widget.js"></script> */
+          <script src="https://dz-address-select.vercel.app/widget.js"></script> */
 (function () {
   "use strict";
 
