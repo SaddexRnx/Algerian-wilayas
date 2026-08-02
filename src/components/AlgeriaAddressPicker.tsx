@@ -229,11 +229,7 @@ export function AlgeriaAddressPicker({
     }
     let active = true;
     setDairasLoading(true);
-    trackedFetch(wilayaDairasUrl(wilayaCode), { source: "demo", wilayaCode: Number(wilayaCode) })
-      .then((r) => {
-        if (!r.ok) throw new Error("Request failed");
-        return r.json();
-      })
+    cachedJson(wilayaDairasUrl(wilayaCode), { source: "demo", wilayaCode: Number(wilayaCode) })
       .then((json: unknown) => {
         if (!active) return;
         const list = normalizeDairas(json);
@@ -265,14 +261,10 @@ export function AlgeriaAddressPicker({
     }
     let active = true;
     setCommunesLoading(true);
-    trackedFetch(dairaUrl(wilayaCode, selected.slug), {
+    cachedJson(dairaUrl(wilayaCode, selected.slug), {
       source: "demo",
       wilayaCode: Number(wilayaCode),
     })
-      .then((r) => {
-        if (!r.ok) throw new Error("Request failed");
-        return r.json();
-      })
       .then((json: unknown) => {
         if (!active) return;
         const raw = json as Record<string, unknown>;
@@ -291,6 +283,7 @@ export function AlgeriaAddressPicker({
       active = false;
     };
   }, [wilayaCode, dairaIndex, dairas]);
+
 
   // Apply a pending commune restore once its communes have arrived.
   useEffect(() => {
