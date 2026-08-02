@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SearchableSelect } from "@/components/SearchableSelect";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
+import { trackedFetch } from "@/lib/analytics";
 
 
 export interface Commune {
