@@ -124,6 +124,16 @@ const fr = {
   "admin.table.empty": "Aucune wilaya ne correspond.",
   "admin.methods.title": "Méthodes d'intégration",
   "admin.methods.subtitle": "Répartition des installations par plateforme.",
+  "admin.empty.chart": "Aucune donnée disponible pour le moment.",
+  "admin.empty.methods": "Aucune installation enregistrée.",
+  "admin.login.title": "Accès administrateur",
+  "admin.login.subtitle": "Connectez-vous pour consulter le tableau de bord.",
+  "admin.login.email": "Adresse e-mail",
+  "admin.login.password": "Mot de passe",
+  "admin.login.submit": "Se connecter",
+  "admin.login.loading": "Connexion…",
+  "admin.login.error": "Identifiants incorrects.",
+  "admin.logout": "Se déconnecter",
 } as const;
 
 export type TranslationKey = keyof typeof fr;
