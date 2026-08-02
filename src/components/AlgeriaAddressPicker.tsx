@@ -158,7 +158,7 @@ export function AlgeriaAddressPicker({
     }
 
     let active = true;
-    fetch(DEMO_DATA_URL)
+    trackedFetch(DEMO_DATA_URL, { source: "demo" })
       .then((r) => {
         if (!r.ok) throw new Error("Request failed");
         return r.json();
