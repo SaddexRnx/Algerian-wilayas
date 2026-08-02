@@ -114,20 +114,20 @@ const communes = alger.dairas.flatMap((d) => d.communes);`,
   {
     method: "GET",
     path: "/api/wilayas/{code}/dairas/{daira-slug}.json",
-
     descKey: "api.dairaDetailDesc",
     response: `{
-  "arabic": "باب الوادي",
-  "ascii": "Bab El Oued",
-  "slug": "bab-el-oued",
-  "wilayaCode": 16,
+  "arabic": "بوانداس",
+  "ascii": "Bouandas",
+  "slug": "bouandas",
+  "wilayaCode": 19,
   "communes": [
-    { "arabic": "باب الوادي", "ascii": "Bab El Oued" }
+    { "arabic": "بوانداس", "ascii": "Bouandas" }
   ]
 }`,
     example: `const daira = await fetch(
-  "${BASE}/api/wilayas/16/dairas/bab-el-oued.json"
+  "${BASE}/api/wilayas/19/dairas/bouandas.json"
 ).then((r) => r.json());`,
+
   },
 ];
 
