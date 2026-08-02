@@ -307,8 +307,8 @@ function AdminPage() {
           </div>
         </section>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-3">
-          <section className={`${cardClass} lg:col-span-2`}>
+        <div className="mt-6 grid min-w-0 gap-6 lg:grid-cols-3">
+          <section className={`${cardClass} min-w-0 lg:col-span-2`}>
             <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:flex sm:justify-between">
               <h2 className="min-w-0 truncate text-sm font-semibold text-black">
                 {t("admin.table.title")}
@@ -378,7 +378,7 @@ function AdminPage() {
             </div>
           </section>
 
-          <section className={cardClass}>
+          <section className={`${cardClass} min-w-0`}>
             <h2 className="text-sm font-semibold text-black">{t("admin.methods.title")}</h2>
             <p className="mt-1 text-xs text-gray-500">{t("admin.methods.subtitle")}</p>
             <div className="mt-4 h-48" dir="ltr">
