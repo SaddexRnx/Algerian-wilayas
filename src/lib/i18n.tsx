@@ -480,6 +480,29 @@ const en: Record<TranslationKey, string> = {
   "admin.login.loading": "Signing in…",
   "admin.login.error": "Incorrect credentials.",
   "admin.logout": "Sign out",
+  "admin.kpi.sessions": "Active sessions",
+  "admin.endpoints.title": "Most requested endpoints",
+  "admin.sources.title": "Traffic by source",
+  "admin.refresh": "Refresh",
+  "admin.loading": "Loading…",
+  "admin.live": "Live data",
+
+  "hub.wpTitle": "WordPress plugin",
+  "hub.wpDesc": "Download the ready-to-install plugin — the zip is built right in your browser.",
+  "hub.download": "Download plugin (.zip)",
+  "hub.downloading": "Building zip…",
+  "hub.downloadError": "Could not build the zip file.",
+
+  "tester.inputLabel": "Enter a wilaya code or name (e.g. 16, Alger, وهران)",
+  "tester.inputPlaceholder": "16 / Alger / وهران",
+  "tester.notFound": "No wilaya matches that code or name.",
+  "tester.resolved": "Resolved to",
+
+  "api.indexDesc": "Discovery index listing every available endpoint.",
+  "api.wilayaDesc": "Full detail for one wilaya, including its dairas and communes.",
+  "api.wilayaDairasDesc": "All dairas of a wilaya with their commune counts.",
+  "api.wilayaCommunesDesc": "Flat list of every commune inside a wilaya.",
+  "api.dairaDetailDesc": "Detail for a single daira and its communes.",
 };
 
 const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar, en };
