@@ -66,6 +66,13 @@ export function ApiDocs() {
         {t("api.note")}
       </p>
 
+      <p className="mt-3 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
+        {t("api.theming")}{" "}
+        <code className="rounded bg-gray-950 px-1.5 py-0.5 font-mono text-xs text-gray-100" dir="ltr">
+          --dz-border-color: #ff0000;
+        </code>
+      </p>
+
       <div className="mt-6 space-y-4">
         {ENDPOINTS.map((e) => {
           const url = `${BASE}${e.path}`;
