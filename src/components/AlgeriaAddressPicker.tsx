@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from "react";
 export interface Commune {
   arabic: string;
   ascii: string;
-  postal_code?: string | undefined;
 }
 
 export interface Daira {
@@ -19,7 +18,7 @@ export interface Wilaya {
   dairas: Daira[];
 }
 
-const DATA_URL =
+const DEMO_DATA_URL =
   "https://raw.githubusercontent.com/islam-re/Algeria-wilayas/main/json/wilaya-daira-commune/wilaya-daira-commune.json";
 
 const selectClass =
@@ -28,7 +27,7 @@ const selectClass =
 function Skeleton() {
   return (
     <div className="space-y-5">
-      {[0, 1, 2, 3].map((i) => (
+      {[0, 1, 2].map((i) => (
         <div key={i} className="space-y-2">
           <div className="h-3 w-24 rounded bg-gray-100" />
           <div className="h-12 w-full rounded-lg bg-gray-100" />
@@ -51,7 +50,7 @@ export function AlgeriaAddressPicker() {
     let active = true;
     setIsLoading(true);
     setIsError(false);
-    fetch(DATA_URL)
+    fetch(DEMO_DATA_URL)
       .then((r) => {
         if (!r.ok) throw new Error("Request failed");
         return r.json();
@@ -75,7 +74,6 @@ export function AlgeriaAddressPicker() {
                     return {
                       arabic: String(rc["arabic"] ?? ""),
                       ascii: String(rc["ascii"] ?? ""),
-                      postal_code: rc["postal_code"] ? String(rc["postal_code"]) : undefined,
                     };
                   },
                 ),
@@ -101,12 +99,6 @@ export function AlgeriaAddressPicker() {
     [data, wilayaCode],
   );
   const daira = wilaya?.dairas[Number(dairaIndex)];
-  const commune = daira?.communes[Number(communeIndex)];
-
-  const postalCode = commune
-    ? (commune.postal_code ?? `${String(wilaya?.code ?? 0).padStart(2, "0")}000`)
-    : "";
-  const isGenerated = Boolean(commune && !commune.postal_code);
 
   if (isLoading) return <Skeleton />;
 
@@ -160,7 +152,7 @@ export function AlgeriaAddressPicker() {
           <option value="">Select a daira</option>
           {wilaya?.dairas.map((d, i) => (
             <option key={`${d.ascii}-${i}`} value={String(i)}>
-              {d.arabic}
+              {d.arabic} ({d.ascii})
             </option>
           ))}
         </select>
@@ -180,26 +172,10 @@ export function AlgeriaAddressPicker() {
           <option value="">Select a commune</option>
           {daira?.communes.map((c, i) => (
             <option key={`${c.ascii}-${i}`} value={String(i)}>
-              {c.arabic}
+              {c.arabic} ({c.ascii})
             </option>
           ))}
         </select>
-      </div>
-
-      <div>
-        <label htmlFor="dz-postal" className="mb-2 block text-sm font-medium text-gray-700">
-          Postal Code
-        </label>
-        <input
-          id="dz-postal"
-          readOnly
-          value={postalCode}
-          placeholder="—"
-          className={`${selectClass} bg-gray-50`}
-        />
-        {isGenerated && (
-          <p className="mt-2 text-xs text-gray-400">Auto-generated placeholder</p>
-        )}
       </div>
     </div>
   );
