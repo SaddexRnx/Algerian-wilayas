@@ -153,6 +153,30 @@ const fr = {
   "admin.login.loading": "Connexion…",
   "admin.login.error": "Identifiants incorrects.",
   "admin.logout": "Se déconnecter",
+  "admin.kpi.sessions": "Sessions actives",
+  "admin.endpoints.title": "Points de terminaison les plus demandés",
+  "admin.sources.title": "Trafic par source",
+  "admin.refresh": "Actualiser",
+  "admin.loading": "Chargement…",
+  "admin.live": "Données en direct",
+
+  "hub.wpTitle": "Extension WordPress",
+  "hub.wpDesc":
+    "Téléchargez l'extension prête à l'emploi : le zip est généré dans votre navigateur.",
+  "hub.download": "Télécharger l'extension (.zip)",
+  "hub.downloading": "Création du zip…",
+  "hub.downloadError": "Échec de la génération du zip.",
+
+  "tester.inputLabel": "Entrez le code ou le nom de la wilaya (ex. 16, Alger, أو وهران)",
+  "tester.inputPlaceholder": "16 / Alger / وهران",
+  "tester.notFound": "Aucune wilaya ne correspond à ce code ou nom.",
+  "tester.resolved": "Résolu en",
+
+  "api.indexDesc": "Index de découverte listant tous les points de terminaison disponibles.",
+  "api.wilayaDesc": "Détail complet d'une wilaya : ses dairas et leurs communes.",
+  "api.wilayaDairasDesc": "Liste des dairas d'une wilaya, avec le nombre de communes.",
+  "api.wilayaCommunesDesc": "Liste à plat de toutes les communes d'une wilaya.",
+  "api.dairaDetailDesc": "Détail d'une daira précise et de ses communes.",
 } as const;
 
 export type TranslationKey = keyof typeof fr;
@@ -294,6 +318,29 @@ const ar: Record<TranslationKey, string> = {
   "admin.login.loading": "جارٍ الدخول…",
   "admin.login.error": "بيانات الدخول غير صحيحة.",
   "admin.logout": "تسجيل الخروج",
+  "admin.kpi.sessions": "الجلسات النشطة",
+  "admin.endpoints.title": "أكثر المسارات طلبًا",
+  "admin.sources.title": "حركة المرور حسب المصدر",
+  "admin.refresh": "تحديث",
+  "admin.loading": "جارٍ التحميل…",
+  "admin.live": "بيانات مباشرة",
+
+  "hub.wpTitle": "إضافة ووردبريس",
+  "hub.wpDesc": "نزّل الإضافة الجاهزة، يتم إنشاء ملف الـ zip داخل متصفحك.",
+  "hub.download": "تنزيل الإضافة (.zip)",
+  "hub.downloading": "جارٍ إنشاء الملف…",
+  "hub.downloadError": "تعذّر إنشاء ملف الـ zip.",
+
+  "tester.inputLabel": "أدخل رمز الولاية أو اسمها (مثال: 16، Alger، وهران)",
+  "tester.inputPlaceholder": "16 / Alger / وهران",
+  "tester.notFound": "لا توجد ولاية مطابقة لهذا الرمز أو الاسم.",
+  "tester.resolved": "تم التعرف على",
+
+  "api.indexDesc": "فهرس يعرض جميع المسارات المتاحة.",
+  "api.wilayaDesc": "تفاصيل ولاية واحدة مع دوائرها وبلدياتها.",
+  "api.wilayaDairasDesc": "قائمة دوائر ولاية معينة مع عدد البلديات.",
+  "api.wilayaCommunesDesc": "قائمة مسطحة بكل بلديات الولاية.",
+  "api.dairaDetailDesc": "تفاصيل دائرة محددة وبلدياتها.",
 };
 
 const en: Record<TranslationKey, string> = {
@@ -433,6 +480,29 @@ const en: Record<TranslationKey, string> = {
   "admin.login.loading": "Signing in…",
   "admin.login.error": "Incorrect credentials.",
   "admin.logout": "Sign out",
+  "admin.kpi.sessions": "Active sessions",
+  "admin.endpoints.title": "Most requested endpoints",
+  "admin.sources.title": "Traffic by source",
+  "admin.refresh": "Refresh",
+  "admin.loading": "Loading…",
+  "admin.live": "Live data",
+
+  "hub.wpTitle": "WordPress plugin",
+  "hub.wpDesc": "Download the ready-to-install plugin — the zip is built right in your browser.",
+  "hub.download": "Download plugin (.zip)",
+  "hub.downloading": "Building zip…",
+  "hub.downloadError": "Could not build the zip file.",
+
+  "tester.inputLabel": "Enter a wilaya code or name (e.g. 16, Alger, وهران)",
+  "tester.inputPlaceholder": "16 / Alger / وهران",
+  "tester.notFound": "No wilaya matches that code or name.",
+  "tester.resolved": "Resolved to",
+
+  "api.indexDesc": "Discovery index listing every available endpoint.",
+  "api.wilayaDesc": "Full detail for one wilaya, including its dairas and communes.",
+  "api.wilayaDairasDesc": "All dairas of a wilaya with their commune counts.",
+  "api.wilayaCommunesDesc": "Flat list of every commune inside a wilaya.",
+  "api.dairaDetailDesc": "Detail for a single daira and its communes.",
 };
 
 const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar, en };

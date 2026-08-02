@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SearchableSelect } from "@/components/SearchableSelect";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
+import { trackedFetch } from "@/lib/analytics";
 
 
 export interface Commune {
@@ -158,7 +159,7 @@ export function AlgeriaAddressPicker({
     }
 
     let active = true;
-    fetch(DEMO_DATA_URL)
+    trackedFetch(DEMO_DATA_URL, { source: "demo" })
       .then((r) => {
         if (!r.ok) throw new Error("Request failed");
         return r.json();
@@ -286,7 +287,9 @@ export function AlgeriaAddressPicker({
     window.history.replaceState(
       null,
       "",
-      `${window.location.pathname}${qs ? `?${qs}` : ""}${window.location.hash}`,
+      // NOTE: the hash is intentionally dropped — re-writing it makes the
+      // browser re-anchor and scroll the page on every dropdown change.
+      `${window.location.pathname}${qs ? `?${qs}` : ""}`,
     );
   }, [wilaya, daira, commune]);
 
