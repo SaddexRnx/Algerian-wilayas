@@ -399,7 +399,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const saved = window.localStorage.getItem(LANG_KEY);
-      if (saved === "ar" || saved === "fr") setLangState(saved);
+      if (saved === "ar" || saved === "fr" || saved === "en") setLangState(saved);
     } catch {
       /* storage unavailable — non-fatal */
     }
@@ -430,6 +430,23 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }
 
+export function ForcedLanguageProvider({ lang, children }: { lang: Lang; children: ReactNode }) {
+  const dir = lang === "ar" ? "rtl" : "ltr";
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = dir;
+  }, [lang, dir]);
+
+  const value = useMemo<I18nValue>(
+    () => ({ lang, dir, setLang: () => {}, t: (key) => DICT[lang][key] ?? key }),
+    [lang, dir],
+  );
+
+  return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
+}
+
 export function useI18n(): I18nValue {
   const ctx = useContext(I18nContext);
   if (!ctx) throw new Error("useI18n must be used inside <LanguageProvider>");
@@ -445,7 +462,7 @@ export function LanguageToggle() {
       className="inline-flex shrink-0 overflow-hidden rounded-md border border-gray-300"
       dir="ltr"
     >
-      {(["ar", "fr"] as const).map((l) => (
+      {(["ar", "fr", "en"] as const).map((l) => (
         <button
           key={l}
           type="button"
