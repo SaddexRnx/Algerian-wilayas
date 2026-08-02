@@ -163,7 +163,7 @@ export function CheckoutSimulation() {
         <button
           type="button"
           onClick={play}
-          className="absolute inset-0 flex items-center justify-center bg-white/60 text-sm font-medium text-black backdrop-blur-[1px] transition hover:bg-white/70"
+          className="absolute inset-x-0 bottom-0 top-28 flex items-start justify-center bg-white/60 pt-16 text-sm font-medium text-black backdrop-blur-[1px] transition hover:bg-white/70"
         >
           <span className="rounded-md border border-gray-300 bg-white px-5 py-2.5 shadow-sm">
             ▶ Play Animation
