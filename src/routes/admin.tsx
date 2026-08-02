@@ -3,6 +3,18 @@ import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { ForcedLanguageProvider, useI18n, type TranslationKey } from "@/lib/i18n";
 import { adminLogin, adminLogout, adminStatus } from "@/lib/admin-auth.functions";
+import { adminAnalytics, type AnalyticsPayload } from "@/lib/admin-analytics.functions";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 export const Route = createFileRoute("/admin")({
   ssr: false,
