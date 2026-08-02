@@ -178,9 +178,6 @@ function Index() {
                   {l.label}
                 </a>
               ))}
-              <Link to="/admin" className="text-gray-600 transition hover:text-black">
-                {t("nav.admin")}
-              </Link>
             </nav>
             <LanguageToggle />
           </div>
@@ -191,9 +188,6 @@ function Index() {
               {l.label}
             </a>
           ))}
-          <Link to="/admin" className="text-gray-600 transition hover:text-black">
-            {t("nav.admin")}
-          </Link>
         </nav>
       </header>
 
