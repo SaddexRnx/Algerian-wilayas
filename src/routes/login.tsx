@@ -97,18 +97,25 @@ function LoginPage() {
           />
 
           {error && (
-            <p role="alert" className="mt-2 text-sm text-gray-600">
-              Invalid credentials
+            <p role="alert" className="mt-3 rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-sm text-gray-800">
+              Invalid email or password. Please try again.
             </p>
           )}
 
           <button
             type="submit"
             disabled={loading}
-            className="mt-6 w-full rounded-lg bg-black p-3 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-50"
+            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-black p-3 text-sm font-medium text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
           >
+            {loading && (
+              <span
+                aria-hidden="true"
+                className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white"
+              />
+            )}
             {loading ? "Signing in…" : "Sign In to Dashboard"}
           </button>
+
         </form>
         <div className="mt-4 text-center">
           <Link to="/" className="text-xs text-gray-500 transition hover:text-black">
