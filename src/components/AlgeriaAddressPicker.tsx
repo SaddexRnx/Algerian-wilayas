@@ -228,15 +228,16 @@ export function AlgeriaAddressPicker({
 
   );
 
-  // Restore selection from the URL, falling back to the persisted localStorage state.
+  // Restore selection from props, then the URL, then the persisted localStorage state.
   useEffect(() => {
     if (restored.current || !data.length || typeof window === "undefined") return;
     restored.current = true;
 
     const params = new URLSearchParams(window.location.search);
-    let w = params.get("wilaya") ?? "";
-    let d = params.get("daira");
-    let c = params.get("commune");
+    let w = defaultWilayaCode !== undefined ? String(defaultWilayaCode) : (params.get("wilaya") ?? "");
+    let d = defaultWilayaCode !== undefined ? (defaultDairaName ?? null) : params.get("daira");
+    let c =
+      defaultWilayaCode !== undefined ? (defaultCommuneName ?? null) : params.get("commune");
 
     if (!w) {
       try {
