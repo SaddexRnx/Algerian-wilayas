@@ -175,6 +175,9 @@ const fr = {
   "api.indexDesc": "Index de découverte listant tous les points de terminaison disponibles.",
   "api.wilayaDesc": "Détail complet d'une wilaya : ses dairas et leurs communes.",
   "api.wilayaDairasDesc": "Liste des dairas d'une wilaya, avec le nombre de communes.",
+  "api.wilayaDairasFlatDesc": "Dairas et communes d'une wilaya uniquement. Bien plus léger que full-data.json ; filtrez le tableau côté client.",
+  "nav.adminLogin": "Connexion admin",
+  "nav.dashboard": "Tableau de bord",
   "api.wilayaCommunesDesc": "Liste à plat de toutes les communes d'une wilaya.",
   "api.dairaDetailDesc": "Détail d'une daira précise et de ses communes.",
 } as const;
@@ -339,6 +342,9 @@ const ar: Record<TranslationKey, string> = {
   "api.indexDesc": "فهرس يعرض جميع المسارات المتاحة.",
   "api.wilayaDesc": "تفاصيل ولاية واحدة مع دوائرها وبلدياتها.",
   "api.wilayaDairasDesc": "قائمة دوائر ولاية معينة مع عدد البلديات.",
+  "api.wilayaDairasFlatDesc": "دوائر وبلديات ولاية معينة فقط. أخف بكثير من full-data.json؛ رشّح المصفوفة من جهة العميل.",
+  "nav.adminLogin": "دخول المشرف",
+  "nav.dashboard": "لوحة التحكم",
   "api.wilayaCommunesDesc": "قائمة مسطحة بكل بلديات الولاية.",
   "api.dairaDetailDesc": "تفاصيل دائرة محددة وبلدياتها.",
 };
@@ -501,6 +507,9 @@ const en: Record<TranslationKey, string> = {
   "api.indexDesc": "Discovery index listing every available endpoint.",
   "api.wilayaDesc": "Full detail for one wilaya, including its dairas and communes.",
   "api.wilayaDairasDesc": "All dairas of a wilaya with their commune counts.",
+  "api.wilayaDairasFlatDesc": "Only the dairas and their communes for one wilaya. Much lighter than full-data.json — filter the array client-side to find your daira.",
+  "nav.adminLogin": "Admin Login",
+  "nav.dashboard": "Dashboard",
   "api.wilayaCommunesDesc": "Flat list of every commune inside a wilaya.",
   "api.dairaDetailDesc": "Detail for a single daira and its communes.",
 };
