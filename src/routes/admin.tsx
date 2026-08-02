@@ -281,6 +281,7 @@ function AdminPage() {
                   name={t("admin.series.widget")}
                   fill="#d1d5db"
                   radius={[2, 2, 0, 0]}
+                  isAnimationActive={false}
                 />
                 <Line
                   type="monotone"
@@ -289,6 +290,7 @@ function AdminPage() {
                   stroke="#000000"
                   strokeWidth={2}
                   dot={false}
+                  isAnimationActive={false}
                 />
               </ComposedChart>
             </ResponsiveContainer>
@@ -381,6 +383,7 @@ function AdminPage() {
                     paddingAngle={2}
                     stroke="#ffffff"
                     strokeWidth={2}
+                    isAnimationActive={false}
                   >
                     {METHODS.map((m) => (
                       <Cell key={m.name} fill={m.fill} />
