@@ -339,7 +339,7 @@ const en: Record<TranslationKey, string> = {
   "hub.copied": "Copied!",
 
   "api.title": "API documentation",
-  "api.subtitle": "Three read-only endpoints, served from the CDN.",
+  "api.subtitle": "Two static read-only endpoints, served from the CDN.",
   "api.params": "Parameters",
   "api.response": "Response",
   "api.example": "Example",
