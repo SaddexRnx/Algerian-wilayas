@@ -25,11 +25,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const WIDGET_DATA_URL =
-  "https://cdn.jsdelivr.net/gh/SaddexRnx/Algeria-wilayas@main/json/wilaya-daira-commune/wilaya-daira-commune.json";
-
-const SNIPPET = `<div class="dz-address-picker" data-source="${WIDGET_DATA_URL}"></div>
-<script src="https://cdn.jsdelivr.net/gh/SaddexRnx/Algeria-wilayas@main/dist/widget.js"></script>`;
+const SNIPPET = SNIPPETS[0]!.code;
 
 function CopyButton({
   className,
