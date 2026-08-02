@@ -84,10 +84,15 @@ const fr = {
   "hub.copied": "Copié !",
 
   "api.title": "Documentation de l'API",
-  "api.subtitle": "Trois points de terminaison en lecture seule, servis depuis le CDN.",
+  "api.subtitle": "Deux points de terminaison statiques en lecture seule, servis depuis le CDN.",
   "api.params": "Paramètres",
   "api.response": "Réponse",
-  "api.wilayasDesc": "Liste complète des 69 wilayas avec code, nom arabe et nom latin.",
+  "api.example": "Exemple",
+  "api.note":
+    "Ce sont des points de terminaison statiques, mis en cache sur le CDN. Ils se chargent en moins de 50 ms partout dans le monde et ne nécessitent aucune clé d'API.",
+  "api.wilayasDesc": "Liste légère des 69 wilayas avec code, nom arabe et nom latin.",
+  "api.fullDesc":
+    "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
   "api.dairasDesc": "Toutes les dairas d'une wilaya donnée, identifiée par son code.",
   "api.communesDesc": "Toutes les communes d'une daira donnée.",
 
