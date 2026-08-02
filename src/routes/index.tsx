@@ -24,8 +24,11 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const SNIPPET = `<div class="dz-address-picker"></div>
-<script src="https://cdn.jsdelivr.net/gh/your-username/dz-address-picker@main/dist/widget.js"></script>`;
+const WIDGET_DATA_URL =
+  "https://cdn.jsdelivr.net/gh/SaddexRnx/Algeria-wilayas@main/json/wilaya-daira-commune/wilaya-daira-commune.json";
+
+const SNIPPET = `<div class="dz-address-picker" data-source="${WIDGET_DATA_URL}"></div>
+<script src="https://cdn.jsdelivr.net/gh/SaddexRnx/Algeria-wilayas@main/dist/widget.js"></script>`;
 
 function CopyButton({
   className,
@@ -94,7 +97,7 @@ function Index() {
               Integration
             </a>
             <a href="#features" className="text-gray-600 transition hover:text-black">
-              Docs
+              Features
             </a>
           </nav>
         </div>
