@@ -113,7 +113,7 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
         <input
           id="sim-name"
           type="text"
-          value="Ahmed Benali"
+          value="Ahmed Ahmed"
           readOnly
           tabIndex={-1}
           className="mb-4 w-full rounded-lg border border-gray-200 bg-gray-50 p-3 text-gray-500"
