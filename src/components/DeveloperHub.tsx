@@ -175,6 +175,58 @@ ${container}
 
 export const SNIPPETS = buildSnippets(DEFAULT_CONFIG);
 
+function PluginDownload() {
+  const { t } = useI18n();
+  const [state, setState] = useState<"idle" | "working" | "error">("idle");
+
+  async function onDownload() {
+    setState("working");
+    try {
+      const [JSZipMod, fileSaver] = await Promise.all([
+        import("jszip"),
+        import("file-saver"),
+      ]);
+      const files = ["dz-address-picker.php", "dz-checkout.js", "readme.txt"];
+      const contents = await Promise.all(
+        files.map(async (name) => {
+          const res = await fetch(`/wp-plugin/${name}`);
+          if (!res.ok) throw new Error(name);
+          return res.text();
+        }),
+      );
+      const zip = new JSZipMod.default();
+      const folder = zip.folder("dz-address-picker")!;
+      files.forEach((name, i) => folder.file(name, contents[i]!));
+      const blob = await zip.generateAsync({ type: "blob" });
+      fileSaver.saveAs(blob, "dz-address-picker-woocommerce.zip");
+      setState("idle");
+    } catch {
+      setState("error");
+    }
+  }
+
+  return (
+    <div className="mt-8 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+      <h3 className="text-sm font-semibold text-black">{t("hub.wpTitle")}</h3>
+      <p className="mt-1 text-sm text-gray-500">{t("hub.wpDesc")}</p>
+      <button
+        type="button"
+        onClick={() => void onDownload()}
+        disabled={state === "working"}
+        className="mt-4 rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-50"
+      >
+        {state === "working" ? t("hub.downloading") : t("hub.download")}
+      </button>
+      {state === "error" && (
+        <p role="alert" className="mt-2 text-xs text-gray-700">
+          {t("hub.downloadError")}
+        </p>
+      )}
+    </div>
+  );
+}
+
+
 export const WIDGET_OPTIONS: { attr: string; description: string; example: string }[] = [
   {
     attr: "data-target",
