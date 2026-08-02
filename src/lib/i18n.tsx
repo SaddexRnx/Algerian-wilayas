@@ -96,6 +96,19 @@ const fr = {
   "api.dairasDesc": "Toutes les dairas d'une wilaya donnée, identifiée par son code.",
   "api.communesDesc": "Toutes les communes d'une daira donnée.",
 
+  "tester.title": "Testeur d'API en direct",
+  "tester.subtitle":
+    "Envoyez une vraie requête aux points de terminaison statiques et inspectez la réponse.",
+  "tester.endpoint": "Point de terminaison",
+  "tester.send": "Envoyer la requête",
+  "tester.sending": "Envoi…",
+  "tester.status": "Statut",
+  "tester.time": "Temps",
+  "tester.responseBody": "Réponse",
+  "tester.empty": "Aucune requête envoyée.",
+  "tester.error": "Échec de la requête.",
+  "nav.tester": "Testeur d'API",
+
   "features.title": "Fonctionnalités",
   "features.fast": "Ultra rapide",
   "features.fastDesc": "Servi par un CDN mondial, les données minifiées chargent en millisecondes.",
