@@ -46,7 +46,7 @@ export function buildSnippets(c: WidgetConfig): Snippet[] {
 ${container}
 
 <!-- 2. Add this script before the closing </body> tag -->
-<script src="${CDN_BASE}/dist/widget.js"></script>`,
+<script src="https://your-domain.vercel.app/widget.js"></script>`,
     },
     {
       id: "react",
