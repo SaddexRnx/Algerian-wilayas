@@ -342,7 +342,11 @@ const en: Record<TranslationKey, string> = {
   "api.subtitle": "Three read-only endpoints, served from the CDN.",
   "api.params": "Parameters",
   "api.response": "Response",
-  "api.wilayasDesc": "Full list of the 69 wilayas with code, Arabic name and Latin name.",
+  "api.example": "Example",
+  "api.note":
+    "These are static, CDN-cached endpoints. They load in <50ms globally and require no API keys.",
+  "api.wilayasDesc": "Lightweight list of the 69 wilayas with code, Arabic name and Latin name.",
+  "api.fullDesc": "Complete hierarchical dataset: wilayas, dairas and communes in a single file.",
   "api.dairasDesc": "All dairas of a given wilaya, identified by its code.",
   "api.communesDesc": "All communes of a given daira.",
 
