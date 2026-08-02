@@ -14,6 +14,21 @@ interface Endpoint {
 const ENDPOINTS: Endpoint[] = [
   {
     method: "GET",
+    path: "/api/index.json",
+    descKey: "api.indexDesc",
+    response: `{
+  "endpoints": [
+    "/api/wilayas.json",
+    "/api/full-data.json",
+    "/api/wilayas/{code}.json"
+  ]
+}`,
+    example: `const index = await fetch(
+  "${BASE}/api/index.json"
+).then((r) => r.json());`,
+  },
+  {
+    method: "GET",
     path: "/api/wilayas.json",
     descKey: "api.wilayasDesc",
     response: `[
@@ -51,6 +66,77 @@ const ENDPOINTS: Endpoint[] = [
 const alger = data.find((w) => w.code === 16);
 const communes = alger.dairas.flatMap((d) => d.communes);`,
   },
+  {
+    method: "GET",
+    path: "/api/wilayas/{code}.json",
+    descKey: "api.wilayaDesc",
+    response: `{
+  "code": 16,
+  "arabic": "الجزائر",
+  "ascii": "Alger",
+  "dairas": [
+    {
+      "arabic": "سيدي امحمد",
+      "ascii": "Sidi M'Hamed",
+      "slug": "sidi-mhamed",
+      "communes": [
+        { "arabic": "الجزائر الوسطى", "ascii": "Alger Centre" }
+      ]
+    }
+  ]
+}`,
+    example: `const alger = await fetch(
+  "${BASE}/api/wilayas/16.json"
+).then((r) => r.json());`,
+  },
+  {
+    method: "GET",
+    path: "/api/wilayas/{code}/dairas.json",
+    descKey: "api.wilayaDairasDesc",
+    response: `[
+  {
+    "arabic": "سيدي امحمد",
+    "ascii": "Sidi M'Hamed",
+    "slug": "sidi-mhamed",
+    "communeCount": 2
+  }
+]`,
+    example: `const dairas = await fetch(
+  "${BASE}/api/wilayas/16/dairas.json"
+).then((r) => r.json());`,
+  },
+  {
+    method: "GET",
+    path: "/api/wilayas/{code}/communes.json",
+    descKey: "api.wilayaCommunesDesc",
+    response: `[
+  {
+    "arabic": "الجزائر الوسطى",
+    "ascii": "Alger Centre",
+    "daira": "Sidi M'Hamed"
+  }
+]`,
+    example: `const communes = await fetch(
+  "${BASE}/api/wilayas/16/communes.json"
+).then((r) => r.json());`,
+  },
+  {
+    method: "GET",
+    path: "/api/wilayas/{code}/dairas/{daira}.json",
+    descKey: "api.dairaDetailDesc",
+    response: `{
+  "arabic": "باب الوادي",
+  "ascii": "Bab El Oued",
+  "slug": "bab-el-oued",
+  "wilayaCode": 16,
+  "communes": [
+    { "arabic": "باب الوادي", "ascii": "Bab El Oued" }
+  ]
+}`,
+    example: `const daira = await fetch(
+  "${BASE}/api/wilayas/16/dairas/bab-el-oued.json"
+).then((r) => r.json());`,
+  },
 ];
 
 export function ApiDocs() {
@@ -68,7 +154,10 @@ export function ApiDocs() {
 
       <p className="mt-3 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
         {t("api.theming")}{" "}
-        <code className="rounded bg-gray-950 px-1.5 py-0.5 font-mono text-xs text-gray-100" dir="ltr">
+        <code
+          className="rounded bg-gray-950 px-1.5 py-0.5 font-mono text-xs text-gray-100"
+          dir="ltr"
+        >
           --dz-border-color: #ff0000;
         </code>
       </p>
