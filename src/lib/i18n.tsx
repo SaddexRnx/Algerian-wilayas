@@ -96,6 +96,19 @@ const fr = {
   "api.dairasDesc": "Toutes les dairas d'une wilaya donnée, identifiée par son code.",
   "api.communesDesc": "Toutes les communes d'une daira donnée.",
 
+  "tester.title": "Testeur d'API en direct",
+  "tester.subtitle":
+    "Envoyez une vraie requête aux points de terminaison statiques et inspectez la réponse.",
+  "tester.endpoint": "Point de terminaison",
+  "tester.send": "Envoyer la requête",
+  "tester.sending": "Envoi…",
+  "tester.status": "Statut",
+  "tester.time": "Temps",
+  "tester.responseBody": "Réponse",
+  "tester.empty": "Aucune requête envoyée.",
+  "tester.error": "Échec de la requête.",
+  "nav.tester": "Testeur d'API",
+
   "features.title": "Fonctionnalités",
   "features.fast": "Ultra rapide",
   "features.fastDesc": "Servi par un CDN mondial, les données minifiées chargent en millisecondes.",
@@ -224,6 +237,18 @@ const ar: Record<TranslationKey, string> = {
   "api.dairasDesc": "كل دوائر ولاية محددة عبر رمزها.",
   "api.communesDesc": "كل بلديات دائرة محددة.",
 
+  "tester.title": "مُختبِر الواجهة البرمجية",
+  "tester.subtitle": "أرسل طلبًا حقيقيًا إلى نقاط الوصول الثابتة وافحص الاستجابة.",
+  "tester.endpoint": "نقطة الوصول",
+  "tester.send": "إرسال الطلب",
+  "tester.sending": "جارٍ الإرسال…",
+  "tester.status": "الحالة",
+  "tester.time": "الزمن",
+  "tester.responseBody": "الاستجابة",
+  "tester.empty": "لم يتم إرسال أي طلب بعد.",
+  "tester.error": "فشل الطلب.",
+  "nav.tester": "مُختبِر API",
+
   "features.title": "المميزات",
   "features.fast": "سرعة فائقة",
   "features.fastDesc": "مستضافة على شبكة عالمية، تُحمَّل البيانات في أجزاء من الثانية.",
@@ -350,6 +375,18 @@ const en: Record<TranslationKey, string> = {
   "api.dairasDesc": "All dairas of a given wilaya, identified by its code.",
   "api.communesDesc": "All communes of a given daira.",
 
+  "tester.title": "Live API Tester",
+  "tester.subtitle": "Send a real request to the static endpoints and inspect the response.",
+  "tester.endpoint": "Endpoint",
+  "tester.send": "Send Request",
+  "tester.sending": "Sending…",
+  "tester.status": "Status",
+  "tester.time": "Time",
+  "tester.responseBody": "Response",
+  "tester.empty": "No request sent yet.",
+  "tester.error": "Request failed.",
+  "nav.tester": "API Tester",
+
   "features.title": "Features",
   "features.fast": "Blazing fast",
   "features.fastDesc": "Served from a global CDN, the minified data loads in milliseconds.",
@@ -407,7 +444,7 @@ interface I18nValue {
 const I18nContext = createContext<I18nValue | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("fr");
+  const [lang, setLangState] = useState<Lang>("en");
 
   useEffect(() => {
     try {
