@@ -1,8 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useEffect, useState, type ReactNode } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { ForcedLanguageProvider, useI18n, type TranslationKey } from "@/lib/i18n";
-import { adminLogin, adminLogout, adminStatus } from "@/lib/admin-auth.functions";
+import { adminLogout } from "@/lib/admin-auth.functions";
+import { clearAdminAuthed, isAdminAuthed } from "@/lib/admin-mock-auth";
 import { adminAnalytics, type AnalyticsPayload } from "@/lib/admin-analytics.functions";
 import {
   Bar,
@@ -54,94 +55,6 @@ function EmptyBox({ label, className }: { label: string; className?: string }) {
       className={`flex items-center justify-center rounded-lg border border-dashed border-gray-200 bg-gray-50 text-xs text-gray-400 ${className ?? ""}`}
     >
       {label}
-    </div>
-  );
-}
-
-function LoginScreen({ onSuccess }: { onSuccess: () => void }) {
-  const { t, dir } = useI18n();
-  const login = useServerFn(adminLogin);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setLoading(true);
-    setError(false);
-    try {
-      const res = await login({ data: { email, password } });
-      if (res.ok) onSuccess();
-      else setError(true);
-    } catch {
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  const field =
-    "w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-black outline-none placeholder:text-gray-400 focus:border-black focus:ring-1 focus:ring-black";
-
-  return (
-    <div
-      dir={dir}
-      className="flex min-h-screen items-center justify-center bg-gray-50 px-4 font-[system-ui,Inter,sans-serif] antialiased"
-    >
-      <div className="w-full max-w-sm">
-        <form onSubmit={onSubmit} className={cardClass}>
-          <h1 className="text-lg font-bold tracking-tight text-black">{t("admin.login.title")}</h1>
-          <p className="mt-1 text-sm text-gray-500">{t("admin.login.subtitle")}</p>
-
-          <label className="mt-6 block text-xs font-medium text-gray-500" htmlFor="admin-email">
-            {t("admin.login.email")}
-          </label>
-          <input
-            id="admin-email"
-            type="email"
-            autoComplete="username"
-            dir="ltr"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className={`mt-1.5 ${field}`}
-          />
-
-          <label className="mt-4 block text-xs font-medium text-gray-500" htmlFor="admin-password">
-            {t("admin.login.password")}
-          </label>
-          <input
-            id="admin-password"
-            type="password"
-            autoComplete="current-password"
-            dir="ltr"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={`mt-1.5 ${field}`}
-          />
-
-          {error && (
-            <p role="alert" className="mt-3 text-xs text-gray-700">
-              {t("admin.login.error")}
-            </p>
-          )}
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="mt-6 w-full rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-50"
-          >
-            {loading ? t("admin.login.loading") : t("admin.login.submit")}
-          </button>
-        </form>
-        <div className="mt-4 text-center">
-          <Link to="/" className="text-xs text-gray-500 transition hover:text-black">
-            {t("nav.backHome")}
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }
@@ -478,35 +391,25 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
 
 
 function AdminPage() {
-  const status = useServerFn(adminStatus);
+  const navigate = useNavigate();
   const logout = useServerFn(adminLogout);
-  const [authed, setAuthed] = useState<boolean | null>(null);
+  const [authed, setAuthed] = useState(false);
 
   useEffect(() => {
-    let active = true;
-    void status()
-      .then((r) => {
-        if (active) setAuthed(r.authenticated);
-      })
-      .catch(() => {
-        if (active) setAuthed(false);
-      });
-    return () => {
-      active = false;
-    };
-  }, [status]);
+    if (isAdminAuthed()) setAuthed(true);
+    else void navigate({ to: "/login", replace: true });
+  }, [navigate]);
 
-  let body: ReactNode;
-  if (authed === null) body = <div className="min-h-screen bg-gray-50" />;
-  else if (!authed) body = <LoginScreen onSuccess={() => setAuthed(true)} />;
-  else
-    body = (
-      <Dashboard
-        onSignOut={() => {
-          void logout().finally(() => setAuthed(false));
-        }}
-      />
-    );
+  const body: ReactNode = authed ? (
+    <Dashboard
+      onSignOut={() => {
+        clearAdminAuthed();
+        void logout().finally(() => navigate({ to: "/login", replace: true }));
+      }}
+    />
+  ) : (
+    <div className="min-h-screen bg-gray-50" />
+  );
 
   return <ForcedLanguageProvider lang="en">{body}</ForcedLanguageProvider>;
 }
