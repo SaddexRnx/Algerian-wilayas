@@ -3,7 +3,6 @@ import { SearchableSelect } from "@/components/SearchableSelect";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
 import { trackedFetch } from "@/lib/analytics";
 
-
 export interface Commune {
   arabic: string;
   ascii: string;
@@ -12,6 +11,7 @@ export interface Commune {
 export interface Daira {
   arabic: string;
   ascii: string;
+  slug: string;
   communes: Commune[];
 }
 
@@ -19,36 +19,56 @@ export interface Wilaya {
   code: number;
   arabic: string;
   ascii: string;
-  dairas: Daira[];
 }
 
-const DEMO_DATA_URL = "/api/full-data.json";
+const WILAYAS_URL = "/api/wilayas.json";
+const wilayaDairasUrl = (code: string | number) => `/api/wilayas/${code}-dairas.json`;
+const dairaUrl = (code: string | number, slug: string) => `/api/dairas/${code}-${slug}.json`;
 
-const CACHE_KEY = "dz-address-picker:data";
+const CACHE_KEY = "dz-address-picker:wilayas";
 const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
 const STATE_KEY = "dz-address-picker:state";
 
-function normalize(json: unknown): Wilaya[] {
+function slugify(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/['\u2019]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function normalizeWilayas(json: unknown): Wilaya[] {
   return (Array.isArray(json) ? json : []).map((w) => {
     const raw = w as Record<string, unknown>;
     return {
       code: Number(raw["code"]),
       arabic: String(raw["arabic"] ?? ""),
       ascii: String(raw["ascii"] ?? ""),
-      dairas: (Array.isArray(raw["dairas"]) ? raw["dairas"] : []).map((d: unknown) => {
-        const rd = d as Record<string, unknown>;
-        return {
-          arabic: String(rd["arabic"] ?? ""),
-          ascii: String(rd["ascii"] ?? ""),
-          communes: (Array.isArray(rd["communes"]) ? rd["communes"] : []).map((c: unknown) => {
-            const rc = c as Record<string, unknown>;
-            return {
-              arabic: String(rc["arabic"] ?? ""),
-              ascii: String(rc["ascii"] ?? ""),
-            };
-          }),
-        };
-      }),
+    };
+  });
+}
+
+function normalizeDairas(json: unknown): Daira[] {
+  return (Array.isArray(json) ? json : []).map((d) => {
+    const raw = d as Record<string, unknown>;
+    const ascii = String(raw["name_ascii"] ?? raw["ascii"] ?? "");
+    return {
+      arabic: String(raw["name_ar"] ?? raw["arabic"] ?? ""),
+      ascii,
+      slug: String(raw["slug"] ?? slugify(ascii)),
+      communes: normalizeCommunes(raw["communes"]),
+    };
+  });
+}
+
+function normalizeCommunes(json: unknown): Commune[] {
+  return (Array.isArray(json) ? json : []).map((c) => {
+    const raw = c as Record<string, unknown>;
+    return {
+      arabic: String(raw["name_ar"] ?? raw["arabic"] ?? ""),
+      ascii: String(raw["name_ascii"] ?? raw["ascii"] ?? ""),
     };
   });
 }
@@ -60,7 +80,7 @@ function readCache(): Wilaya[] | null {
     const parsed = JSON.parse(raw) as { at: number; data: unknown };
     if (!parsed || typeof parsed.at !== "number") return null;
     if (Date.now() - parsed.at > CACHE_TTL_MS) return null;
-    const list = normalize(parsed.data);
+    const list = normalizeWilayas(parsed.data);
     return list.length ? list : null;
   } catch {
     return null;
@@ -72,7 +92,7 @@ function readStaleCache(): Wilaya[] | null {
     const raw = window.localStorage.getItem(CACHE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw) as { data: unknown };
-    const list = normalize(parsed?.data);
+    const list = normalizeWilayas(parsed?.data);
     return list.length ? list : null;
   } catch {
     return null;
@@ -108,7 +128,6 @@ const PRESETS: { id: Preset; labelKey: TranslationKey }[] = [
   { id: "compact", labelKey: "picker.presetCompact" },
 ];
 
-
 function csvEscape(value: string) {
   return `"${value.replace(/"/g, '""')}"`;
 }
@@ -128,21 +147,25 @@ export function AlgeriaAddressPicker({
   defaultCommuneName,
 }: AlgeriaAddressPickerProps = {}) {
   const { t, lang } = useI18n();
-  const [data, setData] = useState<Wilaya[]>([]);
+
+  const [wilayas, setWilayas] = useState<Wilaya[]>([]);
+  const [dairas, setDairas] = useState<Daira[]>([]);
+  const [communes, setCommunes] = useState<Commune[]>([]);
 
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [isStale, setIsStale] = useState(false);
+  const [dairasLoading, setDairasLoading] = useState(false);
+  const [communesLoading, setCommunesLoading] = useState(false);
 
   const [wilayaCode, setWilayaCode] = useState("");
   const [dairaIndex, setDairaIndex] = useState("");
   const [communeIndex, setCommuneIndex] = useState("");
 
-
   const [preset, setPreset] = useState<Preset>("full");
   const [copied, setCopied] = useState(false);
   const restored = useRef(false);
-
+  const pending = useRef<{ daira?: string | null; commune?: string | null }>({});
 
   const load = useCallback((useCache = true) => {
     setIsLoading(true);
@@ -152,14 +175,14 @@ export function AlgeriaAddressPicker({
     if (useCache) {
       const cached = readCache();
       if (cached) {
-        setData(cached);
+        setWilayas(cached);
         setIsLoading(false);
         return () => {};
       }
     }
 
     let active = true;
-    trackedFetch(DEMO_DATA_URL, { source: "demo" })
+    trackedFetch(WILAYAS_URL, { source: "demo" })
       .then((r) => {
         if (!r.ok) throw new Error("Request failed");
         return r.json();
@@ -167,14 +190,14 @@ export function AlgeriaAddressPicker({
       .then((json: unknown) => {
         if (!active) return;
         writeCache(json);
-        setData(normalize(json));
+        setWilayas(normalizeWilayas(json));
         setIsLoading(false);
       })
       .catch(() => {
         if (!active) return;
         const stale = readStaleCache();
         if (stale) {
-          setData(stale);
+          setWilayas(stale);
           setIsStale(true);
         } else {
           setIsError(true);
@@ -192,53 +215,132 @@ export function AlgeriaAddressPicker({
   }, [load]);
 
   const wilaya = useMemo(
-    () => data.find((w) => String(w.code) === wilayaCode),
-    [data, wilayaCode],
+    () => wilayas.find((w) => String(w.code) === wilayaCode),
+    [wilayas, wilayaCode],
   );
-  const daira = wilaya?.dairas[Number(dairaIndex)];
-  const commune = daira?.communes[Number(communeIndex)];
+  const daira = dairas[Number(dairaIndex)];
+  const commune = communes[Number(communeIndex)];
+
+  // Fetch the dairas of the selected wilaya from its granular endpoint.
+  useEffect(() => {
+    if (!wilayaCode) {
+      setDairas([]);
+      return;
+    }
+    let active = true;
+    setDairasLoading(true);
+    trackedFetch(wilayaDairasUrl(wilayaCode), { source: "demo", wilayaCode: Number(wilayaCode) })
+      .then((r) => {
+        if (!r.ok) throw new Error("Request failed");
+        return r.json();
+      })
+      .then((json: unknown) => {
+        if (!active) return;
+        const list = normalizeDairas(json);
+        setDairas(list);
+        const want = pending.current.daira;
+        if (want) {
+          const i = list.findIndex((d) => d.ascii === want || d.arabic === want);
+          if (i >= 0) setDairaIndex(String(i));
+          pending.current.daira = null;
+        }
+      })
+      .catch(() => {
+        if (active) setDairas([]);
+      })
+      .finally(() => {
+        if (active) setDairasLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [wilayaCode]);
+
+  // Fetch the communes of the selected daira from its granular endpoint.
+  useEffect(() => {
+    const selected = dairas[Number(dairaIndex)];
+    if (!wilayaCode || !selected) {
+      setCommunes([]);
+      return;
+    }
+    let active = true;
+    setCommunesLoading(true);
+    trackedFetch(dairaUrl(wilayaCode, selected.slug), {
+      source: "demo",
+      wilayaCode: Number(wilayaCode),
+    })
+      .then((r) => {
+        if (!r.ok) throw new Error("Request failed");
+        return r.json();
+      })
+      .then((json: unknown) => {
+        if (!active) return;
+        const raw = json as Record<string, unknown>;
+        const list = normalizeCommunes(raw["communes"]);
+        setCommunes(list.length ? list : selected.communes);
+      })
+      .catch(() => {
+        // Fall back to the communes already nested in the wilaya payload.
+        if (active) setCommunes(selected.communes);
+      })
+      .finally(() => {
+        if (!active) return;
+        setCommunesLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [wilayaCode, dairaIndex, dairas]);
+
+  // Apply a pending commune restore once its communes have arrived.
+  useEffect(() => {
+    const want = pending.current.commune;
+    if (!want || !communes.length) return;
+    const i = communes.findIndex((c) => c.ascii === want || c.arabic === want);
+    if (i >= 0) setCommuneIndex(String(i));
+    pending.current.commune = null;
+  }, [communes]);
 
   const wilayaOptions = useMemo(
     () =>
-      data.map((w) => ({
+      wilayas.map((w) => ({
         value: String(w.code),
         label: lang === "ar" ? `${w.code} - ${w.arabic}` : `${w.code} - ${w.ascii}`,
         search: `${w.code} ${w.arabic} ${w.ascii}`,
       })),
-    [data, lang],
+    [wilayas, lang],
   );
 
   const dairaOptions = useMemo(
     () =>
-      (wilaya?.dairas ?? []).map((d, i) => ({
+      dairas.map((d, i) => ({
         value: String(i),
         label: lang === "ar" ? d.arabic : d.ascii,
-        search: `${d.arabic} ${d.ascii}`,
+        search: `${d.arabic} ${d.ascii} ${d.slug}`,
       })),
-    [wilaya, lang],
+    [dairas, lang],
   );
 
   const communeOptions = useMemo(
     () =>
-      (daira?.communes ?? []).map((c, i) => ({
+      communes.map((c, i) => ({
         value: String(i),
         label: lang === "ar" ? c.arabic : c.ascii,
         search: `${c.arabic} ${c.ascii}`,
       })),
-    [daira, lang],
-
+    [communes, lang],
   );
 
   // Restore selection from props, then the URL, then the persisted localStorage state.
   useEffect(() => {
-    if (restored.current || !data.length || typeof window === "undefined") return;
+    if (restored.current || !wilayas.length || typeof window === "undefined") return;
     restored.current = true;
 
     const params = new URLSearchParams(window.location.search);
-    let w = defaultWilayaCode !== undefined ? String(defaultWilayaCode) : (params.get("wilaya") ?? "");
+    let w =
+      defaultWilayaCode !== undefined ? String(defaultWilayaCode) : (params.get("wilaya") ?? "");
     let d = defaultWilayaCode !== undefined ? (defaultDairaName ?? null) : params.get("daira");
-    let c =
-      defaultWilayaCode !== undefined ? (defaultCommuneName ?? null) : params.get("commune");
+    let c = defaultWilayaCode !== undefined ? (defaultCommuneName ?? null) : params.get("commune");
 
     if (!w) {
       try {
@@ -261,17 +363,10 @@ export function AlgeriaAddressPicker({
     }
 
     if (!w) return;
-    const found = data.find((x) => String(x.code) === w);
-    if (!found) return;
+    if (!wilayas.some((x) => String(x.code) === w)) return;
+    pending.current = { daira: d, commune: c };
     setWilayaCode(w);
-    if (d === null) return;
-    const di = found.dairas.findIndex((x) => x.ascii === d || x.arabic === d);
-    if (di < 0) return;
-    setDairaIndex(String(di));
-    if (c === null) return;
-    const ci = found.dairas[di]!.communes.findIndex((x) => x.ascii === c || x.arabic === c);
-    if (ci >= 0) setCommuneIndex(String(ci));
-  }, [data, defaultWilayaCode, defaultDairaName, defaultCommuneName]);
+  }, [wilayas, defaultWilayaCode, defaultDairaName, defaultCommuneName]);
 
   // Keep the URL in sync so the selection is shareable.
   useEffect(() => {
@@ -327,9 +422,7 @@ export function AlgeriaAddressPicker({
     );
   }, [wilaya, daira, commune]);
 
-  const fullAddressAr = [commune?.arabic, daira?.arabic, wilaya?.arabic]
-    .filter(Boolean)
-    .join("، ");
+  const fullAddressAr = [commune?.arabic, daira?.arabic, wilaya?.arabic].filter(Boolean).join("، ");
   const fullAddressLatin = [commune?.ascii, daira?.ascii, wilaya?.ascii]
     .filter(Boolean)
     .join(", ");
@@ -350,16 +443,18 @@ export function AlgeriaAddressPicker({
   const fullAddress = formatted;
 
   const exportCsv = () => {
-    const rows: string[] = ["wilaya_code,wilaya_ar,wilaya_latin,daira_ar,daira_latin,commune_ar,commune_latin"];
-    const source = wilaya ? [wilaya] : data;
-    source.forEach((w) => {
-      w.dairas.forEach((d) => {
+    const rows: string[] = [];
+    let filename = "dz-wilayas.csv";
+
+    if (wilaya && dairas.length) {
+      rows.push("wilaya_code,wilaya_ar,wilaya_latin,daira_ar,daira_latin,commune_ar,commune_latin");
+      dairas.forEach((d) => {
         d.communes.forEach((c) => {
           rows.push(
             [
-              String(w.code),
-              w.arabic,
-              w.ascii,
+              String(wilaya.code),
+              wilaya.arabic,
+              wilaya.ascii,
               d.arabic,
               d.ascii,
               c.arabic,
@@ -370,16 +465,22 @@ export function AlgeriaAddressPicker({
           );
         });
       });
-    });
+      filename = `dz-addresses-wilaya-${wilaya.code}.csv`;
+    } else {
+      rows.push("wilaya_code,wilaya_ar,wilaya_latin");
+      wilayas.forEach((w) => {
+        rows.push([String(w.code), w.arabic, w.ascii].map(csvEscape).join(","));
+      });
+    }
+
     const blob = new Blob(["\uFEFF" + rows.join("\n")], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = wilaya ? `dz-addresses-wilaya-${wilaya.code}.csv` : "dz-addresses.csv";
+    a.download = filename;
     a.click();
     URL.revokeObjectURL(url);
   };
-
 
   if (isLoading) return <Skeleton />;
 
@@ -422,6 +523,7 @@ export function AlgeriaAddressPicker({
         searchPlaceholder={t("picker.searchWilaya")}
         emptyLabel={t("picker.noMatches")}
         onChange={(v) => {
+          pending.current = {};
           setWilayaCode(v);
           setDairaIndex("");
           setCommuneIndex("");
@@ -433,7 +535,7 @@ export function AlgeriaAddressPicker({
         label={t("picker.daira")}
         value={dairaIndex}
         options={dairaOptions}
-        disabled={!wilaya}
+        disabled={!wilaya || dairasLoading}
         placeholder={wilaya ? t("picker.selectDaira") : t("picker.wilayaFirst")}
         searchPlaceholder={t("picker.searchDaira")}
         emptyLabel={t("picker.noMatches")}
@@ -448,7 +550,7 @@ export function AlgeriaAddressPicker({
         label={t("picker.commune")}
         value={communeIndex}
         options={communeOptions}
-        disabled={!daira}
+        disabled={!daira || communesLoading}
         placeholder={daira ? t("picker.selectCommune") : t("picker.dairaFirst")}
         searchPlaceholder={t("picker.searchCommune")}
         emptyLabel={t("picker.noMatches")}
@@ -462,7 +564,6 @@ export function AlgeriaAddressPicker({
         >
           {t("picker.preview")}
         </p>
-
 
         <div
           role="radiogroup"
@@ -522,10 +623,8 @@ export function AlgeriaAddressPicker({
           >
             {t("picker.export")}
           </button>
-
         </div>
       </div>
-
     </div>
   );
 }
