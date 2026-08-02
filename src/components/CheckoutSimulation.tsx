@@ -8,10 +8,27 @@ const FIELDS = [
 
 const STEP_DELAY = 800;
 
-export function CheckoutSimulation() {
+export interface LiveAddress {
+  wilayaCode: string;
+  wilayaName: string;
+  dairaName: string;
+  communeName: string;
+}
+
+export function CheckoutSimulation({ live }: { live?: LiveAddress }) {
   const [step, setStep] = useState(0);
   const [running, setRunning] = useState(false);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  const liveValues = [
+    live?.wilayaCode ? `${live.wilayaCode} - ${live.wilayaName}` : "",
+    live?.dairaName ?? "",
+    live?.communeName ?? "",
+  ];
+  const hasLive = liveValues.some(Boolean);
+  const livePostal = live?.wilayaCode
+    ? `${String(live.wilayaCode).padStart(2, "0")}000`
+    : "";
 
   useEffect(() => {
     return () => {
