@@ -237,6 +237,18 @@ const ar: Record<TranslationKey, string> = {
   "api.dairasDesc": "كل دوائر ولاية محددة عبر رمزها.",
   "api.communesDesc": "كل بلديات دائرة محددة.",
 
+  "tester.title": "مُختبِر الواجهة البرمجية",
+  "tester.subtitle": "أرسل طلبًا حقيقيًا إلى نقاط الوصول الثابتة وافحص الاستجابة.",
+  "tester.endpoint": "نقطة الوصول",
+  "tester.send": "إرسال الطلب",
+  "tester.sending": "جارٍ الإرسال…",
+  "tester.status": "الحالة",
+  "tester.time": "الزمن",
+  "tester.responseBody": "الاستجابة",
+  "tester.empty": "لم يتم إرسال أي طلب بعد.",
+  "tester.error": "فشل الطلب.",
+  "nav.tester": "مُختبِر API",
+
   "features.title": "المميزات",
   "features.fast": "سرعة فائقة",
   "features.fastDesc": "مستضافة على شبكة عالمية، تُحمَّل البيانات في أجزاء من الثانية.",
