@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { SearchableSelect } from "@/components/SearchableSelect";
 
 export interface Commune {
   arabic: string;
@@ -23,12 +24,7 @@ const DEMO_DATA_URL =
 
 const CACHE_KEY = "dz-address-picker:data";
 const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
-
-const selectClass =
-  "w-full p-3 border border-gray-300 rounded-lg bg-white text-black focus:ring-1 focus:ring-black focus:border-black outline-none transition disabled:bg-gray-50 disabled:text-gray-400";
-
-const searchClass =
-  "w-full mb-2 p-2 text-sm border border-gray-200 rounded-md bg-white text-black placeholder:text-gray-400 focus:ring-1 focus:ring-black focus:border-black outline-none transition disabled:bg-gray-50 disabled:text-gray-400";
+const STATE_KEY = "dz-address-picker:state";
 
 function normalize(json: unknown): Wilaya[] {
   return (Array.isArray(json) ? json : []).map((w) => {
@@ -124,9 +120,6 @@ export function AlgeriaAddressPicker() {
   const [dairaIndex, setDairaIndex] = useState("");
   const [communeIndex, setCommuneIndex] = useState("");
 
-  const [wilayaQuery, setWilayaQuery] = useState("");
-  const [dairaQuery, setDairaQuery] = useState("");
-  const [communeQuery, setCommuneQuery] = useState("");
 
   const [preset, setPreset] = useState<Preset>("full");
   const [copied, setCopied] = useState(false);
@@ -187,34 +180,35 @@ export function AlgeriaAddressPicker() {
   const daira = wilaya?.dairas[Number(dairaIndex)];
   const commune = daira?.communes[Number(communeIndex)];
 
-  const filteredWilayas = useMemo(() => {
-    const q = wilayaQuery.trim().toLowerCase();
-    if (!q) return data;
-    return data.filter(
-      (w) =>
-        w.arabic.toLowerCase().includes(q) ||
-        w.ascii.toLowerCase().includes(q) ||
-        String(w.code).includes(q),
-    );
-  }, [data, wilayaQuery]);
+  const wilayaOptions = useMemo(
+    () =>
+      data.map((w) => ({
+        value: String(w.code),
+        label: `${w.code} - ${w.arabic} (${w.ascii})`,
+        search: `${w.code} ${w.arabic} ${w.ascii}`,
+      })),
+    [data],
+  );
 
-  const filteredDairas = useMemo(() => {
-    const list = (wilaya?.dairas ?? []).map((d, i) => ({ d, i }));
-    const q = dairaQuery.trim().toLowerCase();
-    if (!q) return list;
-    return list.filter(
-      ({ d }) => d.arabic.toLowerCase().includes(q) || d.ascii.toLowerCase().includes(q),
-    );
-  }, [wilaya, dairaQuery]);
+  const dairaOptions = useMemo(
+    () =>
+      (wilaya?.dairas ?? []).map((d, i) => ({
+        value: String(i),
+        label: `${d.arabic} (${d.ascii})`,
+        search: `${d.arabic} ${d.ascii}`,
+      })),
+    [wilaya],
+  );
 
-  const filteredCommunes = useMemo(() => {
-    const list = (daira?.communes ?? []).map((c, i) => ({ c, i }));
-    const q = communeQuery.trim().toLowerCase();
-    if (!q) return list;
-    return list.filter(
-      ({ c }) => c.arabic.toLowerCase().includes(q) || c.ascii.toLowerCase().includes(q),
-    );
-  }, [daira, communeQuery]);
+  const communeOptions = useMemo(
+    () =>
+      (daira?.communes ?? []).map((c, i) => ({
+        value: String(i),
+        label: `${c.arabic} (${c.ascii})`,
+        search: `${c.arabic} ${c.ascii}`,
+      })),
+    [daira],
+  );
 
   // Restore selection from the URL once the dataset is available.
   useEffect(() => {
