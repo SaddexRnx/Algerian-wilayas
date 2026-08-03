@@ -157,6 +157,8 @@ export function AlgeriaAddressPicker({
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [isStale, setIsStale] = useState(false);
+  const [levelError, setLevelError] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
   const [dairasLoading, setDairasLoading] = useState(false);
   const [communesLoading, setCommunesLoading] = useState(false);
 
