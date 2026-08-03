@@ -167,6 +167,7 @@ export function AlgeriaAddressPicker({
   const [communeIndex, setCommuneIndex] = useState("");
 
   const [preset, setPreset] = useState<Preset>("full");
+  const [quickQuery, setQuickQuery] = useState("");
   const [copied, setCopied] = useState(false);
   const restored = useRef(false);
   const pending = useRef<{ daira?: string | null; commune?: string | null }>({});
@@ -330,6 +331,46 @@ export function AlgeriaAddressPicker({
       })),
     [dairas, lang],
   );
+
+  // Fast, flat search across every daira and commune of the selected wilaya.
+  const quickResults = useMemo(() => {
+    const q = quickQuery.trim().toLowerCase();
+    if (!q) return [];
+    const out: {
+      key: string;
+      label: string;
+      type: "daira" | "commune";
+      dairaIndex: number;
+      communeAscii?: string;
+    }[] = [];
+
+    dairas.forEach((d, di) => {
+      if (`${d.arabic} ${d.ascii} ${d.slug}`.toLowerCase().includes(q)) {
+        out.push({
+          key: `d-${di}`,
+          label: lang === "ar" ? d.arabic : d.ascii,
+          type: "daira",
+          dairaIndex: di,
+        });
+      }
+      d.communes.forEach((c, ci) => {
+        if (`${c.arabic} ${c.ascii}`.toLowerCase().includes(q)) {
+          const name = lang === "ar" ? c.arabic : c.ascii;
+          const parent = lang === "ar" ? d.arabic : d.ascii;
+          out.push({
+            key: `c-${di}-${ci}`,
+            label: `${name} — ${parent}`,
+            type: "commune",
+            dairaIndex: di,
+            communeAscii: c.ascii,
+          });
+        }
+      });
+    });
+
+    return out.slice(0, 40);
+  }, [quickQuery, dairas, lang]);
+
 
   const communeOptions = useMemo(
     () =>
@@ -547,8 +588,67 @@ export function AlgeriaAddressPicker({
           setWilayaCode(v);
           setDairaIndex("");
           setCommuneIndex("");
+          setQuickQuery("");
         }}
       />
+
+      {wilaya && dairas.length > 0 && (
+        <div className="rounded-lg border border-gray-200 bg-white p-3">
+          <label
+            htmlFor="dz-quick-search"
+            className="block text-xs font-medium tracking-wide text-gray-500 uppercase"
+          >
+            {t("picker.quick")}
+          </label>
+          <input
+            id="dz-quick-search"
+            type="search"
+            value={quickQuery}
+            onChange={(e) => setQuickQuery(e.target.value)}
+            placeholder={t("picker.quickPlaceholder")}
+            aria-describedby="dz-quick-hint"
+            className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-black focus:ring-1 focus:ring-black"
+          />
+          <p id="dz-quick-hint" className="mt-2 text-xs text-gray-400">
+            {t("picker.quickHint")}
+          </p>
+
+          {quickQuery.trim() !== "" && (
+            <ul
+              className="mt-2 max-h-56 overflow-y-auto rounded-md border border-gray-200"
+              aria-label={t("picker.quick")}
+            >
+              {quickResults.length === 0 && (
+                <li className="px-3 py-2 text-sm text-gray-400">{t("picker.noMatches")}</li>
+              )}
+              {quickResults.map((r) => (
+                <li key={r.key}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      pending.current = {};
+                      if (r.type === "commune") {
+                        pending.current.commune = r.communeAscii ?? null;
+                      }
+                      setDairaIndex(String(r.dairaIndex));
+                      setCommuneIndex("");
+                      setQuickQuery("");
+                    }}
+                    className="flex w-full items-center justify-between gap-3 px-3 py-2 text-start text-sm text-gray-800 transition hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
+                  >
+                    <span className="truncate">{r.label}</span>
+                    <span className="shrink-0 rounded border border-gray-200 px-1.5 py-0.5 text-[10px] tracking-wide text-gray-500 uppercase">
+                      {r.type === "daira" ? t("picker.quickDaira") : t("picker.quickCommune")}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+
+
 
       <SearchableSelect
         id="dz-daira"
