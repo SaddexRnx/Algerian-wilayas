@@ -588,6 +588,7 @@ export function AlgeriaAddressPicker({
           setWilayaCode(v);
           setDairaIndex("");
           setCommuneIndex("");
+          setQuickQuery("");
         }}
       />
 
