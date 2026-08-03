@@ -18,6 +18,9 @@ export default defineConfig({
       VitePWA({
         registerType: "autoUpdate",
         filename: "sw.js",
+        // The client bundle is emitted to dist/client; the worker must land there
+        // so it is served from the site root as /sw.js.
+        outDir: "dist/client",
         // The registration wrapper in src/lib/register-sw.ts is the only registrar.
         injectRegister: null,
         devOptions: { enabled: false },
