@@ -227,15 +227,21 @@ export function AlgeriaAddressPicker({
   useEffect(() => {
     if (!wilayaCode) {
       setDairas([]);
+      setLevelError(false);
       return;
     }
     let active = true;
     setDairasLoading(true);
-    cachedJson(wilayaDairasUrl(wilayaCode), { source: "demo", wilayaCode: Number(wilayaCode) })
-      .then((json: unknown) => {
+    cachedJsonWithMeta(wilayaDairasUrl(wilayaCode), {
+      source: "demo",
+      wilayaCode: Number(wilayaCode),
+    })
+      .then(({ data: json, stale }) => {
         if (!active) return;
         const list = normalizeDairas(json);
         setDairas(list);
+        setLevelError(false);
+        if (stale) setIsStale(true);
         const want = pending.current.daira;
         if (want) {
           const i = list.findIndex((d) => d.ascii === want || d.arabic === want);
@@ -244,7 +250,13 @@ export function AlgeriaAddressPicker({
         }
       })
       .catch(() => {
-        if (active) setDairas([]);
+        if (!active) return;
+        // Offline with no cached copy for this wilaya: fall back to whatever
+        // the (possibly cached) wilaya payload already carries.
+        const fallback = wilayas.find((w) => String(w.code) === wilayaCode)?.dairas ?? [];
+        setDairas(fallback);
+        setIsStale(fallback.length > 0);
+        setLevelError(fallback.length === 0);
       })
       .finally(() => {
         if (active) setDairasLoading(false);
@@ -252,7 +264,7 @@ export function AlgeriaAddressPicker({
     return () => {
       active = false;
     };
-  }, [wilayaCode]);
+  }, [wilayaCode, wilayas, reloadKey]);
 
   // Fetch the communes of the selected daira from its granular endpoint.
   useEffect(() => {
@@ -263,19 +275,22 @@ export function AlgeriaAddressPicker({
     }
     let active = true;
     setCommunesLoading(true);
-    cachedJson(dairaUrl(wilayaCode, selected.slug), {
+    cachedJsonWithMeta(dairaUrl(wilayaCode, selected.slug), {
       source: "demo",
       wilayaCode: Number(wilayaCode),
     })
-      .then((json: unknown) => {
+      .then(({ data: json, stale }) => {
         if (!active) return;
         const raw = json as Record<string, unknown>;
         const list = normalizeCommunes(raw["communes"]);
         setCommunes(list.length ? list : selected.communes);
+        if (stale) setIsStale(true);
       })
       .catch(() => {
         // Fall back to the communes already nested in the wilaya payload.
-        if (active) setCommunes(selected.communes);
+        if (!active) return;
+        setCommunes(selected.communes);
+        if (selected.communes.length) setIsStale(true);
       })
       .finally(() => {
         if (!active) return;
@@ -283,6 +298,7 @@ export function AlgeriaAddressPicker({
       });
     return () => {
       active = false;
+
     };
   }, [wilayaCode, dairaIndex, dairas]);
 
