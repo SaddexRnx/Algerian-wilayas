@@ -233,7 +233,11 @@ Every request goes through a small `localStorage` cache:
 2. A **stale** entry is refreshed in the background from the network.
 3. If the network **fails**, the stale copy is served anyway and the UI shows a clear
    "Network unavailable — showing a local copy" notice with a **Retry** button.
-4. If there is no cached copy at all, an explicit error state with **Retry** is displayed —
+4. On the published site a service worker additionally caches the app shell and every
+   `/api/*.json` response it sees, so after the first visit the whole app — page, assets and
+   address data — keeps working with no connection at all. (The worker is disabled in dev and
+   in editor previews on purpose.)
+5. If there is no cached copy at all, an explicit error state with **Retry** is displayed —
    the UI never silently shows an empty dropdown.
 
 ## Internationalisation
