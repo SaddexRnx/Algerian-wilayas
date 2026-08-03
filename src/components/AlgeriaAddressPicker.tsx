@@ -550,6 +550,64 @@ export function AlgeriaAddressPicker({
         }}
       />
 
+      {wilaya && dairas.length > 0 && (
+        <div className="rounded-lg border border-gray-200 bg-white p-3">
+          <label
+            htmlFor="dz-quick-search"
+            className="block text-xs font-medium tracking-wide text-gray-500 uppercase"
+          >
+            {t("picker.quick")}
+          </label>
+          <input
+            id="dz-quick-search"
+            type="search"
+            value={quickQuery}
+            onChange={(e) => setQuickQuery(e.target.value)}
+            placeholder={t("picker.quickPlaceholder")}
+            aria-describedby="dz-quick-hint"
+            className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-black focus:ring-1 focus:ring-black"
+          />
+          <p id="dz-quick-hint" className="mt-2 text-xs text-gray-400">
+            {t("picker.quickHint")}
+          </p>
+
+          {quickQuery.trim() !== "" && (
+            <ul
+              className="mt-2 max-h-56 overflow-y-auto rounded-md border border-gray-200"
+              aria-label={t("picker.quick")}
+            >
+              {quickResults.length === 0 && (
+                <li className="px-3 py-2 text-sm text-gray-400">{t("picker.noMatches")}</li>
+              )}
+              {quickResults.map((r) => (
+                <li key={r.key}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      pending.current = {};
+                      if (r.type === "commune") {
+                        pending.current.commune = r.communeAscii ?? null;
+                      }
+                      setDairaIndex(String(r.dairaIndex));
+                      setCommuneIndex("");
+                      setQuickQuery("");
+                    }}
+                    className="flex w-full items-center justify-between gap-3 px-3 py-2 text-start text-sm text-gray-800 transition hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
+                  >
+                    <span className="truncate">{r.label}</span>
+                    <span className="shrink-0 rounded border border-gray-200 px-1.5 py-0.5 text-[10px] tracking-wide text-gray-500 uppercase">
+                      {r.type === "daira" ? t("picker.quickDaira") : t("picker.quickCommune")}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+
+
+
       <SearchableSelect
         id="dz-daira"
         label={t("picker.daira")}
