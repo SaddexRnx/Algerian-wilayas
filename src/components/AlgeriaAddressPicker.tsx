@@ -167,6 +167,7 @@ export function AlgeriaAddressPicker({
   const [communeIndex, setCommuneIndex] = useState("");
 
   const [preset, setPreset] = useState<Preset>("full");
+  const [quickQuery, setQuickQuery] = useState("");
   const [copied, setCopied] = useState(false);
   const restored = useRef(false);
   const pending = useRef<{ daira?: string | null; commune?: string | null }>({});
