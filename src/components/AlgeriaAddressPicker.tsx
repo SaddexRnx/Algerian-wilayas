@@ -511,12 +511,22 @@ export function AlgeriaAddressPicker({
 
   return (
     <div className="space-y-5">
-      {isStale && (
-        <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-gray-200 bg-gray-50 px-3 py-2">
-          <p className="text-xs text-gray-500">{t("picker.stale")}</p>
+      {(isStale || levelError) && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-gray-200 bg-gray-50 px-3 py-2"
+        >
+          <p className={levelError ? "text-xs text-gray-700" : "text-xs text-gray-500"}>
+            {levelError ? t("picker.error") : t("picker.stale")}
+          </p>
           <button
             type="button"
-            onClick={() => load(false)}
+            onClick={() => {
+              setLevelError(false);
+              setReloadKey((k) => k + 1);
+              load(false);
+            }}
             className="rounded border border-gray-300 bg-white px-2.5 py-1 text-xs text-gray-700 transition hover:bg-gray-100"
           >
             {t("picker.retry")}
