@@ -1,196 +1,312 @@
-# DZ Address Select
+# DZ Address Picker
 
-Act as an expert full-stack developer and minimalist UI/UX designer. Build a complete, production-ready, single-page web application called "DZ Address Picker". 
+**A free, blazing-fast, plug-and-play Algerian address system — 58 Wilayas (69 with the new administrative divisions), all Dairas and 1,541 Communes — as a static JSON API, an embeddable widget and a React component.**
 
+Monochrome by design. Zero dependencies for the widget. Works offline once cached.
 
+---
 
-The goal is to provide developers and e-commerce store owners with a beautiful, plug-and-play solution to integrate official Algerian addresses (69 Wilayas, Dairas, and Communes) into their websites.
+## Table of contents
 
+- [Why](#why)
+- [Features](#features)
+- [Live demo](#live-demo)
+- [Quick start](#quick-start)
+  - [1. Script tag (any website)](#1-script-tag-any-website)
+  - [2. React / Next.js](#2-react--nextjs)
+  - [3. WordPress / WooCommerce](#3-wordpress--woocommerce)
+  - [4. Plain fetch](#4-plain-fetch)
+- [The API](#the-api)
+- [Widget configuration](#widget-configuration)
+- [Events](#events)
+- [Theming](#theming)
+- [Offline behaviour](#offline-behaviour)
+- [Internationalisation](#internationalisation)
+- [Local development](#local-development)
+- [Project structure](#project-structure)
+- [Contributing](#contributing)
+- [Star the project](#star-the-project)
+- [License](#license)
+- [Contact](#contact)
 
+---
 
-### ⛔ STRICT RULES (MUST FOLLOW WITHOUT EXCEPTION):
+## Why
 
-1. ZERO ATTRIBUTION OR COPYRIGHT: Do NOT include any copyright notices, credits, watermarks, or mentions of "islam-re", "Algeria-wilayas", "GitHub", or any previous repository in the UI, footer, or code comments. Present the data neutrally as "Official Algerian Administrative Data".
+Every Algerian e-commerce store rebuilds the same thing: a Wilaya → Daira → Commune dropdown,
+usually with an outdated hardcoded array copied from a forum. DZ Address Picker gives you the
+official administrative hierarchy as pre-split, CDN-friendly JSON plus a ready-made UI you can
+drop into any checkout in under a minute.
 
-2. STRICT DESIGN SYSTEM: Use ONLY black, white, and grayscale (Tailwind classes: black, white, gray-50 to `gray-950`). 
+## Features
 
-   - NO gradients, NO vibrant colors, NO blue/green accents.
+- **Complete dataset** — every Wilaya, Daira and Commune, in Arabic and Latin script.
+- **Static JSON API** — ~2,000 pre-generated files, no server, no rate limits, instant responses.
+- **Granular endpoints** — load only the Dairas of one Wilaya instead of the whole country.
+- **Embeddable widget** — one `<script>` tag mounts cascading selects into any `div`.
+- **React component** — `<AlgeriaAddressPicker />` with searchable dropdowns and presets.
+- **Offline-first cache** — responses are cached in `localStorage` (6h TTL) and reused when the
+  network fails, with a clear "showing a local copy" notice.
+- **Fully accessible** — keyboard navigation, ARIA labels, focus management, screen-reader tested.
+- **Trilingual UI** — English (default), French and Arabic with full RTL mirroring.
+- **CSV export** — download the current Wilaya/Daira/Commune selection as CSV.
+- **Shareable URLs** — the selection is reflected in query parameters and restored on load.
+- **Strict monochrome design** — black, white and grays only, blends into any brand.
+- **WordPress plugin** — WooCommerce checkout integration, downloadable as a ZIP.
+- **Live API tester** — a mini-Postman built into the site with autocomplete.
 
-   - Rely on generous whitespace, subtle borders (`border-gray-200`), crisp typography (Inter or system-ui), and subtle shadows (`shadow-sm`).
+## Live demo
 
-   - The design must be ultra-modern, clean, and professional.
+**https://dz-address-select.vercel.app**
 
-3. NO MOCK DATA: You must fetch the REAL, LIVE data automatically from the official source at runtime. Do not hardcode mock arrays.
+Try the interactive picker, the animated checkout simulation, the event console and the API tester.
 
+---
 
+## Quick start
 
-### 🌐 DATA FETCHING & MAPPING INSTRUCTIONS:
+### 1. Script tag (any website)
 
-Fetch the live JSON data directly from this URL on component mount:
+```html
+<div class="dz-address-picker"></div>
+<script src="https://dz-address-select.vercel.app/widget.js"></script>
+```
 
-https://raw.githubusercontent.com/islam-re/Algeria-wilayas/main/json/wilaya-daira-commune/wilaya-daira-commune.json
+That's it. The widget fetches the data, injects its own styles and renders three cascading
+selects plus a hidden input containing the formatted address.
 
+### 2. React / Next.js
 
+```tsx
+import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
 
-Map the fetched data to this exact TypeScript interface (adapt to the actual keys in the JSON, typically code, arabic, `ascii`):
-
-```typescript
-
-interface Commune {
-
-  arabic: string;
-
-  ascii: string;
-
-  postal_code?: string; 
-
+export default function Checkout() {
+  return (
+    <AlgeriaAddressPicker
+      defaultWilayaCode={16}
+      defaultDairaName="Bir Mourad Rais"
+      defaultCommuneName="Hydra"
+    />
+  );
 }
+```
 
+Listen for changes anywhere in the app:
 
+```ts
+window.addEventListener("dz-address-update", (e) => {
+  console.log((e as CustomEvent).detail);
+  // { wilayaCode: "16", wilayaName: "...", dairaName: "...", communeName: "..." }
+});
+```
+
+### 3. WordPress / WooCommerce
+
+1. Download the plugin ZIP from the **Integration → WordPress** tab on the live site.
+2. WordPress admin → **Plugins → Add New → Upload Plugin** → activate.
+3. **Settings → DZ Address Picker** → set the API base URL.
+4. The picker is injected automatically above the billing address, or use the shortcode
+   `[dz_address_picker]` anywhere.
+
+The selection is saved on the order as `_dz_address`, `_dz_wilaya`, `_dz_daira` and `_dz_commune`.
+
+### 4. Plain fetch
+
+```js
+const wilayas = await fetch("https://dz-address-select.vercel.app/api/wilayas.json").then((r) =>
+  r.json(),
+);
+
+const dairas = await fetch(
+  "https://dz-address-select.vercel.app/api/wilayas/16/dairas.json",
+).then((r) => r.json());
+```
+
+---
+
+## The API
+
+Base URL: `https://dz-address-select.vercel.app/api`
+
+| Method | Endpoint                                | Description                                          |
+| ------ | --------------------------------------- | ---------------------------------------------------- |
+| GET    | `/index.json`                           | API index: available routes and dataset metadata      |
+| GET    | `/wilayas.json`                         | All Wilayas (code, Arabic name, Latin name)           |
+| GET    | `/full-data.json`                       | The complete nested dataset in one file               |
+| GET    | `/wilayas/{code}.json`                  | One Wilaya with its Dairas and Communes               |
+| GET    | `/wilayas/{code}/dairas.json`           | Dairas of one Wilaya                                  |
+| GET    | `/wilayas/{code}/communes.json`         | Flat list of every Commune in one Wilaya              |
+| GET    | `/wilayas/{code}-dairas.json`           | Dairas with nested Communes (compact alias)           |
+| GET    | `/wilayas/{code}/dairas/{slug}.json`    | One Daira with its Communes                           |
+
+Working examples:
+
+```
+GET /api/wilayas.json
+GET /api/wilayas/19.json
+GET /api/wilayas/19/dairas.json
+GET /api/wilayas/19/dairas/bouandas.json
+```
+
+Shape:
+
+```ts
+interface Commune {
+  arabic: string;
+  ascii: string;
+}
 
 interface Daira {
-
   arabic: string;
-
   ascii: string;
-
+  slug: string;
   communes: Commune[];
-
 }
-
-
 
 interface Wilaya {
-
   code: number;
-
   arabic: string;
-
   ascii: string;
-
-  dairas: Daira[];
-
 }
+```
 
+All endpoints are plain static files: cacheable, CORS-friendly, no key, no quota.
 
+---
 
-PAGE SECTIONS TO BUILD:
+## Widget configuration
 
-Header / Navigation:
+Configure the script-tag widget with data attributes:
 
-Minimalist top bar with a subtle bottom border (border-b border-gray-200).
+| Attribute         | Values                            | Default            | Description                          |
+| ----------------- | --------------------------------- | ------------------ | ------------------------------------ |
+| `data-lang`       | `ar`, `fr`, `en`                  | `ar`               | Label language and option script     |
+| `data-format`     | `arabic`, `latin`, `json`         | `arabic`           | Hidden input output format           |
+| `data-input-name` | any string                        | `shipping_address` | Name of the generated hidden input   |
+| `data-wilaya`     | Wilaya code                       | —                  | Pre-selected Wilaya                  |
+| `data-daira`      | Daira name (Arabic or Latin)      | —                  | Pre-selected Daira                   |
+| `data-commune`    | Commune name (Arabic or Latin)    | —                  | Pre-selected Commune                 |
 
-Left: Bold text logo "DZ Address Picker" (text-black font-bold text-xl).
+```html
+<div
+  class="dz-address-picker"
+  data-lang="fr"
+  data-format="json"
+  data-input-name="customer_address"
+  data-wilaya="16"
+></div>
+```
 
-Right: Simple text links: "Demo", "Integration", "Docs" (text-gray-600 hover:text-black transition).
+## Events
 
-Hero Section:
+Both the widget and the React component dispatch a bubbling `dz-address-update` event on every
+change:
 
-Centered, bold typography with generous vertical padding (py-20).
+```ts
+{
+  wilayaCode: string;
+  wilayaName: string;
+  dairaName:  string;
+  communeName: string;
+}
+```
 
-H1: "The Modern Algerian Address Integration." (text-4xl md:text-5xl font-bold text-black tracking-tight).
+## Theming
 
-Subtitle: "The complete, up-to-date dataset of all 69 Wilayas and 1,541 Communes. Ready for e-commerce, forms, and maps. Zero dependencies." (text-xl text-gray-500 max-w-2xl mx-auto mt-4).
+Override these CSS variables to match your brand while keeping the layout intact:
 
-Two buttons:
+```css
+:root {
+  --dz-bg-color: #ffffff;
+  --dz-text-color: #000000;
+  --dz-border-color: #d1d5db;
+  --dz-focus-ring-color: #000000;
+  --dz-disabled-bg: #f9fafb;
+}
+```
 
-Primary: "View Live Demo" (bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition).
+## Offline behaviour
 
-Secondary: "Copy Integration Code" (bg-white text-black border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-50 transition).
+Every request goes through a small `localStorage` cache:
 
-Live Demo Section (ID: demo):
+1. A **fresh** entry (younger than 6 hours) resolves instantly, with no network call.
+2. A **stale** entry is refreshed in the background from the network.
+3. If the network **fails**, the stale copy is served anyway and the UI shows a clear
+   "Network unavailable — showing a local copy" notice with a **Retry** button.
+4. If there is no cached copy at all, an explicit error state with **Retry** is displayed —
+   the UI never silently shows an empty dropdown.
 
-A clean, bordered card (bg-white border border-gray-200 rounded-xl shadow-sm p-8 max-w-2xl mx-auto).
+## Internationalisation
 
-Title: "Live Interactive Demo" (text-lg font-semibold text-black mb-6).
+The interface ships in **English (default)**, **French** and **Arabic**. The Arabic locale
+switches the document to RTL and mirrors every component. The selected language is persisted
+across page loads.
 
-Implement the actual cascading dropdowns using React state (useState):
+---
 
-Select 1 (Wilaya): Populated from fetched data. Display format: {code} - {arabic} ({ascii}).
+## Local development
 
-Select 2 (Daira): Disabled until Wilaya is chosen. Display format: {arabic}.
-
-Select 3 (Commune): Disabled until Daira is chosen. Display format: {arabic}.
-
-Input (Postal Code): Read-only input that auto-fills when a Commune is selected. If the source JSON lacks postal codes, dynamically generate a placeholder (e.g., Wilaya 16 → "16000") and add a subtle helper text: "Auto-generated placeholder".
-
-Style all native <select> and <input> elements to match the minimalist theme: w-full p-3 border border-gray-300 rounded-lg focus:ring-1 focus:ring-black focus:border-black outline-none transition.
-
-One-Click Integration Section (ID: integration):
-
-Dark card for contrast (bg-gray-950 text-white rounded-xl p-8 max-w-2xl mx-auto mt-16).
-
-Title: "Integrate in 30 Seconds" (text-lg font-semibold mb-4).
-
-Description: "Add this single line of code before the closing </body> tag of your website." (text-gray-400 text-sm mb-4).
-
-
-
-A code block (bg-gray-900 rounded-lg p-4 relative) containing:
-
-html
-
-
-
-<div class="dz-address-picker"></div>
-
-<script src="https://cdn.jsdelivr.net/gh/your-username/dz-address-picker@main/dist/widget.js"></script>
-
-
-
-Include a functional "Copy" button (absolute top-4 right-4 bg-gray-800 hover:bg-gray-700 text-xs px-3 py-1 rounded text-white transition) that copies the snippet to the clipboard and temporarily changes text to "Copied!".
-
-Features Grid:
-
-3-column grid on desktop (grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-20).
-
-Each feature: Simple monochrome SVG icon (stroke black or gray-600), bold title (text-black font-semibold), and subtle description (text-gray-500 text-sm mt-2).
-
-Feature 1: "Blazing Fast" - Hosted on global CDN, minified data loads in milliseconds.
-
-Feature 2: "Framework Agnostic" - Works with Vanilla JS, React, Vue, WordPress, and Shopify.
-
-Feature 3: "Always Updated" - Reflects the latest official administrative reforms.
-
-Footer:
-
-Simple, centered text at the bottom (py-12 text-gray-400 text-sm).
-
-Text: "Built for the Algerian developer community. Open source and free to use."
-
-NO external links, NO mentions of the original data source.
-
-⚙️ TECHNICAL REQUIREMENTS:
-
-Use React with TypeScript (Vite/Next.js compatible).
-
-Use Tailwind CSS for ALL styling. Strictly enforce the grayscale palette.
-
-Create a reusable, self-contained React component <AlgeriaAddressPicker /> that handles the fetching and cascading logic, so it can be easily extracted into a standalone script later.
-
-Handle loading states (isLoading) and error states (isError) gracefully with minimalist UI (e.g., a simple skeleton loader or subtle error message).
-
-Ensure the code is clean, modular, and completely free of any forbidden attributions.
-
-Generate the complete application with all components, the live fetch logic, and the styling exactly as described.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ed549980-73e4-4b3e-8bd1-838694b578b3).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
+git clone https://github.com/SaddexRnx/dz-address-picker.git
+cd dz-address-picker
+npm install
 npm run dev
 ```
+
+Open http://localhost:8080.
+
+Regenerate the static API files after a dataset update:
+
+```bash
+node scripts/split-data.js
+```
+
+## Project structure
+
+```text
+public/
+  api/                 generated static JSON endpoints
+  widget.js            standalone embeddable widget
+  wp-plugin/           WordPress / WooCommerce plugin sources
+scripts/
+  split-data.js        dataset -> granular JSON generator
+src/
+  components/          picker, developer hub, API tester, docs, checkout demo
+  lib/                 i18n, analytics, offline cache
+  routes/              landing page, login, admin dashboard
+```
+
+---
+
+## Contributing
+
+Contributions are very welcome — data corrections especially.
+
+1. Fork the repository and create a branch: `git checkout -b feat/my-change`.
+2. Keep the design system strictly monochrome (black, white, grays only).
+3. Keep the UI trilingual: add new strings to `src/lib/i18n.tsx` for **EN, FR and AR**.
+4. Run `npm run lint` and make sure types pass before opening a PR.
+5. For dataset changes, edit the source data and re-run `node scripts/split-data.js`, then commit
+   the regenerated files.
+6. Open a pull request with a clear description and, for UI changes, a screenshot.
+
+Found a wrong Commune name or a missing Daira? Open an issue with the Wilaya code and the correct
+spelling in both Arabic and Latin script — those are the most valuable contributions.
+
+## Star the project
+
+If this saved you a few hours, please **⭐ star the repository** — it's free, it takes one click,
+and it genuinely helps other Algerian developers find the project.
+
+## License
+
+Released under the **MIT License**. Free for personal and commercial use.
+
+The administrative dataset is official Algerian public administrative data.
+
+## Contact
+
+- **Telegram:** [@Saddex_x](https://t.me/Saddex_x)
+- **Portfolio:** [SaddexRnx.github.io](https://SaddexRnx.github.io)
+
+Built for the Algerian developer community. Open source and free to use.

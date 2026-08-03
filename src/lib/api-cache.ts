@@ -30,18 +30,23 @@ function write(url: string, data: unknown) {
   }
 }
 
+export interface CachedResult {
+  data: unknown;
+  /** True when the network failed and a previously cached copy was served. */
+  stale: boolean;
+}
+
 /**
- * Fetches a static JSON endpoint through the localStorage cache.
- * A fresh entry resolves instantly; a stale entry is used only when the
- * network request fails.
+ * Fetches a static JSON endpoint through the localStorage cache and reports
+ * whether the payload came from an offline fallback.
  */
-export async function cachedJson(
+export async function cachedJsonWithMeta(
   url: string,
   options: { source?: ApiSource; wilayaCode?: number | null; ttl?: number } = {},
-): Promise<unknown> {
+): Promise<CachedResult> {
   const ttl = options.ttl ?? DEFAULT_TTL_MS;
   const cached = read(url, ttl);
-  if (cached?.fresh) return cached.data;
+  if (cached?.fresh) return { data: cached.data, stale: false };
 
   try {
     const res = await trackedFetch(url, {
@@ -51,9 +56,22 @@ export async function cachedJson(
     if (!res.ok) throw new Error("Request failed");
     const json: unknown = await res.json();
     write(url, json);
-    return json;
+    return { data: json, stale: false };
   } catch (error) {
-    if (cached) return cached.data;
+    if (cached) return { data: cached.data, stale: true };
     throw error;
   }
+}
+
+/**
+ * Fetches a static JSON endpoint through the localStorage cache.
+ * A fresh entry resolves instantly; a stale entry is used only when the
+ * network request fails.
+ */
+export async function cachedJson(
+  url: string,
+  options: { source?: ApiSource; wilayaCode?: number | null; ttl?: number } = {},
+): Promise<unknown> {
+  const { data } = await cachedJsonWithMeta(url, options);
+  return data;
 }

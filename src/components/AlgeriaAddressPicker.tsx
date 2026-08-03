@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SearchableSelect } from "@/components/SearchableSelect";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
 import { trackedFetch } from "@/lib/analytics";
-import { cachedJson } from "@/lib/api-cache";
+import { cachedJson, cachedJsonWithMeta } from "@/lib/api-cache";
 
 
 export interface Commune {
@@ -157,6 +157,8 @@ export function AlgeriaAddressPicker({
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [isStale, setIsStale] = useState(false);
+  const [levelError, setLevelError] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
   const [dairasLoading, setDairasLoading] = useState(false);
   const [communesLoading, setCommunesLoading] = useState(false);
 
@@ -227,15 +229,21 @@ export function AlgeriaAddressPicker({
   useEffect(() => {
     if (!wilayaCode) {
       setDairas([]);
+      setLevelError(false);
       return;
     }
     let active = true;
     setDairasLoading(true);
-    cachedJson(wilayaDairasUrl(wilayaCode), { source: "demo", wilayaCode: Number(wilayaCode) })
-      .then((json: unknown) => {
+    cachedJsonWithMeta(wilayaDairasUrl(wilayaCode), {
+      source: "demo",
+      wilayaCode: Number(wilayaCode),
+    })
+      .then(({ data: json, stale }) => {
         if (!active) return;
         const list = normalizeDairas(json);
         setDairas(list);
+        setLevelError(false);
+        if (stale) setIsStale(true);
         const want = pending.current.daira;
         if (want) {
           const i = list.findIndex((d) => d.ascii === want || d.arabic === want);
@@ -244,7 +252,10 @@ export function AlgeriaAddressPicker({
         }
       })
       .catch(() => {
-        if (active) setDairas([]);
+        if (!active) return;
+        // Offline and no cached copy for this wilaya — surface a clear error.
+        setDairas([]);
+        setLevelError(true);
       })
       .finally(() => {
         if (active) setDairasLoading(false);
@@ -252,7 +263,7 @@ export function AlgeriaAddressPicker({
     return () => {
       active = false;
     };
-  }, [wilayaCode]);
+  }, [wilayaCode, wilayas, reloadKey]);
 
   // Fetch the communes of the selected daira from its granular endpoint.
   useEffect(() => {
@@ -263,19 +274,22 @@ export function AlgeriaAddressPicker({
     }
     let active = true;
     setCommunesLoading(true);
-    cachedJson(dairaUrl(wilayaCode, selected.slug), {
+    cachedJsonWithMeta(dairaUrl(wilayaCode, selected.slug), {
       source: "demo",
       wilayaCode: Number(wilayaCode),
     })
-      .then((json: unknown) => {
+      .then(({ data: json, stale }) => {
         if (!active) return;
         const raw = json as Record<string, unknown>;
         const list = normalizeCommunes(raw["communes"]);
         setCommunes(list.length ? list : selected.communes);
+        if (stale) setIsStale(true);
       })
       .catch(() => {
         // Fall back to the communes already nested in the wilaya payload.
-        if (active) setCommunes(selected.communes);
+        if (!active) return;
+        setCommunes(selected.communes);
+        if (selected.communes.length) setIsStale(true);
       })
       .finally(() => {
         if (!active) return;
@@ -283,6 +297,7 @@ export function AlgeriaAddressPicker({
       });
     return () => {
       active = false;
+
     };
   }, [wilayaCode, dairaIndex, dairas]);
 
@@ -496,12 +511,22 @@ export function AlgeriaAddressPicker({
 
   return (
     <div className="space-y-5">
-      {isStale && (
-        <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-gray-200 bg-gray-50 px-3 py-2">
-          <p className="text-xs text-gray-500">{t("picker.stale")}</p>
+      {(isStale || levelError) && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-gray-200 bg-gray-50 px-3 py-2"
+        >
+          <p className={levelError ? "text-xs text-gray-700" : "text-xs text-gray-500"}>
+            {levelError ? t("picker.error") : t("picker.stale")}
+          </p>
           <button
             type="button"
-            onClick={() => load(false)}
+            onClick={() => {
+              setLevelError(false);
+              setReloadKey((k) => k + 1);
+              load(false);
+            }}
             className="rounded border border-gray-300 bg-white px-2.5 py-1 text-xs text-gray-700 transition hover:bg-gray-100"
           >
             {t("picker.retry")}
