@@ -251,12 +251,9 @@ export function AlgeriaAddressPicker({
       })
       .catch(() => {
         if (!active) return;
-        // Offline with no cached copy for this wilaya: fall back to whatever
-        // the (possibly cached) wilaya payload already carries.
-        const fallback = wilayas.find((w) => String(w.code) === wilayaCode)?.dairas ?? [];
-        setDairas(fallback);
-        setIsStale(fallback.length > 0);
-        setLevelError(fallback.length === 0);
+        // Offline and no cached copy for this wilaya — surface a clear error.
+        setDairas([]);
+        setLevelError(true);
       })
       .finally(() => {
         if (active) setDairasLoading(false);
