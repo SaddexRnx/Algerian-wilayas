@@ -331,6 +331,46 @@ export function AlgeriaAddressPicker({
     [dairas, lang],
   );
 
+  // Fast, flat search across every daira and commune of the selected wilaya.
+  const quickResults = useMemo(() => {
+    const q = quickQuery.trim().toLowerCase();
+    if (!q) return [];
+    const out: {
+      key: string;
+      label: string;
+      type: "daira" | "commune";
+      dairaIndex: number;
+      communeAscii?: string;
+    }[] = [];
+
+    dairas.forEach((d, di) => {
+      if (`${d.arabic} ${d.ascii} ${d.slug}`.toLowerCase().includes(q)) {
+        out.push({
+          key: `d-${di}`,
+          label: lang === "ar" ? d.arabic : d.ascii,
+          type: "daira",
+          dairaIndex: di,
+        });
+      }
+      d.communes.forEach((c, ci) => {
+        if (`${c.arabic} ${c.ascii}`.toLowerCase().includes(q)) {
+          const name = lang === "ar" ? c.arabic : c.ascii;
+          const parent = lang === "ar" ? d.arabic : d.ascii;
+          out.push({
+            key: `c-${di}-${ci}`,
+            label: `${name} — ${parent}`,
+            type: "commune",
+            dairaIndex: di,
+            communeAscii: c.ascii,
+          });
+        }
+      });
+    });
+
+    return out.slice(0, 40);
+  }, [quickQuery, dairas, lang]);
+
+
   const communeOptions = useMemo(
     () =>
       communes.map((c, i) => ({
