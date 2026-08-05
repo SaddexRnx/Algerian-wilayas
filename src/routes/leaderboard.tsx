@@ -62,16 +62,16 @@ function LeaderboardPage() {
             <table className="w-full text-left" dir={isRtl ? 'rtl' : 'ltr'}>
               <thead className="bg-muted/50 border-b text-xs font-semibold uppercase tracking-wider">
                 <tr>
-                  <th className="px-6 py-4">{lang === 'ar' ? 'الرتبة' : lang === 'fr' ? 'Rang' : 'Rank'}</th>
-                  <th className="px-6 py-4">{lang === 'ar' ? 'المساهم' : lang === 'fr' ? 'Contributeur' : 'Contributor'}</th>
-                  <th className="px-6 py-4">{lang === 'ar' ? 'المساهمات' : lang === 'fr' ? 'Contributions' : 'Contributions'}</th>
-                  <th className="px-6 py-4">{lang === 'ar' ? 'الوسام' : lang === 'fr' ? 'Badge' : 'Badge'}</th>
+                  <th className="px-6 py-4">{t("admin.table.rank") || "Rank"}</th>
+                  <th className="px-6 py-4">{t("common.contributor") || "Contributor"}</th>
+                  <th className="px-6 py-4">{t("common.contributions") || "Contributions"}</th>
+                  <th className="px-6 py-4">{t("common.badge") || "Badge"}</th>
                 </tr>
 
               </thead>
               <tbody className="divide-y">
                 {isLoading ? (
-                  <tr><td colSpan={4} className="px-6 py-8 text-center text-muted-foreground">Loading...</td></tr>
+                  <tr><td colSpan={4} className="px-6 py-8 text-center text-muted-foreground">{t("common.loading")}</td></tr>
                 ) : leaders?.map((leader) => (
                   <tr key={leader.rank} className="hover:bg-muted/30 transition-colors">
                     <td className="px-6 py-4 whitespace-nowrap">

@@ -111,17 +111,17 @@ const ENDPOINTS: Endpoint[] = [
   {
     category: "logistics",
     method: "GET",
-    path: "/api/pickup-points/{wilaya_code}.json",
+    path: "/api/logistics/pickup-points/{wilaya_code}.json",
     descKey: "api.desc.shipping",
     params: [{ name: "wilaya_code", type: "number", desc: "Wilaya code" }],
     response: `[{"name": "Yalidine Alger", "address": "Rue 1"}]`,
-    example: `fetch("${BASE}/api/pickup-points/16.json")`,
+    example: `fetch("${BASE}/api/logistics/pickup-points/16.json")`,
   },
   // Demographics
   {
     category: "demo",
     method: "GET",
-    path: "/api/population/wilayas.json",
+    path: "/api/geo/wilayas.json",
     descKey: "api.desc.population",
     response: `[{"code": 16, "population": 2988145, "density": 2511}]`,
     example: `fetch("${BASE}/api/population/wilayas.json")`,
@@ -129,7 +129,7 @@ const ENDPOINTS: Endpoint[] = [
   {
     category: "demo",
     method: "GET",
-    path: "/api/population/wilayas/{code}.json",
+    path: "/api/geo/wilayas/{code}.json",
     descKey: "api.desc.population",
     params: [{ name: "code", type: "number", desc: "Wilaya code" }],
     response: `{"code": 16, "population": 2988145}`,

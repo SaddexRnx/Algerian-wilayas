@@ -113,8 +113,8 @@ function ChangelogPage() {
 
 
         <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">{isRtl ? 'سجل التغييرات' : 'Changelog'}</h1>
-          <p className="text-muted-foreground">{isRtl ? 'تتبع تطور DZ Address Picker من البداية.' : 'Track the evolution of DZ Address Picker from the start.'}</p>
+          <h1 className="text-4xl font-bold mb-4">{t("changelog.title")}</h1>
+          <p className="text-muted-foreground">{t("changelog.desc")}</p>
         </div>
 
         <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent">
