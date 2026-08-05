@@ -129,7 +129,7 @@ export function SearchableSelect({
         aria-disabled={disabled}
         disabled={disabled}
         onClick={() => !disabled && setOpen((o) => !o)}
-        className={`flex w-full items-center justify-between gap-3 rounded-lg border p-3 text-left transition outline-none focus-visible:ring-1 focus-visible:ring-[var(--dz-focus-ring-color)] ${
+        className={`flex w-full items-center justify-between gap-3 rounded-lg border p-2.5 sm:p-3 text-left transition outline-none focus-visible:ring-1 focus-visible:ring-[var(--dz-focus-ring-color)] ${
           disabled
             ? "cursor-not-allowed border-gray-200 bg-[var(--dz-disabled-bg)] text-gray-400"
             : "border-[var(--dz-border-color)] bg-[var(--dz-bg-color)] text-[var(--dz-text-color)] hover:border-gray-400 focus-visible:border-[var(--dz-focus-ring-color)]"
@@ -155,7 +155,7 @@ export function SearchableSelect({
       </button>
 
       {open && !disabled && (
-        <div className="absolute z-10 mt-1 max-h-60 w-full overflow-y-auto rounded-lg border border-[var(--dz-border-color)] bg-[var(--dz-bg-color)] shadow-lg">
+        <div className="absolute left-0 right-0 z-10 mt-1 max-h-60 w-full overflow-y-auto rounded-lg border border-[var(--dz-border-color)] bg-[var(--dz-bg-color)] shadow-xl">
           <div className="sticky top-0 border-b border-gray-100 bg-[var(--dz-bg-color)] p-2">
             <input
               ref={searchRef}
