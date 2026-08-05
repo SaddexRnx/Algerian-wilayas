@@ -417,13 +417,14 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full min-w-[520px] text-start text-sm">
                 <thead>
-                  <tr className="border-b border-gray-200 text-xs text-gray-500 uppercase tracking-wider">
-                    <th className="py-2 pe-3 text-start font-medium">Rank</th>
-                    <th className="py-2 pe-3 text-start font-medium">Name</th>
-                    <th className="py-2 pe-3 text-start font-medium">Code</th>
-                    <th className="py-2 pe-3 text-start font-medium">Calls</th>
-                    <th className="py-2 text-start font-medium">Share</th>
+                  <tr className="border-b border-gray-200 text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                    <th className="py-2 pe-3 text-start">{t("admin.table.rank")}</th>
+                    <th className="py-2 pe-3 text-start">{t("admin.table.name")}</th>
+                    <th className="py-2 pe-3 text-start">{t("admin.table.code")}</th>
+                    <th className="py-2 pe-3 text-start">{t("admin.table.calls")}</th>
+                    <th className="py-2 text-start">{t("admin.table.share")}</th>
                   </tr>
+
                 </thead>
                 <tbody>
                   {filteredRows.length === 0 && (
