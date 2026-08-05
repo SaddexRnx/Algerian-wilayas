@@ -193,7 +193,7 @@ export function ApiDocs() {
   return (
     <div className="mx-auto mt-16 max-w-5xl px-4 sm:px-6">
       <div className="text-center mb-16">
-        <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">{t("api.title")}</h2>
+        <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">Expend the api documentation to include every end point</h2>
         <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">{t("api.subtitle")}</p>
       </div>
 
@@ -221,10 +221,10 @@ export function ApiDocs() {
             </div>
 
             <div className="grid gap-6">
-              {ENDPOINTS.filter((e) => e.category === cat.id).map((e) => {
+              {ENDPOINTS.filter((e) => e.category === cat.id).map((e, idx) => {
                 const url = `${BASE}${e.path}`;
                 return (
-                  <article key={e.path} className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                  <article key={`${e.path}-${idx}`} className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
                     <div className="border-b border-gray-100 bg-gray-50/50 p-4 sm:px-6">
                       <div className="flex flex-wrap items-center justify-between gap-4">
                         <div className="flex items-center gap-3" dir="ltr">
