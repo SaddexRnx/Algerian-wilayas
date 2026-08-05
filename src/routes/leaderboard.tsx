@@ -37,12 +37,13 @@ function LeaderboardPage() {
 
   return (
     <div dir={dir} className={`min-h-screen bg-background text-foreground py-12 px-4 sm:px-6 lg:px-8 relative ${isRtl ? 'rtl' : ''}`}>
-      <Link
-        to="/"
-        className="fixed top-4 left-4 z-50 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-600 shadow-sm transition-all hover:bg-gray-50 hover:text-black sm:static sm:mb-8 sm:w-fit"
-      >
-        <span dir="ltr">←</span> {t("common.backHome")}
-      </Link>
+      <div className="max-w-4xl mx-auto">
+        <Link
+          to="/"
+          className={`flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-600 shadow-sm transition-all hover:bg-gray-50 hover:text-black mb-8 w-fit ${isRtl ? 'flex-row-reverse' : ''}`}
+        >
+          <span dir="ltr">{isRtl ? '→' : '←'}</span> {t("common.backHome")}
+        </Link>
       <div className="max-w-4xl mx-auto">
 
         <div className="text-center mb-12">
