@@ -541,7 +541,7 @@ const en: Record<TranslationKey, string> = {
   "api.response": "Response",
   "api.example": "Example",
   "api.note":
-    "Note: Postal codes are based on older administrative data. To help us build the most accurate and up-to-date Algerian address database, please type your exact ZIP code and Village/Neighborhood name. Your data helps us update the official records.",
+    "Postal codes are sourced from official Algérie Poste data and community corrections. Please use the 'Report Incorrect Data' feature to help us maintain 100% accuracy.",
   "api.wilayasDesc": "Lightweight list of the 69 wilayas with code, Arabic name and Latin name.",
   "api.fullDesc": "Complete hierarchical dataset: wilayas, dairas and communes in a single file.",
   "api.dairasDesc": "All dairas of a given wilaya, identified by its code.",
