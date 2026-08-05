@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
+import { checkApiHealth, type HealthCheckResult } from "@/lib/health.functions";
+
 import { CheckoutSimulation, type LiveAddress } from "@/components/CheckoutSimulation";
 import { DeveloperHub, SNIPPETS } from "@/components/DeveloperHub";
 import { ApiDocs } from "@/components/ApiDocs";
@@ -95,7 +98,32 @@ function EventConsole({ lines }: { lines: string[] }) {
 
 function Index() {
   const { t, dir, lang } = useI18n();
+  const healthCheck = useServerFn(checkApiHealth);
+  const [healthData, setHealthData] = useState<HealthCheckResult[]>([]);
+  const [healthLoading, setHealthLoading] = useState(false);
+  const [lastCheck, setLastCheck] = useState<Date | null>(null);
+
+  const runHealth = useCallback(async () => {
+    setHealthLoading(true);
+    try {
+      const res = await healthCheck();
+      setHealthData(res);
+      setLastCheck(new Date());
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setHealthLoading(false);
+    }
+  }, [healthCheck]);
+
+  useEffect(() => {
+    void runHealth();
+    const interval = setInterval(() => void runHealth(), 5 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, [runHealth]);
+
   const [live, setLive] = useState<LiveAddress | undefined>(undefined);
+
   const [logs, setLogs] = useState<string[]>([]);
   const prev = useRef<LiveAddress>({
     wilayaCode: "",
