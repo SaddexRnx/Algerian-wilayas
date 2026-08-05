@@ -195,8 +195,7 @@ const fr = {
   "tester.resolved": "Résolu en",
 
   "api.indexDesc": "Index de découverte listant tous les points de terminaison disponibles.",
-  "api.wilayaDesc": "Détail complet d'une wilaya : ses dairas et leurs communes.",
-  "api.fullDataDesc": "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
+  "api.wilayaDairasFlatDesc": "Dairas et communes d'une wilaya uniquement. Bien plus léger que full-data.json ; filtrez le tableau côté client.",
   "nav.adminLogin": "Connexion admin",
   "nav.dashboard": "Tableau de bord",
   "api.wilayaCommunesDesc": "Liste à plat de toutes les communes d'une wilaya.",
