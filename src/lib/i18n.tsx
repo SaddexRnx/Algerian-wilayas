@@ -194,7 +194,6 @@ const baseTranslations = {
   "common.vote": { en: "Vote", fr: "Voter", ar: "تصويت" },
   "common.share": { en: "Share", fr: "Partager", ar: "مشاركة" },
   "common.viewGuide": { en: "View Guide", fr: "Voir le guide", ar: "عرض الدليل" },
-  "common.backHome": { en: "Back to Home", fr: "Retour à l'accueil", ar: "العودة للرئيسية" },
   "leaderboard.anonymous": { en: "Share my contributions anonymously", fr: "Partager mes contributions anonymement", ar: "مشاركة مساهماتي بشكل مجهول" },
   "leaderboard.privacy": { en: "Your data will be used to improve the database but your identity will not be displayed publicly.", fr: "Vos données seront utilisées pour améliorer la base de données mais votre identité ne sera pas affichée publiquement.", ar: "سيتم استخدام بياناتك لتحسين قاعدة البيانات ولكن لن يتم عرض هويتك علنًا." },
   "vote.voted": { en: "Voted ✓", fr: "Voté ✓", ar: "تم التصويت ✓" },
