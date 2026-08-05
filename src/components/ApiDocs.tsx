@@ -28,6 +28,15 @@ const CATEGORIES = [
 ];
 
 const ENDPOINTS: Endpoint[] = [
+  // High-Performance Endpoints
+  {
+    category: "base",
+    method: "GET",
+    path: "/api/index.json",
+    descKey: "api.desc.index",
+    response: `{"v": "2.0.0", "endpoints": ["/api/wilayas.json", ...]}`,
+    example: `fetch("${BASE}/api/index.json")`,
+  },
   // Admin Divisions
   {
     category: "base",
@@ -102,17 +111,17 @@ const ENDPOINTS: Endpoint[] = [
   {
     category: "logistics",
     method: "GET",
-    path: "/api/pickup-points/{wilaya_code}.json",
+    path: "/api/logistics/pickup-points/{wilaya_code}.json",
     descKey: "api.desc.shipping",
     params: [{ name: "wilaya_code", type: "number", desc: "Wilaya code" }],
     response: `[{"name": "Yalidine Alger", "address": "Rue 1"}]`,
-    example: `fetch("${BASE}/api/pickup-points/16.json")`,
+    example: `fetch("${BASE}/api/logistics/pickup-points/16.json")`,
   },
   // Demographics
   {
     category: "demo",
     method: "GET",
-    path: "/api/population/wilayas.json",
+    path: "/api/geo/wilayas.json",
     descKey: "api.desc.population",
     response: `[{"code": 16, "population": 2988145, "density": 2511}]`,
     example: `fetch("${BASE}/api/population/wilayas.json")`,
@@ -120,7 +129,7 @@ const ENDPOINTS: Endpoint[] = [
   {
     category: "demo",
     method: "GET",
-    path: "/api/population/wilayas/{code}.json",
+    path: "/api/geo/wilayas/{code}.json",
     descKey: "api.desc.population",
     params: [{ name: "code", type: "number", desc: "Wilaya code" }],
     response: `{"code": 16, "population": 2988145}`,
@@ -234,10 +243,10 @@ export function ApiDocs() {
   return (
     <div className={`mx-auto max-w-5xl px-4 py-16 sm:px-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
       <div className="text-center mb-16">
-        <h1 className="text-4xl font-extrabold tracking-tight text-black sm:text-5xl md:text-6xl mb-4">
+        <h1 className="text-4xl font-extrabold tracking-tight text-black sm:text-5xl md:text-6xl mb-6">
           {t("api.title")}
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-medium">
           {t("api.subtitle")}
         </p>
       </div>

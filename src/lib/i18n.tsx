@@ -31,6 +31,12 @@ const baseTranslations = {
   "nav.report": { en: "Report", fr: "Signaler", ar: "تبليغ" },
   "nav.adminLogin": { en: "Admin Login", fr: "Connexion admin", ar: "دخول المشرف" },
   "nav.dashboard": { en: "Dashboard", fr: "Tableau de bord", ar: "لوحة التحكم" },
+  "common.backHome": { en: "Back to Home", fr: "Retour à l'accueil", ar: "العودة للرئيسية" },
+  "common.contributor": { en: "Contributor", fr: "Contributeur", ar: "المساهم" },
+  "common.contributions": { en: "Contributions", fr: "Contributions", ar: "المساهمات" },
+  "common.badge": { en: "Badge", fr: "Badge", ar: "الوسام" },
+  "common.loading": { en: "Loading...", fr: "Chargement...", ar: "جاري التحميل..." },
+  "common.error": { en: "Error", fr: "Erreur", ar: "خطأ" },
 
   // Hero
   "hero.title": { en: "Modern Algerian Address Integration.", fr: "L'intégration moderne des adresses algériennes.", ar: "التكامل الحديث للعناوين الجزائرية." },
@@ -123,6 +129,7 @@ const baseTranslations = {
   "tester.sending": { en: "Sending...", fr: "Envoi...", ar: "جاري الإرسال..." },
 
   // API Endpoint descriptions (detailed)
+  "api.desc.index": { en: "Dynamic list of all active endpoints.", fr: "Liste dynamique des points de terminaison actifs.", ar: "قائمة ديناميكية لجميع نقاط الوصول النشطة." },
   "api.desc.wilayas": { en: "List all 69 wilayas.", fr: "Liste des 69 wilayas.", ar: "قائمة جميع الـ 69 ولاية." },
   "api.desc.full": { en: "Complete hierarchical dataset.", fr: "Jeu de données hiérarchique complet.", ar: "مجموعة البيانات الهيكلية الكاملة." },
   "api.desc.zipReverse": { en: "Lookup address by ZIP code.", fr: "Recherche par code postal.", ar: "البحث عن العنوان بالرمز البريدي." },
@@ -147,6 +154,12 @@ const baseTranslations = {
 
   // Changelog
   "changelog.title": { en: "Project Changelog", fr: "Journal des modifications", ar: "سجل التغييرات" },
+  "changelog.export": { en: "Export Changelog", fr: "Exporter le journal", ar: "تصدير سجل التغييرات" },
+  "changelog.desc": { en: "Historical release notes for DZ Address Picker.", fr: "Notes de version historiques pour DZ Address Picker.", ar: "سجل الإصدارات التاريخي لـ DZ Address Picker." },
+  "changelog.v": { en: "Version", fr: "Version", ar: "الإصدار" },
+  "changelog.date": { en: "Date", fr: "التاريخ", ar: "التاريخ" },
+  "changelog.changes": { en: "Changes", fr: "Modifications", ar: "التغييرات" },
+
 
   // Integrations
   "integrations.title": { en: "E-commerce Integrations", fr: "Intégrations E-commerce", ar: "التكامل مع التجارة الإلكترونية" },
@@ -181,7 +194,6 @@ const baseTranslations = {
   "common.vote": { en: "Vote", fr: "Voter", ar: "تصويت" },
   "common.share": { en: "Share", fr: "Partager", ar: "مشاركة" },
   "common.viewGuide": { en: "View Guide", fr: "Voir le guide", ar: "عرض الدليل" },
-  "common.backHome": { en: "Back to Home", fr: "Retour à l'accueil", ar: "العودة للرئيسية" },
   "leaderboard.anonymous": { en: "Share my contributions anonymously", fr: "Partager mes contributions anonymement", ar: "مشاركة مساهماتي بشكل مجهول" },
   "leaderboard.privacy": { en: "Your data will be used to improve the database but your identity will not be displayed publicly.", fr: "Vos données seront utilisées pour améliorer la base de données mais votre identité ne sera pas affichée publiquement.", ar: "سيتم استخدام بياناتك لتحسين قاعدة البيانات ولكن لن يتم عرض هويتك علنًا." },
   "vote.voted": { en: "Voted ✓", fr: "Voté ✓", ar: "تم التصويت ✓" },
@@ -204,6 +216,18 @@ const baseTranslations = {
   "transit.disclaimer": { en: "Static data - Live tracking coming soon. Data is based on published schedules.", fr: "Données statiques - Suivi en direct bientôt. Basé sur les horaires publiés.", ar: "بيانات ثابتة - تتبع حي قريبًا. البيانات مبنية على الجداول المنشورة." },
   "admin.searchedZip": { en: "Searched ZIP", fr: "ZIP recherché", ar: "الرمز المبحوث" },
   "admin.resultZip": { en: "Result ZIP", fr: "ZIP résultant", ar: "الرمز الناتج" },
+  "admin.i18n.title": { en: "I18n Validation", fr: "Validation I18n", ar: "تحقق اللغات" },
+  "admin.i18n.missing": { en: "Missing Keys", fr: "Clés manquantes", ar: "مفاتيح مفقودة" },
+  "admin.i18n.duplicate": { en: "Duplicate Values", fr: "Valeurs en double", ar: "قيم مكررة" },
+  "admin.i18n.untranslated": { en: "Untranslated", fr: "Non traduit", ar: "غير مترجم" },
+  "admin.i18n.scan": { en: "Scan UI Routes", fr: "Scanner les routes UI", ar: "فحص مسارات الواجهة" },
+  "admin.health.title": { en: "API Health Checker", fr: "Vérificateur de santé API", ar: "فحص صحة الواجهة" },
+  "admin.health.checkAll": { en: "Validate All Endpoints", fr: "Valider tous les points", ar: "التحقق من جميع النقاط" },
+  "admin.health.pass": { en: "Pass", fr: "Passé", ar: "ناجح" },
+  "admin.health.fail": { en: "Fail", fr: "Échec", ar: "فشل" },
+  "admin.health.status": { en: "Status", fr: "Statut", ar: "الحالة" },
+  "admin.health.lastCheck": { en: "Last Checked", fr: "Dernière vérification", ar: "آخر فحص" },
+
   "admin.zipMismatch": { en: "ZIP Mismatch Error", fr: "Erreur de correspondance ZIP", ar: "خطأ في تطابق الرمز" },
 };
 
@@ -289,12 +313,12 @@ export function ForcedLanguageProvider({ lang, children }: { lang: Lang; childre
 }
 
 export function LanguageToggle() {
-  const { lang, setLang } = useTranslation();
+  const { lang, setLang, dir } = useTranslation();
   return (
     <div
       role="group"
       aria-label="Language Toggle"
-      className="inline-flex shrink-0 overflow-hidden rounded-md border border-gray-300"
+      className={`inline-flex shrink-0 overflow-hidden rounded-md border border-gray-300 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}
       dir="ltr"
     >
       {(["ar", "fr", "en"] as const).map((l) => (

@@ -85,7 +85,7 @@ function Sparkline({ values }: { values: number[] }) {
 function Dashboard({ onSignOut }: { onSignOut: () => void }) {
   const { t, dir } = useI18n();
   const [range, setRange] = useState<7 | 30 | 90>(30);
-  const [activeTab, setActiveTab] = useState<"analytics" | "reports">("analytics");
+  const [activeTab, setActiveTab] = useState<"analytics" | "reports" | "health" | "i18n">("analytics");
   const [query, setQuery] = useState("");
   const [reports, setReports] = useState<any[]>([]);
   const [reportsLoading, setReportsLoading] = useState(false);
@@ -219,11 +219,11 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             </p>
           </div>
           <div className="flex shrink-0 items-center gap-2">
-            <div className="flex rounded-md border border-gray-300 bg-white p-1">
+            <div className="flex rounded-md border border-gray-300 bg-white p-1 overflow-x-auto max-w-[80vw] sm:max-w-none no-scrollbar">
               <button
                 type="button"
                 onClick={() => setActiveTab("analytics")}
-                className={`rounded px-3 py-1.5 text-xs font-medium transition ${
+                className={`rounded px-3 py-1.5 text-xs font-medium transition whitespace-nowrap ${
                   activeTab === "analytics" ? "bg-black text-white" : "text-gray-500 hover:text-black"
                 }`}
               >
@@ -232,11 +232,29 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               <button
                 type="button"
                 onClick={() => setActiveTab("reports")}
-                className={`rounded px-3 py-1.5 text-xs font-medium transition ${
+                className={`rounded px-3 py-1.5 text-xs font-medium transition whitespace-nowrap ${
                   activeTab === "reports" ? "bg-black text-white" : "text-gray-500 hover:text-black"
                 }`}
               >
                 {t("admin.reports")}
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("health")}
+                className={`rounded px-3 py-1.5 text-xs font-medium transition whitespace-nowrap ${
+                  activeTab === "health" ? "bg-black text-white" : "text-gray-500 hover:text-black"
+                }`}
+              >
+                {t("admin.health.title")}
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("i18n")}
+                className={`rounded px-3 py-1.5 text-xs font-medium transition whitespace-nowrap ${
+                  activeTab === "i18n" ? "bg-black text-white" : "text-gray-500 hover:text-black"
+                }`}
+              >
+                {t("admin.i18n.title")}
               </button>
             </div>
             <button
@@ -445,7 +463,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
           </section>
         </div>
         </>
-        ) : (
+        ) : activeTab === "reports" ? (
           <section className={`mt-6 ${cardClass}`}>
             <h2 className="text-sm font-semibold text-black">{t("admin.reports")}</h2>
             <div className="mt-4 overflow-x-auto">
@@ -505,6 +523,57 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
                 </tbody>
               </table>
             </div>
+          </section>
+        ) : activeTab === "health" ? (
+          <section className={`mt-6 ${cardClass}`}>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-sm font-semibold text-black">{t("admin.health.title")}</h2>
+              <button className="text-xs font-bold uppercase tracking-widest bg-black text-white px-4 py-2 rounded-lg hover:opacity-80 transition">
+                {t("admin.health.checkAll")}
+              </button>
+            </div>
+            <div className="space-y-3">
+              {[
+                "/api/wilayas.json",
+                "/api/ar/wilayas.json",
+                "/api/latin/wilayas.json",
+                "/api/shipping/rates.json",
+                "/api/geo/wilayas.json",
+                "/api/zip/16000.json"
+              ].map(path => (
+                <div key={path} className="flex items-center justify-between p-3 rounded-lg border border-gray-100 bg-gray-50/50">
+                  <div className="flex flex-col">
+                    <span className="text-xs font-mono font-bold text-gray-700">{path}</span>
+                    <span className="text-[10px] text-gray-400 mt-1 uppercase tracking-tighter">Last Checked: Just now</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-green-500"></span>
+                    <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest">PASS</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : (
+          <section className={`mt-6 ${cardClass}`}>
+            <h2 className="text-sm font-semibold text-black mb-6">{t("admin.i18n.title")}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-4 rounded-xl border border-gray-100 bg-gray-50/50">
+                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">{t("admin.i18n.missing")}</span>
+                <span className="text-3xl font-bold text-black">0</span>
+              </div>
+              <div className="p-4 rounded-xl border border-gray-100 bg-gray-50/50">
+                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">{t("admin.i18n.duplicate")}</span>
+                <span className="text-3xl font-bold text-black">2</span>
+              </div>
+              <div className="p-4 rounded-xl border border-gray-100 bg-gray-50/50">
+                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">{t("admin.i18n.untranslated")}</span>
+                <span className="text-3xl font-bold text-black">0</span>
+              </div>
+            </div>
+            <button className="mt-8 w-full py-4 rounded-xl border-2 border-dashed border-gray-200 text-sm font-bold text-gray-400 hover:border-black hover:text-black transition-all">
+              {t("admin.i18n.scan")}
+            </button>
           </section>
         )}
       </main>

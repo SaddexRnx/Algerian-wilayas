@@ -28,8 +28,8 @@ export interface Wilaya {
 }
 
 const WILAYAS_URL = "/api/wilayas.json";
-const wilayaDairasUrl = (code: string | number) => `/api/wilayas/${code}-dairas.json`;
-const dairaUrl = (code: string | number, slug: string) => `/api/dairas/${code}-${slug}.json`;
+const wilayaDairasUrl = (code: string | number) => `/api/wilayas/${code}/dairas.json`;
+const dairaUrl = (code: string | number, slug: string) => `/api/wilayas/${code}/dairas/${slug}.json`;
 
 const CACHE_KEY = "dz-address-picker:wilayas";
 const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
@@ -932,7 +932,7 @@ export function AlgeriaAddressPicker({
         </div>
       ) : null}
 
-      <p className="mt-3 text-[10px] text-gray-400 leading-relaxed picker-zip-disclaimer">
+      <p className="mt-3 text-[10px] text-gray-400 leading-relaxed picker-zip-disclaimer italic">
         {t("picker.zipDisclaimer")}
       </p>
 
@@ -948,7 +948,7 @@ export function AlgeriaAddressPicker({
 
 
         <p
-          className={`mt-3 text-sm ${fullAddress ? "text-black" : "text-gray-400"}`}
+          className={`mt-3 text-sm font-medium ${fullAddress ? "text-black" : "text-gray-400"}`}
           dir="auto"
           aria-live="polite"
           aria-labelledby="dz-preview-label"

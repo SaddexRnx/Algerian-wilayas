@@ -155,7 +155,7 @@ export function SearchableSelect({
       </button>
 
       {open && !disabled && (
-        <div className="absolute left-0 right-0 z-10 mt-1 max-h-60 w-full overflow-y-auto rounded-lg border border-[var(--dz-border-color)] bg-[var(--dz-bg-color)] shadow-xl">
+        <div className="absolute left-0 right-0 z-[1001] mt-1 max-h-60 w-full overflow-y-auto rounded-lg border border-[var(--dz-border-color)] bg-[var(--dz-bg-color)] shadow-xl">
           <div className="sticky top-0 border-b border-gray-100 bg-[var(--dz-bg-color)] p-2">
             <input
               ref={searchRef}

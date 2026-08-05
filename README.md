@@ -1,4 +1,6 @@
 # 🇩🇿 DZ Address Picker v2.0.0
+[![Trilingual](https://img.shields.io/badge/Language-AR%20%7C%20FR%20%7C%20EN-black)](https://dz-address-select.vercel.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-gray.svg)](https://opensource.org/licenses/MIT)
 
 **The Ultimate Algerian Data Platform.** 
 A free, high-performance, and plug-and-play solution for developers and e-commerce store owners. Access all 69 wilayas, 1,541 communes, official postal codes, logistics, demographics, and economy indicators through professional trilingual APIs.
@@ -91,6 +93,9 @@ We are building a community-driven open-source project to empower Algerian digit
 - **📢 Updates:** [Telegram Channel](https://t.me/Saddex_x)
 
 ---
+
+## 🛠️ Contribution
+Found a mistake? Submit a report via our [Data Correction Center](https://dz-address-select.vercel.app/report) or open a PR on GitHub. Every contribution helps improve the accuracy for all Algerian developers.
 
 ## ⚖️ License & Open Source
 Licensed under the **MIT License**. This project belongs to the community. No attribution required for commercial use, but stars on GitHub are highly appreciated! ⭐️
