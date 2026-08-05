@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
 import { Copy, Terminal, ChevronRight, Globe, Zap, Database, Map, Truck, Users, Landmark, Plane, Search, FileDown } from "lucide-react";
 
