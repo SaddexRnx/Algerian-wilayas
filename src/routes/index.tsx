@@ -166,7 +166,9 @@ function Index() {
     { href: "/changelog", label: t("nav.changelog") },
     { href: "/integrations", label: t("nav.integrations") },
     { href: "#api", label: t("nav.api") },
+    { href: "/status", label: t("nav.status") },
   ];
+
 
 
 

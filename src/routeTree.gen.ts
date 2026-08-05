@@ -17,6 +17,7 @@ import { Route as LeaderboardRouteImport } from './routes/leaderboard'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MapRouteImport } from './routes/map'
 import { Route as ReportRouteImport } from './routes/report'
+import { Route as StatusRouteImport } from './routes/status'
 import { Route as VoteRouteImport } from './routes/vote'
 import { Route as ApiDistanceRouteImport } from './routes/api/distance'
 import { Route as ApiSearchRouteImport } from './routes/api/search'
@@ -65,6 +66,11 @@ const MapRoute = MapRouteImport.update({
 const ReportRoute = ReportRouteImport.update({
   id: '/report',
   path: '/report',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatusRoute = StatusRouteImport.update({
+  id: '/status',
+  path: '/status',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VoteRoute = VoteRouteImport.update({
@@ -123,6 +129,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/map': typeof MapRoute
   '/report': typeof ReportRoute
+  '/status': typeof StatusRoute
   '/vote': typeof VoteRoute
   '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
@@ -142,6 +149,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/map': typeof MapRoute
   '/report': typeof ReportRoute
+  '/status': typeof StatusRoute
   '/vote': typeof VoteRoute
   '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
@@ -162,6 +170,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/map': typeof MapRoute
   '/report': typeof ReportRoute
+  '/status': typeof StatusRoute
   '/vote': typeof VoteRoute
   '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
@@ -183,6 +192,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/map'
     | '/report'
+    | '/status'
     | '/vote'
     | '/api/distance'
     | '/api/search'
@@ -202,6 +212,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/map'
     | '/report'
+    | '/status'
     | '/vote'
     | '/api/distance'
     | '/api/search'
@@ -221,6 +232,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/map'
     | '/report'
+    | '/status'
     | '/vote'
     | '/api/distance'
     | '/api/search'
@@ -241,6 +253,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   MapRoute: typeof MapRoute
   ReportRoute: typeof ReportRoute
+  StatusRoute: typeof StatusRoute
   VoteRoute: typeof VoteRoute
   ApiDistanceRoute: typeof ApiDistanceRoute
   ApiSearchRoute: typeof ApiSearchRoute
@@ -308,6 +321,13 @@ declare module '@tanstack/react-router' {
       path: '/report'
       fullPath: '/report'
       preLoaderRoute: typeof ReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/status': {
+      id: '/status'
+      path: '/status'
+      fullPath: '/status'
+      preLoaderRoute: typeof StatusRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/vote': {
@@ -385,6 +405,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   MapRoute: MapRoute,
   ReportRoute: ReportRoute,
+  StatusRoute: StatusRoute,
   VoteRoute: VoteRoute,
   ApiDistanceRoute: ApiDistanceRoute,
   ApiSearchRoute: ApiSearchRoute,
