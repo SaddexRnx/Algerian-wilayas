@@ -110,8 +110,9 @@ const baseTranslations = {
   "api.catExport": { en: "Export", fr: "Exportation", ar: "التصدير" },
 
   // API Content
-  "api.title": { en: "API Documentation", fr: "Documentation API", ar: "توثيق واجهة البرمجة" },
+  "api.title": { en: "API Reference", fr: "Référence API", ar: "مرجع الواجهة" },
   "api.subtitle": { en: "Comprehensive endpoints for every use case.", fr: "Points de terminaison complets pour chaque cas.", ar: "نقاط وصول شاملة لكل حالة استخدام." },
+
   "api.example": { en: "Example", fr: "Exemple", ar: "مثال" },
   "api.response": { en: "Response", fr: "Réponse", ar: "الاستجابة" },
   "api.params": { en: "Parameters", fr: "Paramètres", ar: "المعاملات" },

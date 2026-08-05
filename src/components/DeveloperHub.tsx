@@ -379,8 +379,9 @@ export function DeveloperHub() {
 
   return (
     <div className="mx-auto mt-16 max-w-3xl px-4 sm:px-0">
-      <h2 className="text-xl sm:text-lg font-semibold text-black">{t("hub.title")}</h2>
+      <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">{t("hub.title")}</h2>
       <p className="mt-2 text-sm text-gray-500">{t("hub.subtitle")}</p>
+
 
       <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
         <h3 className="text-sm font-semibold text-black">{t("hub.liveConfig")}</h3>
