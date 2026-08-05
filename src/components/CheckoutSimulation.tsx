@@ -77,8 +77,9 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
     <div className="relative mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:mt-12 sm:p-8 sm:mx-0">
       <div className="flex flex-col sm:flex-row sm:items-start gap-4 border-b border-gray-200 pb-5 sm:justify-between">
         <div className="min-w-0">
-          <h3 className="truncate text-base font-semibold text-black">{t("checkout.header")}</h3>
-          <p className="mt-1 text-sm text-gray-500">{t("checkout.total")}</p>
+          <h3 className="truncate text-base font-bold text-black uppercase tracking-tighter">{t("checkout.header")}</h3>
+          <p className="mt-1 text-sm text-gray-500 font-medium">{t("checkout.total")}</p>
+
           {hasLive && (
             <p className="mt-2 inline-block rounded border border-gray-200 bg-gray-50 px-2 py-0.5 text-xs text-gray-600">
               {t("checkout.synced")}
