@@ -5,7 +5,7 @@ import { trackApiCall } from "@/lib/analytics";
 
 export const API_BASE = "https://dz-address-select.vercel.app";
 
-type Shape = "index" | "wilayas" | "full" | "wilaya" | "wilayaDairas" | "daira" | "zip" | "arWilayas" | "frWilayas" | "enWilayas";
+type Shape = "index" | "wilayas" | "full" | "wilaya" | "wilayaDairas" | "daira" | "zip" | "arWilayas" | "latinWilayas";
 
 const SHAPES: { id: Shape; template: string; needs: "wilaya" | "daira" | "zip" | "none" }[] = [
   { id: "index", template: "/api/index.json", needs: "none" },
@@ -16,8 +16,7 @@ const SHAPES: { id: Shape; template: string; needs: "wilaya" | "daira" | "zip" |
   { id: "daira", template: "/api/wilayas/{code}/dairas/{daira-slug}.json", needs: "daira" },
   { id: "zip", template: "/api/zip/{zipcode}.json", needs: "zip" },
   { id: "arWilayas", template: "/api/ar/wilayas.json", needs: "none" },
-  { id: "frWilayas", template: "/api/fr/wilayas.json", needs: "none" },
-  { id: "enWilayas", template: "/api/en/wilayas.json", needs: "none" },
+  { id: "latinWilayas", template: "/api/latin/wilayas.json", needs: "none" },
 ];
 
 
@@ -322,7 +321,7 @@ export function ApiTester() {
             ? t("tester.help.index")
             : shape === "zip"
             ? t("tester.help.zip")
-            : shape.endsWith("Wilayas")
+            : shape.endsWith("Wilayas") || shape.startsWith("ar") || shape.startsWith("latin")
             ? t("tester.help.lang")
             : t("tester.help.wilaya")}
 
@@ -330,7 +329,8 @@ export function ApiTester() {
 
 
 
-        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
+        {current.needs !== "none" && (
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
           <div className="min-w-0 flex-1" ref={rootRef}>
             <label
               htmlFor={`${baseId}-query`}
@@ -358,7 +358,13 @@ export function ApiTester() {
                 }}
                 onFocus={() => current.needs !== "none" && setOpen(true)}
                 onKeyDown={onInputKeyDown}
-                placeholder={t("tester.inputPlaceholder")}
+                placeholder={
+                  current.needs === "wilaya" 
+                    ? t("tester.help.wilaya") 
+                    : current.needs === "zip" 
+                      ? t("tester.help.zip") 
+                      : t("tester.inputPlaceholder")
+                }
                 dir="auto"
                 className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black placeholder:text-gray-400 focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none disabled:bg-gray-50 disabled:text-gray-400"
               />
@@ -408,7 +414,26 @@ export function ApiTester() {
             )}
             {loading ? t("tester.sending") : t("tester.send")}
           </button>
-        </div>
+          </div>
+        )}
+
+        {current.needs === "none" && (
+          <div className="mt-4 flex justify-end">
+            <button
+              type="button"
+              onClick={() => void send()}
+              disabled={loading}
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-black px-4 py-2 text-sm text-white transition hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-50"
+            >
+              {loading ? (
+                <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+              ) : (
+                <Play className="h-4 w-4" aria-hidden="true" />
+              )}
+              {loading ? t("tester.sending") : t("tester.send")}
+            </button>
+          </div>
+        )}
 
         <div className="mt-5 min-h-[13rem]" dir="ltr" aria-live="polite">
           {notFound && (

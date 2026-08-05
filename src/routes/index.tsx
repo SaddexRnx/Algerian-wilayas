@@ -11,7 +11,7 @@ import { LanguageToggle, useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "🚨 CRITICAL FIX & MAJOR UPDATE REQUIRED: The API endpoints are corrupted. You previously mixed the external ZIP dataset with our base dataset, corrupting the names and breaking the structure. We are now updating to version 1.0.4 with language-specific endpoints." },
+      { title: "🚨 CRITICAL COMPREHENSIVE UPDATE TO v1.0.4: Fix data mapping, API tester logic, language endpoints, and UI clarity." },
       {
         name: "description",
         content:

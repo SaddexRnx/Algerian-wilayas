@@ -316,6 +316,7 @@ const fieldClass =
 export function DeveloperHub() {
   const { t } = useI18n();
   const [config, setConfig] = useState<WidgetConfig>(DEFAULT_CONFIG);
+  const [showAdvanced, setShowAdvanced] = useState(false);
   const configLoaded = useRef(false);
 
 
@@ -384,51 +385,67 @@ export function DeveloperHub() {
       <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
         <h3 className="text-sm font-semibold text-black">{t("hub.liveConfig")}</h3>
         <p className="mt-1 text-sm text-gray-500">{t("hub.liveConfigDesc")}</p>
-        <div className="mt-4 grid gap-4 sm:grid-cols-3">
-          <div>
-            <label htmlFor="cfg-target" className="mb-1.5 block text-xs font-medium text-gray-700">
-              {t("hub.target")}
-            </label>
-            <input
-              id="cfg-target"
-              type="text"
-              dir="ltr"
-              value={config.target}
-              onChange={(e) => setConfig((c) => ({ ...c, target: e.target.value }))}
-              className={fieldClass}
-            />
-          </div>
-          <div>
-            <label htmlFor="cfg-format" className="mb-1.5 block text-xs font-medium text-gray-700">
-              {t("hub.format")}
-            </label>
-            <select
-              id="cfg-format"
-              value={config.format}
-              dir="ltr"
-              onChange={(e) =>
-                setConfig((c) => ({ ...c, format: e.target.value as WidgetConfig["format"] }))
-              }
-              className={fieldClass}
-            >
-              <option value="arabic">arabic</option>
-              <option value="latin">latin</option>
-              <option value="json">json</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="cfg-name" className="mb-1.5 block text-xs font-medium text-gray-700">
-              {t("hub.inputName")}
-            </label>
-            <input
-              id="cfg-name"
-              type="text"
-              dir="ltr"
-              value={config.inputName}
-              onChange={(e) => setConfig((c) => ({ ...c, inputName: e.target.value }))}
-              className={fieldClass}
-            />
-          </div>
+        <div className="mt-4">
+          <label htmlFor="cfg-target" className="mb-1.5 block text-xs font-medium text-gray-700">
+            {t("hub.target")}
+          </label>
+          <input
+            id="cfg-target"
+            type="text"
+            dir="ltr"
+            value={config.target}
+            onChange={(e) => setConfig((c) => ({ ...c, target: e.target.value }))}
+            className={fieldClass}
+          />
+        </div>
+
+        <div className="mt-6">
+          <button
+            type="button"
+            onClick={() => setShowAdvanced(!showAdvanced)}
+            className="flex items-center gap-2 text-sm font-medium text-black hover:underline"
+          >
+            <span className={`transition-transform duration-200 ${showAdvanced ? "rotate-90" : ""}`}>
+              ▶
+            </span>
+            {t("hub.showAdvanced")}
+          </button>
+
+          {showAdvanced && (
+            <div className="mt-4 grid gap-4 sm:grid-cols-2 border-t border-gray-100 pt-4 animate-in fade-in slide-in-from-top-2">
+              <div>
+                <label htmlFor="cfg-format" className="mb-1.5 block text-xs font-medium text-gray-700">
+                  {t("hub.format")}
+                </label>
+                <select
+                  id="cfg-format"
+                  value={config.format}
+                  dir="ltr"
+                  onChange={(e) =>
+                    setConfig((c) => ({ ...c, format: e.target.value as WidgetConfig["format"] }))
+                  }
+                  className={fieldClass}
+                >
+                  <option value="arabic">arabic</option>
+                  <option value="latin">latin</option>
+                  <option value="json">json</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="cfg-name" className="mb-1.5 block text-xs font-medium text-gray-700">
+                  {t("hub.inputName")}
+                </label>
+                <input
+                  id="cfg-name"
+                  type="text"
+                  dir="ltr"
+                  value={config.inputName}
+                  onChange={(e) => setConfig((c) => ({ ...c, inputName: e.target.value }))}
+                  className={fieldClass}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -483,21 +500,9 @@ export function DeveloperHub() {
 
       <PluginDownload />
 
-      <div className="mt-8 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
-
-        <h3 className="text-sm font-semibold text-black">{t("hub.options")}</h3>
-        <p className="mt-1 text-sm text-gray-500">{t("hub.optionsDesc")}</p>
-        <dl className="mt-4 divide-y divide-gray-200">
-          {WIDGET_OPTIONS.map((o) => (
-            <div key={o.attr} className="grid gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-              <dt className="font-mono text-xs text-black" dir="ltr">
-                {o.attr}
-              </dt>
-              <dd className="text-sm text-gray-600 sm:col-span-2">
-                {o.description}
-                <span className="mt-1 block font-mono text-xs break-all text-gray-400" dir="ltr">
-                  {o.example}
-                </span>
+      <div className="mt-8">
+        {/* Available attributes removed as per instructions */}
+      </div>
               </dd>
             </div>
           ))}
