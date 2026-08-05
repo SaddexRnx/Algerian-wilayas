@@ -234,10 +234,10 @@ export function ApiDocs() {
   return (
     <div className={`mx-auto max-w-5xl px-4 py-16 sm:px-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
       <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl mb-4">
+        <h1 className="text-4xl font-extrabold tracking-tight text-black sm:text-5xl md:text-6xl mb-4">
           {t("api.title")}
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
           {t("api.subtitle")}
         </p>
       </div>
@@ -258,7 +258,7 @@ export function ApiDocs() {
               {ENDPOINTS.filter((e) => e.category === cat.id).map((e, idx) => {
                 const endpointId = `${cat.id}-${idx}`;
                 return (
-                  <div key={endpointId} className="group rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden transition-all hover:border-black">
+                  <div key={endpointId} className="group rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden transition-all hover:border-black hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] duration-300">
                     <div className="bg-gray-50 p-6 sm:px-8 border-b border-gray-100">
                       <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                         <div className="flex items-center gap-3 font-mono text-sm" dir="ltr">
@@ -327,7 +327,7 @@ export function ApiDocs() {
       </div>
 
       <div className="mt-32 pt-16 border-t border-gray-100">
-        <div className="rounded-3xl bg-black p-8 sm:p-16 text-center text-white relative overflow-hidden">
+        <div className="rounded-3xl bg-black p-8 sm:p-16 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute inset-0 opacity-10 pointer-events-none">
             <div className="grid grid-cols-12 h-full w-full gap-4 p-8">
               {Array.from({ length: 48 }).map((_, i) => (
@@ -341,10 +341,10 @@ export function ApiDocs() {
               {t("footer.text")}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="https://github.com/SaddexRnx/Algerian-wilayas" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-2xl hover:bg-gray-100 transition-colors">
+              <a href="https://github.com/SaddexRnx/Algerian-wilayas" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-2xl hover:bg-gray-100 transition-all hover:scale-105 active:scale-95 shadow-lg">
                 Star on GitHub
               </a>
-              <a href="https://SaddexRnx.github.io" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-white/10 text-white font-bold rounded-2xl border border-white/20 hover:bg-white/20 transition-colors">
+              <a href="https://SaddexRnx.github.io" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-white/10 text-white font-bold rounded-2xl border border-white/20 hover:bg-white/20 transition-all hover:scale-105 active:scale-95">
                 Visit Portfolio
               </a>
             </div>
