@@ -931,40 +931,13 @@ export function AlgeriaAddressPicker({
       ) : null}
 
 
-      <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+      <div className="sm:col-span-2 rounded-lg border border-gray-200 bg-gray-50 p-4">
         <p
           id="dz-preview-label"
           className="text-xs font-medium tracking-wide text-gray-500 uppercase"
         >
           {t("picker.preview")}
         </p>
-
-        <div
-          role="radiogroup"
-          aria-label={t("picker.preview")}
-          className="mt-3 flex flex-wrap gap-2"
-        >
-          {PRESETS.map((p) => {
-            const isActive = p.id === preset;
-            return (
-              <button
-                key={p.id}
-                type="button"
-                role="radio"
-                aria-checked={isActive}
-                onClick={() => setPreset(p.id)}
-                className={
-                  (isActive
-                    ? "bg-black text-white "
-                    : "border border-gray-300 bg-white text-gray-600 hover:bg-gray-100 ") +
-                  "rounded-md px-3 py-1.5 text-xs font-medium transition focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
-                }
-              >
-                {t(p.labelKey)}
-              </button>
-            );
-          })}
-        </div>
 
         <p
           className={`mt-3 text-sm ${fullAddress ? "text-black" : "text-gray-400"}`}
