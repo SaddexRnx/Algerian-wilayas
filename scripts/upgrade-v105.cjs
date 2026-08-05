@@ -150,7 +150,7 @@ async function run() {
                 daira_name: d.ascii,
                 communes: d.communes.map(c => ({ name: c.ascii, zip: c.zip }))
             };
-            const latinDairaCommunesDir = path.join(latinDairaCommunesDir, `${dSlug}.json`); // Fix: added missing path segment logic
+            const latinDairaCommunesDirPath = path.join(latinDairasDir, 'dairas');
             // Wait, I need to make sure the dir exists
             const latinDairaCommunesDirPath = path.join(latinDairasDir, 'dairas');
             if (!fs.existsSync(latinDairaCommunesDirPath)) fs.mkdirSync(latinDairaCommunesDirPath, { recursive: true });
