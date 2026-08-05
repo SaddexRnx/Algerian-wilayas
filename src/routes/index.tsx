@@ -221,7 +221,22 @@ function Index() {
             <p className="text-sm leading-relaxed text-gray-600">
               {t("updates.body")}
             </p>
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <details className="group">
+                <summary className="text-xs font-semibold text-black cursor-pointer hover:underline list-none flex items-center gap-1">
+                  {t("updates.showAll")}
+                  <svg className="w-3 h-3 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <div className="mt-3 space-y-2 text-xs text-gray-500">
+                  <p><strong className="text-black">v1.0.3:</strong> Trilingual data correction system, ZIP reverse lookup, Village field.</p>
+                  <p><strong className="text-black">v1.0.2:</strong> Initial ZIP code integration and community data collection.</p>
+                  <p><strong className="text-black">v1.0.1:</strong> Granular API endpoints for specific Dairas and Communes.</p>
+                  <p><strong className="text-black">v1.0.0:</strong> Initial release with 69 Wilayas and 1,541 Communes.</p>
+                </div>
+              </details>
+            </div>
           </div>
+
           <h1 className="text-3xl font-bold tracking-tight text-black sm:text-4xl md:text-5xl">
             {t("hero.title")}
           </h1>
