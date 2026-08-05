@@ -629,7 +629,7 @@ export function LanguageToggle() {
   return (
     <div
       role="group"
-      aria-label="Add get data for arabic and latin as the first one if there is arabic in zip if not find a way to get that i have in json files....."
+      aria-label="Add for everything wilaya daira commune you just add for wilaya arabic language"
       className="inline-flex shrink-0 overflow-hidden rounded-md border border-gray-300"
       dir="ltr"
     >
