@@ -182,7 +182,7 @@ export function AlgeriaAddressPicker({
 
   const [searchByZip, setSearchByZip] = useState(false);
   const [zipInput, setZipInput] = useState("");
-  const [zipError, setZipError] = useState<TranslationKey | null>(null);
+  const [zipError, setZipError] = useState<string | null>(null);
   const [isZipSearching, setIsZipSearching] = useState(false);
   const [village, setVillage] = useState("");
 
