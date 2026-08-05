@@ -245,7 +245,7 @@ function PluginDownload() {
           disabled={state === "working"}
           className="flex-1 rounded-md bg-black px-6 py-2.5 text-sm font-medium text-white transition hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-50 sm:flex-none"
         >
-          {state === "working" ? t("hub.downloading") : state === "error" ? t("hub.error") : t("hub.download")}
+          {state === "working" ? t("hub.downloading") : state === "error" ? t("hub.downloadError") : t("hub.download")}
         </button>
       </div>
     </div>
