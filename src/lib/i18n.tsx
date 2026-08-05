@@ -114,6 +114,10 @@ const fr = {
   "tester.empty": "Aucune requête envoyée.",
   "tester.error": "Échec de la requête.",
   "nav.tester": "Testeur d'API",
+  "tester.help.none": "Aucun paramètre requis. Récupère toutes les données.",
+  "tester.help.wilaya": "Entrez un code de wilaya (ex: 16, 19).",
+  "tester.help.zip": "Entrez un code postal à 5 chiffres (ex: 19070).",
+
 
   "features.title": "Fonctionnalités",
   "features.fast": "Ultra rapide",
@@ -325,6 +329,10 @@ const ar: Record<TranslationKey, string> = {
   "tester.empty": "لم يتم إرسال أي طلب بعد.",
   "tester.error": "فشل الطلب.",
   "nav.tester": "مُختبِر API",
+  "tester.help.none": "لا حاجة لمعاملات. يجلب جميع البيانات.",
+  "tester.help.wilaya": "أدخل رمز الولاية (مثال: 16، 19).",
+  "tester.help.zip": "أدخل رمزًا بريديًا مكونًا من 5 أرقام (مثال: 19070).",
+
 
   "features.title": "المميزات",
   "features.fast": "سرعة فائقة",
@@ -533,6 +541,10 @@ const en: Record<TranslationKey, string> = {
   "tester.empty": "No request sent yet.",
   "tester.error": "Request failed.",
   "nav.tester": "API Tester",
+  "tester.help.none": "No parameters needed. Fetches all data.",
+  "tester.help.wilaya": "Enter a wilaya code (e.g. 16, 19).",
+  "tester.help.zip": "Enter a 5-digit ZIP code (e.g. 19070).",
+
 
   "features.title": "Features",
   "features.fast": "Blazing fast",
