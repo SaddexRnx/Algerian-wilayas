@@ -994,6 +994,7 @@ export function AlgeriaAddressPicker({
           </button>
         </div>
       </div>
+      </div>
     </div>
   );
 }
