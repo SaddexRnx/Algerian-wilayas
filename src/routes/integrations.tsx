@@ -64,7 +64,7 @@ function IntegrationsPage() {
                 </div>
                 <span className="px-3 py-1 rounded-full text-xs font-bold bg-muted border">
                   {item.difficulty}
-                </div>
+                </span>
               </div>
               <h3 className="text-2xl font-bold mb-2">{item.name}</h3>
               <p className="text-muted-foreground mb-6">
