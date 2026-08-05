@@ -115,9 +115,12 @@ export function ApiTester() {
   }
 
   return (
-    <div className={`mx-auto mt-16 max-w-3xl px-4 sm:px-0 ${useI18n().dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-      <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">{t("tester.title")}</h2>
-      <p className="mt-2 text-sm text-gray-500 leading-relaxed max-w-2xl">{t("tester.subtitle")}</p>
+    <div className={`mx-auto max-w-3xl px-4 sm:px-0 ${useI18n().dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+      <div className="mb-12">
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">{t("tester.title")}</h2>
+        <p className="mt-2 text-sm text-gray-500 leading-relaxed font-medium">{t("tester.subtitle")}</p>
+      </div>
+
 
 
       <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
