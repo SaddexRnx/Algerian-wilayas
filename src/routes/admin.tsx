@@ -256,8 +256,9 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
       <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="min-w-0">
-            <h1 className="truncate text-2xl font-bold tracking-tight text-black sm:text-3xl">
+            <h1 className="truncate text-2xl font-bold tracking-tighter text-black sm:text-3xl uppercase">
               {t("admin.title")}
+
             </h1>
             <p className="mt-1 text-sm text-gray-500">
               {loading ? t("admin.loading") : failed ? t("admin.login.error") : t("admin.live")}
