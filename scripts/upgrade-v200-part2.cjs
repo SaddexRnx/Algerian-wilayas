@@ -13,18 +13,19 @@ function ensureDir(dir) {
 
 // 4.1 Population & Demographics
 ensureDir(path.join(BASE_DIR, 'population/wilayas'));
-const populationIndex = WILAYAS.map(w => ({
-    code: w.code,
-    name: w.name,
-    name_ar: w.name_ar,
-    population: Math.floor(Math.random() * 2000000) + 500000,
-    area_km2: Math.floor(Math.random() * 50000) + 2000,
-    density: 0,
-    growth_rate: "1.8%",
-    status: "Beta - Data Pending"
-})).map(w => {
-    w.density = parseFloat((w.population / w.area_km2).toFixed(2));
-    return w;
+const populationIndex = WILAYAS.map(w => {
+    const population = Math.floor(Math.random() * 2000000) + 500000;
+    const area_km2 = Math.floor(Math.random() * 50000) + 2000;
+    return {
+        code: w.code,
+        name: w.name || '',
+        name_ar: w.name_ar || '',
+        population: population,
+        area_km2: area_km2,
+        density: parseFloat((population / area_km2).toFixed(2)),
+        growth_rate: "1.8%",
+        status: "Beta - Data Pending"
+    };
 });
 fs.writeFileSync(path.join(BASE_DIR, 'population/wilayas.json'), JSON.stringify(populationIndex, null, 2));
 
@@ -167,7 +168,7 @@ if (fs.existsSync(path.join(BASE_DIR, 'dairas'))) {
             const content = JSON.parse(fs.readFileSync(path.join(BASE_DIR, 'dairas', file), 'utf8'));
             const items = Array.isArray(content) ? content : [content];
             items.forEach(d => {
-                if (d.name) {
+                if (d && d.name) {
                     searchIndex.push({ type: 'daira', code: d.code, name: d.name, name_ar: d.name_ar, wilaya_code: file.split('-')[0] });
                 }
             });
@@ -188,7 +189,8 @@ fs.writeFileSync(path.join(BASE_DIR, 'export/wilayas-communes.csv'), csv);
 
 let sql = "CREATE TABLE wilayas (code INT PRIMARY KEY, name VARCHAR(100), name_ar VARCHAR(100), population INT);\n";
 populationIndex.forEach(w => {
-    sql += `INSERT INTO wilayas (code, name, name_ar, population) VALUES (${w.code}, '${w.name.replace(/'/g, "''")}', '${w.name_ar}', ${w.population});\n`;
+    const safeName = (w.name || '').replace(/'/g, "''");
+    sql += `INSERT INTO wilayas (code, name, name_ar, population) VALUES (${w.code}, '${safeName}', '${w.name_ar || ''}', ${w.population});\n`;
 });
 fs.writeFileSync(path.join(BASE_DIR, 'export/full-data.sql'), sql);
 
