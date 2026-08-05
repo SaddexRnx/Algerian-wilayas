@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from "react";
 
-export type Lang = "ar" | "fr" | "en";
+export type Lang = "en" | "fr" | "ar";
 
 const LANG_KEY = "dz-address-picker:lang";
 
@@ -196,8 +196,9 @@ const fr = {
   "api.wilayaCommunesDesc": "Liste à plat de toutes les communes d'une wilaya.",
   "api.dairaDetailDesc": "Détail d'une daira précise et de ses communes.",
   "api.zipReverseDesc": "Recherche inversée d'un code postal pour obtenir la wilaya, la daira et la commune correspondantes.",
-  "updates.title": "🚨 CRITICAL COMPREHENSIVE UPDATE TO v1.0.4",
-  "updates.body": "v1.0.4: Fixed ZIP code mapping accuracy, added dynamic language-specific endpoints (/api/ar/ and /api/latin/), improved API tester, and enhanced Developer Hub documentation.",
+  "updates.title": "🚨 تحديث شامل وحرج للإصدار v1.0.4",
+  "updates.body": "الإصدار v1.0.4: تم تصحيح دقة تعيين الرموز البريدية، وإضافة نقاط وصول ديناميكية خاصة باللغة (/api/ar/ و /api/latin/)، وتحسين مُختبِر واجهة البرمجة، وتطوير توثيق مركز المطورين.",
+
   "picker.searchByZip": "Search by ZIP Code / Postal Code",
   "picker.village": "Village / Neighborhood",
   "picker.zipLabel": "Enter 5-digit ZIP code",
@@ -227,7 +228,8 @@ const fr = {
   "tester.help.daira": "Enter Wilaya Code and Daira Slug",
   "tester.help.zip": "Enter 5-digit ZIP code (e.g., 19070)",
   "tester.help.lang": "No parameters required. Returns language-specific data.",
-  "updates.v104": "v1.0.4: Fixed ZIP code mapping accuracy, added dynamic language-specific endpoints (/api/ar/ and /api/latin/), improved API tester, and enhanced Developer Hub documentation.",
+  "updates.v104": "الإصدار v1.0.4: تم تصحيح دقة تعيين الرموز البريدية، وإضافة نقاط وصول ديناميكية خاصة باللغة (/api/ar/ و /api/latin/)، وتحسين مُختبِر واجهة البرمجة، وتطوير توثيق مركز المطورين.",
+
   "home.reportLink": "Quelque chose ne va pas avec les données ? Cliquez ici pour soumettre une correction.",
 
 } as const;
@@ -410,8 +412,9 @@ const ar: Record<TranslationKey, string> = {
   "api.wilayaCommunesDesc": "قائمة مسطحة بكل بلديات الولاية.",
   "api.dairaDetailDesc": "تفاصيل دائرة محددة وبلدياتها.",
   "api.zipReverseDesc": "البحث العكسي عن الرمز البريدي للحصول على الولاية والدائرة والبلدية المقابلة.",
-  "updates.title": "ما الجديد في الإصدار 1.0.3",
-  "updates.body": "v1.0.3: نظام تصحيح البيانات ثلاثي اللغات، البحث العكسي عن الرمز البريدي، حقل القرية.",
+  "updates.title": "🚨 تحديث شامل وحرج للإصدار v1.0.4",
+  "updates.body": "الإصدار v1.0.4: تم تصحيح دقة تعيين الرموز البريدية، وإضافة نقاط وصول ديناميكية خاصة باللغة (/api/ar/ و /api/latin/)، وتحسين مُختبِر واجهة البرمجة، وتطوير توثيق مركز المطورين.",
+
   "picker.searchByZip": "البحث عن طريق الرمز البريدي / الرمز البريدي",
   "picker.village": "القرية / الحي",
   "picker.zipLabel": "أدخل الرمز البريدي المكون من 5 أرقام",
@@ -441,7 +444,7 @@ const ar: Record<TranslationKey, string> = {
   "tester.help.daira": "أدخل كود الولاية واسم الدائرة",
   "tester.help.zip": "أدخل رمز بريدي مكون من 5 أرقام (مثلاً 19070)",
   "tester.help.lang": "لا توجد معلمات مطلوبة. يرجع بيانات خاصة باللغة.",
-  "updates.v104": "v1.0.4: تم إصلاح دقة تعيين الرمز البريدي، وإضافة نقاط وصول خاصة باللغة (/api/ar/ و /api/latin/)، وتحسين مُختبِر API، وتعزيز توثيق مركز المطورين.",
+  "updates.v104": "الإصدار v1.0.4: تم تصحيح دقة تعيين الرموز البريدية، وإضافة نقاط وصول ديناميكية خاصة باللغة (/api/ar/ و /api/latin/)، وتحسين مُختبِر واجهة البرمجة، وتطوير توثيق مركز المطورين.",
   "hub.advanced": "خيارات متقدمة",
   "hub.showAdvanced": "إظهار الخيارات المتقدمة",
   "picker.zipDisclaimer": "ملاحظة: تعتمد الرموز البريدية على بيانات إدارية قديمة وقد تكون غير دقيقة. يرجى استخدام ميزة 'الإبلاغ عن بيانات غير صحيحة' لمساعدتنا في تحديث قاعدة البيانات.",
@@ -625,8 +628,9 @@ const en: Record<TranslationKey, string> = {
   "api.wilayaCommunesDesc": "Flat list of every commune inside a wilaya.",
   "api.dairaDetailDesc": "Detail for a single daira and its communes.",
   "api.zipReverseDesc": "Reverse lookup a ZIP code to get the corresponding Wilaya, Daira, and Commune.",
-  "updates.title": "What's New in v1.0.3",
-  "updates.body": "v1.0.3: Trilingual data correction system, ZIP reverse lookup, Village field.",
+  "updates.title": "🚨 CRITICAL COMPREHENSIVE UPDATE TO v1.0.4",
+  "updates.body": "v1.0.4: Fixed ZIP code mapping accuracy, added dynamic language-specific endpoints (/api/ar/ and /api/latin/), improved API tester, and enhanced Developer Hub documentation.",
+
   "picker.searchByZip": "Search by ZIP Code / Postal Code",
   "picker.village": "Village / Neighborhood",
   "picker.zipLabel": "Enter 5-digit ZIP code",
@@ -657,6 +661,7 @@ const en: Record<TranslationKey, string> = {
   "tester.help.zip": "ENTER A 5-DIGIT ZIP CODE (E.G. 19070)",
   "tester.help.lang": "No parameters needed. Returns language-specific data.",
   "updates.v104": "v1.0.4: Fixed ZIP code mapping accuracy, added dynamic language-specific endpoints (/api/ar/ and /api/latin/), improved API tester, and enhanced Developer Hub documentation.",
+
   "hub.advanced": "Advanced Options",
   "hub.showAdvanced": "Show Advanced Options",
   "picker.zipDisclaimer": "Note: Postal codes are based on historical administrative data and may be inaccurate. Please use the 'Report Incorrect Data' feature to help us keep the database updated.",
