@@ -134,9 +134,9 @@ const baseTranslations = {
   // Vote
   "vote.title": { en: "Vote for Upcoming Features", fr: "Votez pour les fonctionnalités", ar: "صوّت للميزات القادمة" },
   "vote.subtitle": { en: "Help us prioritize our roadmap.", fr: "Aidez-nous à prioriser notre feuille de route.", ar: "ساعدنا في تحديد أولويات خريطة الطريق الخاصة بنا." },
-  "vote.voted": { en: "Voted", fr: "Voté", ar: "تم التصويت" },
   "vote.success": { en: "Vote recorded!", fr: "Vote enregistré !", ar: "تم تسجيل تصويتك!" },
   "vote.error": { en: "Already voted.", fr: "Déjà voté.", ar: "لقد قمت بالتصويت بالفعل." },
+
 
   // Changelog
   "changelog.title": { en: "Project Changelog", fr: "Journal des modifications", ar: "سجل التغييرات" },
