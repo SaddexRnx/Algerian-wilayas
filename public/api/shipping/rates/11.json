@@ -1,0 +1,19 @@
+{
+  "wilaya_code": 11,
+  "wilaya_name": "Tamanrasset",
+  "delivery_home": {
+    "min": 500,
+    "max": 800
+  },
+  "delivery_office": {
+    "min": 400,
+    "max": 600
+  },
+  "estimated_days": {
+    "min": 2,
+    "max": 4
+  },
+  "zone": "highlands",
+  "currency": "DZD",
+  "disclaimer": "Rates are estimates based on publicly available data."
+}
