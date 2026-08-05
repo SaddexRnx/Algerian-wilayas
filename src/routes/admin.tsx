@@ -158,7 +158,9 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
         clearInterval(interval);
       };
     }
+    return undefined;
   }, [activeTab, runHealthCheck]);
+
 
 
 
