@@ -203,6 +203,12 @@ const fr = {
   "admin.table.zip": "Code postal",
   "admin.table.date": "Date",
   "admin.table.status": "Status",
+  "admin.status.pending": "En attente",
+  "admin.status.approved": "Approuvé",
+  "admin.approve": "Approuver",
+  "picker.zipInvalid": "Code postal invalide. Doit comporter 5 chiffres.",
+  "picker.zipNotFound": "Code postal non trouvé dans notre base de données.",
+  "admin.table.status": "Status",
   "admin.status.pending": "Pending",
   "admin.status.approved": "Approved",
   "admin.approve": "Approve",
@@ -397,6 +403,12 @@ const ar: Record<TranslationKey, string> = {
   "admin.table.village": "القرية",
   "admin.table.zip": "الرمز البريدي",
   "admin.table.date": "التاريخ",
+  "admin.table.status": "الحالة",
+  "admin.status.pending": "قيد الانتظار",
+  "admin.status.approved": "مقبول",
+  "admin.approve": "قبول",
+  "picker.zipInvalid": "رمز بريدي غير صالح. يجب أن يتكون من 5 أرقام.",
+  "picker.zipNotFound": "الرمز البريدي غير موجود في قاعدة بياناتنا.",
 };
 
 const en: Record<TranslationKey, string> = {
@@ -590,6 +602,12 @@ const en: Record<TranslationKey, string> = {
   "admin.approve": "Approve",
   "picker.zipInvalid": "Invalid ZIP code. Must be 5 digits.",
   "picker.zipNotFound": "ZIP code not found in our database.",
+  "admin.table.status": "Status",
+  "admin.status.pending": "Pending",
+  "admin.status.approved": "Approved",
+  "admin.approve": "Approve",
+  "picker.zipInvalid": "Invalid ZIP code. Must be 5 digits.",
+  "picker.zipNotFound": "ZIP code not found in our database.",
 };
 
 const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar, en };
@@ -668,19 +686,7 @@ export function LanguageToggle() {
   return (
     <div
       role="group"
-        aria-label="Look i need all apis endpoint to return zip for it end points for example wilaya end point with it zip.. 
-
-If daiara also it zip.. 
-
-Commune it zip.. 
-
-Also add in integration or sezrch boxes to allow shearch directly with zip instead searching manually for each wilaya daira commune for example i search throu zip 19070 automatically fill all boxes with data of this zip 
-
-Wilaya setif 
-
-Daira bouandas commune boussellam... 
-
-P'ease think about everything possible we can forget update everything with new end points and updates...."
+      aria-label="Create a simple admin approval/status flow for zip_reports so reviewed entries are marked and no longer considered fresh.Add 5-digit ZIP validation with friendly error states and debounce so the picker only fetches when the ZIP is complete.Improve ZIP search by auto-normalizing input (trim, leading zeros) and showing a clear error state when a ZIP is not found.Implement a bulk ZIP lookup endpoint that takes multiple ZIP codes and returns the resolved Wilaya, Daira, and Commune for each one.Display the resolved ZIP code(s) directly under each selected Wilaya, Daira, and Commune so the user can copy them instantly."
 
       className="inline-flex shrink-0 overflow-hidden rounded-md border border-gray-300"
       dir="ltr"
