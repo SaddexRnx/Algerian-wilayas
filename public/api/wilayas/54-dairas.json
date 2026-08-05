@@ -1,1 +1,24 @@
-[{"name_ar":"تين زواتين","name_ascii":"Tin Zouatine","slug":"tin-zouatine","communes":[{"name_ar":"تين زواتين","name_ascii":"Tin Zouatine","zip":null}]},{"name_ar":"عين قزام","name_ascii":"In Guezzam","slug":"in-guezzam","communes":[{"name_ar":"عين قزام","name_ascii":"Ain Guezzam","zip":null}]}]
+[
+  {
+    "arabic": "تين زواتين",
+    "ascii": "Tin Zouatine",
+    "communes": [
+      {
+        "arabic": "تين زواتين",
+        "ascii": "Tin Zouatine",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "عين قزام",
+    "ascii": "In Guezzam",
+    "communes": [
+      {
+        "arabic": "عين قزام",
+        "ascii": "Ain Guezzam",
+        "zip": null
+      }
+    ]
+  }
+]

@@ -1,1 +1,187 @@
-[{"name_ar":"أولاد يعيش","name_ascii":"Ouled Yaich","slug":"ouled-yaich","communes":[{"name_ar":"بني مراد","name_ascii":"Beni Mered","zip":"09025"},{"name_ar":"أولاد يعيش","name_ascii":"Ouled Yaich","zip":"09007"},{"name_ar":"الشريعة","name_ascii":"Chrea","zip":"09008"}]},{"name_ar":"بوقرة","name_ascii":"Bougara","slug":"bougara","communes":[{"name_ar":"اولاد سلامة","name_ascii":"Ouled Slama","zip":null},{"name_ar":"حمام ملوان","name_ascii":"Hammam Elouane","zip":null},{"name_ar":"بوقرة","name_ascii":"Bougara","zip":"09026"}]},{"name_ar":"موزاية","name_ascii":"Mouzaia","slug":"mouzaia","communes":[{"name_ar":"موزاية","name_ascii":"Mouzaia","zip":"09016"},{"name_ar":"الشفة","name_ascii":"Chiffa","zip":"09011"},{"name_ar":"عين الرمانة","name_ascii":"Ain Romana","zip":"09028"}]},{"name_ar":"الأربعاء","name_ascii":"Larbaa","slug":"larbaa","communes":[{"name_ar":"صوحان","name_ascii":"Souhane","zip":"09017"},{"name_ar":"الأربعاء","name_ascii":"Larbaa","zip":"09021"}]},{"name_ar":"بوفاريك","name_ascii":"Boufarik","slug":"boufarik","communes":[{"name_ar":"الصومعة","name_ascii":"Soumaa","zip":"09014"},{"name_ar":"قرواو","name_ascii":"Guerrouaou","zip":"09027"},{"name_ar":"بوفاريك","name_ascii":"Boufarik","zip":"09020"}]},{"name_ar":"مفتاح","name_ascii":"Meftah","slug":"meftah","communes":[{"name_ar":"مفتاح","name_ascii":"Meftah","zip":"09018"},{"name_ar":"جبابرة","name_ascii":"Djebabra","zip":"09029"}]},{"name_ar":"العفرون","name_ascii":"El Affroun","slug":"el-affroun","communes":[{"name_ar":"وادي جر","name_ascii":"Oued  Djer","zip":"09022"},{"name_ar":"العفرون","name_ascii":"El-Affroun","zip":"09010"}]},{"name_ar":"وادي العلايق","name_ascii":"Oued El Alleug","slug":"oued-el-alleug","communes":[{"name_ar":"وادي العلايق","name_ascii":"Oued El Alleug","zip":"09004"},{"name_ar":"بن خليل","name_ascii":"Benkhelil","zip":null},{"name_ar":"بني تامو","name_ascii":"Beni-Tamou","zip":"09023"}]},{"name_ar":"بوعينان","name_ascii":"Bouinan","slug":"bouinan","communes":[{"name_ar":"الشبلي","name_ascii":"Chebli","zip":"09002"},{"name_ar":"بوعينان","name_ascii":"Bouinan","zip":"09003"}]},{"name_ar":"البليدة","name_ascii":"Blida","slug":"blida","communes":[{"name_ar":"بوعرفة","name_ascii":"Bouarfa","zip":"09024"},{"name_ar":"البليدة","name_ascii":"Blida","zip":"09001"}]}]
+[
+  {
+    "arabic": "أولاد يعيش",
+    "ascii": "Ouled Yaich",
+    "communes": [
+      {
+        "arabic": "بني مراد",
+        "ascii": "Beni Mered",
+        "zip": "09025"
+      },
+      {
+        "arabic": "أولاد يعيش",
+        "ascii": "Ouled Yaich",
+        "zip": "09007"
+      },
+      {
+        "arabic": "الشريعة",
+        "ascii": "Chrea",
+        "zip": "09008"
+      }
+    ]
+  },
+  {
+    "arabic": "بوقرة",
+    "ascii": "Bougara",
+    "communes": [
+      {
+        "arabic": "اولاد سلامة",
+        "ascii": "Ouled Slama",
+        "zip": null
+      },
+      {
+        "arabic": "حمام ملوان",
+        "ascii": "Hammam Elouane",
+        "zip": null
+      },
+      {
+        "arabic": "بوقرة",
+        "ascii": "Bougara",
+        "zip": "09026"
+      }
+    ]
+  },
+  {
+    "arabic": "موزاية",
+    "ascii": "Mouzaia",
+    "communes": [
+      {
+        "arabic": "موزاية",
+        "ascii": "Mouzaia",
+        "zip": "09016"
+      },
+      {
+        "arabic": "الشفة",
+        "ascii": "Chiffa",
+        "zip": "09011"
+      },
+      {
+        "arabic": "عين الرمانة",
+        "ascii": "Ain Romana",
+        "zip": "09028"
+      }
+    ]
+  },
+  {
+    "arabic": "الأربعاء",
+    "ascii": "Larbaa",
+    "communes": [
+      {
+        "arabic": "صوحان",
+        "ascii": "Souhane",
+        "zip": "09017"
+      },
+      {
+        "arabic": "الأربعاء",
+        "ascii": "Larbaa",
+        "zip": "09021"
+      }
+    ]
+  },
+  {
+    "arabic": "بوفاريك",
+    "ascii": "Boufarik",
+    "communes": [
+      {
+        "arabic": "الصومعة",
+        "ascii": "Soumaa",
+        "zip": "09014"
+      },
+      {
+        "arabic": "قرواو",
+        "ascii": "Guerrouaou",
+        "zip": "09027"
+      },
+      {
+        "arabic": "بوفاريك",
+        "ascii": "Boufarik",
+        "zip": "09020"
+      }
+    ]
+  },
+  {
+    "arabic": "مفتاح",
+    "ascii": "Meftah",
+    "communes": [
+      {
+        "arabic": "مفتاح",
+        "ascii": "Meftah",
+        "zip": "09018"
+      },
+      {
+        "arabic": "جبابرة",
+        "ascii": "Djebabra",
+        "zip": "09029"
+      }
+    ]
+  },
+  {
+    "arabic": "العفرون",
+    "ascii": "El Affroun",
+    "communes": [
+      {
+        "arabic": "وادي جر",
+        "ascii": "Oued  Djer",
+        "zip": "09022"
+      },
+      {
+        "arabic": "العفرون",
+        "ascii": "El-Affroun",
+        "zip": "09010"
+      }
+    ]
+  },
+  {
+    "arabic": "وادي العلايق",
+    "ascii": "Oued El Alleug",
+    "communes": [
+      {
+        "arabic": "وادي العلايق",
+        "ascii": "Oued El Alleug",
+        "zip": "09004"
+      },
+      {
+        "arabic": "بن خليل",
+        "ascii": "Benkhelil",
+        "zip": null
+      },
+      {
+        "arabic": "بني تامو",
+        "ascii": "Beni-Tamou",
+        "zip": "09023"
+      }
+    ]
+  },
+  {
+    "arabic": "بوعينان",
+    "ascii": "Bouinan",
+    "communes": [
+      {
+        "arabic": "الشبلي",
+        "ascii": "Chebli",
+        "zip": "09002"
+      },
+      {
+        "arabic": "بوعينان",
+        "ascii": "Bouinan",
+        "zip": "09003"
+      }
+    ]
+  },
+  {
+    "arabic": "البليدة",
+    "ascii": "Blida",
+    "communes": [
+      {
+        "arabic": "بوعرفة",
+        "ascii": "Bouarfa",
+        "zip": "09024"
+      },
+      {
+        "arabic": "البليدة",
+        "ascii": "Blida",
+        "zip": "09001"
+      }
+    ]
+  }
+]

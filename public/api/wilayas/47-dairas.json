@@ -1,1 +1,100 @@
-[{"name_ar":"ضاية بن ضحوة","name_ascii":"Dhayet Ben Dhahoua","slug":"dhayet-ben-dhahoua","communes":[{"name_ar":"ضاية بن ضحوة","name_ascii":"Dhayet Bendhahoua","zip":"47003"}]},{"name_ar":"المنصورة","name_ascii":"Mansourah","slug":"mansourah","communes":[{"name_ar":"المنصورة","name_ascii":"Mansoura","zip":"47013"}]},{"name_ar":"بونورة","name_ascii":"Bounoura","slug":"bounoura","communes":[{"name_ar":"العطف","name_ascii":"El Atteuf","zip":"47007"},{"name_ar":"بونورة","name_ascii":"Bounoura","zip":"47010"}]},{"name_ar":"زلفانة","name_ascii":"Zelfana","slug":"zelfana","communes":[{"name_ar":"زلفانة","name_ascii":"Zelfana","zip":"47008"}]},{"name_ar":"القرارة","name_ascii":"El Guerrara","slug":"el-guerrara","communes":[{"name_ar":"القرارة","name_ascii":"El Guerrara","zip":"47006"}]},{"name_ar":"متليلي","name_ascii":"Metlili","slug":"metlili","communes":[{"name_ar":"سبسب","name_ascii":"Sebseb","zip":"47009"},{"name_ar":"متليلي","name_ascii":"Metlili","zip":"47005"}]},{"name_ar":"بريان","name_ascii":"Berriane","slug":"berriane","communes":[{"name_ar":"بريان","name_ascii":"Berriane","zip":"47004"}]},{"name_ar":"غرداية","name_ascii":"Ghardaia","slug":"ghardaia","communes":[{"name_ar":"غرداية","name_ascii":"Ghardaia","zip":"47001"}]}]
+[
+  {
+    "arabic": "ضاية بن ضحوة",
+    "ascii": "Dhayet Ben Dhahoua",
+    "communes": [
+      {
+        "arabic": "ضاية بن ضحوة",
+        "ascii": "Dhayet Bendhahoua",
+        "zip": "47003"
+      }
+    ]
+  },
+  {
+    "arabic": "المنصورة",
+    "ascii": "Mansourah",
+    "communes": [
+      {
+        "arabic": "المنصورة",
+        "ascii": "Mansoura",
+        "zip": "47013"
+      }
+    ]
+  },
+  {
+    "arabic": "بونورة",
+    "ascii": "Bounoura",
+    "communes": [
+      {
+        "arabic": "العطف",
+        "ascii": "El Atteuf",
+        "zip": "47007"
+      },
+      {
+        "arabic": "بونورة",
+        "ascii": "Bounoura",
+        "zip": "47010"
+      }
+    ]
+  },
+  {
+    "arabic": "زلفانة",
+    "ascii": "Zelfana",
+    "communes": [
+      {
+        "arabic": "زلفانة",
+        "ascii": "Zelfana",
+        "zip": "47008"
+      }
+    ]
+  },
+  {
+    "arabic": "القرارة",
+    "ascii": "El Guerrara",
+    "communes": [
+      {
+        "arabic": "القرارة",
+        "ascii": "El Guerrara",
+        "zip": "47006"
+      }
+    ]
+  },
+  {
+    "arabic": "متليلي",
+    "ascii": "Metlili",
+    "communes": [
+      {
+        "arabic": "سبسب",
+        "ascii": "Sebseb",
+        "zip": "47009"
+      },
+      {
+        "arabic": "متليلي",
+        "ascii": "Metlili",
+        "zip": "47005"
+      }
+    ]
+  },
+  {
+    "arabic": "بريان",
+    "ascii": "Berriane",
+    "communes": [
+      {
+        "arabic": "بريان",
+        "ascii": "Berriane",
+        "zip": "47004"
+      }
+    ]
+  },
+  {
+    "arabic": "غرداية",
+    "ascii": "Ghardaia",
+    "communes": [
+      {
+        "arabic": "غرداية",
+        "ascii": "Ghardaia",
+        "zip": "47001"
+      }
+    ]
+  }
+]

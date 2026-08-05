@@ -178,60 +178,81 @@ export const SNIPPETS = buildSnippets(DEFAULT_CONFIG);
 function PluginDownload() {
   const { t } = useI18n();
   const [state, setState] = useState<"idle" | "working" | "error">("idle");
+  const [version, setVersion] = useState("1.0.3");
+
+  const versions = [
+    { label: "v1.0.3 (Current)", value: "1.0.3" },
+    { label: "v1.0.2", value: "1.0.2" },
+    { label: "v1.0.1", value: "1.0.1" },
+    { label: "v1.0.0", value: "1.0.0" },
+  ];
 
   async function onDownload() {
     setState("working");
     try {
       const files = ["dz-address-picker.php", "dz-checkout.js", "readme.txt"];
+      const subFolder = version === "1.0.3" ? "" : `v${version}/`;
 
-      // Preflight: make sure every plugin file is actually served before zipping.
+      // Preflight
       const heads = await Promise.all(
-        files.map((name) => fetch(`/wp-plugin/${name}`, { method: "HEAD" }).catch(() => null)),
+        files.map((name) => fetch(`/wp-plugin/${subFolder}${name}`, { method: "HEAD" }).catch(() => null)),
       );
       if (heads.some((res) => !res || !res.ok)) throw new Error("missing plugin file");
 
       const [JSZipMod, fileSaver] = await Promise.all([import("jszip"), import("file-saver")]);
       const contents = await Promise.all(
         files.map(async (name) => {
-          const res = await fetch(`/wp-plugin/${name}`);
+          const res = await fetch(`/wp-plugin/${subFolder}${name}`);
           if (!res.ok) throw new Error(name);
-          const text = await res.text();
-          if (!text.trim()) throw new Error(name);
-          return text;
+          return await res.text();
         }),
       );
-      const zip = new JSZipMod.default();
-      const folder = zip.folder("dz-address-picker")!;
-      files.forEach((name, i) => folder.file(name, contents[i]!));
+
+      const JSZip = (JSZipMod as any).default || JSZipMod;
+      const zip = new JSZip();
+      const folder = zip.folder("dz-address-picker");
+      files.forEach((name, i) => folder.file(name, contents[i]));
+
       const blob = await zip.generateAsync({ type: "blob" });
-      fileSaver.saveAs(blob, "dz-address-picker-woocommerce.zip");
+      (fileSaver as any).saveAs(blob, `dz-address-picker-${version}.zip`);
       setState("idle");
-    } catch {
+    } catch (err) {
+      console.error("ZIP download error:", err);
       setState("error");
+      setTimeout(() => setState("idle"), 3000);
     }
   }
 
-
   return (
-    <div className="mt-8 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
-      <h3 className="text-sm font-semibold text-black">{t("hub.wpTitle")}</h3>
-      <p className="mt-1 text-sm text-gray-500">{t("hub.wpDesc")}</p>
-      <button
-        type="button"
-        onClick={() => void onDownload()}
-        disabled={state === "working"}
-        className="mt-4 rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-50"
-      >
-        {state === "working" ? t("hub.downloading") : t("hub.download")}
-      </button>
-      {state === "error" && (
-        <p role="alert" className="mt-2 text-xs text-gray-700">
-          {t("hub.downloadError")}
-        </p>
-      )}
+    <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:flex-row sm:p-6">
+      <div className="text-center sm:text-start">
+        <h3 className="text-sm font-semibold text-black">{t("hub.wpTitle")}</h3>
+        <p className="mt-1 text-sm text-gray-500">{t("hub.wpDesc")}</p>
+      </div>
+      <div className="flex w-full shrink-0 gap-2 sm:w-auto">
+        <select
+          value={version}
+          onChange={(e) => setVersion(e.target.value)}
+          className="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black outline-none focus:border-black focus:ring-1 focus:ring-black"
+        >
+          {versions.map((v) => (
+            <option key={v.value} value={v.value}>{v.label}</option>
+          ))}
+        </select>
+        <button
+          type="button"
+          onClick={() => void onDownload()}
+          disabled={state === "working"}
+          className="flex-1 rounded-md bg-black px-6 py-2.5 text-sm font-medium text-white transition hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-50 sm:flex-none"
+        >
+          {state === "working" ? t("hub.downloading") : state === "error" ? t("hub.downloadError") : t("hub.download")}
+        </button>
+      </div>
     </div>
   );
 }
+
+
 
 
 export const WIDGET_OPTIONS: { attr: string; description: string; example: string }[] = [

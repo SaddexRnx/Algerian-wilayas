@@ -1,1 +1,51 @@
-{"code":62,"arabic":"بئر العاتر","ascii":"Bir El Ater","dairas":[{"arabic":"بئر العاتر","ascii":"Bir El Ater","communes":[{"arabic":"بئر العاتر","ascii":"Bir El Ater","zip":null}]},{"arabic":"نقرين","ascii":"Negrine","communes":[{"arabic":"نقرين","ascii":"Negrine","zip":null}]},{"arabic":"العقلة المالحة","ascii":"El Ogla El Melha","communes":[{"arabic":"العقلة المالحة","ascii":"El Ogla El Melha","zip":null}]},{"arabic":"فركان","ascii":"Ferkane","communes":[{"arabic":"فركان","ascii":"Ferkane","zip":null}]}]}
+{
+  "code": 62,
+  "arabic": "بئر العاتر",
+  "ascii": "Bir El Ater",
+  "dairas": [
+    {
+      "arabic": "بئر العاتر",
+      "ascii": "Bir El Ater",
+      "communes": [
+        {
+          "arabic": "بئر العاتر",
+          "ascii": "Bir El Ater",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "نقرين",
+      "ascii": "Negrine",
+      "communes": [
+        {
+          "arabic": "نقرين",
+          "ascii": "Negrine",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "العقلة المالحة",
+      "ascii": "El Ogla El Melha",
+      "communes": [
+        {
+          "arabic": "العقلة المالحة",
+          "ascii": "El Ogla El Melha",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "فركان",
+      "ascii": "Ferkane",
+      "communes": [
+        {
+          "arabic": "فركان",
+          "ascii": "Ferkane",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

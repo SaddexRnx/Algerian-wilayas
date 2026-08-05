@@ -1,1 +1,56 @@
-[{"name_ar":"سيدي  خالد","name_ascii":"Sidi Khaled","slug":"sidi-khaled","communes":[{"name_ar":"رأس الميعاد","name_ascii":"Ras El Miad","zip":null},{"name_ar":"بسباس","name_ascii":"Besbes","zip":null}]},{"name_ar":"سيدي لحسن","name_ascii":"Sidi Lahcene","slug":"sidi-lahcene","communes":[{"name_ar":"سيدي  خالد","name_ascii":"Sidi Khaled","zip":null}]},{"name_ar":"أولاد جلال","name_ascii":"Ouled Djellal","slug":"ouled-djellal","communes":[{"name_ar":"الدوسن","name_ascii":"Doucen","zip":null},{"name_ar":"أولاد جلال","name_ascii":"Ouled Djellal","zip":null}]},{"name_ar":"القليعة","name_ascii":"Kolea","slug":"kolea","communes":[{"name_ar":"الشعيبة","name_ascii":"Chaiba","zip":null}]}]
+[
+  {
+    "arabic": "سيدي  خالد",
+    "ascii": "Sidi Khaled",
+    "communes": [
+      {
+        "arabic": "رأس الميعاد",
+        "ascii": "Ras El Miad",
+        "zip": null
+      },
+      {
+        "arabic": "بسباس",
+        "ascii": "Besbes",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "سيدي لحسن",
+    "ascii": "Sidi Lahcene",
+    "communes": [
+      {
+        "arabic": "سيدي  خالد",
+        "ascii": "Sidi Khaled",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "أولاد جلال",
+    "ascii": "Ouled Djellal",
+    "communes": [
+      {
+        "arabic": "الدوسن",
+        "ascii": "Doucen",
+        "zip": null
+      },
+      {
+        "arabic": "أولاد جلال",
+        "ascii": "Ouled Djellal",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "القليعة",
+    "ascii": "Kolea",
+    "communes": [
+      {
+        "arabic": "الشعيبة",
+        "ascii": "Chaiba",
+        "zip": null
+      }
+    ]
+  }
+]

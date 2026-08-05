@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
 import { CheckoutSimulation, type LiveAddress } from "@/components/CheckoutSimulation";
@@ -177,7 +177,7 @@ function Index() {
               DZ Address Picker
             </span>
             <span className="ml-2 inline-flex shrink-0 items-center rounded-full border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
-              v1.0.2
+              v1.0.3
             </span>
           </div>
           <div className="flex shrink-0 items-center gap-3">
@@ -221,7 +221,22 @@ function Index() {
             <p className="text-sm leading-relaxed text-gray-600">
               {t("updates.body")}
             </p>
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <details className="group">
+                <summary className="text-xs font-semibold text-black cursor-pointer hover:underline list-none flex items-center gap-1">
+                  {t("updates.showAll")}
+                  <svg className="w-3 h-3 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <div className="mt-3 space-y-2 text-xs text-gray-500">
+                  <p><strong className="text-black">v1.0.3:</strong> Trilingual data correction system, ZIP reverse lookup, Village field.</p>
+                  <p><strong className="text-black">v1.0.2:</strong> Initial ZIP code integration and community data collection.</p>
+                  <p><strong className="text-black">v1.0.1:</strong> Granular API endpoints for specific Dairas and Communes.</p>
+                  <p><strong className="text-black">v1.0.0:</strong> Initial release with 69 Wilayas and 1,541 Communes.</p>
+                </div>
+              </details>
+            </div>
           </div>
+
           <h1 className="text-3xl font-bold tracking-tight text-black sm:text-4xl md:text-5xl">
             {t("hero.title")}
           </h1>
@@ -299,7 +314,19 @@ function Index() {
         </section>
       </main>
 
-      <footer className="py-12 text-center text-sm text-gray-400">{t("footer.text")}</footer>
+      <footer className="py-12 text-center text-sm text-gray-400">
+        <div className="mb-4">
+          <Link to="/report" className="text-gray-600 underline transition hover:text-black">
+            {t("home.reportLink")}
+          </Link>
+        </div>
+        <div className="flex justify-center gap-6 mb-4">
+          <a href="https://github.com/Saddexrnx" className="hover:text-black transition">GitHub</a>
+          <a href="https://t.me/Saddex_x" className="hover:text-black transition">Telegram</a>
+        </div>
+        {t("footer.text")}
+      </footer>
+
     </div>
   );
 }

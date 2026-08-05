@@ -1,1 +1,76 @@
-[{"name_ar":"عين وسارة","name_ascii":"Ain Oussara","slug":"ain-oussara","communes":[{"name_ar":"عين وسارة","name_ascii":"Ain Ouessara","zip":null},{"name_ar":"الخميس","name_ascii":"El Khemis","zip":null}]},{"name_ar":"البيرين","name_ascii":"Birine","slug":"birine","communes":[{"name_ar":"البيرين","name_ascii":"Birine","zip":null},{"name_ar":"بويرة الأحداب","name_ascii":"Bouira Lahdab","zip":null}]},{"name_ar":"سيدي لخضر","name_ascii":"Sidi Ladjel","slug":"sidi-ladjel","communes":[{"name_ar":"سيدي لخضر","name_ascii":"Sidi Ladjel","zip":null},{"name_ar":"حاسي فدول","name_ascii":"Hassi Fedoul","zip":null},{"name_ar":"عين فكة","name_ascii":"Ain Fekka","zip":null}]},{"name_ar":"حاضرة","name_ascii":"Had Sahary","slug":"had-sahary","communes":[{"name_ar":"حاضرة","name_ascii":"Had Sahary","zip":null},{"name_ar":"قرنيني","name_ascii":"Guernini","zip":null},{"name_ar":"بنهار","name_ascii":"Benhar","zip":null}]}]
+[
+  {
+    "arabic": "عين وسارة",
+    "ascii": "Ain Oussara",
+    "communes": [
+      {
+        "arabic": "عين وسارة",
+        "ascii": "Ain Ouessara",
+        "zip": null
+      },
+      {
+        "arabic": "الخميس",
+        "ascii": "El Khemis",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "البيرين",
+    "ascii": "Birine",
+    "communes": [
+      {
+        "arabic": "البيرين",
+        "ascii": "Birine",
+        "zip": null
+      },
+      {
+        "arabic": "بويرة الأحداب",
+        "ascii": "Bouira Lahdab",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "سيدي لخضر",
+    "ascii": "Sidi Ladjel",
+    "communes": [
+      {
+        "arabic": "سيدي لخضر",
+        "ascii": "Sidi Ladjel",
+        "zip": null
+      },
+      {
+        "arabic": "حاسي فدول",
+        "ascii": "Hassi Fedoul",
+        "zip": null
+      },
+      {
+        "arabic": "عين فكة",
+        "ascii": "Ain Fekka",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "حاضرة",
+    "ascii": "Had Sahary",
+    "communes": [
+      {
+        "arabic": "حاضرة",
+        "ascii": "Had Sahary",
+        "zip": null
+      },
+      {
+        "arabic": "قرنيني",
+        "ascii": "Guernini",
+        "zip": null
+      },
+      {
+        "arabic": "بنهار",
+        "ascii": "Benhar",
+        "zip": null
+      }
+    ]
+  }
+]

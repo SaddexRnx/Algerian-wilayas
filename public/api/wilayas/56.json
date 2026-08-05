@@ -1,1 +1,23 @@
-{"code":56,"arabic":"جانت","ascii":"Djanet","dairas":[{"arabic":"جانت","ascii":"Djanet","communes":[{"arabic":"جانت","ascii":"Djanet","zip":null},{"arabic":"برج الحواس","ascii":"Bordj El Haouass","zip":null}]}]}
+{
+  "code": 56,
+  "arabic": "جانت",
+  "ascii": "Djanet",
+  "dairas": [
+    {
+      "arabic": "جانت",
+      "ascii": "Djanet",
+      "communes": [
+        {
+          "arabic": "جانت",
+          "ascii": "Djanet",
+          "zip": null
+        },
+        {
+          "arabic": "برج الحواس",
+          "ascii": "Bordj El Haouass",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

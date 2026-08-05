@@ -1,1 +1,208 @@
-[{"name_ar":"جيجل","name_ascii":"Jijel","slug":"jijel","communes":[{"name_ar":"جيجل","name_ascii":"Jijel","zip":"18001"}]},{"name_ar":"العوانة","name_ascii":"El Aouana","slug":"el-aouana","communes":[{"name_ar":"العوانة","name_ascii":"El Aouana","zip":"18003"},{"name_ar":"سلمى بن زيادة","name_ascii":"Selma Benziada","zip":"18018"}]},{"name_ar":"زيامة منصورية","name_ascii":"Ziamah Mansouriah","slug":"ziamah-mansouriah","communes":[{"name_ar":"أراقن سويسي","name_ascii":"Erraguene Souissi","zip":null},{"name_ar":"زيامة منصورية","name_ascii":"Ziama Mansouriah","zip":null}]},{"name_ar":"الطاهير","name_ascii":"Taher","slug":"taher","communes":[{"name_ar":"بوسيف أولاد عسكر","name_ascii":"Boussif Ouled Askeur","zip":"18019"},{"name_ar":"الشحنة","name_ascii":"Chahna","zip":"18008"},{"name_ar":"الامير عبد القادر","name_ascii":"Emir Abdelkader","zip":"18006"},{"name_ar":"وجانة","name_ascii":"Oudjana","zip":null},{"name_ar":"الطاهير","name_ascii":"Taher","zip":"18005"}]},{"name_ar":"الشقفة","name_ascii":"Chekfa","slug":"chekfa","communes":[{"name_ar":"الشقفة","name_ascii":"Chekfa","zip":"18007"},{"name_ar":"القنار نشفي","name_ascii":"El Kennar Nouchfi","zip":"18020"},{"name_ar":"سيدي عبد العزيز","name_ascii":"Sidi Abdelaziz","zip":"18013"},{"name_ar":"برج الطهر","name_ascii":"Bordj T'har","zip":null}]},{"name_ar":"الميلية","name_ascii":"El Milia","slug":"el-milia","communes":[{"name_ar":"الميلية","name_ascii":"El Milia","zip":"18009"},{"name_ar":"أولاد يحيى خدروش","name_ascii":"Ouled Yahia Khadrouch","zip":"18021"}]},{"name_ar":"سيدي معروف","name_ascii":"Sidi Marouf","slug":"sidi-marouf","communes":[{"name_ar":"أولاد رابح","name_ascii":"Ouled Rabah","zip":"18027"},{"name_ar":"سيدي معروف","name_ascii":"Sidi Marouf","zip":null}]},{"name_ar":"السطارة","name_ascii":"Settara","slug":"settara","communes":[{"name_ar":"غبالة","name_ascii":"Ghebala","zip":"18015"},{"name_ar":"السطارة","name_ascii":"Settara","zip":"18011"}]},{"name_ar":"العنصر","name_ascii":"El Ancer","slug":"el-ancer","communes":[{"name_ar":"بوراوي بلهادف","name_ascii":"Bouraoui Belhadef","zip":"18016"},{"name_ar":"العنصر","name_ascii":"El Ancer","zip":"18012"},{"name_ar":"خيري واد عجول","name_ascii":"Khiri Oued Adjoul","zip":null},{"name_ar":"الجمعة بني حبيبي","name_ascii":"Djemaa Beni Habibi","zip":"18025"}]},{"name_ar":"جيملة","name_ascii":"Djimla","slug":"djimla","communes":[{"name_ar":"جيملة","name_ascii":"Djimla","zip":null},{"name_ar":"بودريعة بني  ياجيس","name_ascii":"Boudria Beniyadjis","zip":null}]},{"name_ar":"تاكسنة","name_ascii":"Texenna","slug":"texenna","communes":[{"name_ar":"قاوس","name_ascii":"Kaous","zip":"18014"},{"name_ar":"تاكسنة","name_ascii":"Texenna","zip":null}]}]
+[
+  {
+    "arabic": "جيجل",
+    "ascii": "Jijel",
+    "communes": [
+      {
+        "arabic": "جيجل",
+        "ascii": "Jijel",
+        "zip": "18001"
+      }
+    ]
+  },
+  {
+    "arabic": "العوانة",
+    "ascii": "El Aouana",
+    "communes": [
+      {
+        "arabic": "العوانة",
+        "ascii": "El Aouana",
+        "zip": "18003"
+      },
+      {
+        "arabic": "سلمى بن زيادة",
+        "ascii": "Selma Benziada",
+        "zip": "18018"
+      }
+    ]
+  },
+  {
+    "arabic": "زيامة منصورية",
+    "ascii": "Ziamah Mansouriah",
+    "communes": [
+      {
+        "arabic": "أراقن سويسي",
+        "ascii": "Erraguene Souissi",
+        "zip": null
+      },
+      {
+        "arabic": "زيامة منصورية",
+        "ascii": "Ziama Mansouriah",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "الطاهير",
+    "ascii": "Taher",
+    "communes": [
+      {
+        "arabic": "بوسيف أولاد عسكر",
+        "ascii": "Boussif Ouled Askeur",
+        "zip": "18019"
+      },
+      {
+        "arabic": "الشحنة",
+        "ascii": "Chahna",
+        "zip": "18008"
+      },
+      {
+        "arabic": "الامير عبد القادر",
+        "ascii": "Emir Abdelkader",
+        "zip": "18006"
+      },
+      {
+        "arabic": "وجانة",
+        "ascii": "Oudjana",
+        "zip": null
+      },
+      {
+        "arabic": "الطاهير",
+        "ascii": "Taher",
+        "zip": "18005"
+      }
+    ]
+  },
+  {
+    "arabic": "الشقفة",
+    "ascii": "Chekfa",
+    "communes": [
+      {
+        "arabic": "الشقفة",
+        "ascii": "Chekfa",
+        "zip": "18007"
+      },
+      {
+        "arabic": "القنار نشفي",
+        "ascii": "El Kennar Nouchfi",
+        "zip": "18020"
+      },
+      {
+        "arabic": "سيدي عبد العزيز",
+        "ascii": "Sidi Abdelaziz",
+        "zip": "18013"
+      },
+      {
+        "arabic": "برج الطهر",
+        "ascii": "Bordj T'har",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "الميلية",
+    "ascii": "El Milia",
+    "communes": [
+      {
+        "arabic": "الميلية",
+        "ascii": "El Milia",
+        "zip": "18009"
+      },
+      {
+        "arabic": "أولاد يحيى خدروش",
+        "ascii": "Ouled Yahia Khadrouch",
+        "zip": "18021"
+      }
+    ]
+  },
+  {
+    "arabic": "سيدي معروف",
+    "ascii": "Sidi Marouf",
+    "communes": [
+      {
+        "arabic": "أولاد رابح",
+        "ascii": "Ouled Rabah",
+        "zip": "18027"
+      },
+      {
+        "arabic": "سيدي معروف",
+        "ascii": "Sidi Marouf",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "السطارة",
+    "ascii": "Settara",
+    "communes": [
+      {
+        "arabic": "غبالة",
+        "ascii": "Ghebala",
+        "zip": "18015"
+      },
+      {
+        "arabic": "السطارة",
+        "ascii": "Settara",
+        "zip": "18011"
+      }
+    ]
+  },
+  {
+    "arabic": "العنصر",
+    "ascii": "El Ancer",
+    "communes": [
+      {
+        "arabic": "بوراوي بلهادف",
+        "ascii": "Bouraoui Belhadef",
+        "zip": "18016"
+      },
+      {
+        "arabic": "العنصر",
+        "ascii": "El Ancer",
+        "zip": "18012"
+      },
+      {
+        "arabic": "خيري واد عجول",
+        "ascii": "Khiri Oued Adjoul",
+        "zip": null
+      },
+      {
+        "arabic": "الجمعة بني حبيبي",
+        "ascii": "Djemaa Beni Habibi",
+        "zip": "18025"
+      }
+    ]
+  },
+  {
+    "arabic": "جيملة",
+    "ascii": "Djimla",
+    "communes": [
+      {
+        "arabic": "جيملة",
+        "ascii": "Djimla",
+        "zip": null
+      },
+      {
+        "arabic": "بودريعة بني  ياجيس",
+        "ascii": "Boudria Beniyadjis",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "تاكسنة",
+    "ascii": "Texenna",
+    "communes": [
+      {
+        "arabic": "قاوس",
+        "ascii": "Kaous",
+        "zip": "18014"
+      },
+      {
+        "arabic": "تاكسنة",
+        "ascii": "Texenna",
+        "zip": null
+      }
+    ]
+  }
+]

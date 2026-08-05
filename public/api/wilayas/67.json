@@ -1,1 +1,148 @@
-{"code":67,"arabic":"قصر البخاري","ascii":"Ksar El Boukhari","dairas":[{"arabic":"قصر البخاري","ascii":"Ksar El Boukhari","communes":[{"arabic":"قصر البخاري","ascii":"Ksar El Boukhari","zip":null},{"arabic":"أولاد معرف","ascii":"Ouled Maaref","zip":null},{"arabic":"سيدي دامد","ascii":"Sidi Damed","zip":null}]},{"arabic":"عين بوسيف","ascii":"Ain Boucif","communes":[{"arabic":"عين بوسيف","ascii":"Ain Boucif","zip":null},{"arabic":"الكاف الأحمر","ascii":"Kef Lakhdar","zip":null},{"arabic":"عين اقصير","ascii":"Ain Ouksir","zip":null}]},{"arabic":"الدراق","ascii":"Derrag","communes":[{"arabic":"الدراق","ascii":"Derrag","zip":null},{"arabic":"بوطاط","ascii":"Bouaiche","zip":null},{"arabic":"شلالة العذاورة","ascii":"Chelalet El Adhaoura","zip":null}]},{"arabic":"بوغار","ascii":"Boghar","communes":[{"arabic":"بوغار","ascii":"Boghar","zip":null},{"arabic":"أولاد عنتر","ascii":"Ouled Antar","zip":null},{"arabic":"العوينات","ascii":"El Ouinet","zip":null}]},{"arabic":"عزيز","ascii":"Aziz","communes":[{"arabic":"عزيز","ascii":"Aziz","zip":null},{"arabic":"شهبونية","ascii":"Chahbounia","zip":null},{"arabic":"شنيقل","ascii":"Cheniguel","zip":null},{"arabic":"أم الجليل","ascii":"Oum El Djallil","zip":null},{"arabic":"مفاتحة","ascii":"M’Fatha","zip":null}]},{"arabic":"بوقزول","ascii":"Boughezoul","communes":[{"arabic":"بوقزول","ascii":"Boughezoul","zip":null},{"arabic":"السناقصة","ascii":"Saneg","zip":null},{"arabic":"أولاد هلال","ascii":"Ouled Hellal","zip":null},{"arabic":"تفراوت","ascii":"Tafraout","zip":null}]}]}
+{
+  "code": 67,
+  "arabic": "قصر البخاري",
+  "ascii": "Ksar El Boukhari",
+  "dairas": [
+    {
+      "arabic": "قصر البخاري",
+      "ascii": "Ksar El Boukhari",
+      "communes": [
+        {
+          "arabic": "قصر البخاري",
+          "ascii": "Ksar El Boukhari",
+          "zip": null
+        },
+        {
+          "arabic": "أولاد معرف",
+          "ascii": "Ouled Maaref",
+          "zip": null
+        },
+        {
+          "arabic": "سيدي دامد",
+          "ascii": "Sidi Damed",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "عين بوسيف",
+      "ascii": "Ain Boucif",
+      "communes": [
+        {
+          "arabic": "عين بوسيف",
+          "ascii": "Ain Boucif",
+          "zip": null
+        },
+        {
+          "arabic": "الكاف الأحمر",
+          "ascii": "Kef Lakhdar",
+          "zip": null
+        },
+        {
+          "arabic": "عين اقصير",
+          "ascii": "Ain Ouksir",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "الدراق",
+      "ascii": "Derrag",
+      "communes": [
+        {
+          "arabic": "الدراق",
+          "ascii": "Derrag",
+          "zip": null
+        },
+        {
+          "arabic": "بوطاط",
+          "ascii": "Bouaiche",
+          "zip": null
+        },
+        {
+          "arabic": "شلالة العذاورة",
+          "ascii": "Chelalet El Adhaoura",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "بوغار",
+      "ascii": "Boghar",
+      "communes": [
+        {
+          "arabic": "بوغار",
+          "ascii": "Boghar",
+          "zip": null
+        },
+        {
+          "arabic": "أولاد عنتر",
+          "ascii": "Ouled Antar",
+          "zip": null
+        },
+        {
+          "arabic": "العوينات",
+          "ascii": "El Ouinet",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "عزيز",
+      "ascii": "Aziz",
+      "communes": [
+        {
+          "arabic": "عزيز",
+          "ascii": "Aziz",
+          "zip": null
+        },
+        {
+          "arabic": "شهبونية",
+          "ascii": "Chahbounia",
+          "zip": null
+        },
+        {
+          "arabic": "شنيقل",
+          "ascii": "Cheniguel",
+          "zip": null
+        },
+        {
+          "arabic": "أم الجليل",
+          "ascii": "Oum El Djallil",
+          "zip": null
+        },
+        {
+          "arabic": "مفاتحة",
+          "ascii": "M’Fatha",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "بوقزول",
+      "ascii": "Boughezoul",
+      "communes": [
+        {
+          "arabic": "بوقزول",
+          "ascii": "Boughezoul",
+          "zip": null
+        },
+        {
+          "arabic": "السناقصة",
+          "ascii": "Saneg",
+          "zip": null
+        },
+        {
+          "arabic": "أولاد هلال",
+          "ascii": "Ouled Hellal",
+          "zip": null
+        },
+        {
+          "arabic": "تفراوت",
+          "ascii": "Tafraout",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

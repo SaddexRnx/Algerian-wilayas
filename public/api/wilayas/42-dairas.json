@@ -1,1 +1,208 @@
-[{"name_ar":"حجوط","name_ascii":"Hadjout","slug":"hadjout","communes":[{"name_ar":"حجوط","name_ascii":"Hadjout","zip":"42012"},{"name_ar":"مراد","name_ascii":"Merad","zip":null}]},{"name_ar":"سيدي أعمر","name_ascii":"Sidi Amar","slug":"sidi-amar","communes":[{"name_ar":"مناصر","name_ascii":"Menaceur","zip":"42002"},{"name_ar":"الناظور","name_ascii":"Nador","zip":null},{"name_ar":"سيدي عامر","name_ascii":"Sidi-Amar","zip":"42013"}]},{"name_ar":"قوراية","name_ascii":"Gouraya","slug":"gouraya","communes":[{"name_ar":"أغبال","name_ascii":"Aghbal","zip":null},{"name_ar":"قوراية","name_ascii":"Gouraya","zip":"42014"},{"name_ar":"مسلمون","name_ascii":"Messelmoun","zip":"42033"}]},{"name_ar":"شرشال","name_ascii":"Cherchell","slug":"cherchell","communes":[{"name_ar":"شرشال","name_ascii":"Cherchell","zip":null},{"name_ar":"حجرة النص","name_ascii":"Hadjret Ennous","zip":null},{"name_ar":"سيدي غيلاس","name_ascii":"Sidi Ghiles","zip":"42032"},{"name_ar":"سيدي سميان","name_ascii":"Sidi Semiane","zip":"42040"}]},{"name_ar":"الداموس","name_ascii":"Damous","slug":"damous","communes":[{"name_ar":"الداموس","name_ascii":"Damous","zip":"42023"},{"name_ar":"الأرهاط","name_ascii":"Larhat","zip":"42003"},{"name_ar":"بني ميلك","name_ascii":"Beni Mileuk","zip":null}]},{"name_ar":"فوكة","name_ascii":"Fouka","slug":"fouka","communes":[{"name_ar":"فوكة","name_ascii":"Fouka","zip":"42025"},{"name_ar":"دواودة","name_ascii":"Douaouda","zip":"42004"}]},{"name_ar":"بواسماعيل","name_ascii":"Bou Ismail","slug":"bou-ismail","communes":[{"name_ar":"عين تاقورايت","name_ascii":"Ain Tagourait","zip":"42017"},{"name_ar":"بوهارون","name_ascii":"Bou Haroun","zip":"42030"},{"name_ar":"بواسماعيل","name_ascii":"Bou Ismail","zip":"42026"}]},{"name_ar":"خميستي","name_ascii":"Khemisti","slug":"khemisti","communes":[{"name_ar":"خميستي","name_ascii":"Khemisti","zip":"42006"}]},{"name_ar":"أحمر العين","name_ascii":"Ahmar El Ain","slug":"ahmar-el-ain","communes":[{"name_ar":"أحمر العين","name_ascii":"Ahmer El Ain","zip":"42027"},{"name_ar":"بورقيقة","name_ascii":"Bourkika","zip":"42005"},{"name_ar":"سيدي راشد","name_ascii":"Sidi Rached","zip":"42034"}]},{"name_ar":"القليعة","name_ascii":"Kolea","slug":"kolea","communes":[{"name_ar":"الحطاطبة","name_ascii":"Attatba","zip":"42036"},{"name_ar":"الشعيبة","name_ascii":"Chaiba","zip":"42016"},{"name_ar":"القليعة","name_ascii":"Kolea","zip":"42035"}]},{"name_ar":"تيبازة","name_ascii":"Tipaza","slug":"tipaza","communes":[{"name_ar":"تيبازة","name_ascii":"Tipaza","zip":"42001"}]}]
+[
+  {
+    "arabic": "حجوط",
+    "ascii": "Hadjout",
+    "communes": [
+      {
+        "arabic": "حجوط",
+        "ascii": "Hadjout",
+        "zip": "42012"
+      },
+      {
+        "arabic": "مراد",
+        "ascii": "Merad",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "سيدي أعمر",
+    "ascii": "Sidi Amar",
+    "communes": [
+      {
+        "arabic": "مناصر",
+        "ascii": "Menaceur",
+        "zip": "42002"
+      },
+      {
+        "arabic": "الناظور",
+        "ascii": "Nador",
+        "zip": null
+      },
+      {
+        "arabic": "سيدي عامر",
+        "ascii": "Sidi-Amar",
+        "zip": "42013"
+      }
+    ]
+  },
+  {
+    "arabic": "قوراية",
+    "ascii": "Gouraya",
+    "communes": [
+      {
+        "arabic": "أغبال",
+        "ascii": "Aghbal",
+        "zip": null
+      },
+      {
+        "arabic": "قوراية",
+        "ascii": "Gouraya",
+        "zip": "42014"
+      },
+      {
+        "arabic": "مسلمون",
+        "ascii": "Messelmoun",
+        "zip": "42033"
+      }
+    ]
+  },
+  {
+    "arabic": "شرشال",
+    "ascii": "Cherchell",
+    "communes": [
+      {
+        "arabic": "شرشال",
+        "ascii": "Cherchell",
+        "zip": null
+      },
+      {
+        "arabic": "حجرة النص",
+        "ascii": "Hadjret Ennous",
+        "zip": null
+      },
+      {
+        "arabic": "سيدي غيلاس",
+        "ascii": "Sidi Ghiles",
+        "zip": "42032"
+      },
+      {
+        "arabic": "سيدي سميان",
+        "ascii": "Sidi Semiane",
+        "zip": "42040"
+      }
+    ]
+  },
+  {
+    "arabic": "الداموس",
+    "ascii": "Damous",
+    "communes": [
+      {
+        "arabic": "الداموس",
+        "ascii": "Damous",
+        "zip": "42023"
+      },
+      {
+        "arabic": "الأرهاط",
+        "ascii": "Larhat",
+        "zip": "42003"
+      },
+      {
+        "arabic": "بني ميلك",
+        "ascii": "Beni Mileuk",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "فوكة",
+    "ascii": "Fouka",
+    "communes": [
+      {
+        "arabic": "فوكة",
+        "ascii": "Fouka",
+        "zip": "42025"
+      },
+      {
+        "arabic": "دواودة",
+        "ascii": "Douaouda",
+        "zip": "42004"
+      }
+    ]
+  },
+  {
+    "arabic": "بواسماعيل",
+    "ascii": "Bou Ismail",
+    "communes": [
+      {
+        "arabic": "عين تاقورايت",
+        "ascii": "Ain Tagourait",
+        "zip": "42017"
+      },
+      {
+        "arabic": "بوهارون",
+        "ascii": "Bou Haroun",
+        "zip": "42030"
+      },
+      {
+        "arabic": "بواسماعيل",
+        "ascii": "Bou Ismail",
+        "zip": "42026"
+      }
+    ]
+  },
+  {
+    "arabic": "خميستي",
+    "ascii": "Khemisti",
+    "communes": [
+      {
+        "arabic": "خميستي",
+        "ascii": "Khemisti",
+        "zip": "42006"
+      }
+    ]
+  },
+  {
+    "arabic": "أحمر العين",
+    "ascii": "Ahmar El Ain",
+    "communes": [
+      {
+        "arabic": "أحمر العين",
+        "ascii": "Ahmer El Ain",
+        "zip": "42027"
+      },
+      {
+        "arabic": "بورقيقة",
+        "ascii": "Bourkika",
+        "zip": "42005"
+      },
+      {
+        "arabic": "سيدي راشد",
+        "ascii": "Sidi Rached",
+        "zip": "42034"
+      }
+    ]
+  },
+  {
+    "arabic": "القليعة",
+    "ascii": "Kolea",
+    "communes": [
+      {
+        "arabic": "الحطاطبة",
+        "ascii": "Attatba",
+        "zip": "42036"
+      },
+      {
+        "arabic": "الشعيبة",
+        "ascii": "Chaiba",
+        "zip": "42016"
+      },
+      {
+        "arabic": "القليعة",
+        "ascii": "Kolea",
+        "zip": "42035"
+      }
+    ]
+  },
+  {
+    "arabic": "تيبازة",
+    "ascii": "Tipaza",
+    "communes": [
+      {
+        "arabic": "تيبازة",
+        "ascii": "Tipaza",
+        "zip": "42001"
+      }
+    ]
+  }
+]

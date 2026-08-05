@@ -1,1 +1,46 @@
-[{"name_ar":"العريشة","name_ascii":"El Aricha","slug":"el-aricha","communes":[{"name_ar":"العريشة","name_ascii":"El Aricha","zip":null}]},{"name_ar":"الگور","name_ascii":"El Gor","slug":"el-gor","communes":[{"name_ar":"الگور","name_ascii":"El Gor","zip":null}]},{"name_ar":"سيدي جيلالي","name_ascii":"Sidi Djillali","slug":"sidi-djillali","communes":[{"name_ar":"سيدي جيلالي","name_ascii":"Sidi Djillali","zip":null}]},{"name_ar":"البويهي","name_ascii":"El Bouihi","slug":"el-bouihi","communes":[{"name_ar":"البويهي","name_ascii":"El Bouihi","zip":null}]}]
+[
+  {
+    "arabic": "العريشة",
+    "ascii": "El Aricha",
+    "communes": [
+      {
+        "arabic": "العريشة",
+        "ascii": "El Aricha",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "الگور",
+    "ascii": "El Gor",
+    "communes": [
+      {
+        "arabic": "الگور",
+        "ascii": "El Gor",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "سيدي جيلالي",
+    "ascii": "Sidi Djillali",
+    "communes": [
+      {
+        "arabic": "سيدي جيلالي",
+        "ascii": "Sidi Djillali",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "البويهي",
+    "ascii": "El Bouihi",
+    "communes": [
+      {
+        "arabic": "البويهي",
+        "ascii": "El Bouihi",
+        "zip": null
+      }
+    ]
+  }
+]

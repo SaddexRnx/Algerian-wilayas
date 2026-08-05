@@ -1,1 +1,201 @@
-{"code":46,"arabic":"عين تموشنت","ascii":"Ain Temouchent","dairas":[{"arabic":"عين الأربعاء","ascii":"Ain Larbaa","communes":[{"arabic":"سيدي بومدين","ascii":"Sidi Boumediene","zip":"46015"},{"arabic":"تامزورة","ascii":"Tamzoura","zip":"46010"},{"arabic":"وادي الصباح","ascii":"Oued Sebbah","zip":null},{"arabic":"عين الأربعاء","ascii":"Ain El Arbaa","zip":"46009"}]},{"arabic":"المالح","ascii":"El Maleh","communes":[{"arabic":"شعبة اللحم","ascii":"Chaabat El Ham","zip":null},{"arabic":"المالح","ascii":"El Maleh","zip":null},{"arabic":"أولاد الكيحل","ascii":"Ouled Kihal","zip":"46022"},{"arabic":"تارقة","ascii":"Terga","zip":"46008"}]},{"arabic":"حمام بوحجر","ascii":"Hammam Bou Hadjar","communes":[{"arabic":"شنتوف","ascii":"Chentouf","zip":"46011"},{"arabic":"الحساسنة","ascii":"Hassasna","zip":"46021"},{"arabic":"وادي برقش","ascii":"Oued Berkeche","zip":"46006"},{"arabic":"حمام بوحجر","ascii":"Hammam Bou Hadjar","zip":null}]},{"arabic":"العامرية","ascii":"El Amria","communes":[{"arabic":"العامرية","ascii":"El Amria","zip":"46019"},{"arabic":"حاسي الغلة","ascii":"Hassi El Ghella","zip":"46020"},{"arabic":"أولاد بوجمعة","ascii":"Ouled Boudjemaa","zip":"46017"},{"arabic":"المساعيد","ascii":"El Messaid","zip":"46028"},{"arabic":"بوزجار","ascii":"Bouzedjar","zip":null}]},{"arabic":"عين الكيحل","ascii":"Ain Kihel","communes":[{"arabic":"أغلال","ascii":"Aghlal","zip":"46007"},{"arabic":"عين الكيحل","ascii":"Ain Kihal","zip":"46003"},{"arabic":"عين الطلبة","ascii":"Ain Tolba","zip":"46018"},{"arabic":"عقب الليل","ascii":"Aoubellil","zip":"46013"}]},{"arabic":"بني صاف","ascii":"Beni Saf","communes":[{"arabic":"بني صاف","ascii":"Beni Saf","zip":"46023"},{"arabic":"سيدي صافي","ascii":"Sidi Safi","zip":"46024"}]},{"arabic":"الطاهير","ascii":"Taher","communes":[{"arabic":"الأمير عبد القادر","ascii":"Emir Abdelkader","zip":null}]},{"arabic":"ولهاصة الغرابة","ascii":"Oulhassa Gheraba","communes":[{"arabic":"ولهاصة الغرابة","ascii":"Oulhaca El Gheraba","zip":"46025"},{"arabic":"سيدي ورياش","ascii":"Sidi Ouriache","zip":"46026"}]},{"arabic":"عين تموشنت","ascii":"Ain Temouchent","communes":[{"arabic":"سيدي بن عدة","ascii":"Sidi Ben Adda","zip":"46012"},{"arabic":"عين تموشنت","ascii":"Ain Temouchent","zip":"46001"}]}]}
+{
+  "code": 46,
+  "arabic": "عين تموشنت",
+  "ascii": "Ain Temouchent",
+  "dairas": [
+    {
+      "arabic": "عين الأربعاء",
+      "ascii": "Ain Larbaa",
+      "communes": [
+        {
+          "arabic": "سيدي بومدين",
+          "ascii": "Sidi Boumediene",
+          "zip": "46015"
+        },
+        {
+          "arabic": "تامزورة",
+          "ascii": "Tamzoura",
+          "zip": "46010"
+        },
+        {
+          "arabic": "وادي الصباح",
+          "ascii": "Oued Sebbah",
+          "zip": null
+        },
+        {
+          "arabic": "عين الأربعاء",
+          "ascii": "Ain El Arbaa",
+          "zip": "46009"
+        }
+      ]
+    },
+    {
+      "arabic": "المالح",
+      "ascii": "El Maleh",
+      "communes": [
+        {
+          "arabic": "شعبة اللحم",
+          "ascii": "Chaabat El Ham",
+          "zip": null
+        },
+        {
+          "arabic": "المالح",
+          "ascii": "El Maleh",
+          "zip": null
+        },
+        {
+          "arabic": "أولاد الكيحل",
+          "ascii": "Ouled Kihal",
+          "zip": "46022"
+        },
+        {
+          "arabic": "تارقة",
+          "ascii": "Terga",
+          "zip": "46008"
+        }
+      ]
+    },
+    {
+      "arabic": "حمام بوحجر",
+      "ascii": "Hammam Bou Hadjar",
+      "communes": [
+        {
+          "arabic": "شنتوف",
+          "ascii": "Chentouf",
+          "zip": "46011"
+        },
+        {
+          "arabic": "الحساسنة",
+          "ascii": "Hassasna",
+          "zip": "46021"
+        },
+        {
+          "arabic": "وادي برقش",
+          "ascii": "Oued Berkeche",
+          "zip": "46006"
+        },
+        {
+          "arabic": "حمام بوحجر",
+          "ascii": "Hammam Bou Hadjar",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "العامرية",
+      "ascii": "El Amria",
+      "communes": [
+        {
+          "arabic": "العامرية",
+          "ascii": "El Amria",
+          "zip": "46019"
+        },
+        {
+          "arabic": "حاسي الغلة",
+          "ascii": "Hassi El Ghella",
+          "zip": "46020"
+        },
+        {
+          "arabic": "أولاد بوجمعة",
+          "ascii": "Ouled Boudjemaa",
+          "zip": "46017"
+        },
+        {
+          "arabic": "المساعيد",
+          "ascii": "El Messaid",
+          "zip": "46028"
+        },
+        {
+          "arabic": "بوزجار",
+          "ascii": "Bouzedjar",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "عين الكيحل",
+      "ascii": "Ain Kihel",
+      "communes": [
+        {
+          "arabic": "أغلال",
+          "ascii": "Aghlal",
+          "zip": "46007"
+        },
+        {
+          "arabic": "عين الكيحل",
+          "ascii": "Ain Kihal",
+          "zip": "46003"
+        },
+        {
+          "arabic": "عين الطلبة",
+          "ascii": "Ain Tolba",
+          "zip": "46018"
+        },
+        {
+          "arabic": "عقب الليل",
+          "ascii": "Aoubellil",
+          "zip": "46013"
+        }
+      ]
+    },
+    {
+      "arabic": "بني صاف",
+      "ascii": "Beni Saf",
+      "communes": [
+        {
+          "arabic": "بني صاف",
+          "ascii": "Beni Saf",
+          "zip": "46023"
+        },
+        {
+          "arabic": "سيدي صافي",
+          "ascii": "Sidi Safi",
+          "zip": "46024"
+        }
+      ]
+    },
+    {
+      "arabic": "الطاهير",
+      "ascii": "Taher",
+      "communes": [
+        {
+          "arabic": "الأمير عبد القادر",
+          "ascii": "Emir Abdelkader",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "ولهاصة الغرابة",
+      "ascii": "Oulhassa Gheraba",
+      "communes": [
+        {
+          "arabic": "ولهاصة الغرابة",
+          "ascii": "Oulhaca El Gheraba",
+          "zip": "46025"
+        },
+        {
+          "arabic": "سيدي ورياش",
+          "ascii": "Sidi Ouriache",
+          "zip": "46026"
+        }
+      ]
+    },
+    {
+      "arabic": "عين تموشنت",
+      "ascii": "Ain Temouchent",
+      "communes": [
+        {
+          "arabic": "سيدي بن عدة",
+          "ascii": "Sidi Ben Adda",
+          "zip": "46012"
+        },
+        {
+          "arabic": "عين تموشنت",
+          "ascii": "Ain Temouchent",
+          "zip": "46001"
+        }
+      ]
+    }
+  ]
+}

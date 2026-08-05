@@ -1,1 +1,238 @@
-[{"name_ar":"الحمادية","name_ascii":"El Hamadia","slug":"el-hamadia","communes":[{"name_ar":"الحمادية","name_ascii":"Elhammadia","zip":null},{"name_ar":"العش","name_ascii":"El Euch","zip":null},{"name_ar":"القصور","name_ascii":"Ksour","zip":"34022"},{"name_ar":"الرابطة","name_ascii":"Rabta","zip":"34033"}]},{"name_ar":"أولاد سيدي ابراهيم","name_ascii":"Ouled Sidi Brahim","slug":"ouled-sidi-brahim","communes":[{"name_ar":"أولاد سيدي ابراهيم","name_ascii":"Ouled Sidi-Brahim","zip":"34023"}]},{"name_ar":"عين تاغروت","name_ascii":"Ain Taghrout","slug":"ain-taghrout","communes":[{"name_ar":"عين تاغروت","name_ascii":"Ain Taghrout","zip":"34008"},{"name_ar":"تيكستار","name_ascii":"Tixter","zip":"34026"}]},{"name_ar":"برج الغدير","name_ascii":"Bordj Ghedir","slug":"bordj-ghedir","communes":[{"name_ar":"بليمور","name_ascii":"Belimour","zip":"34012"},{"name_ar":"العناصر","name_ascii":"El Annasseur","zip":null},{"name_ar":"غيلاسة","name_ascii":"Ghailasa","zip":null},{"name_ar":"تقلعيت","name_ascii":"Taglait","zip":"34021"},{"name_ar":"برج الغدير","name_ascii":"Bordj Ghedir","zip":null}]},{"name_ar":"بئر قاصد علي","name_ascii":"Bir Kasdali","slug":"bir-kasdali","communes":[{"name_ar":"سيدي أمبارك","name_ascii":"Sidi-Embarek","zip":"34010"},{"name_ar":"خليل","name_ascii":"Khelil","zip":"34020"},{"name_ar":"بئر قاصد علي","name_ascii":"Bir Kasdali","zip":"34031"}]},{"name_ar":"جعافرة","name_ascii":"Djaafra","slug":"djaafra","communes":[{"name_ar":"تفرق","name_ascii":"Tefreg","zip":null},{"name_ar":"الماين","name_ascii":"El Main","zip":"34016"},{"name_ar":"جعافرة","name_ascii":"Djaafra","zip":"34015"},{"name_ar":"القلة","name_ascii":"Colla","zip":"34025"}]},{"name_ar":"مجانة","name_ascii":"Medjana","slug":"medjana","communes":[{"name_ar":"ثنية النصر","name_ascii":"Teniet En Nasr","zip":"34014"},{"name_ar":"الياشير","name_ascii":"El Achir","zip":"34007"},{"name_ar":"حسناوة","name_ascii":"Hasnaoua","zip":"34019"},{"name_ar":"مجانة","name_ascii":"Medjana","zip":"34013"}]},{"name_ar":"المنصورة","name_ascii":"Mansourah","slug":"mansourah","communes":[{"name_ar":"المهير","name_ascii":"El M'hir","zip":"34005"},{"name_ar":"المنصورة","name_ascii":"Mansoura","zip":"34004"},{"name_ar":"حرازة","name_ascii":"Haraza","zip":"34034"},{"name_ar":"بن داود","name_ascii":"Ben Daoud","zip":"34006"}]},{"name_ar":"رأس الوادي","name_ascii":"Ras El Oued","slug":"ras-el-oued","communes":[{"name_ar":"عين تسرة","name_ascii":"Ain Tesra","zip":"34030"},{"name_ar":"أولاد أبراهم","name_ascii":"Ouled Brahem","zip":"34017"},{"name_ar":"رأس الوادي","name_ascii":"Ras El Oued","zip":"34002"}]},{"name_ar":"برج زمورة","name_ascii":"Bordj Zemmoura","slug":"bordj-zemmoura","communes":[{"name_ar":"برج زمورة","name_ascii":"Bordj Zemmoura","zip":null},{"name_ar":"أولاد دحمان","name_ascii":"Ouled Dahmane","zip":"34018"},{"name_ar":"تسامرت","name_ascii":"Tassamert","zip":null}]},{"name_ar":"برج بوعريريج","name_ascii":"Bordj Bou Arreridj","slug":"bordj-bou-arreridj","communes":[{"name_ar":"برج بوعريرج","name_ascii":"B. B. Arreridj","zip":null}]}]
+[
+  {
+    "arabic": "الحمادية",
+    "ascii": "El Hamadia",
+    "communes": [
+      {
+        "arabic": "الحمادية",
+        "ascii": "Elhammadia",
+        "zip": null
+      },
+      {
+        "arabic": "العش",
+        "ascii": "El Euch",
+        "zip": null
+      },
+      {
+        "arabic": "القصور",
+        "ascii": "Ksour",
+        "zip": "34022"
+      },
+      {
+        "arabic": "الرابطة",
+        "ascii": "Rabta",
+        "zip": "34033"
+      }
+    ]
+  },
+  {
+    "arabic": "أولاد سيدي ابراهيم",
+    "ascii": "Ouled Sidi Brahim",
+    "communes": [
+      {
+        "arabic": "أولاد سيدي ابراهيم",
+        "ascii": "Ouled Sidi-Brahim",
+        "zip": "34023"
+      }
+    ]
+  },
+  {
+    "arabic": "عين تاغروت",
+    "ascii": "Ain Taghrout",
+    "communes": [
+      {
+        "arabic": "عين تاغروت",
+        "ascii": "Ain Taghrout",
+        "zip": "34008"
+      },
+      {
+        "arabic": "تيكستار",
+        "ascii": "Tixter",
+        "zip": "34026"
+      }
+    ]
+  },
+  {
+    "arabic": "برج الغدير",
+    "ascii": "Bordj Ghedir",
+    "communes": [
+      {
+        "arabic": "بليمور",
+        "ascii": "Belimour",
+        "zip": "34012"
+      },
+      {
+        "arabic": "العناصر",
+        "ascii": "El Annasseur",
+        "zip": null
+      },
+      {
+        "arabic": "غيلاسة",
+        "ascii": "Ghailasa",
+        "zip": null
+      },
+      {
+        "arabic": "تقلعيت",
+        "ascii": "Taglait",
+        "zip": "34021"
+      },
+      {
+        "arabic": "برج الغدير",
+        "ascii": "Bordj Ghedir",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "بئر قاصد علي",
+    "ascii": "Bir Kasdali",
+    "communes": [
+      {
+        "arabic": "سيدي أمبارك",
+        "ascii": "Sidi-Embarek",
+        "zip": "34010"
+      },
+      {
+        "arabic": "خليل",
+        "ascii": "Khelil",
+        "zip": "34020"
+      },
+      {
+        "arabic": "بئر قاصد علي",
+        "ascii": "Bir Kasdali",
+        "zip": "34031"
+      }
+    ]
+  },
+  {
+    "arabic": "جعافرة",
+    "ascii": "Djaafra",
+    "communes": [
+      {
+        "arabic": "تفرق",
+        "ascii": "Tefreg",
+        "zip": null
+      },
+      {
+        "arabic": "الماين",
+        "ascii": "El Main",
+        "zip": "34016"
+      },
+      {
+        "arabic": "جعافرة",
+        "ascii": "Djaafra",
+        "zip": "34015"
+      },
+      {
+        "arabic": "القلة",
+        "ascii": "Colla",
+        "zip": "34025"
+      }
+    ]
+  },
+  {
+    "arabic": "مجانة",
+    "ascii": "Medjana",
+    "communes": [
+      {
+        "arabic": "ثنية النصر",
+        "ascii": "Teniet En Nasr",
+        "zip": "34014"
+      },
+      {
+        "arabic": "الياشير",
+        "ascii": "El Achir",
+        "zip": "34007"
+      },
+      {
+        "arabic": "حسناوة",
+        "ascii": "Hasnaoua",
+        "zip": "34019"
+      },
+      {
+        "arabic": "مجانة",
+        "ascii": "Medjana",
+        "zip": "34013"
+      }
+    ]
+  },
+  {
+    "arabic": "المنصورة",
+    "ascii": "Mansourah",
+    "communes": [
+      {
+        "arabic": "المهير",
+        "ascii": "El M'hir",
+        "zip": "34005"
+      },
+      {
+        "arabic": "المنصورة",
+        "ascii": "Mansoura",
+        "zip": "34004"
+      },
+      {
+        "arabic": "حرازة",
+        "ascii": "Haraza",
+        "zip": "34034"
+      },
+      {
+        "arabic": "بن داود",
+        "ascii": "Ben Daoud",
+        "zip": "34006"
+      }
+    ]
+  },
+  {
+    "arabic": "رأس الوادي",
+    "ascii": "Ras El Oued",
+    "communes": [
+      {
+        "arabic": "عين تسرة",
+        "ascii": "Ain Tesra",
+        "zip": "34030"
+      },
+      {
+        "arabic": "أولاد أبراهم",
+        "ascii": "Ouled Brahem",
+        "zip": "34017"
+      },
+      {
+        "arabic": "رأس الوادي",
+        "ascii": "Ras El Oued",
+        "zip": "34002"
+      }
+    ]
+  },
+  {
+    "arabic": "برج زمورة",
+    "ascii": "Bordj Zemmoura",
+    "communes": [
+      {
+        "arabic": "برج زمورة",
+        "ascii": "Bordj Zemmoura",
+        "zip": null
+      },
+      {
+        "arabic": "أولاد دحمان",
+        "ascii": "Ouled Dahmane",
+        "zip": "34018"
+      },
+      {
+        "arabic": "تسامرت",
+        "ascii": "Tassamert",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "برج بوعريريج",
+    "ascii": "Bordj Bou Arreridj",
+    "communes": [
+      {
+        "arabic": "برج بوعريرج",
+        "ascii": "B. B. Arreridj",
+        "zip": null
+      }
+    ]
+  }
+]

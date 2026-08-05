@@ -313,6 +313,16 @@ export function ApiTester() {
           ))}
         </select>
 
+        <p className="mt-2 text-xs text-gray-400">
+          {shape === "index" || shape === "wilayas" || shape === "full"
+            ? t("tester.help.index")
+            : shape === "zip"
+            ? t("tester.help.zip")
+            : t("tester.help.wilaya")}
+        </p>
+
+
+
         <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
           <div className="min-w-0 flex-1" ref={rootRef}>
             <label

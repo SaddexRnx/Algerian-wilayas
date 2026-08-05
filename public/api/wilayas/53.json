@@ -1,1 +1,34 @@
-{"code":53,"arabic":"عين صالح","ascii":"In Salah","dairas":[{"arabic":"إينغر","ascii":"In Ghar","communes":[{"arabic":"إينغر","ascii":"Inghar","zip":null}]},{"arabic":"عين صالح","ascii":"In Salah","communes":[{"arabic":"عين صالح","ascii":"Ain Salah","zip":null},{"arabic":"فقارة الزوى","ascii":"Foggaret Ezzoua","zip":null}]}]}
+{
+  "code": 53,
+  "arabic": "عين صالح",
+  "ascii": "In Salah",
+  "dairas": [
+    {
+      "arabic": "إينغر",
+      "ascii": "In Ghar",
+      "communes": [
+        {
+          "arabic": "إينغر",
+          "ascii": "Inghar",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "عين صالح",
+      "ascii": "In Salah",
+      "communes": [
+        {
+          "arabic": "عين صالح",
+          "ascii": "Ain Salah",
+          "zip": null
+        },
+        {
+          "arabic": "فقارة الزوى",
+          "ascii": "Foggaret Ezzoua",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

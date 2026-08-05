@@ -1,1 +1,55 @@
-{"code":64,"arabic":"قصر الشلالة","ascii":"Ksar Chellala","dairas":[{"arabic":"قصر الشلالة","ascii":"Ksar Chellala","communes":[{"arabic":"قصر الشلالة","ascii":"Ksar Chellala","zip":null},{"arabic":"زمالة الأمير عبد القادر","ascii":"Zmalet El Emir Abdelkader","zip":null}]},{"arabic":"حمادية","ascii":"Hamadia","communes":[{"arabic":"حمادية","ascii":"Hamadia","zip":null},{"arabic":"الرشايقة","ascii":"Rechaiga","zip":null}]},{"arabic":"سرغين","ascii":"Serguine","communes":[{"arabic":"سرغين","ascii":"Serguine","zip":null},{"arabic":"بوغارة","ascii":"Bougara","zip":null}]}]}
+{
+  "code": 64,
+  "arabic": "قصر الشلالة",
+  "ascii": "Ksar Chellala",
+  "dairas": [
+    {
+      "arabic": "قصر الشلالة",
+      "ascii": "Ksar Chellala",
+      "communes": [
+        {
+          "arabic": "قصر الشلالة",
+          "ascii": "Ksar Chellala",
+          "zip": null
+        },
+        {
+          "arabic": "زمالة الأمير عبد القادر",
+          "ascii": "Zmalet El Emir Abdelkader",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "حمادية",
+      "ascii": "Hamadia",
+      "communes": [
+        {
+          "arabic": "حمادية",
+          "ascii": "Hamadia",
+          "zip": null
+        },
+        {
+          "arabic": "الرشايقة",
+          "ascii": "Rechaiga",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "سرغين",
+      "ascii": "Serguine",
+      "communes": [
+        {
+          "arabic": "سرغين",
+          "ascii": "Serguine",
+          "zip": null
+        },
+        {
+          "arabic": "بوغارة",
+          "ascii": "Bougara",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

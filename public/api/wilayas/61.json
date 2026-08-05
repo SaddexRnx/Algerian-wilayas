@@ -1,1 +1,50 @@
-{"code":61,"arabic":"القنطرة","ascii":"El Kantara","dairas":[{"arabic":"القنطرة","ascii":"El Kantara","communes":[{"arabic":"القنطرة","ascii":"El Kantara","zip":null},{"arabic":"عين زعطوط","ascii":"Ain Zaatout","zip":null}]},{"arabic":"برانيس","ascii":"Branis","communes":[{"arabic":"برانيس","ascii":"Branis","zip":null},{"arabic":"الوتیة","ascii":"El Outaya","zip":null}]},{"arabic":"جمورة","ascii":"Djemourah","communes":[{"arabic":"جمورة","ascii":"Djemourah","zip":null}]}]}
+{
+  "code": 61,
+  "arabic": "القنطرة",
+  "ascii": "El Kantara",
+  "dairas": [
+    {
+      "arabic": "القنطرة",
+      "ascii": "El Kantara",
+      "communes": [
+        {
+          "arabic": "القنطرة",
+          "ascii": "El Kantara",
+          "zip": null
+        },
+        {
+          "arabic": "عين زعطوط",
+          "ascii": "Ain Zaatout",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "برانيس",
+      "ascii": "Branis",
+      "communes": [
+        {
+          "arabic": "برانيس",
+          "ascii": "Branis",
+          "zip": null
+        },
+        {
+          "arabic": "الوتیة",
+          "ascii": "El Outaya",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "جمورة",
+      "ascii": "Djemourah",
+      "communes": [
+        {
+          "arabic": "جمورة",
+          "ascii": "Djemourah",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,1 +1,50 @@
-[{"name_ar":"قصر الشلالة","name_ascii":"Ksar Chellala","slug":"ksar-chellala","communes":[{"name_ar":"قصر الشلالة","name_ascii":"Ksar Chellala","zip":null},{"name_ar":"زمالة الأمير عبد القادر","name_ascii":"Zmalet El Emir Abdelkader","zip":null}]},{"name_ar":"حمادية","name_ascii":"Hamadia","slug":"hamadia","communes":[{"name_ar":"حمادية","name_ascii":"Hamadia","zip":null},{"name_ar":"الرشايقة","name_ascii":"Rechaiga","zip":null}]},{"name_ar":"سرغين","name_ascii":"Serguine","slug":"serguine","communes":[{"name_ar":"سرغين","name_ascii":"Serguine","zip":null},{"name_ar":"بوغارة","name_ascii":"Bougara","zip":null}]}]
+[
+  {
+    "arabic": "قصر الشلالة",
+    "ascii": "Ksar Chellala",
+    "communes": [
+      {
+        "arabic": "قصر الشلالة",
+        "ascii": "Ksar Chellala",
+        "zip": null
+      },
+      {
+        "arabic": "زمالة الأمير عبد القادر",
+        "ascii": "Zmalet El Emir Abdelkader",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "حمادية",
+    "ascii": "Hamadia",
+    "communes": [
+      {
+        "arabic": "حمادية",
+        "ascii": "Hamadia",
+        "zip": null
+      },
+      {
+        "arabic": "الرشايقة",
+        "ascii": "Rechaiga",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "سرغين",
+    "ascii": "Serguine",
+    "communes": [
+      {
+        "arabic": "سرغين",
+        "ascii": "Serguine",
+        "zip": null
+      },
+      {
+        "arabic": "بوغارة",
+        "ascii": "Bougara",
+        "zip": null
+      }
+    ]
+  }
+]

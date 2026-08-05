@@ -89,12 +89,12 @@ const fr = {
   "hub.copied": "Copié !",
 
   "api.title": "Documentation de l'API",
-  "api.subtitle": "Deux points de terminaison statiques en lecture seule, servis depuis le CDN.",
+  "api.subtitle": "Points de terminaison statiques en lecture seule, servis depuis le CDN.",
   "api.params": "Paramètres",
   "api.response": "Réponse",
   "api.example": "Exemple",
   "api.note":
-    "Ce sont des points de terminaison statiques, mis en cache sur le CDN. Ils se chargent en moins de 50 ms partout dans le monde et ne nécessitent aucune clé d'API.",
+    "Note : Les codes postaux sont basés sur d'anciennes données administratives. Pour nous aider à construire la base de données la plus précise et à jour, veuillez saisir votre code postal exact et le nom de votre village/quartier. Vos données nous aident à mettre à jour les registres officiels.",
   "api.wilayasDesc": "Liste légère des 69 wilayas avec code, nom arabe et nom latin.",
   "api.fullDesc":
     "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
@@ -115,13 +115,15 @@ const fr = {
   "tester.error": "Échec de la requête.",
   "nav.tester": "Testeur d'API",
 
+
+
   "features.title": "Fonctionnalités",
   "features.fast": "Ultra rapide",
   "features.fastDesc": "Servi par un CDN mondial, les données minifiées chargent en millisecondes.",
   "features.agnostic": "Compatible partout",
   "features.agnosticDesc": "Vanilla JS, React, Vue, WordPress et Shopify.",
   "features.updated": "Toujours à jour",
-  "features.updatedDesc": "Reflète les dernières réformes administratives officielles.",
+  "features.updatedDesc": "Reflète les dernières réformes administratives officielles, avec des corrections communautaires.",
 
   "footer.text": "Conçu pour la communauté des développeurs algériens. Libre et gratuit.",
 
@@ -173,7 +175,7 @@ const fr = {
   "hub.wpTitle": "Extension WordPress",
   "hub.wpDesc":
     "Téléchargez l'extension prête à l'emploi : le zip est généré dans votre navigateur.",
-  "hub.download": "Télécharger l'extension (.zip)",
+  "hub.download": "Télécharger l'extension Version",
   "hub.downloading": "Création du zip…",
   "hub.downloadError": "Fichier du plugin temporairement indisponible.",
 
@@ -191,12 +193,12 @@ const fr = {
   "api.wilayaCommunesDesc": "Liste à plat de toutes les communes d'une wilaya.",
   "api.dairaDetailDesc": "Détail d'une daira précise et de ses communes.",
   "api.zipReverseDesc": "Recherche inversée d'un code postal pour obtenir la wilaya, la daira et la commune correspondantes.",
-  "updates.title": "Quoi de neuf dans la v1.0.2",
-  "updates.body": "Ajout de la recherche inversée par code postal, d'un champ Village/Quartier et d'un système de collecte de données communautaires pour maintenir notre base de données 100 % précise et à jour.",
-  "picker.searchByZip": "Rechercher par code postal",
+  "updates.title": "Quoi de neuf dans la v1.0.3",
+  "updates.body": "v1.0.3 : Système de correction trilingue, recherche inversée ZIP, champ Village.",
+  "picker.searchByZip": "Rechercher par code postal / Code postal",
   "picker.village": "Village / Quartier",
   "picker.zipLabel": "Entrez le code postal à 5 chiffres",
-  "picker.disclaimer": "Note : Les codes postaux sont basés sur d'anciennes données administratives. Pour nous aider à construire la base de données la plus précise, veuillez saisir votre code postal exact et le nom de votre village/quartier. Vos données nous aident à mettre à jour les registres officiels.",
+  "picker.disclaimer": "Note : Les codes postaux sont basés sur d'anciennes données administratives. Pour nous aider à construire la base de données la plus précise et à jour, veuillez saisir votre code postal exact et le nom de votre village/quartier. Vos données nous aident à mettre à jour les registres officiels.",
   "admin.reports": "Rapports ZIP",
   "admin.reports.empty": "Aucun rapport soumis pour le moment.",
   "admin.table.village": "Village",
@@ -208,6 +210,21 @@ const fr = {
   "admin.approve": "Approuver",
   "picker.zipInvalid": "Code postal invalide. Doit comporter 5 chiffres.",
   "picker.zipNotFound": "Code postal non trouvé dans notre base de données.",
+  "nav.report": "Signaler une erreur",
+  "report.title": "Signaler une correction de données",
+  "report.success": "Envoyé avec succès ! Merci de nous aider à garder la base de données des adresses algériennes précise.",
+  "report.submit": "Envoyer la correction",
+  "report.message": "Message supplémentaire (optionnel)",
+  "admin.corrections": "Corrections de données",
+  "updates.showAll": "Afficher toutes les mises à jour",
+  "tester.help.index": "Aucun paramètre requis. Récupère toutes les wilayas.",
+  "tester.help.wilayas": "Aucun paramètre requis. Récupère la liste des wilayas.",
+  "tester.help.full": "Aucun paramètre requis. Récupère toutes les données.",
+  "tester.help.wilaya": "ENTREZ UN CODE DE WILAYA (EX. 16, 19)",
+  "tester.help.dairas": "ENTREZ UN CODE DE WILAYA POUR VOIR SES DAIRAS",
+  "tester.help.daira": "ENTREZ UN CODE DE WILAYA ET UN SLUG DE DAIRA",
+  "tester.help.zip": "ENTREZ UN CODE POSTAL À 5 CHIFFRES (EX. 19070)",
+  "home.reportLink": "Quelque chose ne va pas avec les données ? Cliquez ici pour soumettre une correction.",
 } as const;
 
 export type TranslationKey = keyof typeof fr;
@@ -287,12 +304,12 @@ const ar: Record<TranslationKey, string> = {
   "hub.copied": "تم النسخ!",
 
   "api.title": "توثيق الواجهة البرمجية",
-  "api.subtitle": "نقطتا وصول ثابتتان للقراءة فقط، مقدَّمتان عبر شبكة توزيع المحتوى.",
+  "api.subtitle": "نقاط وصول ثابتة للقراءة فقط، مقدَّمتان عبر شبكة توزيع المحتوى.",
   "api.params": "المعاملات",
   "api.response": "الاستجابة",
   "api.example": "مثال",
   "api.note":
-    "هذه نقاط وصول ثابتة ومخزَّنة مؤقتًا على شبكة CDN. تُحمَّل في أقل من 50 مللي ثانية عالميًا ولا تتطلب أي مفتاح API.",
+    "ملاحظة: تعتمد الرموز البريدية على بيانات إدارية قديمة. لمساعدتنا في بناء قاعدة بيانات العناوين الجزائرية الأكثر دقة وحداثة، يرجى كتابة الرمز البريدي الدقيق واسم القرية/الحي. تساعدنا بياناتك في تحديث السجلات الرسمية.",
   "api.wilayasDesc": "قائمة خفيفة بالولايات الـ69 مع الرمز والاسم بالعربية واللاتينية.",
   "api.fullDesc": "مجموعة البيانات الهرمية الكاملة: الولايات والدوائر والبلديات في ملف واحد.",
   "api.dairasDesc": "كل دوائر ولاية محددة عبر رمزها.",
@@ -311,13 +328,15 @@ const ar: Record<TranslationKey, string> = {
   "tester.error": "فشل الطلب.",
   "nav.tester": "مُختبِر API",
 
+
+
   "features.title": "المميزات",
   "features.fast": "سرعة فائقة",
-  "features.fastDesc": "مستضافة على شبكة عالمية، تُحمَّل البيانات في أجزاء من الثانية.",
+  "features.fastDesc": "يتم تقديمه من شبكة CDN عالمية، ويتم تحميل البيانات المصغرة في أجزاء من الثانية.",
   "features.agnostic": "تعمل في كل مكان",
   "features.agnosticDesc": "Vanilla JS وReact وVue وWordPress وShopify.",
-  "features.updated": "محدَّثة دائماً",
-  "features.updatedDesc": "تعكس آخر الإصلاحات الإدارية الرسمية.",
+  "features.updated": "محدث دائما",
+  "features.updatedDesc": "يعكس أحدث الإصلاحات الإدارية الجزائرية الرسمية، مع تصحيحات من المجتمع.",
 
   "footer.text": "صُنع لمجتمع المطورين الجزائريين. مفتوح ومجاني للاستخدام.",
 
@@ -368,7 +387,7 @@ const ar: Record<TranslationKey, string> = {
 
   "hub.wpTitle": "إضافة ووردبريس",
   "hub.wpDesc": "نزّل الإضافة الجاهزة، يتم إنشاء ملف الـ zip داخل متصفحك.",
-  "hub.download": "تنزيل الإضافة (.zip)",
+  "hub.download": "تنزيل نسخة الإضافة",
   "hub.downloading": "جارٍ إنشاء الملف…",
   "hub.downloadError": "ملف الإضافة غير متاح مؤقتًا.",
 
@@ -386,9 +405,9 @@ const ar: Record<TranslationKey, string> = {
   "api.wilayaCommunesDesc": "قائمة مسطحة بكل بلديات الولاية.",
   "api.dairaDetailDesc": "تفاصيل دائرة محددة وبلدياتها.",
   "api.zipReverseDesc": "البحث العكسي عن الرمز البريدي للحصول على الولاية والدائرة والبلدية المقابلة.",
-  "updates.title": "ما الجديد في الإصدار 1.0.2",
-  "updates.body": "تمت إضافة البحث العكسي عن طريق الرمز البريدي، وحقل القرية/الحي، ونظام جمع البيانات المجتمعية للحفاظ على قاعدة بياناتنا دقيقة ومحدثة بنسبة 100٪.",
-  "picker.searchByZip": "البحث عن طريق الرمز البريدي",
+  "updates.title": "ما الجديد في الإصدار 1.0.3",
+  "updates.body": "v1.0.3: نظام تصحيح البيانات ثلاثي اللغات، البحث العكسي عن الرمز البريدي، حقل القرية.",
+  "picker.searchByZip": "البحث عن طريق الرمز البريدي / الرمز البريدي",
   "picker.village": "القرية / الحي",
   "picker.zipLabel": "أدخل الرمز البريدي المكون من 5 أرقام",
   "picker.disclaimer": "ملاحظة: تعتمد الرموز البريدية على بيانات إدارية قديمة. لمساعدتنا في بناء قاعدة بيانات العناوين الجزائرية الأكثر دقة وحداثة، يرجى كتابة الرمز البريدي الدقيق واسم القرية/الحي. تساعدنا بياناتك في تحديث السجلات الرسمية.",
@@ -403,6 +422,21 @@ const ar: Record<TranslationKey, string> = {
   "admin.approve": "قبول",
   "picker.zipInvalid": "رمز بريدي غير صالح. يجب أن يتكون من 5 أرقام.",
   "picker.zipNotFound": "الرمز البريدي غير موجود في قاعدة بياناتنا.",
+  "nav.report": "الإبلاغ عن خطأ",
+  "report.title": "الإبلاغ عن تصحيح البيانات",
+  "report.success": "تم الإرسال بنجاح! شكرًا لك على مساعدتنا في الحفاظ على دقة قاعدة بيانات العناوين الجزائرية.",
+  "report.submit": "إرسال التصحيح",
+  "report.message": "رسالة إضافية (اختياري)",
+  "admin.corrections": "تصحيحات البيانات",
+  "updates.showAll": "عرض جميع التحديثات",
+  "tester.help.index": "لا توجد معلمات مطلوبة. يجلب جميع الولايات.",
+  "tester.help.wilayas": "لا توجد معلمات مطلوبة. يجلب قائمة الولايات.",
+  "tester.help.full": "لا توجد معلمات مطلوبة. يجلب كافة البيانات.",
+  "tester.help.wilaya": "أدخل كود الولاية (مثلاً 16، 19)",
+  "tester.help.dairas": "أدخل كود الولاية لرؤية دوائرها",
+  "tester.help.daira": "أدخل كود الولاية واسم الدائرة",
+  "tester.help.zip": "أدخل رمز بريدي مكون من 5 أرقام (مثلاً 19070)",
+  "home.reportLink": "هل هناك خطأ في البيانات؟ اضغط هنا لتقديم تصحيح.",
 };
 
 const en: Record<TranslationKey, string> = {
@@ -480,12 +514,12 @@ const en: Record<TranslationKey, string> = {
   "hub.copied": "Copied!",
 
   "api.title": "API documentation",
-  "api.subtitle": "Two static read-only endpoints, served from the CDN.",
+  "api.subtitle": "Static read-only endpoints, served from the CDN.",
   "api.params": "Parameters",
   "api.response": "Response",
   "api.example": "Example",
   "api.note":
-    "These are static, CDN-cached endpoints. They load in <50ms globally and require no API keys.",
+    "Note: Postal codes are based on older administrative data. To help us build the most accurate and up-to-date Algerian address database, please type your exact ZIP code and Village/Neighborhood name. Your data helps us update the official records.",
   "api.wilayasDesc": "Lightweight list of the 69 wilayas with code, Arabic name and Latin name.",
   "api.fullDesc": "Complete hierarchical dataset: wilayas, dairas and communes in a single file.",
   "api.dairasDesc": "All dairas of a given wilaya, identified by its code.",
@@ -504,13 +538,15 @@ const en: Record<TranslationKey, string> = {
   "tester.error": "Request failed.",
   "nav.tester": "API Tester",
 
+
+
   "features.title": "Features",
   "features.fast": "Blazing fast",
   "features.fastDesc": "Served from a global CDN, the minified data loads in milliseconds.",
   "features.agnostic": "Works everywhere",
   "features.agnosticDesc": "Vanilla JS, React, Vue, WordPress and Shopify.",
   "features.updated": "Always up to date",
-  "features.updatedDesc": "Reflects the latest official administrative reforms.",
+  "features.updatedDesc": "Reflects the latest official administrative reforms, with community-driven corrections.",
 
   "footer.text": "Built for the Algerian developer community. Free and open to use.",
 
@@ -561,7 +597,7 @@ const en: Record<TranslationKey, string> = {
 
   "hub.wpTitle": "WordPress plugin",
   "hub.wpDesc": "Download the ready-to-install plugin — the zip is built right in your browser.",
-  "hub.download": "Download plugin (.zip)",
+  "hub.download": "Download Plugin Version",
   "hub.downloading": "Building zip…",
   "hub.downloadError": "Plugin file temporarily unavailable.",
 
@@ -579,8 +615,8 @@ const en: Record<TranslationKey, string> = {
   "api.wilayaCommunesDesc": "Flat list of every commune inside a wilaya.",
   "api.dairaDetailDesc": "Detail for a single daira and its communes.",
   "api.zipReverseDesc": "Reverse lookup a ZIP code to get the corresponding Wilaya, Daira, and Commune.",
-  "updates.title": "What's New in v1.0.2",
-  "updates.body": "Added ZIP code reverse lookup, Village/Neighborhood field, and a community data collection system to keep our database 100% accurate and up-to-date.",
+  "updates.title": "What's New in v1.0.3",
+  "updates.body": "v1.0.3: Trilingual data correction system, ZIP reverse lookup, Village field.",
   "picker.searchByZip": "Search by ZIP Code / Postal Code",
   "picker.village": "Village / Neighborhood",
   "picker.zipLabel": "Enter 5-digit ZIP code",
@@ -596,6 +632,21 @@ const en: Record<TranslationKey, string> = {
   "admin.approve": "Approve",
   "picker.zipInvalid": "Invalid ZIP code. Must be 5 digits.",
   "picker.zipNotFound": "ZIP code not found in our database.",
+  "nav.report": "Report an Error",
+  "report.title": "Submit a Data Correction",
+  "report.success": "Successfully sent! Thank you for helping us keep the Algerian address database accurate.",
+  "report.submit": "Submit Correction",
+  "report.message": "Additional Message (optional)",
+  "admin.corrections": "Data Corrections",
+  "updates.showAll": "Show all updates",
+  "tester.help.index": "No parameters needed. Fetches all wilayas.",
+  "tester.help.wilayas": "No parameters needed. Fetches all wilayas list.",
+  "tester.help.full": "No parameters needed. Fetches full data.",
+  "tester.help.wilaya": "ENTER A WILAYA CODE (E.G. 16, 19)",
+  "tester.help.dairas": "ENTER A WILAYA CODE TO SEE ITS DAIRAS",
+  "tester.help.daira": "ENTER A WILAYA CODE AND DAIRA SLUG",
+  "tester.help.zip": "ENTER A 5-DIGIT ZIP CODE (E.G. 19070)",
+  "home.reportLink": "Something wrong with the data? Click here to submit a correction.",
 };
 
 const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar, en };
@@ -674,8 +725,7 @@ export function LanguageToggle() {
   return (
     <div
       role="group"
-      aria-label="Create a simple admin approval/status flow for zip_reports so reviewed entries are marked and no longer considered fresh.Add 5-digit ZIP validation with friendly error states and debounce so the picker only fetches when the ZIP is complete.Improve ZIP search by auto-normalizing input (trim, leading zeros) and showing a clear error state when a ZIP is not found.Implement a bulk ZIP lookup endpoint that takes multiple ZIP codes and returns the resolved Wilaya, Daira, and Commune for each one.Display the resolved ZIP code(s) directly under each selected Wilaya, Daira, and Commune so the user can copy them instantly."
-
+      aria-label="Language Toggle"
       className="inline-flex shrink-0 overflow-hidden rounded-md border border-gray-300"
       dir="ltr"
     >

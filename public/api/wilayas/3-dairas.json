@@ -1,1 +1,92 @@
-[{"name_ar":"عين ماضي","name_ascii":"Ain Madhi","slug":"ain-madhi","communes":[{"name_ar":"تاجموت","name_ascii":"Tadjemout","zip":null},{"name_ar":"تاجرونة","name_ascii":"Tadjrouna","zip":"03018"},{"name_ar":"عين ماضي","name_ascii":"Ain Madhi","zip":null},{"name_ar":"الحويطة","name_ascii":"El Haouita","zip":null},{"name_ar":"الخنق","name_ascii":"Kheneg","zip":null}]},{"name_ar":"الأغواط","name_ascii":"Laghouat","slug":"laghouat","communes":[{"name_ar":"الأغواط","name_ascii":"Laghouat","zip":"03001"}]},{"name_ar":"قصر الحيران","name_ascii":"Ksar El Hirane","slug":"ksar-el-hirane","communes":[{"name_ar":"قصر الحيران","name_ascii":"Ksar El Hirane","zip":"03002"},{"name_ar":"بن ناصر بن شهرة","name_ascii":"Benacer Benchohra","zip":null}]},{"name_ar":"سيدي مخلوف","name_ascii":"Sidi Makhlouf","slug":"sidi-makhlouf","communes":[{"name_ar":"العسافية","name_ascii":"El Assafia","zip":"03020"},{"name_ar":"سيدي مخلوف","name_ascii":"Sidi Makhlouf","zip":"03004"}]},{"name_ar":"حاسي الرمل","name_ascii":"Hassi R'mel","slug":"hassi-rmel","communes":[{"name_ar":"حاسي الدلاعة","name_ascii":"Hassi Delaa","zip":"03005"},{"name_ar":"حاسي الرمل","name_ascii":"Hassi R’Mel","zip":"03006"}]}]
+[
+  {
+    "arabic": "عين ماضي",
+    "ascii": "Ain Madhi",
+    "communes": [
+      {
+        "arabic": "تاجموت",
+        "ascii": "Tadjemout",
+        "zip": null
+      },
+      {
+        "arabic": "تاجرونة",
+        "ascii": "Tadjrouna",
+        "zip": "03018"
+      },
+      {
+        "arabic": "عين ماضي",
+        "ascii": "Ain Madhi",
+        "zip": null
+      },
+      {
+        "arabic": "الحويطة",
+        "ascii": "El Haouita",
+        "zip": null
+      },
+      {
+        "arabic": "الخنق",
+        "ascii": "Kheneg",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "الأغواط",
+    "ascii": "Laghouat",
+    "communes": [
+      {
+        "arabic": "الأغواط",
+        "ascii": "Laghouat",
+        "zip": "03001"
+      }
+    ]
+  },
+  {
+    "arabic": "قصر الحيران",
+    "ascii": "Ksar El Hirane",
+    "communes": [
+      {
+        "arabic": "قصر الحيران",
+        "ascii": "Ksar El Hirane",
+        "zip": "03002"
+      },
+      {
+        "arabic": "بن ناصر بن شهرة",
+        "ascii": "Benacer Benchohra",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "سيدي مخلوف",
+    "ascii": "Sidi Makhlouf",
+    "communes": [
+      {
+        "arabic": "العسافية",
+        "ascii": "El Assafia",
+        "zip": "03020"
+      },
+      {
+        "arabic": "سيدي مخلوف",
+        "ascii": "Sidi Makhlouf",
+        "zip": "03004"
+      }
+    ]
+  },
+  {
+    "arabic": "حاسي الرمل",
+    "ascii": "Hassi R'mel",
+    "communes": [
+      {
+        "arabic": "حاسي الدلاعة",
+        "ascii": "Hassi Delaa",
+        "zip": "03005"
+      },
+      {
+        "arabic": "حاسي الرمل",
+        "ascii": "Hassi R’Mel",
+        "zip": "03006"
+      }
+    ]
+  }
+]

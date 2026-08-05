@@ -117,7 +117,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
   const fetchReports = useCallback(async () => {
     setReportsLoading(true);
     const { data } = await supabase
-      .from("zip_reports")
+      .from("data_corrections")
       .select("*")
       .order("created_at", { ascending: false });
     setReports(data || []);
@@ -132,13 +132,14 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
 
   const approveReport = async (id: string) => {
     const { error } = await supabase
-      .from("zip_reports")
+      .from("data_corrections")
       .update({ status: "approved" })
       .eq("id", id);
     if (!error) {
       void fetchReports();
     }
   };
+
 
   useEffect(() => {
     let active = true;
@@ -447,17 +448,19 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             <h2 className="text-sm font-semibold text-black">{t("admin.reports")}</h2>
             <div className="mt-4 overflow-x-auto">
               <table className="w-full min-w-[600px] text-start text-sm">
-                <thead>
+                 <thead>
                   <tr className="border-b border-gray-200 text-xs text-gray-500 uppercase tracking-wider">
                     <th className="py-3 pe-3 text-start font-medium">{t("admin.table.zip")}</th>
                     <th className="py-3 pe-3 text-start font-medium">{t("admin.table.name")}</th>
                     <th className="py-3 pe-3 text-start font-medium">{t("picker.daira")}</th>
                     <th className="py-3 pe-3 text-start font-medium">{t("picker.commune")}</th>
                     <th className="py-3 pe-3 text-start font-medium">{t("admin.table.village")}</th>
+                    <th className="py-3 pe-3 text-start font-medium">{t("report.message")}</th>
                     <th className="py-3 pe-3 text-start font-medium">{t("admin.table.status")}</th>
                     <th className="py-3 text-start font-medium">{t("admin.table.date")}</th>
                   </tr>
                 </thead>
+
                 <tbody>
                   {reports.length === 0 && (
                     <tr>
@@ -468,11 +471,13 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
                   )}
                   {reports.map((r) => (
                     <tr key={r.id} className="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition">
-                      <td className="py-3 pe-3 font-mono font-medium text-black">{r.zip_code}</td>
+                      <td className="py-3 pe-3 font-mono font-medium text-black">{r.zip_code || "—"}</td>
                       <td className="py-3 pe-3 text-gray-600 text-xs">Wilaya {r.wilaya_code}</td>
                       <td className="py-3 pe-3 text-gray-600 text-xs">{r.daira_name}</td>
                       <td className="py-3 pe-3 text-gray-600 text-xs">{r.commune_name}</td>
                       <td className="py-3 pe-3 text-black font-medium text-xs">{r.village_name || "—"}</td>
+                      <td className="py-3 pe-3 text-gray-500 text-[10px] max-w-[150px] truncate" title={r.user_message}>{r.user_message || "—"}</td>
+
                       <td className="py-3 pe-3">
                         <div className="flex items-center gap-2">
                           <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide ${

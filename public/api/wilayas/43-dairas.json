@@ -1,1 +1,240 @@
-[{"name_ar":"التلاغمة","name_ascii":"Teleghma","slug":"teleghma","communes":[{"name_ar":"مشيرة","name_ascii":"El Mechira","zip":"43026"},{"name_ar":"التلاغمة","name_ascii":"Teleghma","zip":null},{"name_ar":"وادي سقان","name_ascii":"Oued Seguen","zip":"43007"}]},{"name_ar":"عين البيضاء أحريش","name_ascii":"Ain Beida Harriche","slug":"ain-beida-harriche","communes":[{"name_ar":"العياضي برباس","name_ascii":"El Ayadi Barbes","zip":null},{"name_ar":" عين البيضاء أحريش","name_ascii":"Ain Beida Harriche","zip":"43030"}]},{"name_ar":"ترعي باينان","name_ascii":"Terrai Bainen","slug":"terrai-bainen","communes":[{"name_ar":"تسالة لمطاعي","name_ascii":"Tassala Lematai","zip":null},{"name_ar":"ترعي باينان","name_ascii":"Terrai Bainen","zip":"43023"},{"name_ar":"اعميرة اراس","name_ascii":"Amira Arres","zip":null}]},{"name_ar":"تسدان حدادة","name_ascii":"Tassadane Haddada","slug":"tassadane-haddada","communes":[{"name_ar":"تسدان حدادة","name_ascii":"Tassadane Haddada","zip":"43019"},{"name_ar":"مينار زارزة","name_ascii":"Minar Zarza","zip":"43021"}]},{"name_ar":"سيدي مروان","name_ascii":"Sidi Merouane","slug":"sidi-merouane","communes":[{"name_ar":"سيدي مروان","name_ascii":"Sidi Merouane","zip":"43018"},{"name_ar":"الشيقارة","name_ascii":"Chigara","zip":"43032"}]},{"name_ar":"القرارم قوقة","name_ascii":"Grarem Gouga","slug":"grarem-gouga","communes":[{"name_ar":"حمالة","name_ascii":"Hamala","zip":"43024"},{"name_ar":"القرارم قوقة","name_ascii":"Grarem Gouga","zip":"43017"}]},{"name_ar":"الرواشد","name_ascii":"Rouached","slug":"rouached","communes":[{"name_ar":"تيبرقنت","name_ascii":"Tiberguent","zip":"43013"},{"name_ar":"الرواشد","name_ascii":"Rouached","zip":"43015"}]},{"name_ar":"بوحاتم","name_ascii":"Bouhatem","slug":"bouhatem","communes":[{"name_ar":"دراحي بوصلاح","name_ascii":"Derrahi Bousselah","zip":null},{"name_ar":"بوحاتم","name_ascii":"Bouhatem","zip":"43014"}]},{"name_ar":"وادي النجاء","name_ascii":"Oued Endja","slug":"oued-endja","communes":[{"name_ar":"زغاية","name_ascii":"Zeghaia","zip":"43028"},{"name_ar":"وادي النجاء","name_ascii":"Oued Endja","zip":"43010"},{"name_ar":"أحمد راشدي","name_ascii":"Ahmed Rachedi","zip":"43011"}]},{"name_ar":"تاجنانت","name_ascii":"Tadjenanet","slug":"tadjenanet","communes":[{"name_ar":"تاجنانت","name_ascii":"Tadjenanet","zip":"43008"},{"name_ar":"أولاد اخلوف","name_ascii":"Ouled Khalouf","zip":"43012"},{"name_ar":"بن يحي عبد الرحمن","name_ascii":"Benyahia Abderrahmane","zip":"43009"}]},{"name_ar":"شلغوم العيد","name_ascii":"Chelghoum Laid","slug":"chelghoum-laid","communes":[{"name_ar":"عين الملوك","name_ascii":"Ain Mellouk","zip":"43005"},{"name_ar":"وادي العثمانية","name_ascii":"Oued Athmenia","zip":"43004"},{"name_ar":"شلغوم العيد","name_ascii":"Chelghoum Laid","zip":"43003"}]},{"name_ar":"ميلة","name_ascii":"Mila","slug":"mila","communes":[{"name_ar":"عين التين","name_ascii":"Ain Tine","zip":"43025"},{"name_ar":"سيدي خليفة","name_ascii":"Sidi Khelifa","zip":"43027"},{"name_ar":"ميلة","name_ascii":"Mila","zip":"43001"}]},{"name_ar":"فرجيوة","name_ascii":"Ferdjioua","slug":"ferdjioua","communes":[{"name_ar":"يحي بني قشة","name_ascii":"Yahia Beniguecha","zip":"43031"},{"name_ar":"فرجيوة","name_ascii":"Ferdjioua","zip":"43002"}]}]
+[
+  {
+    "arabic": "التلاغمة",
+    "ascii": "Teleghma",
+    "communes": [
+      {
+        "arabic": "مشيرة",
+        "ascii": "El Mechira",
+        "zip": "43026"
+      },
+      {
+        "arabic": "التلاغمة",
+        "ascii": "Teleghma",
+        "zip": null
+      },
+      {
+        "arabic": "وادي سقان",
+        "ascii": "Oued Seguen",
+        "zip": "43007"
+      }
+    ]
+  },
+  {
+    "arabic": "عين البيضاء أحريش",
+    "ascii": "Ain Beida Harriche",
+    "communes": [
+      {
+        "arabic": "العياضي برباس",
+        "ascii": "El Ayadi Barbes",
+        "zip": null
+      },
+      {
+        "arabic": " عين البيضاء أحريش",
+        "ascii": "Ain Beida Harriche",
+        "zip": "43030"
+      }
+    ]
+  },
+  {
+    "arabic": "ترعي باينان",
+    "ascii": "Terrai Bainen",
+    "communes": [
+      {
+        "arabic": "تسالة لمطاعي",
+        "ascii": "Tassala Lematai",
+        "zip": null
+      },
+      {
+        "arabic": "ترعي باينان",
+        "ascii": "Terrai Bainen",
+        "zip": "43023"
+      },
+      {
+        "arabic": "اعميرة اراس",
+        "ascii": "Amira Arres",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "تسدان حدادة",
+    "ascii": "Tassadane Haddada",
+    "communes": [
+      {
+        "arabic": "تسدان حدادة",
+        "ascii": "Tassadane Haddada",
+        "zip": "43019"
+      },
+      {
+        "arabic": "مينار زارزة",
+        "ascii": "Minar Zarza",
+        "zip": "43021"
+      }
+    ]
+  },
+  {
+    "arabic": "سيدي مروان",
+    "ascii": "Sidi Merouane",
+    "communes": [
+      {
+        "arabic": "سيدي مروان",
+        "ascii": "Sidi Merouane",
+        "zip": "43018"
+      },
+      {
+        "arabic": "الشيقارة",
+        "ascii": "Chigara",
+        "zip": "43032"
+      }
+    ]
+  },
+  {
+    "arabic": "القرارم قوقة",
+    "ascii": "Grarem Gouga",
+    "communes": [
+      {
+        "arabic": "حمالة",
+        "ascii": "Hamala",
+        "zip": "43024"
+      },
+      {
+        "arabic": "القرارم قوقة",
+        "ascii": "Grarem Gouga",
+        "zip": "43017"
+      }
+    ]
+  },
+  {
+    "arabic": "الرواشد",
+    "ascii": "Rouached",
+    "communes": [
+      {
+        "arabic": "تيبرقنت",
+        "ascii": "Tiberguent",
+        "zip": "43013"
+      },
+      {
+        "arabic": "الرواشد",
+        "ascii": "Rouached",
+        "zip": "43015"
+      }
+    ]
+  },
+  {
+    "arabic": "بوحاتم",
+    "ascii": "Bouhatem",
+    "communes": [
+      {
+        "arabic": "دراحي بوصلاح",
+        "ascii": "Derrahi Bousselah",
+        "zip": null
+      },
+      {
+        "arabic": "بوحاتم",
+        "ascii": "Bouhatem",
+        "zip": "43014"
+      }
+    ]
+  },
+  {
+    "arabic": "وادي النجاء",
+    "ascii": "Oued Endja",
+    "communes": [
+      {
+        "arabic": "زغاية",
+        "ascii": "Zeghaia",
+        "zip": "43028"
+      },
+      {
+        "arabic": "وادي النجاء",
+        "ascii": "Oued Endja",
+        "zip": "43010"
+      },
+      {
+        "arabic": "أحمد راشدي",
+        "ascii": "Ahmed Rachedi",
+        "zip": "43011"
+      }
+    ]
+  },
+  {
+    "arabic": "تاجنانت",
+    "ascii": "Tadjenanet",
+    "communes": [
+      {
+        "arabic": "تاجنانت",
+        "ascii": "Tadjenanet",
+        "zip": "43008"
+      },
+      {
+        "arabic": "أولاد اخلوف",
+        "ascii": "Ouled Khalouf",
+        "zip": "43012"
+      },
+      {
+        "arabic": "بن يحي عبد الرحمن",
+        "ascii": "Benyahia Abderrahmane",
+        "zip": "43009"
+      }
+    ]
+  },
+  {
+    "arabic": "شلغوم العيد",
+    "ascii": "Chelghoum Laid",
+    "communes": [
+      {
+        "arabic": "عين الملوك",
+        "ascii": "Ain Mellouk",
+        "zip": "43005"
+      },
+      {
+        "arabic": "وادي العثمانية",
+        "ascii": "Oued Athmenia",
+        "zip": "43004"
+      },
+      {
+        "arabic": "شلغوم العيد",
+        "ascii": "Chelghoum Laid",
+        "zip": "43003"
+      }
+    ]
+  },
+  {
+    "arabic": "ميلة",
+    "ascii": "Mila",
+    "communes": [
+      {
+        "arabic": "عين التين",
+        "ascii": "Ain Tine",
+        "zip": "43025"
+      },
+      {
+        "arabic": "سيدي خليفة",
+        "ascii": "Sidi Khelifa",
+        "zip": "43027"
+      },
+      {
+        "arabic": "ميلة",
+        "ascii": "Mila",
+        "zip": "43001"
+      }
+    ]
+  },
+  {
+    "arabic": "فرجيوة",
+    "ascii": "Ferdjioua",
+    "communes": [
+      {
+        "arabic": "يحي بني قشة",
+        "ascii": "Yahia Beniguecha",
+        "zip": "43031"
+      },
+      {
+        "arabic": "فرجيوة",
+        "ascii": "Ferdjioua",
+        "zip": "43002"
+      }
+    ]
+  }
+]

@@ -1,1 +1,237 @@
-{"code":24,"arabic":"قالمة","ascii":"Guelma","dairas":[{"arabic":"قلعة بوصبع","ascii":"Guelaat Bousbaa","communes":[{"arabic":"نشماية","ascii":"Nechmaya","zip":"24002"},{"arabic":"بومهرة أحمد","ascii":"Boumahra Ahmed","zip":"24031"},{"arabic":"جبالة الخميسي","ascii":"Djeballah Khemissi","zip":"24034"},{"arabic":"بلخير","ascii":"Belkheir","zip":null},{"arabic":"بني مزلين","ascii":"Beni Mezline","zip":"24016"},{"arabic":"قلعة بوصبع","ascii":"Guelaat Bou Sbaa","zip":"24018"}]},{"arabic":"حمام دباغ","ascii":"Hammam Debagh","communes":[{"arabic":"بوحمدان","ascii":"Bou Hamdane","zip":"24012"},{"arabic":"حمام دباغ","ascii":"Hammam Debagh","zip":null},{"arabic":"الركنية","ascii":"Roknia","zip":"24028"}]},{"arabic":"حمام النبايل","ascii":"Hammam N'bails","communes":[{"arabic":"الدهوارة","ascii":"Dahouara","zip":"24009"},{"arabic":"حمام النبايل","ascii":"Hammam N'bail","zip":null},{"arabic":"وادي الشحم","ascii":"Oued Cheham","zip":"24033"}]},{"arabic":"قالمة","ascii":"Guelma","communes":[{"arabic":"قالمة","ascii":"Guelma","zip":"24001"},{"arabic":"بن جراح","ascii":"Bendjarah","zip":null}]},{"arabic":"بوشقوف","ascii":"Bouchegouf","communes":[{"arabic":"عين بن بيضاء","ascii":"Ain Ben Beida","zip":"24014"},{"arabic":"بوشقوف","ascii":"Bouchegouf","zip":"24025"},{"arabic":"مجاز الصفاء","ascii":"Medjez Sfa","zip":"24030"},{"arabic":"وادي فراغة","ascii":"Oued Ferragha","zip":null}]},{"arabic":"هيليوبوليس","ascii":"Heliopolis","communes":[{"arabic":"بوعاتي محمود","ascii":"Bouati Mahmoud","zip":"24003"},{"arabic":"الفجوج","ascii":"El Fedjoudj","zip":"24020"},{"arabic":"هيليوبوليس","ascii":"Heliopolis","zip":"24026"}]},{"arabic":"عين حساينية","ascii":"Ain Hessainia","communes":[{"arabic":"مجاز عمار","ascii":"Medjez Amar","zip":"24024"},{"arabic":"هواري بومدين","ascii":"Houari Boumedienne","zip":null},{"arabic":"رأس العقبة","ascii":"Ras El Agba","zip":"24008"},{"arabic":"سلاوة عنونة","ascii":"Sellaoua Announa","zip":null}]},{"arabic":"وادي الزناتي","ascii":"Oued Zenati","communes":[{"arabic":"برج صباط","ascii":"Bordj Sabath","zip":null},{"arabic":"وادي الزناتي","ascii":"Oued Zenati","zip":"24004"},{"arabic":"عين رقادة","ascii":"Ain Regada","zip":null}]},{"arabic":"عين مخلوف","ascii":"Ain Makhlouf","communes":[{"arabic":"عين العربي","ascii":"Ain Larbi","zip":"24023"},{"arabic":"عين مخلوف","ascii":"Ain Makhlouf","zip":"24013"},{"arabic":"تاملوكة","ascii":"Tamlouka","zip":"24005"}]},{"arabic":"خزارة","ascii":"Khezaras","communes":[{"arabic":"عين صندل","ascii":"Ain Sandel","zip":"24007"},{"arabic":"بوحشانة","ascii":"Bou Hachana","zip":"24017"},{"arabic":"لخزارة","ascii":"Khezaras","zip":null}]}]}
+{
+  "code": 24,
+  "arabic": "قالمة",
+  "ascii": "Guelma",
+  "dairas": [
+    {
+      "arabic": "قلعة بوصبع",
+      "ascii": "Guelaat Bousbaa",
+      "communes": [
+        {
+          "arabic": "نشماية",
+          "ascii": "Nechmaya",
+          "zip": "24002"
+        },
+        {
+          "arabic": "بومهرة أحمد",
+          "ascii": "Boumahra Ahmed",
+          "zip": "24031"
+        },
+        {
+          "arabic": "جبالة الخميسي",
+          "ascii": "Djeballah Khemissi",
+          "zip": "24034"
+        },
+        {
+          "arabic": "بلخير",
+          "ascii": "Belkheir",
+          "zip": null
+        },
+        {
+          "arabic": "بني مزلين",
+          "ascii": "Beni Mezline",
+          "zip": "24016"
+        },
+        {
+          "arabic": "قلعة بوصبع",
+          "ascii": "Guelaat Bou Sbaa",
+          "zip": "24018"
+        }
+      ]
+    },
+    {
+      "arabic": "حمام دباغ",
+      "ascii": "Hammam Debagh",
+      "communes": [
+        {
+          "arabic": "بوحمدان",
+          "ascii": "Bou Hamdane",
+          "zip": "24012"
+        },
+        {
+          "arabic": "حمام دباغ",
+          "ascii": "Hammam Debagh",
+          "zip": null
+        },
+        {
+          "arabic": "الركنية",
+          "ascii": "Roknia",
+          "zip": "24028"
+        }
+      ]
+    },
+    {
+      "arabic": "حمام النبايل",
+      "ascii": "Hammam N'bails",
+      "communes": [
+        {
+          "arabic": "الدهوارة",
+          "ascii": "Dahouara",
+          "zip": "24009"
+        },
+        {
+          "arabic": "حمام النبايل",
+          "ascii": "Hammam N'bail",
+          "zip": null
+        },
+        {
+          "arabic": "وادي الشحم",
+          "ascii": "Oued Cheham",
+          "zip": "24033"
+        }
+      ]
+    },
+    {
+      "arabic": "قالمة",
+      "ascii": "Guelma",
+      "communes": [
+        {
+          "arabic": "قالمة",
+          "ascii": "Guelma",
+          "zip": "24001"
+        },
+        {
+          "arabic": "بن جراح",
+          "ascii": "Bendjarah",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "بوشقوف",
+      "ascii": "Bouchegouf",
+      "communes": [
+        {
+          "arabic": "عين بن بيضاء",
+          "ascii": "Ain Ben Beida",
+          "zip": "24014"
+        },
+        {
+          "arabic": "بوشقوف",
+          "ascii": "Bouchegouf",
+          "zip": "24025"
+        },
+        {
+          "arabic": "مجاز الصفاء",
+          "ascii": "Medjez Sfa",
+          "zip": "24030"
+        },
+        {
+          "arabic": "وادي فراغة",
+          "ascii": "Oued Ferragha",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "هيليوبوليس",
+      "ascii": "Heliopolis",
+      "communes": [
+        {
+          "arabic": "بوعاتي محمود",
+          "ascii": "Bouati Mahmoud",
+          "zip": "24003"
+        },
+        {
+          "arabic": "الفجوج",
+          "ascii": "El Fedjoudj",
+          "zip": "24020"
+        },
+        {
+          "arabic": "هيليوبوليس",
+          "ascii": "Heliopolis",
+          "zip": "24026"
+        }
+      ]
+    },
+    {
+      "arabic": "عين حساينية",
+      "ascii": "Ain Hessainia",
+      "communes": [
+        {
+          "arabic": "مجاز عمار",
+          "ascii": "Medjez Amar",
+          "zip": "24024"
+        },
+        {
+          "arabic": "هواري بومدين",
+          "ascii": "Houari Boumedienne",
+          "zip": null
+        },
+        {
+          "arabic": "رأس العقبة",
+          "ascii": "Ras El Agba",
+          "zip": "24008"
+        },
+        {
+          "arabic": "سلاوة عنونة",
+          "ascii": "Sellaoua Announa",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "وادي الزناتي",
+      "ascii": "Oued Zenati",
+      "communes": [
+        {
+          "arabic": "برج صباط",
+          "ascii": "Bordj Sabath",
+          "zip": null
+        },
+        {
+          "arabic": "وادي الزناتي",
+          "ascii": "Oued Zenati",
+          "zip": "24004"
+        },
+        {
+          "arabic": "عين رقادة",
+          "ascii": "Ain Regada",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "عين مخلوف",
+      "ascii": "Ain Makhlouf",
+      "communes": [
+        {
+          "arabic": "عين العربي",
+          "ascii": "Ain Larbi",
+          "zip": "24023"
+        },
+        {
+          "arabic": "عين مخلوف",
+          "ascii": "Ain Makhlouf",
+          "zip": "24013"
+        },
+        {
+          "arabic": "تاملوكة",
+          "ascii": "Tamlouka",
+          "zip": "24005"
+        }
+      ]
+    },
+    {
+      "arabic": "خزارة",
+      "ascii": "Khezaras",
+      "communes": [
+        {
+          "arabic": "عين صندل",
+          "ascii": "Ain Sandel",
+          "zip": "24007"
+        },
+        {
+          "arabic": "بوحشانة",
+          "ascii": "Bou Hachana",
+          "zip": "24017"
+        },
+        {
+          "arabic": "لخزارة",
+          "ascii": "Khezaras",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

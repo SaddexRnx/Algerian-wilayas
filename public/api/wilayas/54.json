@@ -1,1 +1,29 @@
-{"code":54,"arabic":"عين قزام","ascii":"In Guezzam","dairas":[{"arabic":"تين زواتين","ascii":"Tin Zouatine","communes":[{"arabic":"تين زواتين","ascii":"Tin Zouatine","zip":null}]},{"arabic":"عين قزام","ascii":"In Guezzam","communes":[{"arabic":"عين قزام","ascii":"Ain Guezzam","zip":null}]}]}
+{
+  "code": 54,
+  "arabic": "عين قزام",
+  "ascii": "In Guezzam",
+  "dairas": [
+    {
+      "arabic": "تين زواتين",
+      "ascii": "Tin Zouatine",
+      "communes": [
+        {
+          "arabic": "تين زواتين",
+          "ascii": "Tin Zouatine",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "عين قزام",
+      "ascii": "In Guezzam",
+      "communes": [
+        {
+          "arabic": "عين قزام",
+          "ascii": "Ain Guezzam",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

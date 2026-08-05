@@ -47,6 +47,45 @@ export type Database = {
         }
         Relationships: []
       }
+      data_corrections: {
+        Row: {
+          commune_name: string
+          created_at: string | null
+          daira_name: string
+          id: string
+          language_submitted: string
+          status: string
+          user_message: string | null
+          village_name: string | null
+          wilaya_code: number
+          zip_code: string | null
+        }
+        Insert: {
+          commune_name: string
+          created_at?: string | null
+          daira_name: string
+          id?: string
+          language_submitted: string
+          status?: string
+          user_message?: string | null
+          village_name?: string | null
+          wilaya_code: number
+          zip_code?: string | null
+        }
+        Update: {
+          commune_name?: string
+          created_at?: string | null
+          daira_name?: string
+          id?: string
+          language_submitted?: string
+          status?: string
+          user_message?: string | null
+          village_name?: string | null
+          wilaya_code?: number
+          zip_code?: string | null
+        }
+        Relationships: []
+      }
       zip_reports: {
         Row: {
           commune_name: string

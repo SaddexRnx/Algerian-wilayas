@@ -557,13 +557,16 @@ export function AlgeriaAddressPicker({
     if (!restored.current) return;
     const timer = setTimeout(() => {
       if ((village || (searchByZip && zipInput.length === 5)) && wilaya && daira && commune) {
-        void supabase.from("zip_reports").insert({
+        void supabase.from("data_corrections").insert({
           zip_code: searchByZip ? zipInput : (commune.zip || ""),
           wilaya_code: wilaya.code,
           daira_name: daira.ascii,
           commune_name: commune.ascii,
           village_name: village,
+          language_submitted: lang,
+          status: "pending",
         });
+
       }
     }, 2000);
     return () => clearTimeout(timer);
@@ -721,6 +724,24 @@ export function AlgeriaAddressPicker({
               </p>
             )}
           </div>
+          {zipLoaded.current && (
+            <div className="space-y-4 border-t border-gray-100 pt-4 animate-in fade-in slide-in-from-top-2">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider">{t("picker.wilaya")}</label>
+                  <div className="mt-1 text-sm font-semibold text-black">{lang === "ar" ? wilaya?.arabic : wilaya?.ascii}</div>
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider">{t("picker.daira")}</label>
+                  <div className="mt-1 text-sm font-semibold text-black">{lang === "ar" ? daira?.arabic : daira?.ascii}</div>
+                </div>
+                <div className="col-span-2">
+                  <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider">{t("picker.commune")}</label>
+                  <div className="mt-1 text-sm font-semibold text-black">{lang === "ar" ? commune?.arabic : commune?.ascii}</div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       ) : (
         <SearchableSelect
@@ -740,6 +761,7 @@ export function AlgeriaAddressPicker({
           }}
         />
       )}
+
 
       {wilaya && dairas.length > 0 && (
         <div className="rounded-lg border border-gray-200 bg-white p-3">
@@ -830,7 +852,7 @@ export function AlgeriaAddressPicker({
         </>
       )}
 
-      {wilaya && daira && commune && (
+      {(wilaya && daira && commune) || (searchByZip && zipLoaded.current) ? (
         <div>
           <label htmlFor="dz-village" className="block text-xs font-medium tracking-wide text-gray-500 uppercase">
             {t("picker.village")}
@@ -844,7 +866,8 @@ export function AlgeriaAddressPicker({
             className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-black focus:ring-1 focus:ring-black"
           />
         </div>
-      )}
+      ) : null}
+
 
       <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
         <p

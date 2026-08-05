@@ -1,1 +1,377 @@
-[{"name_ar":"حسين داي","name_ascii":"Hussein Dey","slug":"hussein-dey","communes":[{"name_ar":"حسين داي","name_ascii":"Hussein Dey","zip":"16017"},{"name_ar":"القبة","name_ascii":"Kouba","zip":"16018"},{"name_ar":"محمد بلوزداد","name_ascii":"Mohamed Belouzdad","zip":null},{"name_ar":"المغارية","name_ascii":"El Magharia","zip":"16031"}]},{"name_ar":"براقي","name_ascii":"Baraki","slug":"baraki","communes":[{"name_ar":"الكاليتوس","name_ascii":"Les Eucalyptus","zip":"16033"},{"name_ar":"سيدي موسى","name_ascii":"Sidi Moussa","zip":"16037"},{"name_ar":"براقي","name_ascii":"Baraki","zip":"16014"}]},{"name_ar":"الدار البيضاء","name_ascii":"Dar El Beida","slug":"dar-el-beida","communes":[{"name_ar":"عين طاية","name_ascii":"Ain Taya","zip":"16038"},{"name_ar":"باب الزوار","name_ascii":"Bab Ezzouar","zip":null},{"name_ar":"برج الكيفان","name_ascii":"Bordj El Kiffan","zip":"16030"},{"name_ar":"الدار البيضاء","name_ascii":"Dar El Beida","zip":"16020"},{"name_ar":"المحمدية","name_ascii":"Mohammadia","zip":"16029"},{"name_ar":"برج البحري","name_ascii":"Bordj El Bahri","zip":"16039"}]},{"name_ar":"المرسى","name_ascii":"El Marsa","slug":"el-marsa","communes":[{"name_ar":"المرسى","name_ascii":"El Marsa","zip":null}]},{"name_ar":"بئر توتة","name_ascii":"Birtouta","slug":"birtouta","communes":[{"name_ar":"بئر توتة","name_ascii":"Bir Touta","zip":null},{"name_ar":"اولاد شبل","name_ascii":"Ouled Chebel","zip":"16036"},{"name_ar":"تسالة المرجة","name_ascii":"Tessala El Merdja","zip":null}]},{"name_ar":"الرويبة","name_ascii":"Rouiba","slug":"rouiba","communes":[{"name_ar":"هراوة","name_ascii":"Herraoua","zip":null},{"name_ar":"رغاية","name_ascii":"Reghaia","zip":"16043"},{"name_ar":"الرويبة","name_ascii":"Rouiba","zip":"16042"}]},{"name_ar":"زرالدة","name_ascii":"Zeralda","slug":"zeralda","communes":[{"name_ar":"المعالمة","name_ascii":"Maalma","zip":null},{"name_ar":"الرحمانية","name_ascii":"Rahmania","zip":"16048"},{"name_ar":"سويدانية","name_ascii":"Souidania","zip":"16049"},{"name_ar":"سطاوالي","name_ascii":"Staoueli","zip":"16045"},{"name_ar":"زرالدة","name_ascii":"Zeralda","zip":"16046"}]},{"name_ar":"الدرارية","name_ascii":"Draria","slug":"draria","communes":[{"name_ar":"بابا حسن","name_ascii":"Baba Hassen","zip":"16055"},{"name_ar":"الدويرة","name_ascii":"Douira","zip":null},{"name_ar":"الدرارية","name_ascii":"Draria","zip":"16053"},{"name_ar":"العاشور","name_ascii":"El Achour","zip":"16052"},{"name_ar":"الخرايسية","name_ascii":"Khraissia","zip":null}]},{"name_ar":"الشراقة","name_ascii":"Cheraga","slug":"cheraga","communes":[{"name_ar":"عين بنيان","name_ascii":"Ain Benian","zip":"16044"},{"name_ar":"الشراقة","name_ascii":"Cheraga","zip":"16050"},{"name_ar":"دالي ابراهيم","name_ascii":"Dely Ibrahim","zip":"16023"},{"name_ar":"اولاد فايت","name_ascii":"Ouled Fayet","zip":"16051"}]},{"name_ar":"بئر مقدم","name_ascii":"Bir Mokadem","slug":"bir-mokadem","communes":[{"name_ar":"الحمامات","name_ascii":"Hammamet","zip":null}]},{"name_ar":"سيدي امحمد","name_ascii":"Sidi M'hamed","slug":"sidi-mhamed","communes":[{"name_ar":"الجزائر الوسطى","name_ascii":"Alger Centre","zip":"16001"},{"name_ar":"المدنية","name_ascii":"El Madania","zip":"16003"},{"name_ar":"المرادية","name_ascii":"El Mouradia","zip":"16027"},{"name_ar":"سيدي امحمد","name_ascii":"Sidi M'hamed","zip":"16002"}]},{"name_ar":"بئر مراد رايس","name_ascii":"Bir Mourad Rais","slug":"bir-mourad-rais","communes":[{"name_ar":"السحاولة","name_ascii":"Sehaoula","zip":null},{"name_ar":"بئر مراد رايس","name_ascii":"Bir Mourad Rais","zip":"16009"},{"name_ar":"بئر خادم","name_ascii":"Birkhadem","zip":"16012"},{"name_ar":"جسر قسنطينة","name_ascii":"Djasr Kasentina","zip":"16026"},{"name_ar":"حيدرة","name_ascii":"Hydra","zip":"16028"}]},{"name_ar":"باب الوادي","name_ascii":"Bab El Oued","slug":"bab-el-oued","communes":[{"name_ar":"بولوغين بن زيري","name_ascii":"Bologhine Ibnou Ziri","zip":null},{"name_ar":"القصبة","name_ascii":"Casbah","zip":"16007"},{"name_ar":"وادي قريش","name_ascii":"Oued Koriche","zip":"16008"},{"name_ar":"الرايس حميدو","name_ascii":"Rais Hamidou","zip":"16025"},{"name_ar":"باب الوادي","name_ascii":"Bab El Oued","zip":"16005"}]},{"name_ar":"بوزريعة","name_ascii":"Bouzareah","slug":"bouzareah","communes":[{"name_ar":"ابن عكنون","name_ascii":"Ben Aknoun","zip":"16022"},{"name_ar":"بني مسوس","name_ascii":"Beni Messous","zip":"16032"},{"name_ar":"بوزريعة","name_ascii":"Bouzareah","zip":"16011"},{"name_ar":"الابيار","name_ascii":"El Biar","zip":"16010"}]},{"name_ar":"الحراش","name_ascii":"El Harrach","slug":"el-harrach","communes":[{"name_ar":"باش جراح","name_ascii":"Bachedjerah","zip":"16019"},{"name_ar":"بوروبة","name_ascii":"Bourouba","zip":"16016"},{"name_ar":"الحراش","name_ascii":"El Harrach","zip":"16013"},{"name_ar":"وادي السمار","name_ascii":"Oued Smar","zip":"16015"}]}]
+[
+  {
+    "arabic": "حسين داي",
+    "ascii": "Hussein Dey",
+    "communes": [
+      {
+        "arabic": "حسين داي",
+        "ascii": "Hussein Dey",
+        "zip": "16017"
+      },
+      {
+        "arabic": "القبة",
+        "ascii": "Kouba",
+        "zip": "16018"
+      },
+      {
+        "arabic": "محمد بلوزداد",
+        "ascii": "Mohamed Belouzdad",
+        "zip": null
+      },
+      {
+        "arabic": "المغارية",
+        "ascii": "El Magharia",
+        "zip": "16031"
+      }
+    ]
+  },
+  {
+    "arabic": "براقي",
+    "ascii": "Baraki",
+    "communes": [
+      {
+        "arabic": "الكاليتوس",
+        "ascii": "Les Eucalyptus",
+        "zip": "16033"
+      },
+      {
+        "arabic": "سيدي موسى",
+        "ascii": "Sidi Moussa",
+        "zip": "16037"
+      },
+      {
+        "arabic": "براقي",
+        "ascii": "Baraki",
+        "zip": "16014"
+      }
+    ]
+  },
+  {
+    "arabic": "الدار البيضاء",
+    "ascii": "Dar El Beida",
+    "communes": [
+      {
+        "arabic": "عين طاية",
+        "ascii": "Ain Taya",
+        "zip": "16038"
+      },
+      {
+        "arabic": "باب الزوار",
+        "ascii": "Bab Ezzouar",
+        "zip": null
+      },
+      {
+        "arabic": "برج الكيفان",
+        "ascii": "Bordj El Kiffan",
+        "zip": "16030"
+      },
+      {
+        "arabic": "الدار البيضاء",
+        "ascii": "Dar El Beida",
+        "zip": "16020"
+      },
+      {
+        "arabic": "المحمدية",
+        "ascii": "Mohammadia",
+        "zip": "16029"
+      },
+      {
+        "arabic": "برج البحري",
+        "ascii": "Bordj El Bahri",
+        "zip": "16039"
+      }
+    ]
+  },
+  {
+    "arabic": "المرسى",
+    "ascii": "El Marsa",
+    "communes": [
+      {
+        "arabic": "المرسى",
+        "ascii": "El Marsa",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "بئر توتة",
+    "ascii": "Birtouta",
+    "communes": [
+      {
+        "arabic": "بئر توتة",
+        "ascii": "Bir Touta",
+        "zip": null
+      },
+      {
+        "arabic": "اولاد شبل",
+        "ascii": "Ouled Chebel",
+        "zip": "16036"
+      },
+      {
+        "arabic": "تسالة المرجة",
+        "ascii": "Tessala El Merdja",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "الرويبة",
+    "ascii": "Rouiba",
+    "communes": [
+      {
+        "arabic": "هراوة",
+        "ascii": "Herraoua",
+        "zip": null
+      },
+      {
+        "arabic": "رغاية",
+        "ascii": "Reghaia",
+        "zip": "16043"
+      },
+      {
+        "arabic": "الرويبة",
+        "ascii": "Rouiba",
+        "zip": "16042"
+      }
+    ]
+  },
+  {
+    "arabic": "زرالدة",
+    "ascii": "Zeralda",
+    "communes": [
+      {
+        "arabic": "المعالمة",
+        "ascii": "Maalma",
+        "zip": null
+      },
+      {
+        "arabic": "الرحمانية",
+        "ascii": "Rahmania",
+        "zip": "16048"
+      },
+      {
+        "arabic": "سويدانية",
+        "ascii": "Souidania",
+        "zip": "16049"
+      },
+      {
+        "arabic": "سطاوالي",
+        "ascii": "Staoueli",
+        "zip": "16045"
+      },
+      {
+        "arabic": "زرالدة",
+        "ascii": "Zeralda",
+        "zip": "16046"
+      }
+    ]
+  },
+  {
+    "arabic": "الدرارية",
+    "ascii": "Draria",
+    "communes": [
+      {
+        "arabic": "بابا حسن",
+        "ascii": "Baba Hassen",
+        "zip": "16055"
+      },
+      {
+        "arabic": "الدويرة",
+        "ascii": "Douira",
+        "zip": null
+      },
+      {
+        "arabic": "الدرارية",
+        "ascii": "Draria",
+        "zip": "16053"
+      },
+      {
+        "arabic": "العاشور",
+        "ascii": "El Achour",
+        "zip": "16052"
+      },
+      {
+        "arabic": "الخرايسية",
+        "ascii": "Khraissia",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "الشراقة",
+    "ascii": "Cheraga",
+    "communes": [
+      {
+        "arabic": "عين بنيان",
+        "ascii": "Ain Benian",
+        "zip": "16044"
+      },
+      {
+        "arabic": "الشراقة",
+        "ascii": "Cheraga",
+        "zip": "16050"
+      },
+      {
+        "arabic": "دالي ابراهيم",
+        "ascii": "Dely Ibrahim",
+        "zip": "16023"
+      },
+      {
+        "arabic": "اولاد فايت",
+        "ascii": "Ouled Fayet",
+        "zip": "16051"
+      }
+    ]
+  },
+  {
+    "arabic": "بئر مقدم",
+    "ascii": "Bir Mokadem",
+    "communes": [
+      {
+        "arabic": "الحمامات",
+        "ascii": "Hammamet",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "سيدي امحمد",
+    "ascii": "Sidi M'hamed",
+    "communes": [
+      {
+        "arabic": "الجزائر الوسطى",
+        "ascii": "Alger Centre",
+        "zip": "16001"
+      },
+      {
+        "arabic": "المدنية",
+        "ascii": "El Madania",
+        "zip": "16003"
+      },
+      {
+        "arabic": "المرادية",
+        "ascii": "El Mouradia",
+        "zip": "16027"
+      },
+      {
+        "arabic": "سيدي امحمد",
+        "ascii": "Sidi M'hamed",
+        "zip": "16002"
+      }
+    ]
+  },
+  {
+    "arabic": "بئر مراد رايس",
+    "ascii": "Bir Mourad Rais",
+    "communes": [
+      {
+        "arabic": "السحاولة",
+        "ascii": "Sehaoula",
+        "zip": null
+      },
+      {
+        "arabic": "بئر مراد رايس",
+        "ascii": "Bir Mourad Rais",
+        "zip": "16009"
+      },
+      {
+        "arabic": "بئر خادم",
+        "ascii": "Birkhadem",
+        "zip": "16012"
+      },
+      {
+        "arabic": "جسر قسنطينة",
+        "ascii": "Djasr Kasentina",
+        "zip": "16026"
+      },
+      {
+        "arabic": "حيدرة",
+        "ascii": "Hydra",
+        "zip": "16028"
+      }
+    ]
+  },
+  {
+    "arabic": "باب الوادي",
+    "ascii": "Bab El Oued",
+    "communes": [
+      {
+        "arabic": "بولوغين بن زيري",
+        "ascii": "Bologhine Ibnou Ziri",
+        "zip": null
+      },
+      {
+        "arabic": "القصبة",
+        "ascii": "Casbah",
+        "zip": "16007"
+      },
+      {
+        "arabic": "وادي قريش",
+        "ascii": "Oued Koriche",
+        "zip": "16008"
+      },
+      {
+        "arabic": "الرايس حميدو",
+        "ascii": "Rais Hamidou",
+        "zip": "16025"
+      },
+      {
+        "arabic": "باب الوادي",
+        "ascii": "Bab El Oued",
+        "zip": "16005"
+      }
+    ]
+  },
+  {
+    "arabic": "بوزريعة",
+    "ascii": "Bouzareah",
+    "communes": [
+      {
+        "arabic": "ابن عكنون",
+        "ascii": "Ben Aknoun",
+        "zip": "16022"
+      },
+      {
+        "arabic": "بني مسوس",
+        "ascii": "Beni Messous",
+        "zip": "16032"
+      },
+      {
+        "arabic": "بوزريعة",
+        "ascii": "Bouzareah",
+        "zip": "16011"
+      },
+      {
+        "arabic": "الابيار",
+        "ascii": "El Biar",
+        "zip": "16010"
+      }
+    ]
+  },
+  {
+    "arabic": "الحراش",
+    "ascii": "El Harrach",
+    "communes": [
+      {
+        "arabic": "باش جراح",
+        "ascii": "Bachedjerah",
+        "zip": "16019"
+      },
+      {
+        "arabic": "بوروبة",
+        "ascii": "Bourouba",
+        "zip": "16016"
+      },
+      {
+        "arabic": "الحراش",
+        "ascii": "El Harrach",
+        "zip": "16013"
+      },
+      {
+        "arabic": "وادي السمار",
+        "ascii": "Oued Smar",
+        "zip": "16015"
+      }
+    ]
+  }
+]
