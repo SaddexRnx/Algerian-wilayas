@@ -47,13 +47,10 @@ function LeaderboardPage() {
 
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight mb-4">
-            {lang === 'ar' ? 'لوحة المتصدرين للمساهمين' : lang === 'fr' ? 'Classement des contributeurs' : 'Contributor Leaderboard'}
+            {t("leaderboard.title")}
           </h1>
           <p className="text-muted-foreground text-lg">
-            {lang === 'ar' ? 'تكريم الأبطال الذين يساعدون في تحسين بيانات العناوين الجزائرية.' : 
-             lang === 'fr' ? 'Honorer les héros qui nous aident à perfectionner les données.' : 
-             'Honoring the heroes helping us perfect Algerian address data.'}
-
+            {t("leaderboard.subtitle")}
           </p>
         </div>
 
