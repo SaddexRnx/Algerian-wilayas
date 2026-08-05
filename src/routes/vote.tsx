@@ -16,7 +16,14 @@ const FEATURES = [
   { id: 'mobile-app', title_en: 'Mobile App (iOS/Android)', title_ar: 'تطبيق الهاتف المحمول', desc_en: 'Native mobile SDKs and standalone app.', desc_ar: 'SDKs للهاتف المحمول وتطبيق مستقل.' },
   { id: 'real-time', title_en: 'Real-time Transport Data', title_ar: 'بيانات النقل في الوقت الفعلي', desc_en: 'Live bus and train schedules.', desc_ar: 'مواعيد الحافلات والقطارات المباشرة.' },
   { id: 'offline-sdk', title_en: 'Offline SDK', title_ar: 'SDK للعمل بدون اتصال', desc_en: 'Full address picking without internet.', desc_ar: 'اختيار العناوين بالكامل بدون إنترنت.' },
+  { id: 'ai-validation', title_en: 'AI Address Validation', title_ar: 'التحقق من العناوين بالذكاء الاصطناعي', desc_en: 'Auto-correct typos and invalid entries.', desc_ar: 'تصحيح تلقائي للأخطاء المطبعية والمدخلات غير الصالحة.' },
+  { id: 'sat-view', title_en: 'Satellite View', title_ar: 'عرض الأقمار الصناعية', desc_en: 'Visual confirmation of delivery points.', desc_ar: 'تأكيد بصري لنقاط التسليم.' },
+  { id: 'pos-integration', title_en: 'POS Integration', title_ar: 'التكامل مع نقاط البيع', desc_en: 'Direct printing for thermal printers.', desc_ar: 'الطباعة المباشرة للطابعات الحرارية.' },
+  { id: 'global-search', title_en: 'Global Search', title_ar: 'البحث الشامل', desc_en: 'Search across all levels in one input.', desc_ar: 'البحث في جميع المستويات بمدخل واحد.' },
+  { id: 'voice-input', title_en: 'Voice Input Support', title_ar: 'دعم الإدخال الصوتي', desc_en: 'Hands-free address selection.', desc_ar: 'اختيار العنوان بدون استخدام اليدين.' },
+  { id: 'business-data', title_en: 'Business Directory', title_ar: 'دليل الشركات', desc_en: 'Look up store names and locations.', desc_ar: 'البحث عن أسماء المحلات ومواقعها.' },
 ];
+
 
 function VotePage() {
   const { lang, t, dir } = useTranslation();
