@@ -99,7 +99,10 @@ const fr = {
   "api.fullDesc":
     "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
   "api.dairasDesc": "Toutes les dairas d'une wilaya donnée, identifiée par son code.",
-  "api.communesDesc": "Toutes les communes d'une daira donnée.",
+  "api.catBase": "Points de terminaison de base",
+  "api.catLang": "Points de terminaison par langue",
+  "api.catGranular": "Points de terminaison granulaires",
+  "api.catZip": "Recherche par Code Postal",
   "api.theming": "Envie de l'assortir à votre marque ? Surchargez nos variables CSS :",
 
   "tester.title": "Testeur d'API en direct",
