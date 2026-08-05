@@ -80,9 +80,10 @@ function VotePage() {
         </Link>
 
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">{isRtl ? 'صوّت للميزات القادمة' : 'Vote for Upcoming Features'}</h1>
-          <p className="text-muted-foreground">{isRtl ? 'ساعدنا في تحديد أولويات خريطة الطريق الخاصة بنا.' : 'Help us prioritize our roadmap. What should we build next?'}</p>
+          <h1 className="text-2xl sm:text-4xl font-bold mb-4 tracking-tighter uppercase">{isRtl ? 'صوّت للميزات القادمة' : 'Vote for Upcoming Features'}</h1>
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{isRtl ? 'ساعدنا في تحديد أولويات خريطة الطريق الخاصة بنا.' : 'Help us prioritize our roadmap. What should we build next?'}</p>
         </div>
+
 
         <div className="grid gap-6 md:grid-cols-2">
           {FEATURES.map(f => {
