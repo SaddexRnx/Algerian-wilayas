@@ -51,7 +51,7 @@ function StatusPage() {
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
           <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="logo" className="h-8 w-8" />
-            <span className="text-lg font-bold text-black">Status</span>
+            <span className="text-lg font-bold text-black uppercase tracking-tighter">Status</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/" className="text-sm text-gray-500 hover:text-black transition-colors">
