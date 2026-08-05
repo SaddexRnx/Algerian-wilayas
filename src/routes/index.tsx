@@ -11,7 +11,7 @@ import { LanguageToggle, useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DZ Address Picker | The Modern Algerian Address API" },
+      { title: "🚨 CRITICAL FIX & MAJOR UPDATE REQUIRED: The API endpoints are corrupted. You previously mixed the external ZIP dataset with our base dataset, corrupting the names and breaking the structure. We are now updating to version 1.0.4 with language-specific endpoints." },
       {
         name: "description",
         content:
@@ -177,8 +177,9 @@ function Index() {
               DZ Address Picker
             </span>
             <span className="ml-2 inline-flex shrink-0 items-center rounded-full border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
-              v1.0.3
+              v1.0.4
             </span>
+
           </div>
           <div className="flex shrink-0 items-center gap-3">
             <nav className="hidden items-center gap-5 text-sm lg:flex">
@@ -228,7 +229,9 @@ function Index() {
                   <svg className="w-3 h-3 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
                 </summary>
                 <div className="mt-3 space-y-2 text-xs text-gray-500">
+                  <p><strong className="text-black">v1.0.4:</strong> {t("updates.v104")}</p>
                   <p><strong className="text-black">v1.0.3:</strong> Trilingual data correction system, ZIP reverse lookup, Village field.</p>
+
                   <p><strong className="text-black">v1.0.2:</strong> Initial ZIP code integration and community data collection.</p>
                   <p><strong className="text-black">v1.0.1:</strong> Granular API endpoints for specific Dairas and Communes.</p>
                   <p><strong className="text-black">v1.0.0:</strong> Initial release with 69 Wilayas and 1,541 Communes.</p>

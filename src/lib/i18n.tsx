@@ -646,6 +646,9 @@ const en: Record<TranslationKey, string> = {
   "tester.help.dairas": "ENTER A WILAYA CODE TO SEE ITS DAIRAS",
   "tester.help.daira": "ENTER A WILAYA CODE AND DAIRA SLUG",
   "tester.help.zip": "ENTER A 5-DIGIT ZIP CODE (E.G. 19070)",
+  "tester.help.lang": "No parameters needed. Returns language-specific data.",
+  "updates.v104": "v1.0.4: Fixed data corruption, added Arabic names to ZIP lookups, and introduced ultra-lightweight language-specific endpoints (/api/ar/, /api/fr/, /api/en/) for optimized performance.",
+
   "home.reportLink": "Something wrong with the data? Click here to submit a correction.",
 };
 

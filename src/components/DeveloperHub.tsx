@@ -178,20 +178,22 @@ export const SNIPPETS = buildSnippets(DEFAULT_CONFIG);
 function PluginDownload() {
   const { t } = useI18n();
   const [state, setState] = useState<"idle" | "working" | "error">("idle");
-  const [version, setVersion] = useState("1.0.3");
+  const [version, setVersion] = useState("1.0.4");
 
   const versions = [
-    { label: "v1.0.3 (Current)", value: "1.0.3" },
+    { label: "v1.0.4 (Current)", value: "1.0.4" },
+    { label: "v1.0.3", value: "1.0.3" },
     { label: "v1.0.2", value: "1.0.2" },
     { label: "v1.0.1", value: "1.0.1" },
     { label: "v1.0.0", value: "1.0.0" },
+
   ];
 
   async function onDownload() {
     setState("working");
     try {
       const files = ["dz-address-picker.php", "dz-checkout.js", "readme.txt"];
-      const subFolder = version === "1.0.3" ? "" : `v${version}/`;
+      const subFolder = version === "1.0.4" ? "" : `v${version}/`;
 
       // Preflight
       const heads = await Promise.all(
