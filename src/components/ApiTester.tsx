@@ -8,7 +8,10 @@ export const API_BASE = "https://dz-address-select.vercel.app";
 type Shape = 
   | "index" | "wilayas" | "full" | "wilaya" | "wilayaDairas" | "daira" | "zip" 
   | "arWilayas" | "arFull" | "arWilaya" | "arWilayaDairas" | "arDaira"
-  | "latinWilayas" | "latinFull" | "latinWilaya" | "latinWilayaDairas" | "latinDaira";
+  | "latinWilayas" | "latinFull" | "latinWilaya" | "latinWilayaDairas" | "latinDaira"
+  | "geoWilayas" | "geoWilaya" | "coords" | "shippingRates" | "shippingZones"
+  | "population" | "exchange" | "visa" | "distance" | "geofence" | "search";
+
 
 const SHAPES: { id: Shape; template: string }[] = [
   { id: "index", template: "/api/index.json" },
@@ -28,7 +31,19 @@ const SHAPES: { id: Shape; template: string }[] = [
   { id: "latinWilaya", template: "/api/latin/wilayas/{code}.json" },
   { id: "latinWilayaDairas", template: "/api/latin/wilayas/{code}/dairas.json" },
   { id: "latinDaira", template: "/api/latin/wilayas/{code}/dairas/{daira-slug}.json" },
+  { id: "geoWilayas", template: "/api/geo/wilayas.json" },
+  { id: "geoWilaya", template: "/api/geo/wilayas/{code}.json" },
+  { id: "coords", template: "/api/coordinates/wilayas.json" },
+  { id: "shippingRates", template: "/api/shipping/rates.json" },
+  { id: "shippingZones", template: "/api/shipping/zones.json" },
+  { id: "population", template: "/api/population/wilayas.json" },
+  { id: "exchange", template: "/api/economy/exchange-rates.json" },
+  { id: "visa", template: "/api/travel/visa-requirements.json" },
+  { id: "distance", template: "/api/distance?from=16&to=31" },
+  { id: "geofence", template: "/api/geofence/check?lat=36.77&lng=3.05" },
+  { id: "search", template: "/api/search?q=bou" },
 ];
+
 
 type Result = {
   status: number;
