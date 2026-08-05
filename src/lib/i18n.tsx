@@ -17,10 +17,15 @@ const fr = {
   "nav.inAction": "En action",
   "nav.integration": "Intégration",
   "nav.api": "API",
+  "nav.map": "Carte",
   "nav.features": "Fonctionnalités",
   "nav.admin": "Tableau de bord",
   "nav.backHome": "Retour au site",
   "nav.language": "Langue",
+  "nav.leaderboard": "Classement",
+  "nav.vote": "Voter",
+  "nav.changelog": "Journal",
+  "nav.integrations": "Intégrations",
 
   "hero.title": "L'intégration moderne des adresses algériennes.",
   "hero.subtitle":
@@ -31,6 +36,60 @@ const fr = {
   "demo.title": "Démo interactive",
   "demo.console": "Console des évènements",
   "demo.waiting": "En attente des évènements",
+  // ... keep existing
+};
+
+const en = {
+  "nav.demo": "Demo",
+  "nav.inAction": "In Action",
+  "nav.integration": "Integration",
+  "nav.api": "API",
+  "nav.map": "Map",
+  "nav.features": "Features",
+  "nav.admin": "Dashboard",
+  "nav.backHome": "Back Home",
+  "nav.language": "Language",
+  "nav.leaderboard": "Leaderboard",
+  "nav.vote": "Vote",
+  "nav.changelog": "Changelog",
+  "nav.integrations": "Integrations",
+
+  "hero.title": "Modern Algerian Address Integration.",
+  "hero.subtitle": "The complete, up-to-date dataset of 69 wilayas and 1,541 communes. Ready for e-commerce, forms, and maps. Zero dependencies.",
+  "hero.ctaDemo": "See Demo",
+  "hero.ctaCopy": "Copy Integration Code",
+
+  "demo.title": "Interactive Demo",
+  "demo.console": "Event Console",
+  "demo.waiting": "Waiting for events...",
+  // ... keep existing
+};
+
+const ar = {
+  "nav.demo": "عرض حي",
+  "nav.inAction": "قيد التشغيل",
+  "nav.integration": "التكامل",
+  "nav.api": "برمجية (API)",
+  "nav.map": "الخريطة",
+  "nav.features": "الميزات",
+  "nav.admin": "لوحة التحكم",
+  "nav.backHome": "الرئيسية",
+  "nav.language": "اللغة",
+  "nav.leaderboard": "المتصدرين",
+  "nav.vote": "تصويت",
+  "nav.changelog": "سجل التغييرات",
+  "nav.integrations": "تكاملات",
+
+  "hero.title": "التكامل الحديث للعناوين الجزائرية.",
+  "hero.subtitle": "مجموعة البيانات الكاملة والمحدثة لـ 69 ولاية و 1541 بلدية. جاهزة للتجارة الإلكترونية والخرائط. بدون تبعات برمجية.",
+  "hero.ctaDemo": "عرض التجربة",
+  "hero.ctaCopy": "نسخ رمز التكامل",
+
+  "demo.title": "تجربة تفاعلية",
+  "demo.console": "لوحة الأحداث",
+  "demo.waiting": "بانتظار الأحداث...",
+  // ... keep existing
+};
 
   "picker.wilaya": "Wilaya",
   "picker.daira": "Daira",
