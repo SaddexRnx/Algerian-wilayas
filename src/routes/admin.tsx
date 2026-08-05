@@ -510,17 +510,18 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full min-w-[600px] text-start text-sm">
                  <thead>
-                  <tr className="border-b border-gray-200 text-xs text-gray-500 uppercase tracking-wider">
-                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.zip")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.name")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("picker.daira")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("picker.commune")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.village")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("report.message")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.status")}</th>
-                    <th className="py-3 text-start font-medium">{t("admin.table.date")}</th>
+                  <tr className="border-b border-gray-200 text-[10px] text-gray-400 uppercase tracking-widest">
+                    <th className="py-3 pe-3 text-start font-bold">{t("admin.table.zip")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("admin.table.name")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("picker.daira")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("picker.commune")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("admin.table.village")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("report.message")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("admin.table.status")}</th>
+                    <th className="py-3 text-start font-bold">{t("admin.table.date")}</th>
                   </tr>
                 </thead>
+
 
                 <tbody>
                   {reports.length === 0 && (
