@@ -503,11 +503,9 @@ export function DeveloperHub() {
       <div className="mt-8">
         {/* Available attributes removed as per instructions */}
       </div>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
+    </div>
+  );
+}
 
     </div>
   );
