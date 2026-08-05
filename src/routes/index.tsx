@@ -214,8 +214,21 @@ function Index() {
             <span className="ml-2 inline-flex shrink-0 items-center rounded-full border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
               v{pkg.version}
             </span>
-
+            <div className="ml-4 hidden items-center gap-2 rounded-full bg-gray-50 px-3 py-1 sm:flex">
+              <span className={`h-1.5 w-1.5 rounded-full ${healthData.every(h => h.status === 'up') ? 'bg-green-500' : 'bg-red-500'} animate-pulse`}></span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                {t("common.live")}
+              </span>
+              <button 
+                onClick={runHealth}
+                disabled={healthLoading}
+                className="ml-1 text-[10px] font-bold uppercase text-black underline underline-offset-2 opacity-50 hover:opacity-100 disabled:opacity-20"
+              >
+                {healthLoading ? "..." : t("common.refresh")}
+              </button>
+            </div>
           </div>
+
           <div className="flex shrink-0 items-center gap-3">
             <nav className="hidden items-center gap-5 text-sm lg:flex">
               {navLinks.map((l) => (
