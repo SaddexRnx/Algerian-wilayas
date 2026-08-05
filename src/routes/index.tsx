@@ -257,11 +257,11 @@ function Index() {
       </header>
 
       <main className="mx-auto max-w-5xl px-4 pb-8 sm:px-6">
-        <section className="py-12 text-center sm:py-20 md:py-24">
+        <section className="py-8 sm:py-16 md:py-20 lg:py-24 text-center">
           <div className="mx-auto mb-8 max-w-2xl rounded-2xl border border-gray-200 bg-gray-50 p-6 text-left sm:p-8">
             <div className="flex items-center gap-2 mb-4">
               <span className="flex h-2 w-2 rounded-full bg-black animate-pulse"></span>
-              <h2 className="text-sm font-bold tracking-wider text-black uppercase">
+              <h2 className="text-xs font-bold tracking-wider text-black uppercase">
                 {t("updates.title")}
               </h2>
             </div>
@@ -270,27 +270,28 @@ function Index() {
             </p>
             <div className="pt-4 border-t border-gray-200">
               <details className="group">
-                <summary className="text-xs font-bold text-black cursor-pointer hover:underline list-none flex items-center justify-between">
+                <summary className="text-[10px] font-bold text-black cursor-pointer hover:underline list-none flex items-center justify-between uppercase tracking-widest">
                   {t("updates.showAll")}
-                  <ChevronRight className="w-4 h-4 transition-transform group-open:rotate-90" />
+                  <ChevronRight className="w-3 h-3 transition-transform group-open:rotate-90" />
                 </summary>
-                <div className="mt-4 space-y-3 text-xs text-gray-500">
+                <div className="mt-4 space-y-3 text-[11px] text-gray-500">
                   <div className="border-l-2 border-black pl-3 py-1">
-                    <p className="text-black font-bold mb-1">v2.0.0 — The Ultimate Platform</p>
+                    <p className="text-black font-bold mb-0.5">v2.0.0 — The Ultimate Platform</p>
                     <p>30+ new endpoints, GeoJSON, logistics rates, demographics, and economy data.</p>
                   </div>
                   <div className="border-l-2 border-gray-300 pl-3 py-1">
-                    <p className="text-gray-700 font-bold mb-1">v1.0.5 — Official Dataset</p>
+                    <p className="text-gray-700 font-bold mb-0.5">v1.0.5 — Official Dataset</p>
                     <p>100% accurate postal codes via geoalgeria project.</p>
                   </div>
                   <div className="border-l-2 border-gray-300 pl-3 py-1">
-                    <p className="text-gray-700 font-bold mb-1">v1.0.4 — Trilingual API</p>
+                    <p className="text-gray-700 font-bold mb-0.5">v1.0.4 — Trilingual API</p>
                     <p>Optimized Arabic and Latin hierarchical trees.</p>
                   </div>
                 </div>
               </details>
             </div>
           </div>
+
 
 
 
