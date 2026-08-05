@@ -509,8 +509,8 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             )}
           </section>
         </div>
-        </>
-        ) : activeTab === "reports" ? (
+      ) : activeTab === "reports" ? (
+
           <section className={`mt-6 ${cardClass}`}>
             <h2 className="text-sm font-semibold text-black">{t("admin.reports")}</h2>
             <div className="mt-4 overflow-x-auto">
