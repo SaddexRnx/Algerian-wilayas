@@ -319,7 +319,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
           </div>
         </div>
 
-        {activeTab === "analytics" && (
+        {activeTab === "analytics" && data && (
           <>
             <section className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
 
