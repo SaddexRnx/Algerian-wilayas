@@ -44,9 +44,9 @@ const fr = {
   "picker.searchDaira": "Rechercher une daira…",
   "picker.searchCommune": "Rechercher une commune…",
   "picker.noMatches": "Aucun résultat",
-  "picker.quick": "Recherche rapide",
-  "picker.quickPlaceholder": "Filtrer les dairas et communes…",
-  "picker.quickHint": "Tapez pour filtrer, puis choisissez un résultat.",
+  "picker.quick": "Recherche rapide / ZIP",
+  "picker.quickPlaceholder": "Filtrer ou entrer un code postal (ex. 19070)…",
+  "picker.quickHint": "Tapez un code postal ou un nom pour filtrer les résultats.",
   "picker.quickDaira": "Daira",
   "picker.quickCommune": "Commune",
   "picker.preview": "Aperçu de l'adresse",
@@ -229,9 +229,9 @@ const ar: Record<TranslationKey, string> = {
   "picker.searchDaira": "ابحث عن دائرة…",
   "picker.searchCommune": "ابحث عن بلدية…",
   "picker.noMatches": "لا توجد نتائج",
-  "picker.quick": "بحث سريع",
-  "picker.quickPlaceholder": "تصفية الدوائر والبلديات…",
-  "picker.quickHint": "اكتب للتصفية ثم اختر نتيجة.",
+  "picker.quick": "بحث سريع / رمز بريدي",
+  "picker.quickPlaceholder": "تصفية أو إدخال رمز بريدي (مثلاً 19070)…",
+  "picker.quickHint": "اكتب رمزاً بريدياً أو اسماً لتصفية النتائج.",
   "picker.quickDaira": "دائرة",
   "picker.quickCommune": "بلدية",
   "picker.preview": "معاينة العنوان",
@@ -629,7 +629,20 @@ export function LanguageToggle() {
   return (
     <div
       role="group"
-      aria-label="Add for everything wilaya daira commune you just add for wilaya arabic language"
+        aria-label="Look i need all apis endpoint to return zip for it end points for example wilaya end point with it zip.. 
+
+If daiara also it zip.. 
+
+Commune it zip.. 
+
+Also add in integration or sezrch boxes to allow shearch directly with zip instead searching manually for each wilaya daira commune for example i search throu zip 19070 automatically fill all boxes with data of this zip 
+
+Wilaya setif 
+
+Daira bouandas commune boussellam... 
+
+P'ease think about everything possible we can forget update everything with new end points and updates...."
+
       className="inline-flex shrink-0 overflow-hidden rounded-md border border-gray-300"
       dir="ltr"
     >

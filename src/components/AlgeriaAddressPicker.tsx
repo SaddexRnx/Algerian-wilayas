@@ -8,6 +8,7 @@ import { cachedJson, cachedJsonWithMeta } from "@/lib/api-cache";
 export interface Commune {
   arabic: string;
   ascii: string;
+  zip?: string | null;
 }
 
 export interface Daira {
@@ -71,6 +72,7 @@ function normalizeCommunes(json: unknown): Commune[] {
     return {
       arabic: String(raw["name_ar"] ?? raw["arabic"] ?? ""),
       ascii: String(raw["name_ascii"] ?? raw["ascii"] ?? ""),
+      zip: raw["zip"] ? String(raw["zip"]) : null,
     };
   });
 }
@@ -170,6 +172,7 @@ export function AlgeriaAddressPicker({
   const [quickQuery, setQuickQuery] = useState("");
   const [copied, setCopied] = useState(false);
   const restored = useRef(false);
+  const zipLoaded = useRef<string | null>(null);
   const pending = useRef<{ daira?: string | null; commune?: string | null }>({});
 
   const load = useCallback((useCache = true) => {
@@ -336,16 +339,21 @@ export function AlgeriaAddressPicker({
   const quickResults = useMemo(() => {
     const q = quickQuery.trim().toLowerCase();
     if (!q) return [];
+    
+    // Check if it's a 5-digit ZIP code
+    const isZip = /^\d{5}$/.test(q);
+    
     const out: {
       key: string;
       label: string;
       type: "daira" | "commune";
       dairaIndex: number;
       communeAscii?: string;
+      zipMatch?: boolean;
     }[] = [];
 
     dairas.forEach((d, di) => {
-      if (`${d.arabic} ${d.ascii} ${d.slug}`.toLowerCase().includes(q)) {
+      if (!isZip && `${d.arabic} ${d.ascii} ${d.slug}`.toLowerCase().includes(q)) {
         out.push({
           key: `d-${di}`,
           label: lang === "ar" ? d.arabic : d.ascii,
@@ -354,15 +362,19 @@ export function AlgeriaAddressPicker({
         });
       }
       d.communes.forEach((c, ci) => {
-        if (`${c.arabic} ${c.ascii}`.toLowerCase().includes(q)) {
+        const matchesName = !isZip && `${c.arabic} ${c.ascii}`.toLowerCase().includes(q);
+        const matchesZip = isZip && c.zip === q;
+        
+        if (matchesName || matchesZip) {
           const name = lang === "ar" ? c.arabic : c.ascii;
           const parent = lang === "ar" ? d.arabic : d.ascii;
           out.push({
             key: `c-${di}-${ci}`,
-            label: `${name} — ${parent}`,
+            label: matchesZip ? `${q} — ${name}` : `${name} — ${parent}`,
             type: "commune",
             dairaIndex: di,
             communeAscii: c.ascii,
+            zipMatch: matchesZip
           });
         }
       });
@@ -381,6 +393,26 @@ export function AlgeriaAddressPicker({
       })),
     [communes, lang],
   );
+
+  // Handle ZIP code search globally if entered in Quick Search
+  useEffect(() => {
+    const q = quickQuery.trim();
+    if (!/^\d{5}$/.test(q) || zipLoaded.current === q) return;
+
+    let active = true;
+    fetch(`/api/zip/${q}.json`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (!active || !data) return;
+        zipLoaded.current = q;
+        const { wilayaCode: code, dairaName, communeName } = data;
+        
+        setWilayaCode(String(code));
+        pending.current = { daira: dairaName, commune: communeName };
+      });
+
+    return () => { active = false; };
+  }, [quickQuery]);
 
   // Restore selection from props, then the URL, then the persisted localStorage state.
   useEffect(() => {
@@ -412,6 +444,7 @@ export function AlgeriaAddressPicker({
         /* storage unavailable — non-fatal */
       }
     }
+
 
     if (!w) return;
     if (!wilayas.some((x) => String(x.code) === w)) return;
@@ -467,6 +500,7 @@ export function AlgeriaAddressPicker({
           wilayaName: wilaya?.arabic ?? "",
           dairaName: daira?.arabic ?? "",
           communeName: commune?.arabic ?? "",
+          zip: commune?.zip ?? null,
         },
         bubbles: true,
       }),
