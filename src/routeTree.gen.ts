@@ -11,10 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ChangelogRouteImport } from './routes/changelog'
+import { Route as IntegrationsRouteImport } from './routes/integrations'
+import { Route as LeaderboardRouteImport } from './routes/leaderboard'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MapRouteImport } from './routes/map'
 import { Route as ReportRouteImport } from './routes/report'
+import { Route as VoteRouteImport } from './routes/vote'
+import { Route as ApiSearchRouteImport } from './routes/api/search'
+import { Route as ApiFormatAddressRouteImport } from './routes/api/format/address'
 import { Route as ApiPublicBulkZipRouteImport } from './routes/api/public/bulk-zip'
+import { Route as ApiUtilsAnonymizeRouteImport } from './routes/api/utils/anonymize'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -24,6 +31,21 @@ const IndexRoute = IndexRouteImport.update({
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChangelogRoute = ChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrationsRoute = IntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeaderboardRoute = LeaderboardRouteImport.update({
+  id: '/leaderboard',
+  path: '/leaderboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -41,60 +63,140 @@ const ReportRoute = ReportRouteImport.update({
   path: '/report',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VoteRoute = VoteRouteImport.update({
+  id: '/vote',
+  path: '/vote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSearchRoute = ApiSearchRouteImport.update({
+  id: '/api/search',
+  path: '/api/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiFormatAddressRoute = ApiFormatAddressRouteImport.update({
+  id: '/api/format/address',
+  path: '/api/format/address',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicBulkZipRoute = ApiPublicBulkZipRouteImport.update({
   id: '/api/public/bulk-zip',
   path: '/api/public/bulk-zip',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiUtilsAnonymizeRoute = ApiUtilsAnonymizeRouteImport.update({
+  id: '/api/utils/anonymize',
+  path: '/api/utils/anonymize',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/changelog': typeof ChangelogRoute
+  '/integrations': typeof IntegrationsRoute
+  '/leaderboard': typeof LeaderboardRoute
   '/login': typeof LoginRoute
   '/map': typeof MapRoute
   '/report': typeof ReportRoute
+  '/vote': typeof VoteRoute
+  '/api/search': typeof ApiSearchRoute
+  '/api/format/address': typeof ApiFormatAddressRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/changelog': typeof ChangelogRoute
+  '/integrations': typeof IntegrationsRoute
+  '/leaderboard': typeof LeaderboardRoute
   '/login': typeof LoginRoute
   '/map': typeof MapRoute
   '/report': typeof ReportRoute
+  '/vote': typeof VoteRoute
+  '/api/search': typeof ApiSearchRoute
+  '/api/format/address': typeof ApiFormatAddressRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/changelog': typeof ChangelogRoute
+  '/integrations': typeof IntegrationsRoute
+  '/leaderboard': typeof LeaderboardRoute
   '/login': typeof LoginRoute
   '/map': typeof MapRoute
   '/report': typeof ReportRoute
+  '/vote': typeof VoteRoute
+  '/api/search': typeof ApiSearchRoute
+  '/api/format/address': typeof ApiFormatAddressRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/admin' | '/login' | '/map' | '/report' | '/api/public/bulk-zip'
+    | '/'
+    | '/admin'
+    | '/changelog'
+    | '/integrations'
+    | '/leaderboard'
+    | '/login'
+    | '/map'
+    | '/report'
+    | '/vote'
+    | '/api/search'
+    | '/api/format/address'
+    | '/api/public/bulk-zip'
+    | '/api/utils/anonymize'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/login' | '/map' | '/report' | '/api/public/bulk-zip'
+  to:
+    | '/'
+    | '/admin'
+    | '/changelog'
+    | '/integrations'
+    | '/leaderboard'
+    | '/login'
+    | '/map'
+    | '/report'
+    | '/vote'
+    | '/api/search'
+    | '/api/format/address'
+    | '/api/public/bulk-zip'
+    | '/api/utils/anonymize'
   id:
     | '__root__'
     | '/'
     | '/admin'
+    | '/changelog'
+    | '/integrations'
+    | '/leaderboard'
     | '/login'
     | '/map'
     | '/report'
+    | '/vote'
+    | '/api/search'
+    | '/api/format/address'
     | '/api/public/bulk-zip'
+    | '/api/utils/anonymize'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
+  ChangelogRoute: typeof ChangelogRoute
+  IntegrationsRoute: typeof IntegrationsRoute
+  LeaderboardRoute: typeof LeaderboardRoute
   LoginRoute: typeof LoginRoute
   MapRoute: typeof MapRoute
   ReportRoute: typeof ReportRoute
+  VoteRoute: typeof VoteRoute
+  ApiSearchRoute: typeof ApiSearchRoute
+  ApiFormatAddressRoute: typeof ApiFormatAddressRoute
   ApiPublicBulkZipRoute: typeof ApiPublicBulkZipRoute
+  ApiUtilsAnonymizeRoute: typeof ApiUtilsAnonymizeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -111,6 +213,27 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/changelog': {
+      id: '/changelog'
+      path: '/changelog'
+      fullPath: '/changelog'
+      preLoaderRoute: typeof ChangelogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integrations': {
+      id: '/integrations'
+      path: '/integrations'
+      fullPath: '/integrations'
+      preLoaderRoute: typeof IntegrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leaderboard': {
+      id: '/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/leaderboard'
+      preLoaderRoute: typeof LeaderboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -134,11 +257,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vote': {
+      id: '/vote'
+      path: '/vote'
+      fullPath: '/vote'
+      preLoaderRoute: typeof VoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/search': {
+      id: '/api/search'
+      path: '/api/search'
+      fullPath: '/api/search'
+      preLoaderRoute: typeof ApiSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/format/address': {
+      id: '/api/format/address'
+      path: '/api/format/address'
+      fullPath: '/api/format/address'
+      preLoaderRoute: typeof ApiFormatAddressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/bulk-zip': {
       id: '/api/public/bulk-zip'
       path: '/api/public/bulk-zip'
       fullPath: '/api/public/bulk-zip'
       preLoaderRoute: typeof ApiPublicBulkZipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/utils/anonymize': {
+      id: '/api/utils/anonymize'
+      path: '/api/utils/anonymize'
+      fullPath: '/api/utils/anonymize'
+      preLoaderRoute: typeof ApiUtilsAnonymizeRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -147,10 +298,17 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
+  ChangelogRoute: ChangelogRoute,
+  IntegrationsRoute: IntegrationsRoute,
+  LeaderboardRoute: LeaderboardRoute,
   LoginRoute: LoginRoute,
   MapRoute: MapRoute,
   ReportRoute: ReportRoute,
+  VoteRoute: VoteRoute,
+  ApiSearchRoute: ApiSearchRoute,
+  ApiFormatAddressRoute: ApiFormatAddressRoute,
   ApiPublicBulkZipRoute: ApiPublicBulkZipRoute,
+  ApiUtilsAnonymizeRoute: ApiUtilsAnonymizeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

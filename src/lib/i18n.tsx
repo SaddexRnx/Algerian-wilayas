@@ -26,6 +26,10 @@ const baseTranslations = {
   "nav.vote": { en: "Vote", fr: "Voter", ar: "تصويت" },
   "nav.changelog": { en: "Changelog", fr: "Journal", ar: "سجل التغييرات" },
   "nav.integrations": { en: "Integrations", fr: "Intégrations", ar: "تكاملات" },
+  "nav.tester": { en: "Tester", fr: "Testeur", ar: "مختبر" },
+  "nav.report": { en: "Report", fr: "Signaler", ar: "تبليغ" },
+  "nav.adminLogin": { en: "Admin Login", fr: "Connexion admin", ar: "دخول المشرف" },
+  "nav.dashboard": { en: "Dashboard", fr: "Tableau de bord", ar: "لوحة التحكم" },
 
   "hero.title": { en: "Modern Algerian Address Integration.", fr: "L'intégration moderne des adresses algériennes.", ar: "التكامل الحديث للعناوين الجزائرية." },
   "hero.subtitle": { 
@@ -77,6 +81,8 @@ const baseTranslations = {
     fr: "Les codes postaux sont basés sur des données officielles. Aidez-nous à les garder précis.", 
     ar: "الرموز البريدية مستمدة من البيانات الرسمية. ساعدنا في الحفاظ على دقتها." 
   },
+  "picker.zipLabel": { en: "ZIP Code", fr: "Code postal", ar: "الرمز البريدي" },
+  "picker.searchByZip": { en: "Search by ZIP", fr: "Recherche par ZIP", ar: "البحث بالرمز البريدي" },
 
   "checkout.title": { en: "See it in action", fr: "Voyez-le en action", ar: "شاهده قيد التشغيل" },
   "checkout.subtitle": { en: "Simulation of a checkout page.", fr: "Simulation d'une page de paiement.", ar: "محاكاة لصفحة الدفع." },
@@ -105,6 +111,7 @@ const baseTranslations = {
   "hub.wpDesc": { en: "Download ready-to-use plugin.", fr: "Téléchargez l'extension prête à l'emploi.", ar: "نزّل الإضافة الجاهزة." },
   "hub.download": { en: "Download", fr: "Télécharger", ar: "تنزيل" },
   "hub.advanced": { en: "Advanced Options", fr: "Options avancées", ar: "خيارات متقدمة" },
+  "hub.showAdvanced": { en: "Show Advanced", fr: "Afficher les options avancées", ar: "إظهار الخيارات المتقدمة" },
 
   "api.title": { en: "API Documentation", fr: "Documentation API", ar: "توثيق واجهة البرمجة" },
   "api.subtitle": { en: "Static read-only endpoints.", fr: "Points de terminaison statiques.", ar: "نقاط وصول ثابتة." },
@@ -117,6 +124,14 @@ const baseTranslations = {
   "api.catGranular": { en: "Granular", fr: "Granulaire", ar: "تفصيلية" },
   "api.catZip": { en: "ZIP Lookup", fr: "Recherche ZIP", ar: "بحث الرمز البريدي" },
   "api.theming": { en: "Theming", fr: "Thématisation", ar: "التخصيص" },
+  "api.indexDesc": { en: "API Index", fr: "Index API", ar: "فهرس الواجهة" },
+  "api.wilayasDesc": { en: "Wilayas List", fr: "Liste des Wilayas", ar: "قائمة الولايات" },
+  "api.fullDataDesc": { en: "Full hierarchical data", fr: "Données complètes", ar: "البيانات الكاملة" },
+  "api.fullDesc": { en: "Full data", fr: "Données complètes", ar: "البيانات الكاملة" },
+  "api.wilayaDetailDesc": { en: "Wilaya detail", fr: "Détails wilaya", ar: "تفاصيل الولاية" },
+  "api.wilayaDairasDesc": { en: "Wilaya dairas", fr: "Dairas de la wilaya", ar: "دوائر الولاية" },
+  "api.dairaDetailDesc": { en: "Daira detail", fr: "Détails daira", ar: "تفاصيل الدائرة" },
+  "api.zipReverseDesc": { en: "ZIP reverse lookup", fr: "Recherche ZIP inversée", ar: "بحث عكسي بالرمز البريدي" },
 
   "tester.title": { en: "Live API Tester", fr: "Testeur API", ar: "مُختبِر الواجهة" },
   "tester.subtitle": { en: "Send requests to endpoints.", fr: "Envoyez des requêtes.", ar: "أرسل طلبات." },
@@ -137,17 +152,29 @@ const baseTranslations = {
   "features.updatedDesc": { en: "Always fresh.", fr: "Toujours frais.", ar: "دائما جديد." },
 
   "admin.login.title": { en: "Admin Access", fr: "Accès Admin", ar: "دخول المشرف" },
+  "admin.login.subtitle": { en: "Sign in to dashboard", fr: "Connectez-vous", ar: "سجّل الدخول" },
+  "admin.login.email": { en: "Email", fr: "Email", ar: "البريد" },
+  "admin.login.password": { en: "Password", fr: "Mot de passe", ar: "كلمة المرور" },
+  "admin.login.submit": { en: "Sign In", fr: "Se connecter", ar: "دخول" },
+  "admin.login.loading": { en: "Signing in...", fr: "Connexion...", ar: "جارٍ الدخول..." },
+  "admin.login.error": { en: "Error", fr: "Erreur", ar: "خطأ" },
   "admin.logout": { en: "Logout", fr: "Déconnexion", ar: "خروج" },
+  "admin.logout.title": { en: "Logout", fr: "Déconnexion", ar: "خروج" },
+  "admin.logout.body": { en: "Confirm logout", fr: "Confirmer la déconnexion", ar: "تأكيد الخروج" },
+  "admin.logout.cancel": { en: "Cancel", fr: "Annuler", ar: "إلغاء" },
+  "admin.logout.confirm": { en: "Confirm", fr: "Confirmer", ar: "تأكيد" },
+  "admin.kpi.calls": { en: "Calls", fr: "Appels", ar: "الطلبات" },
+  "admin.kpi.stores": { en: "Stores", fr: "Boutiques", ar: "المتاجر" },
+  "admin.kpi.loads": { en: "Loads", fr: "Chargements", ar: "التحميلات" },
+  "admin.kpi.latency": { en: "Latency", fr: "Latence", ar: "التأخير" },
 
   "leaderboard.title": { en: "Leaderboard", fr: "Classement", ar: "المتصدرين" },
   "vote.title": { en: "Vote", fr: "Voter", ar: "تصويت" },
   "changelog.title": { en: "Changelog", fr: "Journal", ar: "سجل التغييرات" },
   "integrations.title": { en: "Integrations", fr: "Intégrations", ar: "تكاملات" },
   
-  "nav.tester": { en: "Tester", fr: "Testeur", ar: "مختبر" },
-  "nav.report": { en: "Report", fr: "Signaler", ar: "تبليغ" },
-  "report.title": { en: "Report Error", fr: "Signaler une erreur", ar: "تبليغ عن خطأ" },
   "report.success": { en: "Sent!", fr: "Envoyé !", ar: "تم الإرسال!" },
+  "home.reportLink": { en: "Report Error", fr: "Signaler une erreur", ar: "تبليغ عن خطأ" },
 };
 
 const fr: any = {};
@@ -212,6 +239,23 @@ export function useTranslation() {
   const ctx = useContext(I18nContext);
   if (!ctx) throw new Error("useTranslation must be used inside <LanguageProvider>");
   return ctx;
+}
+
+// Keep useI18n as an alias for backward compatibility
+export const useI18n = useTranslation;
+
+export function ForcedLanguageProvider({ lang, children }: { lang: Lang; children: ReactNode }) {
+  const dir = lang === "ar" ? "rtl" : "ltr";
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = dir;
+  }, [lang, dir]);
+  const value = useMemo<I18nValue>(
+    () => ({ lang, dir, setLang: () => {}, t: (key) => DICT[lang][key] || key }),
+    [lang, dir],
+  );
+  return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }
 
 export function LanguageToggle() {
