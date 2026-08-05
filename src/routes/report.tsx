@@ -92,8 +92,9 @@ function ReportPage() {
           </div>
 
           <button disabled={loading} className="w-full bg-black text-white p-4 rounded-xl font-bold uppercase tracking-widest hover:bg-gray-800 transition shadow-lg hover:shadow-black/20 disabled:opacity-50">
-            {loading ? t("common.loading") : t("report.submit")}
+            {loading ? "SENDING..." : t("report.submit")}
           </button>
+
         </form>
       )}
     </div>
