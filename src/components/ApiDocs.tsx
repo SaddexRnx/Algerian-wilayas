@@ -30,7 +30,7 @@ const CATEGORIES = [
 const ENDPOINTS: Endpoint[] = [
   // High-Performance Endpoints
   {
-    category: "base" as const,
+    category: "base",
     method: "GET",
     path: "/api/index.json",
     descKey: "api.desc.index" as TranslationKey,
