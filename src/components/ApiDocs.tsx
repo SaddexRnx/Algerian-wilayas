@@ -191,12 +191,12 @@ export function ApiDocs() {
       </div>
 
       <div className="mt-24 border-t border-gray-200 pt-16 pb-16">
-        <div className="rounded-3xl bg-black p-8 sm:p-12 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">🌟 Support & Community</h3>
-          <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+        <div className="rounded-2xl sm:rounded-3xl bg-black p-6 sm:p-12 text-white text-center">
+          <h3 className="text-xl sm:text-2xl font-bold mb-4">🌟 Support & Community</h3>
+          <p className="text-sm sm:text-base text-gray-400 mb-8 max-w-xl mx-auto">
             If you like this project, please give it a star on GitHub. Visit my portfolio for more open-source projects.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
             <a href="https://github.com/SaddexRnx/Algerian-wilayas" target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-8 py-3 text-sm font-bold text-black transition hover:bg-gray-200">
               GitHub Repo
             </a>
