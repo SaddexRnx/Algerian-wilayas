@@ -1,7 +1,9 @@
 /* WARNING: This is a FRONTEND MOCK for UI demonstration only. In production, this MUST be replaced with a secure backend authentication provider like Supabase Auth. Never hardcode credentials in production frontend code. */
 
+import React from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
+
 import { useServerFn } from "@tanstack/react-start";
 import { adminLogin } from "@/lib/admin-auth.functions";
 import { checkMockCredentials, setAdminAuthed } from "@/lib/admin-mock-auth";
