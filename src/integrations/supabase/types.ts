@@ -86,6 +86,27 @@ export type Database = {
         }
         Relationships: []
       }
+      feature_votes: {
+        Row: {
+          created_at: string | null
+          feature_id: string
+          id: string
+          voter_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          feature_id: string
+          id?: string
+          voter_id: string
+        }
+        Update: {
+          created_at?: string | null
+          feature_id?: string
+          id?: string
+          voter_id?: string
+        }
+        Relationships: []
+      }
       zip_reports: {
         Row: {
           commune_name: string
