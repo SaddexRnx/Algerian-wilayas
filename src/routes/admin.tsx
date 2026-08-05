@@ -603,7 +603,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
                 disabled={healthLoading}
                 className="text-[10px] font-bold uppercase tracking-widest bg-black text-white px-4 py-2 rounded-lg hover:opacity-80 transition disabled:opacity-50"
               >
-                {healthLoading ? t("tester.sending") : t("admin.health.check")}
+                {healthLoading ? "TESTING..." : t("admin.health.check")}
               </button>
             </div>
             
