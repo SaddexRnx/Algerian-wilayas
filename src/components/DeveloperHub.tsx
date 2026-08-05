@@ -453,7 +453,7 @@ export function DeveloperHub() {
       <div
         role="tablist"
         aria-label="Integration platforms"
-        className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap"
+        className="mt-6 flex flex-row gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:overflow-x-visible sm:pb-0 scrollbar-hide"
       >
         {snippets.map((s, i) => {
           const isActive = s.id === active.id;
@@ -475,7 +475,7 @@ export function DeveloperHub() {
                 (isActive
                   ? "bg-black text-white "
                   : "border border-gray-300 bg-white text-gray-600 hover:bg-gray-50 ") +
-                "rounded-md px-4 py-2 text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
+                "rounded-md px-4 py-2 text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none whitespace-nowrap"
               }
             >
               {s.label}
