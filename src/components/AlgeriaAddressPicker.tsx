@@ -28,8 +28,8 @@ export interface Wilaya {
 }
 
 const WILAYAS_URL = "/api/wilayas.json";
-const wilayaDairasUrl = (code: string | number) => `/api/wilayas/${code}-dairas.json`;
-const dairaUrl = (code: string | number, slug: string) => `/api/dairas/${code}-${slug}.json`;
+const wilayaDairasUrl = (code: string | number) => `/api/wilayas/${code}/dairas.json`;
+const dairaUrl = (code: string | number, slug: string) => `/api/wilayas/${code}/dairas/${slug}.json`;
 
 const CACHE_KEY = "dz-address-picker:wilayas";
 const CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 6 hours
