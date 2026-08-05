@@ -37,6 +37,44 @@ const fr = {
   "demo.console": "Console des évènements",
   "demo.waiting": "En attente des évènements",
   // ... keep existing
+
+  "admin.reports.actions.approve": "Approve selected reports",
+  "admin.reports.actions.delete": "Delete selected reports",
+  "admin.reports.actions.status": "Change status",
+  "admin.reports.actions.select": "Select an action",
+
+  "leaderboard.title": "Tableau des contributeurs",
+  "leaderboard.subtitle": "Honorez les héros qui nous aident à perfectionner les données d'adresses algériennes.",
+  "leaderboard.rank": "Rang",
+  "leaderboard.contributor": "Contributeur",
+  "leaderboard.contributions": "Contributions",
+  "leaderboard.badge": "Badge",
+  "leaderboard.loading": "Chargement...",
+
+  "vote.title": "Votez pour les fonctionnalités à venir",
+  "vote.subtitle": "Aidez-nous à prioriser notre feuille de route. Que devrions-nous construire ensuite ?",
+  "vote.votes": "votes",
+  "vote.voted": "Voté",
+  "vote.doVote": "Voter",
+  "vote.success": "Vote enregistré !",
+  "vote.alreadyVoted": "Vous avez déjà voté pour cette fonctionnalité.",
+
+  "changelog.title": "Journal des modifications",
+  "changelog.subtitle": "Suivez l'évolution de DZ Address Picker depuis le début.",
+
+  "integrations.title": "Intégrations e-commerce",
+  "integrations.subtitle": "Des guides complets pour intégrer DZ Address Picker à votre boutique existante.",
+  "integrations.viewGuide": "Voir le guide",
+
+  "features.title": "Fonctionnalités",
+  "features.fast": "Ultra rapide",
+  "features.fastDesc": "Servi par un CDN mondial, les données minifiées chargent en millisecondes.",
+  "features.agnostic": "Compatible partout",
+  "features.agnosticDesc": "Vanilla JS, React, Vue, WordPress et Shopify.",
+  "features.updated": "Toujours à jour",
+  "features.updatedDesc": "Reflète les dernières réformes administratives officielles, avec des corrections communautaires.",
+
+  "footer.text": "Conçu pour la communauté des développeurs algériens. Libre et gratuit.",
 };
 
 const en = {
@@ -62,7 +100,44 @@ const en = {
   "demo.title": "Interactive Demo",
   "demo.console": "Event Console",
   "demo.waiting": "Waiting for events...",
-  // ... keep existing
+
+  "admin.reports.actions.approve": "Approve selected reports",
+  "admin.reports.actions.delete": "Delete selected reports",
+  "admin.reports.actions.status": "Change status",
+  "admin.reports.actions.select": "Select an action",
+
+  "leaderboard.title": "Contributor Leaderboard",
+  "leaderboard.subtitle": "Honoring the heroes helping us perfect Algerian address data.",
+  "leaderboard.rank": "Rank",
+  "leaderboard.contributor": "Contributor",
+  "leaderboard.contributions": "Contributions",
+  "leaderboard.badge": "Badge",
+  "leaderboard.loading": "Loading...",
+
+  "vote.title": "Vote for Upcoming Features",
+  "vote.subtitle": "Help us prioritize our roadmap. What should we build next?",
+  "vote.votes": "votes",
+  "vote.voted": "Voted",
+  "vote.doVote": "Vote",
+  "vote.success": "Vote recorded!",
+  "vote.alreadyVoted": "You have already voted for this feature.",
+
+  "changelog.title": "Changelog",
+  "changelog.subtitle": "Track the evolution of DZ Address Picker from the start.",
+
+  "integrations.title": "E-commerce Integrations",
+  "integrations.subtitle": "Comprehensive guides to integrate DZ Address Picker into your existing store.",
+  "integrations.viewGuide": "View Guide",
+
+  "features.title": "Features",
+  "features.fast": "Blazing fast",
+  "features.fastDesc": "Served from a global CDN, the minified data loads in milliseconds.",
+  "features.agnostic": "Works everywhere",
+  "features.agnosticDesc": "Vanilla JS, React, Vue, WordPress and Shopify.",
+  "features.updated": "Always up to date",
+  "features.updatedDesc": "Reflects the latest official administrative reforms, with community-driven corrections.",
+
+  "footer.text": "Built for the Algerian developer community. Free and open to use.",
 };
 
 const ar = {
@@ -88,7 +163,44 @@ const ar = {
   "demo.title": "تجربة تفاعلية",
   "demo.console": "لوحة الأحداث",
   "demo.waiting": "بانتظار الأحداث...",
-  // ... keep existing
+
+  "admin.reports.actions.approve": "الموافقة على التقارير المحددة",
+  "admin.reports.actions.delete": "حذف التقارير المحددة",
+  "admin.reports.actions.status": "تغيير الحالة",
+  "admin.reports.actions.select": "اختر إجراءً",
+
+  "leaderboard.title": "لوحة المتصدرين للمساهمين",
+  "leaderboard.subtitle": "تكريم الأبطال الذين يساعدون في تحسين بيانات العناوين الجزائرية.",
+  "leaderboard.rank": "الرتبة",
+  "leaderboard.contributor": "المساهم",
+  "leaderboard.contributions": "المساهمات",
+  "leaderboard.badge": "الوسام",
+  "leaderboard.loading": "جارٍ التحميل...",
+
+  "vote.title": "صوّت للميزات القادمة",
+  "vote.subtitle": "ساعدنا في تحديد أولويات خريطة الطريق الخاصة بنا. ماذا يجب أن نبني بعد ذلك؟",
+  "vote.votes": "تصويتات",
+  "vote.voted": "تم التصويت",
+  "vote.doVote": "صوّت",
+  "vote.success": "تم تسجيل تصويتك!",
+  "vote.alreadyVoted": "لقد قمت بالتصويت بالفعل لهذه الميزة.",
+
+  "changelog.title": "سجل التغييرات",
+  "changelog.subtitle": "تتبع تطور DZ Address Picker من البداية.",
+
+  "integrations.title": "تكاملات التجارة الإلكترونية",
+  "integrations.subtitle": "أدلة شاملة لدمج DZ Address Picker في متجرك الحالي.",
+  "integrations.viewGuide": "عرض الدليل",
+
+  "features.title": "المميزات",
+  "features.fast": "سرعة فائقة",
+  "features.fastDesc": "يتم تقديمه من شبكة CDN عالمية، ويتم تحميل البيانات المصغرة في أجزاء من الثانية.",
+  "features.agnostic": "يعمل في كل مكان",
+  "features.agnosticDesc": "Vanilla JS وReact وVue وWordPress وShopify.",
+  "features.updated": "محدث دائما",
+  "features.updatedDesc": "يعكس أحدث الإصلاحات الإدارية الجزائرية الرسمية، مع تصحيحات من المجتمع.",
+
+  "footer.text": "صُنع لمجتمع المطورين الجزائريين. مفتوح ومجاني للاستخدام.",
 };
 
   "picker.wilaya": "Wilaya",
