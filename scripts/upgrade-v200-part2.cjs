@@ -158,19 +158,22 @@ fs.writeFileSync(path.join(BASE_DIR, 'travel/visa-requirements.json'), JSON.stri
 const searchIndex = [];
 WILAYAS.forEach(w => {
     searchIndex.push({ type: 'wilaya', code: w.code, name: w.name, name_ar: w.name_ar });
-    // Dairas and Communes should be added if we have them
-    // For now, just wilayas to keep it lean or fetch from dairas folder
 });
 
-const dairasFiles = fs.readdirSync(path.join(BASE_DIR, 'dairas'));
-dairasFiles.forEach(file => {
-    if (file.endsWith('.json')) {
-        const dairas = JSON.parse(fs.readFileSync(path.join(BASE_DIR, 'dairas', file), 'utf8'));
-        dairas.forEach(d => {
-            searchIndex.push({ type: 'daira', code: d.code, name: d.name, name_ar: d.name_ar, wilaya_code: file.replace('.json', '') });
-        });
-    }
-});
+if (fs.existsSync(path.join(BASE_DIR, 'dairas'))) {
+    const dairasFiles = fs.readdirSync(path.join(BASE_DIR, 'dairas'));
+    dairasFiles.forEach(file => {
+        if (file.endsWith('.json')) {
+            const content = JSON.parse(fs.readFileSync(path.join(BASE_DIR, 'dairas', file), 'utf8'));
+            const items = Array.isArray(content) ? content : [content];
+            items.forEach(d => {
+                if (d.name) {
+                    searchIndex.push({ type: 'daira', code: d.code, name: d.name, name_ar: d.name_ar, wilaya_code: file.split('-')[0] });
+                }
+            });
+        }
+    });
+}
 
 fs.writeFileSync(path.join(BASE_DIR, 'search-index.json'), JSON.stringify(searchIndex, null, 2));
 
