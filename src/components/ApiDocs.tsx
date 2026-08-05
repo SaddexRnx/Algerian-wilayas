@@ -33,7 +33,7 @@ const ENDPOINTS: Endpoint[] = [
     category: "base",
     method: "GET",
     path: "/api/index.json",
-    descKey: "api.desc.index" as TranslationKey,
+    descKey: "api.desc.index",
     response: `{"v": "2.0.0", "endpoints": ["/api/wilayas.json", ...]}`,
     example: `fetch("${BASE}/api/index.json")`,
   },
