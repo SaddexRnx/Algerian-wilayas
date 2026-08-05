@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
 import { CheckoutSimulation, type LiveAddress } from "@/components/CheckoutSimulation";
