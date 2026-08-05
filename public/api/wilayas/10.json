@@ -1,1 +1,304 @@
-{"code":10,"arabic":"البويرة","ascii":"Bouira","dairas":[{"arabic":"عين بسام","ascii":"Ain Bessem","communes":[{"arabic":"عين العلوي","ascii":"Ain Laloui","zip":"10041"},{"arabic":"عين الحجر","ascii":"Ain El Hadjar","zip":"10025"},{"arabic":"عين بسام","ascii":"Ain-Bessem","zip":null}]},{"arabic":"برج أوخريص","ascii":"Bordj Okhriss","communes":[{"arabic":"الحجرة الزرقاء","ascii":"Hadjera Zerga","zip":"10042"},{"arabic":"مزدور","ascii":"Mezdour","zip":"10011"},{"arabic":"تاقديت","ascii":"Taguedite","zip":null},{"arabic":"برج أوخريص","ascii":"Bordj Okhriss","zip":null}]},{"arabic":"سور الغزلان","ascii":"Sour El Ghozlane","communes":[{"arabic":"ريدان","ascii":"Ridane","zip":"10032"},{"arabic":"المعمورة","ascii":"Maamora","zip":"10039"},{"arabic":"الحاكمية","ascii":"El-Hakimia","zip":"10020"},{"arabic":"ديرة","ascii":"Dirah","zip":"10007"},{"arabic":"الدشمية","ascii":"Dechmia","zip":"10031"},{"arabic":"سور الغزلان","ascii":"Sour El Ghozlane","zip":"10038"}]},{"arabic":"بشلول","ascii":"Bechloul","communes":[{"arabic":"أهل القصر","ascii":"Ahl El Ksar","zip":"10022"},{"arabic":"بشلول","ascii":"Bechloul","zip":"10033"},{"arabic":"العجيبة","ascii":"El Adjiba","zip":"10019"},{"arabic":"الأسنام","ascii":"El Asnam","zip":"10002"},{"arabic":"أولاد راشد","ascii":"Ouled Rached","zip":"10040"}]},{"arabic":"مشد الله","ascii":"M'chedallah","communes":[{"arabic":"آث  منصور","ascii":"Ath Mansour","zip":"10043"},{"arabic":"سحاريج","ascii":"Saharidj","zip":"10030"},{"arabic":"أمشدالة","ascii":"M Chedallah","zip":null},{"arabic":"حنيف","ascii":"Hanif","zip":"10006"},{"arabic":"شرفة","ascii":"Chorfa","zip":"10017"},{"arabic":"أغبالو","ascii":"Aghbalou","zip":"10027"}]},{"arabic":"بئر غبالو","ascii":"Bir Ghbalou","communes":[{"arabic":"روراوة","ascii":"Raouraoua","zip":"10010"},{"arabic":"الخبوزية","ascii":"El Khabouzia","zip":null},{"arabic":"بئر غبالو","ascii":"Bir Ghbalou","zip":"10036"}]},{"arabic":"البويرة","ascii":"Bouira","communes":[{"arabic":"البويرة","ascii":"Bouira","zip":"10001"},{"arabic":"عين الترك","ascii":"Ain Turk","zip":"10029"},{"arabic":"أيت لعزيز","ascii":"Ait Laaziz","zip":"10008"}]},{"arabic":"سوق الخميس","ascii":"Souk El Khemis","communes":[{"arabic":"المقراني","ascii":"El-Mokrani","zip":"10044"},{"arabic":"سوق الخميس","ascii":"Souk El Khemis","zip":"10004"}]},{"arabic":"القادرية","ascii":"Kadiria","communes":[{"arabic":"أعمر","ascii":"Aomar","zip":"10016"},{"arabic":"جباحية","ascii":"Djebahia","zip":"10026"},{"arabic":"قادرية","ascii":"Kadiria","zip":"10005"}]},{"arabic":"الهاشمية","ascii":"El Hachimia","communes":[{"arabic":"الهاشمية","ascii":"El Hachimia","zip":"10015"},{"arabic":"وادي البردي","ascii":"Oued El Berdi","zip":"10045"}]},{"arabic":"الحيزر","ascii":"Haizer","communes":[{"arabic":"حيزر","ascii":"Haizer","zip":"10012"},{"arabic":"تاغزوت","ascii":"Taghzout","zip":"10009"}]},{"arabic":"الأخضرية","ascii":"Lakhdaria","communes":[{"arabic":"بودربالة","ascii":"Bouderbala","zip":"10023"},{"arabic":"بوكرم","ascii":"Boukram","zip":"10034"},{"arabic":"قرومة","ascii":"Guerrouma","zip":"10003"},{"arabic":"الأخضرية","ascii":"Lakhdaria","zip":"10013"},{"arabic":"معلة","ascii":"Maala","zip":"10014"},{"arabic":"زبربر","ascii":"Z'barbar (El Isseri )","zip":null}]}]}
+{
+  "code": 10,
+  "arabic": "البويرة",
+  "ascii": "Bouira",
+  "dairas": [
+    {
+      "arabic": "عين بسام",
+      "ascii": "Ain Bessem",
+      "communes": [
+        {
+          "arabic": "عين العلوي",
+          "ascii": "Ain Laloui",
+          "zip": "10041"
+        },
+        {
+          "arabic": "عين الحجر",
+          "ascii": "Ain El Hadjar",
+          "zip": "10025"
+        },
+        {
+          "arabic": "عين بسام",
+          "ascii": "Ain-Bessem",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "برج أوخريص",
+      "ascii": "Bordj Okhriss",
+      "communes": [
+        {
+          "arabic": "الحجرة الزرقاء",
+          "ascii": "Hadjera Zerga",
+          "zip": "10042"
+        },
+        {
+          "arabic": "مزدور",
+          "ascii": "Mezdour",
+          "zip": "10011"
+        },
+        {
+          "arabic": "تاقديت",
+          "ascii": "Taguedite",
+          "zip": null
+        },
+        {
+          "arabic": "برج أوخريص",
+          "ascii": "Bordj Okhriss",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "سور الغزلان",
+      "ascii": "Sour El Ghozlane",
+      "communes": [
+        {
+          "arabic": "ريدان",
+          "ascii": "Ridane",
+          "zip": "10032"
+        },
+        {
+          "arabic": "المعمورة",
+          "ascii": "Maamora",
+          "zip": "10039"
+        },
+        {
+          "arabic": "الحاكمية",
+          "ascii": "El-Hakimia",
+          "zip": "10020"
+        },
+        {
+          "arabic": "ديرة",
+          "ascii": "Dirah",
+          "zip": "10007"
+        },
+        {
+          "arabic": "الدشمية",
+          "ascii": "Dechmia",
+          "zip": "10031"
+        },
+        {
+          "arabic": "سور الغزلان",
+          "ascii": "Sour El Ghozlane",
+          "zip": "10038"
+        }
+      ]
+    },
+    {
+      "arabic": "بشلول",
+      "ascii": "Bechloul",
+      "communes": [
+        {
+          "arabic": "أهل القصر",
+          "ascii": "Ahl El Ksar",
+          "zip": "10022"
+        },
+        {
+          "arabic": "بشلول",
+          "ascii": "Bechloul",
+          "zip": "10033"
+        },
+        {
+          "arabic": "العجيبة",
+          "ascii": "El Adjiba",
+          "zip": "10019"
+        },
+        {
+          "arabic": "الأسنام",
+          "ascii": "El Asnam",
+          "zip": "10002"
+        },
+        {
+          "arabic": "أولاد راشد",
+          "ascii": "Ouled Rached",
+          "zip": "10040"
+        }
+      ]
+    },
+    {
+      "arabic": "مشد الله",
+      "ascii": "M'chedallah",
+      "communes": [
+        {
+          "arabic": "آث  منصور",
+          "ascii": "Ath Mansour",
+          "zip": "10043"
+        },
+        {
+          "arabic": "سحاريج",
+          "ascii": "Saharidj",
+          "zip": "10030"
+        },
+        {
+          "arabic": "أمشدالة",
+          "ascii": "M Chedallah",
+          "zip": null
+        },
+        {
+          "arabic": "حنيف",
+          "ascii": "Hanif",
+          "zip": "10006"
+        },
+        {
+          "arabic": "شرفة",
+          "ascii": "Chorfa",
+          "zip": "10017"
+        },
+        {
+          "arabic": "أغبالو",
+          "ascii": "Aghbalou",
+          "zip": "10027"
+        }
+      ]
+    },
+    {
+      "arabic": "بئر غبالو",
+      "ascii": "Bir Ghbalou",
+      "communes": [
+        {
+          "arabic": "روراوة",
+          "ascii": "Raouraoua",
+          "zip": "10010"
+        },
+        {
+          "arabic": "الخبوزية",
+          "ascii": "El Khabouzia",
+          "zip": null
+        },
+        {
+          "arabic": "بئر غبالو",
+          "ascii": "Bir Ghbalou",
+          "zip": "10036"
+        }
+      ]
+    },
+    {
+      "arabic": "البويرة",
+      "ascii": "Bouira",
+      "communes": [
+        {
+          "arabic": "البويرة",
+          "ascii": "Bouira",
+          "zip": "10001"
+        },
+        {
+          "arabic": "عين الترك",
+          "ascii": "Ain Turk",
+          "zip": "10029"
+        },
+        {
+          "arabic": "أيت لعزيز",
+          "ascii": "Ait Laaziz",
+          "zip": "10008"
+        }
+      ]
+    },
+    {
+      "arabic": "سوق الخميس",
+      "ascii": "Souk El Khemis",
+      "communes": [
+        {
+          "arabic": "المقراني",
+          "ascii": "El-Mokrani",
+          "zip": "10044"
+        },
+        {
+          "arabic": "سوق الخميس",
+          "ascii": "Souk El Khemis",
+          "zip": "10004"
+        }
+      ]
+    },
+    {
+      "arabic": "القادرية",
+      "ascii": "Kadiria",
+      "communes": [
+        {
+          "arabic": "أعمر",
+          "ascii": "Aomar",
+          "zip": "10016"
+        },
+        {
+          "arabic": "جباحية",
+          "ascii": "Djebahia",
+          "zip": "10026"
+        },
+        {
+          "arabic": "قادرية",
+          "ascii": "Kadiria",
+          "zip": "10005"
+        }
+      ]
+    },
+    {
+      "arabic": "الهاشمية",
+      "ascii": "El Hachimia",
+      "communes": [
+        {
+          "arabic": "الهاشمية",
+          "ascii": "El Hachimia",
+          "zip": "10015"
+        },
+        {
+          "arabic": "وادي البردي",
+          "ascii": "Oued El Berdi",
+          "zip": "10045"
+        }
+      ]
+    },
+    {
+      "arabic": "الحيزر",
+      "ascii": "Haizer",
+      "communes": [
+        {
+          "arabic": "حيزر",
+          "ascii": "Haizer",
+          "zip": "10012"
+        },
+        {
+          "arabic": "تاغزوت",
+          "ascii": "Taghzout",
+          "zip": "10009"
+        }
+      ]
+    },
+    {
+      "arabic": "الأخضرية",
+      "ascii": "Lakhdaria",
+      "communes": [
+        {
+          "arabic": "بودربالة",
+          "ascii": "Bouderbala",
+          "zip": "10023"
+        },
+        {
+          "arabic": "بوكرم",
+          "ascii": "Boukram",
+          "zip": "10034"
+        },
+        {
+          "arabic": "قرومة",
+          "ascii": "Guerrouma",
+          "zip": "10003"
+        },
+        {
+          "arabic": "الأخضرية",
+          "ascii": "Lakhdaria",
+          "zip": "10013"
+        },
+        {
+          "arabic": "معلة",
+          "ascii": "Maala",
+          "zip": "10014"
+        },
+        {
+          "arabic": "زبربر",
+          "ascii": "Z'barbar (El Isseri )",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

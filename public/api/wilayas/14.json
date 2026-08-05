@@ -1,1 +1,265 @@
-{"code":14,"arabic":"تيارت","ascii":"Tiaret","dairas":[{"arabic":"مهدية","ascii":"Mahdia","communes":[{"arabic":"مهدية","ascii":"Mahdia","zip":"14015"},{"arabic":"عين دزاريت","ascii":"Ain Dzarit","zip":null},{"arabic":"السبعين","ascii":"Sebaine","zip":"14025"},{"arabic":"الناظورة","ascii":"Nadorah","zip":"14031"}]},{"arabic":"السوقر","ascii":"Sougueur","communes":[{"arabic":"الفايجة","ascii":"Faidja","zip":"14041"},{"arabic":"سي عبد الغني","ascii":"Sidi Abdelghani","zip":"14017"},{"arabic":"السوقر","ascii":"Sougueur","zip":"14016"},{"arabic":"توسنينة","ascii":"Tousnina","zip":"14026"}]},{"arabic":"مغيلة","ascii":"Meghila","communes":[{"arabic":"مغيلة","ascii":"Meghila","zip":"14021"},{"arabic":"السبت","ascii":"Sebt","zip":"14011"},{"arabic":"سيدي حسني","ascii":"Sidi Hosni","zip":"14023"}]},{"arabic":"فرندة","ascii":"Frenda","communes":[{"arabic":"عين الحديد","ascii":"Ain El Hadid","zip":"14018"},{"arabic":"فرندة","ascii":"Frenda","zip":"14027"},{"arabic":"تخمرت","ascii":"Takhemaret","zip":"14037"}]},{"arabic":"عين كرمس","ascii":"Ain Kermes","communes":[{"arabic":"عين كرمس","ascii":"Ain Kermes","zip":"14028"},{"arabic":"جبيلات الرصفاء","ascii":"Djebilet Rosfa","zip":null},{"arabic":"مادنة","ascii":"Madna","zip":"14010"},{"arabic":"مدريسة","ascii":"Medrissa","zip":"14008"}]},{"arabic":"تنس","ascii":"Tenes","communes":[{"arabic":"سيدي عبد الرحمن","ascii":"Sidi Abderrahmane","zip":"14038"}]},{"arabic":"رحوية","ascii":"Rahouia","communes":[{"arabic":"قرطوفة","ascii":"Guertoufa","zip":"14022"},{"arabic":"الرحوية","ascii":"Rahouia","zip":"14014"}]},{"arabic":"وادي ليلي","ascii":"Oued Lili","communes":[{"arabic":"وادي ليلي","ascii":"Oued Lili","zip":null},{"arabic":"سيدي علي ملال","ascii":"Sidi Ali Mellal","zip":"14004"},{"arabic":"تيدة","ascii":"Tidda","zip":"14042"}]},{"arabic":"مشرع الصفا","ascii":"Mechraa Sfa","communes":[{"arabic":"جيلالي بن عمار","ascii":"Djileli Ben Amar","zip":null},{"arabic":"مشرع الصفا","ascii":"Mechraa Sfa","zip":null},{"arabic":"تاقدمت","ascii":"Tagdemt","zip":"14032"}]},{"arabic":"تيارت","ascii":"Tiaret","communes":[{"arabic":"تيارت","ascii":"Tiaret","zip":"14001"}]},{"arabic":"مدروسة","ascii":"Medroussa","communes":[{"arabic":"مدروسة","ascii":"Medroussa","zip":"14002"},{"arabic":"ملاكو","ascii":"Mellakou","zip":"14012"},{"arabic":"سيدي بختي","ascii":"Sidi Bakhti","zip":"14007"}]},{"arabic":"عين الذهب","ascii":"Ain Deheb","communes":[{"arabic":"عين الذهب","ascii":"Ain Deheb","zip":"14006"},{"arabic":"شحيمة","ascii":"Chehaima","zip":"14036"},{"arabic":"النعيمة","ascii":"Naima","zip":"14020"}]},{"arabic":"دحموني","ascii":"Dahmouni","communes":[{"arabic":"عين بوشقيف","ascii":"Ain Bouchekif","zip":"14003"},{"arabic":"دحموني","ascii":"Dahmouni","zip":"14013"}]}]}
+{
+  "code": 14,
+  "arabic": "تيارت",
+  "ascii": "Tiaret",
+  "dairas": [
+    {
+      "arabic": "مهدية",
+      "ascii": "Mahdia",
+      "communes": [
+        {
+          "arabic": "مهدية",
+          "ascii": "Mahdia",
+          "zip": "14015"
+        },
+        {
+          "arabic": "عين دزاريت",
+          "ascii": "Ain Dzarit",
+          "zip": null
+        },
+        {
+          "arabic": "السبعين",
+          "ascii": "Sebaine",
+          "zip": "14025"
+        },
+        {
+          "arabic": "الناظورة",
+          "ascii": "Nadorah",
+          "zip": "14031"
+        }
+      ]
+    },
+    {
+      "arabic": "السوقر",
+      "ascii": "Sougueur",
+      "communes": [
+        {
+          "arabic": "الفايجة",
+          "ascii": "Faidja",
+          "zip": "14041"
+        },
+        {
+          "arabic": "سي عبد الغني",
+          "ascii": "Sidi Abdelghani",
+          "zip": "14017"
+        },
+        {
+          "arabic": "السوقر",
+          "ascii": "Sougueur",
+          "zip": "14016"
+        },
+        {
+          "arabic": "توسنينة",
+          "ascii": "Tousnina",
+          "zip": "14026"
+        }
+      ]
+    },
+    {
+      "arabic": "مغيلة",
+      "ascii": "Meghila",
+      "communes": [
+        {
+          "arabic": "مغيلة",
+          "ascii": "Meghila",
+          "zip": "14021"
+        },
+        {
+          "arabic": "السبت",
+          "ascii": "Sebt",
+          "zip": "14011"
+        },
+        {
+          "arabic": "سيدي حسني",
+          "ascii": "Sidi Hosni",
+          "zip": "14023"
+        }
+      ]
+    },
+    {
+      "arabic": "فرندة",
+      "ascii": "Frenda",
+      "communes": [
+        {
+          "arabic": "عين الحديد",
+          "ascii": "Ain El Hadid",
+          "zip": "14018"
+        },
+        {
+          "arabic": "فرندة",
+          "ascii": "Frenda",
+          "zip": "14027"
+        },
+        {
+          "arabic": "تخمرت",
+          "ascii": "Takhemaret",
+          "zip": "14037"
+        }
+      ]
+    },
+    {
+      "arabic": "عين كرمس",
+      "ascii": "Ain Kermes",
+      "communes": [
+        {
+          "arabic": "عين كرمس",
+          "ascii": "Ain Kermes",
+          "zip": "14028"
+        },
+        {
+          "arabic": "جبيلات الرصفاء",
+          "ascii": "Djebilet Rosfa",
+          "zip": null
+        },
+        {
+          "arabic": "مادنة",
+          "ascii": "Madna",
+          "zip": "14010"
+        },
+        {
+          "arabic": "مدريسة",
+          "ascii": "Medrissa",
+          "zip": "14008"
+        }
+      ]
+    },
+    {
+      "arabic": "تنس",
+      "ascii": "Tenes",
+      "communes": [
+        {
+          "arabic": "سيدي عبد الرحمن",
+          "ascii": "Sidi Abderrahmane",
+          "zip": "14038"
+        }
+      ]
+    },
+    {
+      "arabic": "رحوية",
+      "ascii": "Rahouia",
+      "communes": [
+        {
+          "arabic": "قرطوفة",
+          "ascii": "Guertoufa",
+          "zip": "14022"
+        },
+        {
+          "arabic": "الرحوية",
+          "ascii": "Rahouia",
+          "zip": "14014"
+        }
+      ]
+    },
+    {
+      "arabic": "وادي ليلي",
+      "ascii": "Oued Lili",
+      "communes": [
+        {
+          "arabic": "وادي ليلي",
+          "ascii": "Oued Lili",
+          "zip": null
+        },
+        {
+          "arabic": "سيدي علي ملال",
+          "ascii": "Sidi Ali Mellal",
+          "zip": "14004"
+        },
+        {
+          "arabic": "تيدة",
+          "ascii": "Tidda",
+          "zip": "14042"
+        }
+      ]
+    },
+    {
+      "arabic": "مشرع الصفا",
+      "ascii": "Mechraa Sfa",
+      "communes": [
+        {
+          "arabic": "جيلالي بن عمار",
+          "ascii": "Djileli Ben Amar",
+          "zip": null
+        },
+        {
+          "arabic": "مشرع الصفا",
+          "ascii": "Mechraa Sfa",
+          "zip": null
+        },
+        {
+          "arabic": "تاقدمت",
+          "ascii": "Tagdemt",
+          "zip": "14032"
+        }
+      ]
+    },
+    {
+      "arabic": "تيارت",
+      "ascii": "Tiaret",
+      "communes": [
+        {
+          "arabic": "تيارت",
+          "ascii": "Tiaret",
+          "zip": "14001"
+        }
+      ]
+    },
+    {
+      "arabic": "مدروسة",
+      "ascii": "Medroussa",
+      "communes": [
+        {
+          "arabic": "مدروسة",
+          "ascii": "Medroussa",
+          "zip": "14002"
+        },
+        {
+          "arabic": "ملاكو",
+          "ascii": "Mellakou",
+          "zip": "14012"
+        },
+        {
+          "arabic": "سيدي بختي",
+          "ascii": "Sidi Bakhti",
+          "zip": "14007"
+        }
+      ]
+    },
+    {
+      "arabic": "عين الذهب",
+      "ascii": "Ain Deheb",
+      "communes": [
+        {
+          "arabic": "عين الذهب",
+          "ascii": "Ain Deheb",
+          "zip": "14006"
+        },
+        {
+          "arabic": "شحيمة",
+          "ascii": "Chehaima",
+          "zip": "14036"
+        },
+        {
+          "arabic": "النعيمة",
+          "ascii": "Naima",
+          "zip": "14020"
+        }
+      ]
+    },
+    {
+      "arabic": "دحموني",
+      "ascii": "Dahmouni",
+      "communes": [
+        {
+          "arabic": "عين بوشقيف",
+          "ascii": "Ain Bouchekif",
+          "zip": "14003"
+        },
+        {
+          "arabic": "دحموني",
+          "ascii": "Dahmouni",
+          "zip": "14013"
+        }
+      ]
+    }
+  ]
+}

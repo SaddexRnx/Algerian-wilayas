@@ -1,1 +1,224 @@
-{"code":4,"arabic":"أم البواقي","ascii":"Oum El Bouaghi","dairas":[{"arabic":"فكيرينة","ascii":"F'kirina","communes":[{"arabic":"فكيرينة","ascii":"Fkirina","zip":"04016"},{"arabic":"وادي نيني","ascii":"Oued Nini","zip":"04023"}]},{"arabic":"عين فكرون","ascii":"Ain Fekroun","communes":[{"arabic":"الفجوج بوغرارة سعودي","ascii":"El Fedjoudj Boughrara Sa","zip":null},{"arabic":"عين فكرون","ascii":"Ain Fekroun","zip":null}]},{"arabic":"مسكيانة","ascii":"Meskiana","communes":[{"arabic":"الرحية","ascii":"Rahia","zip":"04026"},{"arabic":"مسكيانة","ascii":"Meskiana","zip":"04024"},{"arabic":"البلالة","ascii":"El Belala","zip":"04007"},{"arabic":"بحير الشرقي","ascii":"Behir Chergui","zip":"04004"}]},{"arabic":"قصر الصباحي","ascii":"Ksar Sbahi","communes":[{"arabic":"قصر الصباحي","ascii":"Ksar Sbahi","zip":"04022"}]},{"arabic":"سوق نعمان","ascii":"Souk Naamane","communes":[{"arabic":"سوق نعمان","ascii":"Souk Naamane","zip":"04017"},{"arabic":"أولاد زواي","ascii":"Ouled Zouai","zip":"04020"},{"arabic":"بئر الشهداء","ascii":"Bir Chouhada","zip":"04021"}]},{"arabic":"أم البواقي","ascii":"Oum El Bouaghi","communes":[{"arabic":"أم البواقي","ascii":"Oum El Bouaghi","zip":"04001"},{"arabic":"عين الزيتون","ascii":"Ain Zitoun","zip":"04027"}]},{"arabic":"عين ببوش","ascii":"Ain Babouche","communes":[{"arabic":"عين ببوش","ascii":"Ain Babouche","zip":"04008"},{"arabic":"عين الديس","ascii":"Ain Diss","zip":"04015"}]},{"arabic":"عين البيضاء","ascii":"Ain Beida","communes":[{"arabic":"عين البيضاء","ascii":"Ain Beida","zip":"04002"},{"arabic":"بريش","ascii":"Berriche","zip":"04009"},{"arabic":"الزرق","ascii":"Zorg","zip":"04018"}]},{"arabic":"عين مليلة","ascii":"Ain M'lila","communes":[{"arabic":"عين مليلة","ascii":"Ain M'lila","zip":"04003"},{"arabic":"أولاد قاسم","ascii":"Ouled Gacem","zip":"04028"},{"arabic":"أولاد حملة","ascii":"Ouled Hamla","zip":"04010"}]},{"arabic":"سيقوس","ascii":"Sigus","communes":[{"arabic":"العامرية","ascii":"El Amiria","zip":"04005"},{"arabic":"سيقوس","ascii":"Sigus","zip":"04006"}]},{"arabic":"الضلعة","ascii":"Dhalaa","communes":[{"arabic":"الضلعة","ascii":"Dhalaa","zip":null},{"arabic":"الجازية","ascii":"El Djazia","zip":"04014"}]},{"arabic":"عين كرشة","ascii":"Ain Kercha","communes":[{"arabic":"عين كرشة","ascii":"Ain Kercha","zip":"04012"},{"arabic":"الحرملية","ascii":"El Harmilia","zip":"04029"},{"arabic":"هنشير تومغني","ascii":"Hanchir Toumghani","zip":"04013"}]}]}
+{
+  "code": 4,
+  "arabic": "أم البواقي",
+  "ascii": "Oum El Bouaghi",
+  "dairas": [
+    {
+      "arabic": "فكيرينة",
+      "ascii": "F'kirina",
+      "communes": [
+        {
+          "arabic": "فكيرينة",
+          "ascii": "Fkirina",
+          "zip": "04016"
+        },
+        {
+          "arabic": "وادي نيني",
+          "ascii": "Oued Nini",
+          "zip": "04023"
+        }
+      ]
+    },
+    {
+      "arabic": "عين فكرون",
+      "ascii": "Ain Fekroun",
+      "communes": [
+        {
+          "arabic": "الفجوج بوغرارة سعودي",
+          "ascii": "El Fedjoudj Boughrara Sa",
+          "zip": null
+        },
+        {
+          "arabic": "عين فكرون",
+          "ascii": "Ain Fekroun",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "مسكيانة",
+      "ascii": "Meskiana",
+      "communes": [
+        {
+          "arabic": "الرحية",
+          "ascii": "Rahia",
+          "zip": "04026"
+        },
+        {
+          "arabic": "مسكيانة",
+          "ascii": "Meskiana",
+          "zip": "04024"
+        },
+        {
+          "arabic": "البلالة",
+          "ascii": "El Belala",
+          "zip": "04007"
+        },
+        {
+          "arabic": "بحير الشرقي",
+          "ascii": "Behir Chergui",
+          "zip": "04004"
+        }
+      ]
+    },
+    {
+      "arabic": "قصر الصباحي",
+      "ascii": "Ksar Sbahi",
+      "communes": [
+        {
+          "arabic": "قصر الصباحي",
+          "ascii": "Ksar Sbahi",
+          "zip": "04022"
+        }
+      ]
+    },
+    {
+      "arabic": "سوق نعمان",
+      "ascii": "Souk Naamane",
+      "communes": [
+        {
+          "arabic": "سوق نعمان",
+          "ascii": "Souk Naamane",
+          "zip": "04017"
+        },
+        {
+          "arabic": "أولاد زواي",
+          "ascii": "Ouled Zouai",
+          "zip": "04020"
+        },
+        {
+          "arabic": "بئر الشهداء",
+          "ascii": "Bir Chouhada",
+          "zip": "04021"
+        }
+      ]
+    },
+    {
+      "arabic": "أم البواقي",
+      "ascii": "Oum El Bouaghi",
+      "communes": [
+        {
+          "arabic": "أم البواقي",
+          "ascii": "Oum El Bouaghi",
+          "zip": "04001"
+        },
+        {
+          "arabic": "عين الزيتون",
+          "ascii": "Ain Zitoun",
+          "zip": "04027"
+        }
+      ]
+    },
+    {
+      "arabic": "عين ببوش",
+      "ascii": "Ain Babouche",
+      "communes": [
+        {
+          "arabic": "عين ببوش",
+          "ascii": "Ain Babouche",
+          "zip": "04008"
+        },
+        {
+          "arabic": "عين الديس",
+          "ascii": "Ain Diss",
+          "zip": "04015"
+        }
+      ]
+    },
+    {
+      "arabic": "عين البيضاء",
+      "ascii": "Ain Beida",
+      "communes": [
+        {
+          "arabic": "عين البيضاء",
+          "ascii": "Ain Beida",
+          "zip": "04002"
+        },
+        {
+          "arabic": "بريش",
+          "ascii": "Berriche",
+          "zip": "04009"
+        },
+        {
+          "arabic": "الزرق",
+          "ascii": "Zorg",
+          "zip": "04018"
+        }
+      ]
+    },
+    {
+      "arabic": "عين مليلة",
+      "ascii": "Ain M'lila",
+      "communes": [
+        {
+          "arabic": "عين مليلة",
+          "ascii": "Ain M'lila",
+          "zip": "04003"
+        },
+        {
+          "arabic": "أولاد قاسم",
+          "ascii": "Ouled Gacem",
+          "zip": "04028"
+        },
+        {
+          "arabic": "أولاد حملة",
+          "ascii": "Ouled Hamla",
+          "zip": "04010"
+        }
+      ]
+    },
+    {
+      "arabic": "سيقوس",
+      "ascii": "Sigus",
+      "communes": [
+        {
+          "arabic": "العامرية",
+          "ascii": "El Amiria",
+          "zip": "04005"
+        },
+        {
+          "arabic": "سيقوس",
+          "ascii": "Sigus",
+          "zip": "04006"
+        }
+      ]
+    },
+    {
+      "arabic": "الضلعة",
+      "ascii": "Dhalaa",
+      "communes": [
+        {
+          "arabic": "الضلعة",
+          "ascii": "Dhalaa",
+          "zip": null
+        },
+        {
+          "arabic": "الجازية",
+          "ascii": "El Djazia",
+          "zip": "04014"
+        }
+      ]
+    },
+    {
+      "arabic": "عين كرشة",
+      "ascii": "Ain Kercha",
+      "communes": [
+        {
+          "arabic": "عين كرشة",
+          "ascii": "Ain Kercha",
+          "zip": "04012"
+        },
+        {
+          "arabic": "الحرملية",
+          "ascii": "El Harmilia",
+          "zip": "04029"
+        },
+        {
+          "arabic": "هنشير تومغني",
+          "ascii": "Hanchir Toumghani",
+          "zip": "04013"
+        }
+      ]
+    }
+  ]
+}

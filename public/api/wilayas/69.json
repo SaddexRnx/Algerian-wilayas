@@ -1,1 +1,60 @@
-{"code":69,"arabic":"الأبيض سيدي الشيخ","ascii":"El Abiodh Sidi Cheikh","dairas":[{"arabic":"الأبيض سيدي الشيخ","ascii":"El Abiodh Sidi Cheikh","communes":[{"arabic":"الأبيض سيدي الشيخ","ascii":"El Abiodh Sidi Cheikh","zip":null},{"arabic":"عين العراك","ascii":"Ain El Orak","zip":null},{"arabic":"أربوات","ascii":"Arbaouat","zip":null},{"arabic":"البنود","ascii":"El Bnoud","zip":null}]},{"arabic":"بوسمغون","ascii":"Boussemghoun","communes":[{"arabic":"بوسمغون","ascii":"Boussemghoun","zip":null}]},{"arabic":"الشلالة","ascii":"Chellala","communes":[{"arabic":"الشلالة","ascii":"Chellala","zip":null},{"arabic":"المحرة","ascii":"El Meharra","zip":null}]}]}
+{
+  "code": 69,
+  "arabic": "الأبيض سيدي الشيخ",
+  "ascii": "El Abiodh Sidi Cheikh",
+  "dairas": [
+    {
+      "arabic": "الأبيض سيدي الشيخ",
+      "ascii": "El Abiodh Sidi Cheikh",
+      "communes": [
+        {
+          "arabic": "الأبيض سيدي الشيخ",
+          "ascii": "El Abiodh Sidi Cheikh",
+          "zip": null
+        },
+        {
+          "arabic": "عين العراك",
+          "ascii": "Ain El Orak",
+          "zip": null
+        },
+        {
+          "arabic": "أربوات",
+          "ascii": "Arbaouat",
+          "zip": null
+        },
+        {
+          "arabic": "البنود",
+          "ascii": "El Bnoud",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "بوسمغون",
+      "ascii": "Boussemghoun",
+      "communes": [
+        {
+          "arabic": "بوسمغون",
+          "ascii": "Boussemghoun",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "الشلالة",
+      "ascii": "Chellala",
+      "communes": [
+        {
+          "arabic": "الشلالة",
+          "ascii": "Chellala",
+          "zip": null
+        },
+        {
+          "arabic": "المحرة",
+          "ascii": "El Meharra",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

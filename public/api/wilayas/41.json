@@ -1,1 +1,197 @@
-{"code":41,"arabic":"سوق أهراس","ascii":"Souk Ahras","dairas":[{"arabic":"سوق أهراس","ascii":"Souk Ahras","communes":[{"arabic":"سوق أهراس","ascii":"Souk Ahras","zip":"41001"}]},{"arabic":"سدراتة","ascii":"Sedrata","communes":[{"arabic":"عين سلطان","ascii":"Ain Soltane","zip":"41018"},{"arabic":"سدراتة","ascii":"Sedrata","zip":"41002"},{"arabic":"خميسة","ascii":"Khemissa","zip":"41023"}]},{"arabic":"المشروحة","ascii":"Mechroha","communes":[{"arabic":"الحنانشة","ascii":"Hanencha","zip":null},{"arabic":"المشروحة","ascii":"Machroha","zip":null}]},{"arabic":"أولاد إدريس","ascii":"Ouled Driss","communes":[{"arabic":"عين الزانة","ascii":"Ain Zana","zip":"41017"},{"arabic":"أولاد إدريس","ascii":"Ouled Driss","zip":"41005"}]},{"arabic":"أم العظايم","ascii":"Oum El Adhaim","communes":[{"arabic":"ترقالت","ascii":"Terraguelt","zip":"41025"},{"arabic":"أم العظايم","ascii":"Oum El Adhaim","zip":"41016"},{"arabic":"وادي الكبريت","ascii":"Oued Kebrit","zip":null}]},{"arabic":"مداوروش","ascii":"M'daourouche","communes":[{"arabic":"تيفاش","ascii":"Tiffech","zip":"41006"},{"arabic":"الراقوبة","ascii":"Ragouba","zip":"41022"},{"arabic":"مداوروش","ascii":"M'daourouche","zip":"41015"}]},{"arabic":"تاورة","ascii":"Taoura","communes":[{"arabic":"الدريعة","ascii":"Drea","zip":"41009"},{"arabic":"تاورة","ascii":"Taoura","zip":"41008"},{"arabic":"الزعرورية","ascii":"Zaarouria","zip":"41007"}]},{"arabic":"الحدادة","ascii":"Haddada","communes":[{"arabic":"الحدادة","ascii":"Haddada","zip":"41010"},{"arabic":"الخضارة","ascii":"Khedara","zip":"41011"},{"arabic":"أولاد مومن","ascii":"Ouled Moumen","zip":"41013"}]},{"arabic":"المراهنة","ascii":"Merahna","communes":[{"arabic":"المراهنة","ascii":"Merahna","zip":"41012"},{"arabic":"ويلان","ascii":"Ouillen","zip":null},{"arabic":"سيدي فرج","ascii":"Sidi Fredj","zip":"41020"}]},{"arabic":"بئر بوحوش","ascii":"Bir Bouhouche","communes":[{"arabic":"بئر بوحوش","ascii":"Bir Bouhouche","zip":"41014"},{"arabic":"سافل الويدان","ascii":"Safel El Ouiden","zip":"41021"},{"arabic":"الزوابي","ascii":"Zouabi","zip":"41026"}]}]}
+{
+  "code": 41,
+  "arabic": "سوق أهراس",
+  "ascii": "Souk Ahras",
+  "dairas": [
+    {
+      "arabic": "سوق أهراس",
+      "ascii": "Souk Ahras",
+      "communes": [
+        {
+          "arabic": "سوق أهراس",
+          "ascii": "Souk Ahras",
+          "zip": "41001"
+        }
+      ]
+    },
+    {
+      "arabic": "سدراتة",
+      "ascii": "Sedrata",
+      "communes": [
+        {
+          "arabic": "عين سلطان",
+          "ascii": "Ain Soltane",
+          "zip": "41018"
+        },
+        {
+          "arabic": "سدراتة",
+          "ascii": "Sedrata",
+          "zip": "41002"
+        },
+        {
+          "arabic": "خميسة",
+          "ascii": "Khemissa",
+          "zip": "41023"
+        }
+      ]
+    },
+    {
+      "arabic": "المشروحة",
+      "ascii": "Mechroha",
+      "communes": [
+        {
+          "arabic": "الحنانشة",
+          "ascii": "Hanencha",
+          "zip": null
+        },
+        {
+          "arabic": "المشروحة",
+          "ascii": "Machroha",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "أولاد إدريس",
+      "ascii": "Ouled Driss",
+      "communes": [
+        {
+          "arabic": "عين الزانة",
+          "ascii": "Ain Zana",
+          "zip": "41017"
+        },
+        {
+          "arabic": "أولاد إدريس",
+          "ascii": "Ouled Driss",
+          "zip": "41005"
+        }
+      ]
+    },
+    {
+      "arabic": "أم العظايم",
+      "ascii": "Oum El Adhaim",
+      "communes": [
+        {
+          "arabic": "ترقالت",
+          "ascii": "Terraguelt",
+          "zip": "41025"
+        },
+        {
+          "arabic": "أم العظايم",
+          "ascii": "Oum El Adhaim",
+          "zip": "41016"
+        },
+        {
+          "arabic": "وادي الكبريت",
+          "ascii": "Oued Kebrit",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "مداوروش",
+      "ascii": "M'daourouche",
+      "communes": [
+        {
+          "arabic": "تيفاش",
+          "ascii": "Tiffech",
+          "zip": "41006"
+        },
+        {
+          "arabic": "الراقوبة",
+          "ascii": "Ragouba",
+          "zip": "41022"
+        },
+        {
+          "arabic": "مداوروش",
+          "ascii": "M'daourouche",
+          "zip": "41015"
+        }
+      ]
+    },
+    {
+      "arabic": "تاورة",
+      "ascii": "Taoura",
+      "communes": [
+        {
+          "arabic": "الدريعة",
+          "ascii": "Drea",
+          "zip": "41009"
+        },
+        {
+          "arabic": "تاورة",
+          "ascii": "Taoura",
+          "zip": "41008"
+        },
+        {
+          "arabic": "الزعرورية",
+          "ascii": "Zaarouria",
+          "zip": "41007"
+        }
+      ]
+    },
+    {
+      "arabic": "الحدادة",
+      "ascii": "Haddada",
+      "communes": [
+        {
+          "arabic": "الحدادة",
+          "ascii": "Haddada",
+          "zip": "41010"
+        },
+        {
+          "arabic": "الخضارة",
+          "ascii": "Khedara",
+          "zip": "41011"
+        },
+        {
+          "arabic": "أولاد مومن",
+          "ascii": "Ouled Moumen",
+          "zip": "41013"
+        }
+      ]
+    },
+    {
+      "arabic": "المراهنة",
+      "ascii": "Merahna",
+      "communes": [
+        {
+          "arabic": "المراهنة",
+          "ascii": "Merahna",
+          "zip": "41012"
+        },
+        {
+          "arabic": "ويلان",
+          "ascii": "Ouillen",
+          "zip": null
+        },
+        {
+          "arabic": "سيدي فرج",
+          "ascii": "Sidi Fredj",
+          "zip": "41020"
+        }
+      ]
+    },
+    {
+      "arabic": "بئر بوحوش",
+      "ascii": "Bir Bouhouche",
+      "communes": [
+        {
+          "arabic": "بئر بوحوش",
+          "ascii": "Bir Bouhouche",
+          "zip": "41014"
+        },
+        {
+          "arabic": "سافل الويدان",
+          "ascii": "Safel El Ouiden",
+          "zip": "41021"
+        },
+        {
+          "arabic": "الزوابي",
+          "ascii": "Zouabi",
+          "zip": "41026"
+        }
+      ]
+    }
+  ]
+}

@@ -1,1 +1,357 @@
-{"code":22,"arabic":"سيدي بلعباس","ascii":"Sidi Bel Abbes","dairas":[{"arabic":"سيدي علي بن يوب","ascii":"Sidi Ali Ben Youb","communes":[{"arabic":"سيدي علي بن يوب","ascii":"Sidi Ali Benyoub","zip":"22046"},{"arabic":"طابية","ascii":"Tabia","zip":"22021"},{"arabic":"بوخنفيس","ascii":"Boukhanefis","zip":null}]},{"arabic":"مولاي سليسن","ascii":"Moulay Slissen","communes":[{"arabic":"مولاي سليسن","ascii":"Moulay Slissen","zip":"22018"},{"arabic":"الحصيبة","ascii":"El Hacaiba","zip":"22019"},{"arabic":"عين تندمين","ascii":"Ain Tindamine","zip":"22024"}]},{"arabic":"تنيرة","ascii":"Tenira","communes":[{"arabic":"تنيرة","ascii":"Tenira","zip":"22017"},{"arabic":"وادي سفيون","ascii":"Oued Sefioun","zip":"22043"},{"arabic":"حاسي دحو","ascii":"Hassi Dahou","zip":"22052"},{"arabic":"بن عشيبة شلية","ascii":"Benachiba Chelia","zip":"22051"}]},{"arabic":"مرين","ascii":"Merine","communes":[{"arabic":"وادي تاوريرة","ascii":"Oued Taourira","zip":"22031"},{"arabic":"مرين","ascii":"Merine","zip":"22022"},{"arabic":"تفسور","ascii":"Tefessour","zip":null},{"arabic":"تاودموت","ascii":"Taoudmout","zip":"22049"}]},{"arabic":"سيدي لحسن","ascii":"Sidi Lahcene","communes":[{"arabic":"سيدي يعقوب","ascii":"Sidi Yacoub","zip":"22040"},{"arabic":"سيدي لحسن","ascii":"Sidi Lahcene","zip":"22014"},{"arabic":"سيدي خالد","ascii":"Sidi Khaled","zip":"22027"},{"arabic":"العمارنة","ascii":"Amarnas","zip":"22012"}]},{"arabic":"عين البرد","ascii":"Ain El Berd","communes":[{"arabic":"سيدي ابراهيم","ascii":"Sidi Brahim","zip":"22003"},{"arabic":"سيدي حمادوش","ascii":"Sidi Hamadouche","zip":"22041"},{"arabic":"مكدرة","ascii":"Makedra","zip":"22016"},{"arabic":"عين البرد","ascii":"Ain El Berd","zip":"22028"}]},{"arabic":"بن باديس","ascii":"Ben Badis","communes":[{"arabic":"حاسي زهانة","ascii":"Hassi Zahana","zip":null},{"arabic":"شيطوان البلايلة","ascii":"Chetouane Belaila","zip":"22047"},{"arabic":"بن باديس","ascii":"Ben Badis","zip":"22045"},{"arabic":"بضرابين المقراني","ascii":"Bedrabine El Mokrani","zip":null}]},{"arabic":"سفيزف","ascii":"Sfisef","communes":[{"arabic":"سفيزف","ascii":"Sfisef","zip":null},{"arabic":"مسيد","ascii":"M'cid","zip":"22026"},{"arabic":"بوجبهة البرج","ascii":"Boudjebaa El Bordj","zip":"22038"},{"arabic":"عين أدن","ascii":"Ain- Adden","zip":"22030"}]},{"arabic":"مرحوم","ascii":"Marhoum","communes":[{"arabic":"سيدي شعيب","ascii":"Sidi Chaib","zip":"22035"},{"arabic":"مرحوم","ascii":"Marhoum","zip":"22010"},{"arabic":"بئر الحمام","ascii":"Bir El Hammam","zip":"22048"}]},{"arabic":"راس الماء","ascii":"Ras El Ma","communes":[{"arabic":"رجم دموش","ascii":"Redjem Demouche","zip":"22050"},{"arabic":"راس الماء","ascii":"Ras El Ma","zip":"22023"},{"arabic":"وادي السبع","ascii":"Oued Sebaa","zip":null}]},{"arabic":"سيدي بلعباس","ascii":"Sidi Bel Abbes","communes":[{"arabic":"سيدي بلعباس","ascii":"Sidi Bel-Abbes","zip":"22001"}]},{"arabic":"تسالة","ascii":"Tessala","communes":[{"arabic":"عين الثريد","ascii":"Ain Thrid","zip":"22015"},{"arabic":"السهالة الثورة","ascii":"Sehala Thaoura","zip":"22039"},{"arabic":"تسالة","ascii":"Tessala","zip":"22002"}]},{"arabic":"مصطفى بن ابراهيم","ascii":"Mostefa  Ben Brahim","communes":[{"arabic":"بلعربي","ascii":"Belarbi","zip":"22042"},{"arabic":"مصطفى بن ابراهيم","ascii":"Mostefa  Ben Brahim","zip":"22004"},{"arabic":"تلموني","ascii":"Tilmouni","zip":"22013"},{"arabic":"زروالة","ascii":"Zerouala","zip":"22033"}]},{"arabic":"تلاغ","ascii":"Telagh","communes":[{"arabic":"الضاية","ascii":"Dhaya","zip":"22032"},{"arabic":"مزاورو","ascii":"Mezaourou","zip":"22006"},{"arabic":"تغاليمت","ascii":"Teghalimet","zip":"22044"},{"arabic":"تلاغ","ascii":"Telagh","zip":"22005"}]},{"arabic":"سيدي علي بوسيدي","ascii":"Sidi Ali Boussidi","communes":[{"arabic":"عين قادة","ascii":"Ain Kada","zip":"22025"},{"arabic":"لمطار","ascii":"Lamtar","zip":"22034"},{"arabic":"سيدي علي بوسيدي","ascii":"Sidi Ali Boussidi","zip":"22008"},{"arabic":"سيدي دحو الزاير","ascii":"Sidi Dahou Zairs","zip":null}]}]}
+{
+  "code": 22,
+  "arabic": "سيدي بلعباس",
+  "ascii": "Sidi Bel Abbes",
+  "dairas": [
+    {
+      "arabic": "سيدي علي بن يوب",
+      "ascii": "Sidi Ali Ben Youb",
+      "communes": [
+        {
+          "arabic": "سيدي علي بن يوب",
+          "ascii": "Sidi Ali Benyoub",
+          "zip": "22046"
+        },
+        {
+          "arabic": "طابية",
+          "ascii": "Tabia",
+          "zip": "22021"
+        },
+        {
+          "arabic": "بوخنفيس",
+          "ascii": "Boukhanefis",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "مولاي سليسن",
+      "ascii": "Moulay Slissen",
+      "communes": [
+        {
+          "arabic": "مولاي سليسن",
+          "ascii": "Moulay Slissen",
+          "zip": "22018"
+        },
+        {
+          "arabic": "الحصيبة",
+          "ascii": "El Hacaiba",
+          "zip": "22019"
+        },
+        {
+          "arabic": "عين تندمين",
+          "ascii": "Ain Tindamine",
+          "zip": "22024"
+        }
+      ]
+    },
+    {
+      "arabic": "تنيرة",
+      "ascii": "Tenira",
+      "communes": [
+        {
+          "arabic": "تنيرة",
+          "ascii": "Tenira",
+          "zip": "22017"
+        },
+        {
+          "arabic": "وادي سفيون",
+          "ascii": "Oued Sefioun",
+          "zip": "22043"
+        },
+        {
+          "arabic": "حاسي دحو",
+          "ascii": "Hassi Dahou",
+          "zip": "22052"
+        },
+        {
+          "arabic": "بن عشيبة شلية",
+          "ascii": "Benachiba Chelia",
+          "zip": "22051"
+        }
+      ]
+    },
+    {
+      "arabic": "مرين",
+      "ascii": "Merine",
+      "communes": [
+        {
+          "arabic": "وادي تاوريرة",
+          "ascii": "Oued Taourira",
+          "zip": "22031"
+        },
+        {
+          "arabic": "مرين",
+          "ascii": "Merine",
+          "zip": "22022"
+        },
+        {
+          "arabic": "تفسور",
+          "ascii": "Tefessour",
+          "zip": null
+        },
+        {
+          "arabic": "تاودموت",
+          "ascii": "Taoudmout",
+          "zip": "22049"
+        }
+      ]
+    },
+    {
+      "arabic": "سيدي لحسن",
+      "ascii": "Sidi Lahcene",
+      "communes": [
+        {
+          "arabic": "سيدي يعقوب",
+          "ascii": "Sidi Yacoub",
+          "zip": "22040"
+        },
+        {
+          "arabic": "سيدي لحسن",
+          "ascii": "Sidi Lahcene",
+          "zip": "22014"
+        },
+        {
+          "arabic": "سيدي خالد",
+          "ascii": "Sidi Khaled",
+          "zip": "22027"
+        },
+        {
+          "arabic": "العمارنة",
+          "ascii": "Amarnas",
+          "zip": "22012"
+        }
+      ]
+    },
+    {
+      "arabic": "عين البرد",
+      "ascii": "Ain El Berd",
+      "communes": [
+        {
+          "arabic": "سيدي ابراهيم",
+          "ascii": "Sidi Brahim",
+          "zip": "22003"
+        },
+        {
+          "arabic": "سيدي حمادوش",
+          "ascii": "Sidi Hamadouche",
+          "zip": "22041"
+        },
+        {
+          "arabic": "مكدرة",
+          "ascii": "Makedra",
+          "zip": "22016"
+        },
+        {
+          "arabic": "عين البرد",
+          "ascii": "Ain El Berd",
+          "zip": "22028"
+        }
+      ]
+    },
+    {
+      "arabic": "بن باديس",
+      "ascii": "Ben Badis",
+      "communes": [
+        {
+          "arabic": "حاسي زهانة",
+          "ascii": "Hassi Zahana",
+          "zip": null
+        },
+        {
+          "arabic": "شيطوان البلايلة",
+          "ascii": "Chetouane Belaila",
+          "zip": "22047"
+        },
+        {
+          "arabic": "بن باديس",
+          "ascii": "Ben Badis",
+          "zip": "22045"
+        },
+        {
+          "arabic": "بضرابين المقراني",
+          "ascii": "Bedrabine El Mokrani",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "سفيزف",
+      "ascii": "Sfisef",
+      "communes": [
+        {
+          "arabic": "سفيزف",
+          "ascii": "Sfisef",
+          "zip": null
+        },
+        {
+          "arabic": "مسيد",
+          "ascii": "M'cid",
+          "zip": "22026"
+        },
+        {
+          "arabic": "بوجبهة البرج",
+          "ascii": "Boudjebaa El Bordj",
+          "zip": "22038"
+        },
+        {
+          "arabic": "عين أدن",
+          "ascii": "Ain- Adden",
+          "zip": "22030"
+        }
+      ]
+    },
+    {
+      "arabic": "مرحوم",
+      "ascii": "Marhoum",
+      "communes": [
+        {
+          "arabic": "سيدي شعيب",
+          "ascii": "Sidi Chaib",
+          "zip": "22035"
+        },
+        {
+          "arabic": "مرحوم",
+          "ascii": "Marhoum",
+          "zip": "22010"
+        },
+        {
+          "arabic": "بئر الحمام",
+          "ascii": "Bir El Hammam",
+          "zip": "22048"
+        }
+      ]
+    },
+    {
+      "arabic": "راس الماء",
+      "ascii": "Ras El Ma",
+      "communes": [
+        {
+          "arabic": "رجم دموش",
+          "ascii": "Redjem Demouche",
+          "zip": "22050"
+        },
+        {
+          "arabic": "راس الماء",
+          "ascii": "Ras El Ma",
+          "zip": "22023"
+        },
+        {
+          "arabic": "وادي السبع",
+          "ascii": "Oued Sebaa",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "سيدي بلعباس",
+      "ascii": "Sidi Bel Abbes",
+      "communes": [
+        {
+          "arabic": "سيدي بلعباس",
+          "ascii": "Sidi Bel-Abbes",
+          "zip": "22001"
+        }
+      ]
+    },
+    {
+      "arabic": "تسالة",
+      "ascii": "Tessala",
+      "communes": [
+        {
+          "arabic": "عين الثريد",
+          "ascii": "Ain Thrid",
+          "zip": "22015"
+        },
+        {
+          "arabic": "السهالة الثورة",
+          "ascii": "Sehala Thaoura",
+          "zip": "22039"
+        },
+        {
+          "arabic": "تسالة",
+          "ascii": "Tessala",
+          "zip": "22002"
+        }
+      ]
+    },
+    {
+      "arabic": "مصطفى بن ابراهيم",
+      "ascii": "Mostefa  Ben Brahim",
+      "communes": [
+        {
+          "arabic": "بلعربي",
+          "ascii": "Belarbi",
+          "zip": "22042"
+        },
+        {
+          "arabic": "مصطفى بن ابراهيم",
+          "ascii": "Mostefa  Ben Brahim",
+          "zip": "22004"
+        },
+        {
+          "arabic": "تلموني",
+          "ascii": "Tilmouni",
+          "zip": "22013"
+        },
+        {
+          "arabic": "زروالة",
+          "ascii": "Zerouala",
+          "zip": "22033"
+        }
+      ]
+    },
+    {
+      "arabic": "تلاغ",
+      "ascii": "Telagh",
+      "communes": [
+        {
+          "arabic": "الضاية",
+          "ascii": "Dhaya",
+          "zip": "22032"
+        },
+        {
+          "arabic": "مزاورو",
+          "ascii": "Mezaourou",
+          "zip": "22006"
+        },
+        {
+          "arabic": "تغاليمت",
+          "ascii": "Teghalimet",
+          "zip": "22044"
+        },
+        {
+          "arabic": "تلاغ",
+          "ascii": "Telagh",
+          "zip": "22005"
+        }
+      ]
+    },
+    {
+      "arabic": "سيدي علي بوسيدي",
+      "ascii": "Sidi Ali Boussidi",
+      "communes": [
+        {
+          "arabic": "عين قادة",
+          "ascii": "Ain Kada",
+          "zip": "22025"
+        },
+        {
+          "arabic": "لمطار",
+          "ascii": "Lamtar",
+          "zip": "22034"
+        },
+        {
+          "arabic": "سيدي علي بوسيدي",
+          "ascii": "Sidi Ali Boussidi",
+          "zip": "22008"
+        },
+        {
+          "arabic": "سيدي دحو الزاير",
+          "ascii": "Sidi Dahou Zairs",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

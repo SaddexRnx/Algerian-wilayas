@@ -1,1 +1,222 @@
-[{"name_ar":"بودواو","name_ascii":"Boudouaou","slug":"boudouaou","communes":[{"name_ar":"الخروبة","name_ascii":"El Kharrouba","zip":"35038"},{"name_ar":"بوزقزة قدارة","name_ascii":"Bouzegza Keddara","zip":"35022"},{"name_ar":"أولاد هداج","name_ascii":"Ouled Hedadj","zip":"35033"},{"name_ar":"بودواو","name_ascii":"Boudouaou","zip":"35002"},{"name_ar":"بودواو البحري","name_ascii":"Boudouaou El Bahri","zip":"35032"}]},{"name_ar":"دلس","name_ascii":"Dellys","slug":"dellys","communes":[{"name_ar":"دلس","name_ascii":"Dellys","zip":"35028"},{"name_ar":"بن شود","name_ascii":"Ben Choud","zip":"35027"},{"name_ar":"أعفير","name_ascii":"Afir","zip":"35004"}]},{"name_ar":"الثنية","name_ascii":"Thenia","slug":"thenia","communes":[{"name_ar":"الثنية","name_ascii":"Thenia","zip":"35015"},{"name_ar":"بني عمران","name_ascii":"Beni Amrane","zip":"35030"},{"name_ar":"عمال","name_ascii":"Ammal","zip":"35029"},{"name_ar":"سوق الحد","name_ascii":"Souk El Had","zip":"35031"}]},{"name_ar":"خميس الخشنة","name_ascii":"Khemis El Khechna","slug":"khemis-el-khechna","communes":[{"name_ar":"خميس الخشنة","name_ascii":"Khemis El Khechna","zip":"35037"},{"name_ar":"الاربعطاش","name_ascii":"Larbatache","zip":"35021"},{"name_ar":"أولاد موسى","name_ascii":"Ouled Moussa","zip":"35020"},{"name_ar":"حمادي","name_ascii":"Hammedi","zip":"35036"}]},{"name_ar":"تيمزريت","name_ascii":"Timezrit","slug":"timezrit","communes":[{"name_ar":"تيمزريت","name_ascii":"Timezrit","zip":"35018"}]},{"name_ar":"برج منايل","name_ascii":"Bordj Menaiel","slug":"bordj-menaiel","communes":[{"name_ar":"زموري","name_ascii":"Zemmouri","zip":"35011"},{"name_ar":"لقاطة","name_ascii":"Leghata","zip":null},{"name_ar":"جنات","name_ascii":"Djinet","zip":"35009"},{"name_ar":"برج منايل","name_ascii":"Bordj Menaiel","zip":"35005"}]},{"name_ar":"يسر","name_ascii":"Isser","slug":"isser","communes":[{"name_ar":"يسر","name_ascii":"Isser","zip":"35010"},{"name_ar":"شعبة العامر","name_ascii":"Chabet El Ameur","zip":"35014"},{"name_ar":"سي مصطفى","name_ascii":"Si Mustapha","zip":"35012"}]},{"name_ar":"الناصرية","name_ascii":"Naciria","slug":"naciria","communes":[{"name_ar":"أولاد عيسى","name_ascii":"Ouled Aissa","zip":"35026"},{"name_ar":"الناصرية","name_ascii":"Naciria","zip":"35008"}]},{"name_ar":"بغلية","name_ascii":"Baghlia","slug":"baghlia","communes":[{"name_ar":"سيدي داود","name_ascii":"Sidi Daoud","zip":"35007"},{"name_ar":"بغلية","name_ascii":"Baghlia","zip":"35006"},{"name_ar":"تاورقة","name_ascii":"Taourga","zip":"35025"}]},{"name_ar":"بومرداس","name_ascii":"Boumerdes","slug":"boumerdes","communes":[{"name_ar":"تيجلابين","name_ascii":"Tidjelabine","zip":"35013"},{"name_ar":"بومرداس","name_ascii":"Boumerdes","zip":"35001"},{"name_ar":"قورصو","name_ascii":"Corso","zip":"35019"}]}]
+[
+  {
+    "arabic": "بودواو",
+    "ascii": "Boudouaou",
+    "communes": [
+      {
+        "arabic": "الخروبة",
+        "ascii": "El Kharrouba",
+        "zip": "35038"
+      },
+      {
+        "arabic": "بوزقزة قدارة",
+        "ascii": "Bouzegza Keddara",
+        "zip": "35022"
+      },
+      {
+        "arabic": "أولاد هداج",
+        "ascii": "Ouled Hedadj",
+        "zip": "35033"
+      },
+      {
+        "arabic": "بودواو",
+        "ascii": "Boudouaou",
+        "zip": "35002"
+      },
+      {
+        "arabic": "بودواو البحري",
+        "ascii": "Boudouaou El Bahri",
+        "zip": "35032"
+      }
+    ]
+  },
+  {
+    "arabic": "دلس",
+    "ascii": "Dellys",
+    "communes": [
+      {
+        "arabic": "دلس",
+        "ascii": "Dellys",
+        "zip": "35028"
+      },
+      {
+        "arabic": "بن شود",
+        "ascii": "Ben Choud",
+        "zip": "35027"
+      },
+      {
+        "arabic": "أعفير",
+        "ascii": "Afir",
+        "zip": "35004"
+      }
+    ]
+  },
+  {
+    "arabic": "الثنية",
+    "ascii": "Thenia",
+    "communes": [
+      {
+        "arabic": "الثنية",
+        "ascii": "Thenia",
+        "zip": "35015"
+      },
+      {
+        "arabic": "بني عمران",
+        "ascii": "Beni Amrane",
+        "zip": "35030"
+      },
+      {
+        "arabic": "عمال",
+        "ascii": "Ammal",
+        "zip": "35029"
+      },
+      {
+        "arabic": "سوق الحد",
+        "ascii": "Souk El Had",
+        "zip": "35031"
+      }
+    ]
+  },
+  {
+    "arabic": "خميس الخشنة",
+    "ascii": "Khemis El Khechna",
+    "communes": [
+      {
+        "arabic": "خميس الخشنة",
+        "ascii": "Khemis El Khechna",
+        "zip": "35037"
+      },
+      {
+        "arabic": "الاربعطاش",
+        "ascii": "Larbatache",
+        "zip": "35021"
+      },
+      {
+        "arabic": "أولاد موسى",
+        "ascii": "Ouled Moussa",
+        "zip": "35020"
+      },
+      {
+        "arabic": "حمادي",
+        "ascii": "Hammedi",
+        "zip": "35036"
+      }
+    ]
+  },
+  {
+    "arabic": "تيمزريت",
+    "ascii": "Timezrit",
+    "communes": [
+      {
+        "arabic": "تيمزريت",
+        "ascii": "Timezrit",
+        "zip": "35018"
+      }
+    ]
+  },
+  {
+    "arabic": "برج منايل",
+    "ascii": "Bordj Menaiel",
+    "communes": [
+      {
+        "arabic": "زموري",
+        "ascii": "Zemmouri",
+        "zip": "35011"
+      },
+      {
+        "arabic": "لقاطة",
+        "ascii": "Leghata",
+        "zip": null
+      },
+      {
+        "arabic": "جنات",
+        "ascii": "Djinet",
+        "zip": "35009"
+      },
+      {
+        "arabic": "برج منايل",
+        "ascii": "Bordj Menaiel",
+        "zip": "35005"
+      }
+    ]
+  },
+  {
+    "arabic": "يسر",
+    "ascii": "Isser",
+    "communes": [
+      {
+        "arabic": "يسر",
+        "ascii": "Isser",
+        "zip": "35010"
+      },
+      {
+        "arabic": "شعبة العامر",
+        "ascii": "Chabet El Ameur",
+        "zip": "35014"
+      },
+      {
+        "arabic": "سي مصطفى",
+        "ascii": "Si Mustapha",
+        "zip": "35012"
+      }
+    ]
+  },
+  {
+    "arabic": "الناصرية",
+    "ascii": "Naciria",
+    "communes": [
+      {
+        "arabic": "أولاد عيسى",
+        "ascii": "Ouled Aissa",
+        "zip": "35026"
+      },
+      {
+        "arabic": "الناصرية",
+        "ascii": "Naciria",
+        "zip": "35008"
+      }
+    ]
+  },
+  {
+    "arabic": "بغلية",
+    "ascii": "Baghlia",
+    "communes": [
+      {
+        "arabic": "سيدي داود",
+        "ascii": "Sidi Daoud",
+        "zip": "35007"
+      },
+      {
+        "arabic": "بغلية",
+        "ascii": "Baghlia",
+        "zip": "35006"
+      },
+      {
+        "arabic": "تاورقة",
+        "ascii": "Taourga",
+        "zip": "35025"
+      }
+    ]
+  },
+  {
+    "arabic": "بومرداس",
+    "ascii": "Boumerdes",
+    "communes": [
+      {
+        "arabic": "تيجلابين",
+        "ascii": "Tidjelabine",
+        "zip": "35013"
+      },
+      {
+        "arabic": "بومرداس",
+        "ascii": "Boumerdes",
+        "zip": "35001"
+      },
+      {
+        "arabic": "قورصو",
+        "ascii": "Corso",
+        "zip": "35019"
+      }
+    ]
+  }
+]

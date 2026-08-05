@@ -1,1 +1,59 @@
-{"code":57,"arabic":"المغير","ascii":"El M'Ghair","dairas":[{"arabic":"المغير","ascii":"El Meghaier","communes":[{"arabic":"أم الطيور","ascii":"Oum Touyour","zip":null},{"arabic":"المغير","ascii":"El-M'ghaier","zip":null},{"arabic":"سطيل","ascii":"Still","zip":null},{"arabic":"سيدي خليل","ascii":"Sidi Khelil","zip":null}]},{"arabic":"جامعة","ascii":"Djamaa","communes":[{"arabic":"سيدي عمران","ascii":"Sidi Amrane","zip":null},{"arabic":"المرارة","ascii":"M'rara","zip":null},{"arabic":"جامعة","ascii":"Djamaa","zip":null},{"arabic":"تندلة","ascii":"Tenedla","zip":null}]}]}
+{
+  "code": 57,
+  "arabic": "المغير",
+  "ascii": "El M'Ghair",
+  "dairas": [
+    {
+      "arabic": "المغير",
+      "ascii": "El Meghaier",
+      "communes": [
+        {
+          "arabic": "أم الطيور",
+          "ascii": "Oum Touyour",
+          "zip": null
+        },
+        {
+          "arabic": "المغير",
+          "ascii": "El-M'ghaier",
+          "zip": null
+        },
+        {
+          "arabic": "سطيل",
+          "ascii": "Still",
+          "zip": null
+        },
+        {
+          "arabic": "سيدي خليل",
+          "ascii": "Sidi Khelil",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "جامعة",
+      "ascii": "Djamaa",
+      "communes": [
+        {
+          "arabic": "سيدي عمران",
+          "ascii": "Sidi Amrane",
+          "zip": null
+        },
+        {
+          "arabic": "المرارة",
+          "ascii": "M'rara",
+          "zip": null
+        },
+        {
+          "arabic": "جامعة",
+          "ascii": "Djamaa",
+          "zip": null
+        },
+        {
+          "arabic": "تندلة",
+          "ascii": "Tenedla",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

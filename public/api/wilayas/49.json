@@ -1,1 +1,93 @@
-{"code":49,"arabic":"تيميمون","ascii":"Timimoun","dairas":[{"arabic":"تنركوك","ascii":"Tinerkouk","communes":[{"arabic":"تنركوك","ascii":"Tinerkouk","zip":null},{"arabic":"قصر قدور","ascii":"Ksar Kaddour","zip":null}]},{"arabic":"تيميمون","ascii":"Timimoun","communes":[{"arabic":"تيميمون","ascii":"Timimoun","zip":null},{"arabic":"أولاد السعيد","ascii":"Ouled Said","zip":null}]},{"arabic":"أوقروت","ascii":"Aougrout","communes":[{"arabic":"المطارفة","ascii":"Metarfa","zip":null},{"arabic":"أوقروت","ascii":"Aougrout","zip":null}]},{"arabic":"شروين","ascii":"Charouine","communes":[{"arabic":"طالمين","ascii":"Talmine","zip":null},{"arabic":"شروين","ascii":"Charouine","zip":null}]},{"arabic":"الناصرية","ascii":"Naciria","communes":[{"arabic":"أولاد عيسى","ascii":"Ouled Aissa","zip":null}]},{"arabic":"مسعد","ascii":"Messaad","communes":[{"arabic":"دلدول","ascii":"Deldoul","zip":null}]}]}
+{
+  "code": 49,
+  "arabic": "تيميمون",
+  "ascii": "Timimoun",
+  "dairas": [
+    {
+      "arabic": "تنركوك",
+      "ascii": "Tinerkouk",
+      "communes": [
+        {
+          "arabic": "تنركوك",
+          "ascii": "Tinerkouk",
+          "zip": null
+        },
+        {
+          "arabic": "قصر قدور",
+          "ascii": "Ksar Kaddour",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "تيميمون",
+      "ascii": "Timimoun",
+      "communes": [
+        {
+          "arabic": "تيميمون",
+          "ascii": "Timimoun",
+          "zip": null
+        },
+        {
+          "arabic": "أولاد السعيد",
+          "ascii": "Ouled Said",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "أوقروت",
+      "ascii": "Aougrout",
+      "communes": [
+        {
+          "arabic": "المطارفة",
+          "ascii": "Metarfa",
+          "zip": null
+        },
+        {
+          "arabic": "أوقروت",
+          "ascii": "Aougrout",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "شروين",
+      "ascii": "Charouine",
+      "communes": [
+        {
+          "arabic": "طالمين",
+          "ascii": "Talmine",
+          "zip": null
+        },
+        {
+          "arabic": "شروين",
+          "ascii": "Charouine",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "الناصرية",
+      "ascii": "Naciria",
+      "communes": [
+        {
+          "arabic": "أولاد عيسى",
+          "ascii": "Ouled Aissa",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "مسعد",
+      "ascii": "Messaad",
+      "communes": [
+        {
+          "arabic": "دلدول",
+          "ascii": "Deldoul",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

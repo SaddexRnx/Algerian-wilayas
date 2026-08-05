@@ -177,7 +177,7 @@ function Index() {
               DZ Address Picker
             </span>
             <span className="ml-2 inline-flex shrink-0 items-center rounded-full border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
-              v1.0.2
+              v1.0.3
             </span>
           </div>
           <div className="flex shrink-0 items-center gap-3">

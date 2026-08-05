@@ -1,1 +1,108 @@
-{"code":55,"arabic":"تقرت","ascii":"Touggourt","dairas":[{"arabic":"تماسين","ascii":"Temacine","communes":[{"arabic":"تماسين","ascii":"Temacine","zip":null},{"arabic":"بلدة اعمر","ascii":"Blidet Amor","zip":null}]},{"arabic":"بوعلام","ascii":"Boualem","communes":[{"arabic":"سيدي سليمان","ascii":"Sidi Slimane","zip":null}]},{"arabic":"المقارين","ascii":"Megarine","communes":[{"arabic":"المقارين","ascii":"Megarine","zip":null}]},{"arabic":"تقرت","ascii":"Touggourt","communes":[{"arabic":"النزلة","ascii":"Nezla","zip":null},{"arabic":"تبسبست","ascii":"Tebesbest","zip":null},{"arabic":"تقرت","ascii":"Touggourt","zip":null},{"arabic":"الزاوية العابدية","ascii":"Zaouia El Abidia","zip":null}]},{"arabic":"الطيبات","ascii":"Taibet","communes":[{"arabic":"الطيبات","ascii":"Taibet","zip":null},{"arabic":"بن ناصر","ascii":"Benaceur","zip":null},{"arabic":"المنقر","ascii":"M'naguer","zip":null}]},{"arabic":"الحجيرة","ascii":"El-Hadjira","communes":[{"arabic":"العالية","ascii":"El Alia","zip":null},{"arabic":"الحجيرة","ascii":"El-Hadjira","zip":null}]}]}
+{
+  "code": 55,
+  "arabic": "تقرت",
+  "ascii": "Touggourt",
+  "dairas": [
+    {
+      "arabic": "تماسين",
+      "ascii": "Temacine",
+      "communes": [
+        {
+          "arabic": "تماسين",
+          "ascii": "Temacine",
+          "zip": null
+        },
+        {
+          "arabic": "بلدة اعمر",
+          "ascii": "Blidet Amor",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "بوعلام",
+      "ascii": "Boualem",
+      "communes": [
+        {
+          "arabic": "سيدي سليمان",
+          "ascii": "Sidi Slimane",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "المقارين",
+      "ascii": "Megarine",
+      "communes": [
+        {
+          "arabic": "المقارين",
+          "ascii": "Megarine",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "تقرت",
+      "ascii": "Touggourt",
+      "communes": [
+        {
+          "arabic": "النزلة",
+          "ascii": "Nezla",
+          "zip": null
+        },
+        {
+          "arabic": "تبسبست",
+          "ascii": "Tebesbest",
+          "zip": null
+        },
+        {
+          "arabic": "تقرت",
+          "ascii": "Touggourt",
+          "zip": null
+        },
+        {
+          "arabic": "الزاوية العابدية",
+          "ascii": "Zaouia El Abidia",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "الطيبات",
+      "ascii": "Taibet",
+      "communes": [
+        {
+          "arabic": "الطيبات",
+          "ascii": "Taibet",
+          "zip": null
+        },
+        {
+          "arabic": "بن ناصر",
+          "ascii": "Benaceur",
+          "zip": null
+        },
+        {
+          "arabic": "المنقر",
+          "ascii": "M'naguer",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "الحجيرة",
+      "ascii": "El-Hadjira",
+      "communes": [
+        {
+          "arabic": "العالية",
+          "ascii": "El Alia",
+          "zip": null
+        },
+        {
+          "arabic": "الحجيرة",
+          "ascii": "El-Hadjira",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

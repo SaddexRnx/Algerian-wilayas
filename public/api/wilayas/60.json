@@ -1,1 +1,65 @@
-{"code":60,"arabic":"بريكة","ascii":"Barika","dairas":[{"arabic":"بريكة","ascii":"Barika","communes":[{"arabic":"بريكة","ascii":"Barika","zip":null},{"arabic":"بيطام","ascii":"Bitam","zip":null},{"arabic":"م دوكال","ascii":"M’Doukal","zip":null}]},{"arabic":"سقانة","ascii":"Seggana","communes":[{"arabic":"سقانة","ascii":"Seggana","zip":null},{"arabic":"تيلاطو","ascii":"Tilatou","zip":null}]},{"arabic":"جزار","ascii":"Djezzar","communes":[{"arabic":"عبد القادر عزيز","ascii":"Abdelkader Azil","zip":null},{"arabic":"جزار","ascii":"Djezzar","zip":null},{"arabic":"أولاد عمار","ascii":"Ouled Ammar","zip":null}]}]}
+{
+  "code": 60,
+  "arabic": "بريكة",
+  "ascii": "Barika",
+  "dairas": [
+    {
+      "arabic": "بريكة",
+      "ascii": "Barika",
+      "communes": [
+        {
+          "arabic": "بريكة",
+          "ascii": "Barika",
+          "zip": null
+        },
+        {
+          "arabic": "بيطام",
+          "ascii": "Bitam",
+          "zip": null
+        },
+        {
+          "arabic": "م دوكال",
+          "ascii": "M’Doukal",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "سقانة",
+      "ascii": "Seggana",
+      "communes": [
+        {
+          "arabic": "سقانة",
+          "ascii": "Seggana",
+          "zip": null
+        },
+        {
+          "arabic": "تيلاطو",
+          "ascii": "Tilatou",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "جزار",
+      "ascii": "Djezzar",
+      "communes": [
+        {
+          "arabic": "عبد القادر عزيز",
+          "ascii": "Abdelkader Azil",
+          "zip": null
+        },
+        {
+          "arabic": "جزار",
+          "ascii": "Djezzar",
+          "zip": null
+        },
+        {
+          "arabic": "أولاد عمار",
+          "ascii": "Ouled Ammar",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

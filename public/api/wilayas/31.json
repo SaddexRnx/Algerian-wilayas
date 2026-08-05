@@ -1,1 +1,197 @@
-{"code":31,"arabic":"وهران","ascii":"Oran","dairas":[{"arabic":"السانية","ascii":"Es Senia","communes":[{"arabic":"سيدي الشحمي","ascii":"Sidi Chami","zip":"31013"},{"arabic":"الكرمة","ascii":"El Kerma","zip":null},{"arabic":"السانية","ascii":"Es Senia","zip":"31005"}]},{"arabic":"قديل","ascii":"Gdyel","communes":[{"arabic":"حاسي مفسوخ","ascii":"Hassi Mefsoukh","zip":"31021"},{"arabic":"قديل","ascii":"Gdyel","zip":"31002"},{"arabic":"بن فريحة","ascii":"Ben Freha","zip":"31020"}]},{"arabic":"بئر الجير","ascii":"Bir El Djir","communes":[{"arabic":"بئر الجير","ascii":"Bir El Djir","zip":"31003"},{"arabic":"حاسي بن عقبة","ascii":"Hassi Ben Okba","zip":"31019"},{"arabic":"حاسي بونيف","ascii":"Hassi Bounif","zip":"31004"}]},{"arabic":"أرزيو","ascii":"Arzew","communes":[{"arabic":"أرزيو","ascii":"Arzew","zip":"31006"},{"arabic":"سيدي بن يبقى","ascii":"Sidi Ben Yebka","zip":null}]},{"arabic":"بطيوة","ascii":"Bethioua","communes":[{"arabic":"عين البية","ascii":"Ain Biya","zip":"31026"},{"arabic":"بطيوة","ascii":"Bethioua","zip":"31007"},{"arabic":"مرسى الحجاج","ascii":"Marsat El Hadjadj","zip":"31008"}]},{"arabic":"البويرة","ascii":"Bouira","communes":[{"arabic":"عين الترك","ascii":"Ain Turk","zip":"31009"}]},{"arabic":"وهران","ascii":"Oran","communes":[{"arabic":"وهران","ascii":"Oran","zip":"31001"}]},{"arabic":"عين الترك","ascii":"Ain Turk","communes":[{"arabic":"العنصر","ascii":"El Ancor","zip":null},{"arabic":"المرسى الكبير","ascii":"Mers El Kebir","zip":"31015"},{"arabic":"بوسفر","ascii":"Bousfer","zip":"31016"}]},{"arabic":"وادي تليلات","ascii":"Oued Tlelat","communes":[{"arabic":"بوفاتيس","ascii":"Boufatis","zip":"31014"},{"arabic":"البراية","ascii":"El Braya","zip":"31018"},{"arabic":"وادي تليلات","ascii":"Oued Tlelat","zip":"31011"},{"arabic":"طفراوي","ascii":"Tafraoui","zip":"31012"}]},{"arabic":"بوتليليس","ascii":"Boutlelis","communes":[{"arabic":"عين الكرمة","ascii":"Ain Kerma","zip":"31025"},{"arabic":"بوتليليس","ascii":"Boutlelis","zip":"31024"},{"arabic":"مسرغين","ascii":"Messerghin","zip":"31023"}]}]}
+{
+  "code": 31,
+  "arabic": "وهران",
+  "ascii": "Oran",
+  "dairas": [
+    {
+      "arabic": "السانية",
+      "ascii": "Es Senia",
+      "communes": [
+        {
+          "arabic": "سيدي الشحمي",
+          "ascii": "Sidi Chami",
+          "zip": "31013"
+        },
+        {
+          "arabic": "الكرمة",
+          "ascii": "El Kerma",
+          "zip": null
+        },
+        {
+          "arabic": "السانية",
+          "ascii": "Es Senia",
+          "zip": "31005"
+        }
+      ]
+    },
+    {
+      "arabic": "قديل",
+      "ascii": "Gdyel",
+      "communes": [
+        {
+          "arabic": "حاسي مفسوخ",
+          "ascii": "Hassi Mefsoukh",
+          "zip": "31021"
+        },
+        {
+          "arabic": "قديل",
+          "ascii": "Gdyel",
+          "zip": "31002"
+        },
+        {
+          "arabic": "بن فريحة",
+          "ascii": "Ben Freha",
+          "zip": "31020"
+        }
+      ]
+    },
+    {
+      "arabic": "بئر الجير",
+      "ascii": "Bir El Djir",
+      "communes": [
+        {
+          "arabic": "بئر الجير",
+          "ascii": "Bir El Djir",
+          "zip": "31003"
+        },
+        {
+          "arabic": "حاسي بن عقبة",
+          "ascii": "Hassi Ben Okba",
+          "zip": "31019"
+        },
+        {
+          "arabic": "حاسي بونيف",
+          "ascii": "Hassi Bounif",
+          "zip": "31004"
+        }
+      ]
+    },
+    {
+      "arabic": "أرزيو",
+      "ascii": "Arzew",
+      "communes": [
+        {
+          "arabic": "أرزيو",
+          "ascii": "Arzew",
+          "zip": "31006"
+        },
+        {
+          "arabic": "سيدي بن يبقى",
+          "ascii": "Sidi Ben Yebka",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "بطيوة",
+      "ascii": "Bethioua",
+      "communes": [
+        {
+          "arabic": "عين البية",
+          "ascii": "Ain Biya",
+          "zip": "31026"
+        },
+        {
+          "arabic": "بطيوة",
+          "ascii": "Bethioua",
+          "zip": "31007"
+        },
+        {
+          "arabic": "مرسى الحجاج",
+          "ascii": "Marsat El Hadjadj",
+          "zip": "31008"
+        }
+      ]
+    },
+    {
+      "arabic": "البويرة",
+      "ascii": "Bouira",
+      "communes": [
+        {
+          "arabic": "عين الترك",
+          "ascii": "Ain Turk",
+          "zip": "31009"
+        }
+      ]
+    },
+    {
+      "arabic": "وهران",
+      "ascii": "Oran",
+      "communes": [
+        {
+          "arabic": "وهران",
+          "ascii": "Oran",
+          "zip": "31001"
+        }
+      ]
+    },
+    {
+      "arabic": "عين الترك",
+      "ascii": "Ain Turk",
+      "communes": [
+        {
+          "arabic": "العنصر",
+          "ascii": "El Ancor",
+          "zip": null
+        },
+        {
+          "arabic": "المرسى الكبير",
+          "ascii": "Mers El Kebir",
+          "zip": "31015"
+        },
+        {
+          "arabic": "بوسفر",
+          "ascii": "Bousfer",
+          "zip": "31016"
+        }
+      ]
+    },
+    {
+      "arabic": "وادي تليلات",
+      "ascii": "Oued Tlelat",
+      "communes": [
+        {
+          "arabic": "بوفاتيس",
+          "ascii": "Boufatis",
+          "zip": "31014"
+        },
+        {
+          "arabic": "البراية",
+          "ascii": "El Braya",
+          "zip": "31018"
+        },
+        {
+          "arabic": "وادي تليلات",
+          "ascii": "Oued Tlelat",
+          "zip": "31011"
+        },
+        {
+          "arabic": "طفراوي",
+          "ascii": "Tafraoui",
+          "zip": "31012"
+        }
+      ]
+    },
+    {
+      "arabic": "بوتليليس",
+      "ascii": "Boutlelis",
+      "communes": [
+        {
+          "arabic": "عين الكرمة",
+          "ascii": "Ain Kerma",
+          "zip": "31025"
+        },
+        {
+          "arabic": "بوتليليس",
+          "ascii": "Boutlelis",
+          "zip": "31024"
+        },
+        {
+          "arabic": "مسرغين",
+          "ascii": "Messerghin",
+          "zip": "31023"
+        }
+      ]
+    }
+  ]
+}

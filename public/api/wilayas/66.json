@@ -1,1 +1,65 @@
-{"code":66,"arabic":"مسعد","ascii":"Messaad","dairas":[{"arabic":"مسعد","ascii":"Messaad","communes":[{"arabic":"مسعد","ascii":"Messaad","zip":null},{"arabic":"سلمانة","ascii":"Selmana","zip":null},{"arabic":"دلدول","ascii":"Deldoul","zip":null}]},{"arabic":"فيض البطمة","ascii":"Faidh El Botma","communes":[{"arabic":"فيض البطمة","ascii":"Faidh El Botma","zip":null},{"arabic":"أم العظام","ascii":"Oum Laadham","zip":null},{"arabic":"عمورة","ascii":"Amourah","zip":null}]},{"arabic":"سد الرحال","ascii":"Sed Rahal","communes":[{"arabic":"سد الرحال","ascii":"Sed Rahal","zip":null},{"arabic":"قطارة","ascii":"Guettara","zip":null}]}]}
+{
+  "code": 66,
+  "arabic": "مسعد",
+  "ascii": "Messaad",
+  "dairas": [
+    {
+      "arabic": "مسعد",
+      "ascii": "Messaad",
+      "communes": [
+        {
+          "arabic": "مسعد",
+          "ascii": "Messaad",
+          "zip": null
+        },
+        {
+          "arabic": "سلمانة",
+          "ascii": "Selmana",
+          "zip": null
+        },
+        {
+          "arabic": "دلدول",
+          "ascii": "Deldoul",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "فيض البطمة",
+      "ascii": "Faidh El Botma",
+      "communes": [
+        {
+          "arabic": "فيض البطمة",
+          "ascii": "Faidh El Botma",
+          "zip": null
+        },
+        {
+          "arabic": "أم العظام",
+          "ascii": "Oum Laadham",
+          "zip": null
+        },
+        {
+          "arabic": "عمورة",
+          "ascii": "Amourah",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "سد الرحال",
+      "ascii": "Sed Rahal",
+      "communes": [
+        {
+          "arabic": "سد الرحال",
+          "ascii": "Sed Rahal",
+          "zip": null
+        },
+        {
+          "arabic": "قطارة",
+          "ascii": "Guettara",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,1 +1,82 @@
-{"code":52,"arabic":"بني عباس","ascii":"Beni Abbes","dairas":[{"arabic":"بني عباس","ascii":"Beni Abbes","communes":[{"arabic":"بني عباس","ascii":"Beni-Abbes","zip":null},{"arabic":"تامترت","ascii":"Tamtert","zip":null}]},{"arabic":"إقلي","ascii":"Igli","communes":[{"arabic":"إقلي","ascii":"Igli","zip":null}]},{"arabic":"الواتة","ascii":"El Ouata","communes":[{"arabic":"الواتة","ascii":"El Ouata","zip":null}]},{"arabic":"أولاد خضير","ascii":"Ouled Khodeir","communes":[{"arabic":"أولاد خضير","ascii":"Ouled-Khodeir","zip":null},{"arabic":"القصابي","ascii":"Ksabi","zip":null}]},{"arabic":"كرزاز","ascii":"Kerzaz","communes":[{"arabic":"كرزاز","ascii":"Kerzaz","zip":null},{"arabic":"تيمودي","ascii":"Timoudi","zip":null},{"arabic":"بن يخلف","ascii":"Beni-Ikhlef","zip":null}]}]}
+{
+  "code": 52,
+  "arabic": "بني عباس",
+  "ascii": "Beni Abbes",
+  "dairas": [
+    {
+      "arabic": "بني عباس",
+      "ascii": "Beni Abbes",
+      "communes": [
+        {
+          "arabic": "بني عباس",
+          "ascii": "Beni-Abbes",
+          "zip": null
+        },
+        {
+          "arabic": "تامترت",
+          "ascii": "Tamtert",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "إقلي",
+      "ascii": "Igli",
+      "communes": [
+        {
+          "arabic": "إقلي",
+          "ascii": "Igli",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "الواتة",
+      "ascii": "El Ouata",
+      "communes": [
+        {
+          "arabic": "الواتة",
+          "ascii": "El Ouata",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "أولاد خضير",
+      "ascii": "Ouled Khodeir",
+      "communes": [
+        {
+          "arabic": "أولاد خضير",
+          "ascii": "Ouled-Khodeir",
+          "zip": null
+        },
+        {
+          "arabic": "القصابي",
+          "ascii": "Ksabi",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "كرزاز",
+      "ascii": "Kerzaz",
+      "communes": [
+        {
+          "arabic": "كرزاز",
+          "ascii": "Kerzaz",
+          "zip": null
+        },
+        {
+          "arabic": "تيمودي",
+          "ascii": "Timoudi",
+          "zip": null
+        },
+        {
+          "arabic": "بن يخلف",
+          "ascii": "Beni-Ikhlef",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

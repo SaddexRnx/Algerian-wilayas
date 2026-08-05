@@ -1,1 +1,97 @@
-{"code":59,"arabic":"أفلو","ascii":"Aflou","dairas":[{"arabic":"أفلو","ascii":"Aflou","communes":[{"arabic":"أفلو","ascii":"Aflou","zip":null},{"arabic":"سبقاق","ascii":"Sebgag","zip":null},{"arabic":"سيدي بوزيد","ascii":"Sidi Bouzid","zip":null}]},{"arabic":"بريدة","ascii":"Brida","communes":[{"arabic":"بريدة","ascii":"Brida","zip":null},{"arabic":"الحاج المشري","ascii":"Hadj Mechri","zip":null},{"arabic":"تاويالة","ascii":"Taouiala","zip":null}]},{"arabic":"قلتة سيدي سعد","ascii":"Gueltat Sidi Saad","communes":[{"arabic":"قلتة سيدي سعد","ascii":"Gueltat Sidi Saad","zip":null},{"arabic":"عين سيدي علي","ascii":"Ain Sidi Ali","zip":null},{"arabic":"البيضاء","ascii":"El Beidha","zip":null}]},{"arabic":"وادي مرة","ascii":"Oued Morra","communes":[{"arabic":"وادي مرة","ascii":"Oued Morra","zip":null},{"arabic":"وادي مزي","ascii":"Oued M'Zi","zip":null}]},{"arabic":"الغيشة","ascii":"El Ghicha","communes":[{"arabic":"الغيشة","ascii":"El Ghicha","zip":null}]}]}
+{
+  "code": 59,
+  "arabic": "أفلو",
+  "ascii": "Aflou",
+  "dairas": [
+    {
+      "arabic": "أفلو",
+      "ascii": "Aflou",
+      "communes": [
+        {
+          "arabic": "أفلو",
+          "ascii": "Aflou",
+          "zip": null
+        },
+        {
+          "arabic": "سبقاق",
+          "ascii": "Sebgag",
+          "zip": null
+        },
+        {
+          "arabic": "سيدي بوزيد",
+          "ascii": "Sidi Bouzid",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "بريدة",
+      "ascii": "Brida",
+      "communes": [
+        {
+          "arabic": "بريدة",
+          "ascii": "Brida",
+          "zip": null
+        },
+        {
+          "arabic": "الحاج المشري",
+          "ascii": "Hadj Mechri",
+          "zip": null
+        },
+        {
+          "arabic": "تاويالة",
+          "ascii": "Taouiala",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "قلتة سيدي سعد",
+      "ascii": "Gueltat Sidi Saad",
+      "communes": [
+        {
+          "arabic": "قلتة سيدي سعد",
+          "ascii": "Gueltat Sidi Saad",
+          "zip": null
+        },
+        {
+          "arabic": "عين سيدي علي",
+          "ascii": "Ain Sidi Ali",
+          "zip": null
+        },
+        {
+          "arabic": "البيضاء",
+          "ascii": "El Beidha",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "وادي مرة",
+      "ascii": "Oued Morra",
+      "communes": [
+        {
+          "arabic": "وادي مرة",
+          "ascii": "Oued Morra",
+          "zip": null
+        },
+        {
+          "arabic": "وادي مزي",
+          "ascii": "Oued M'Zi",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "الغيشة",
+      "ascii": "El Ghicha",
+      "communes": [
+        {
+          "arabic": "الغيشة",
+          "ascii": "El Ghicha",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

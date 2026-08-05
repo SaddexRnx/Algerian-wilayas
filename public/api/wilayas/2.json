@@ -1,1 +1,260 @@
-{"code":2,"arabic":"الشلف","ascii":"Chlef","dairas":[{"arabic":"أبو الحسن","ascii":"Abou El Hassane","communes":[{"arabic":"تلعصة","ascii":"Talassa","zip":"02014"},{"arabic":"تاجنة","ascii":"Tadjena","zip":null},{"arabic":"أبو الحسن","ascii":"Abou El Hassane","zip":null}]},{"arabic":"الزبوجة","ascii":"Zeboudja","communes":[{"arabic":"الزبوجة","ascii":"Zeboudja","zip":"02020"},{"arabic":"بوزغاية","ascii":"Bouzeghaia","zip":null},{"arabic":"بنايرية","ascii":"Benairia","zip":"02003"}]},{"arabic":"أولاد بن عبد القادر","ascii":"Ouled Ben Abdelkader","communes":[{"arabic":"الحجاج","ascii":"El Hadjadj","zip":"02027"},{"arabic":"أولاد بن عبد القادر","ascii":"Ouled Ben Abdelkader","zip":"02030"}]},{"arabic":"عين مران","ascii":"Ain Merane","communes":[{"arabic":"عين مران","ascii":"Ain Merane","zip":"02032"},{"arabic":"الهرانفة","ascii":"Herenfa","zip":"02015"}]},{"arabic":"بني حواء","ascii":"Beni Haoua","communes":[{"arabic":"بريرة","ascii":"Breira","zip":"02034"},{"arabic":"بني حواء","ascii":"Beni Haoua","zip":"02007"},{"arabic":"وادي قوسين","ascii":"Oued Goussine","zip":"02016"}]},{"arabic":"وادي الفضة","ascii":"Oued Fodda","communes":[{"arabic":"أولاد عباس","ascii":"Ouled Abbes","zip":"02018"},{"arabic":"وادي الفضة","ascii":"Oued Fodda","zip":"02029"},{"arabic":"بني راشد","ascii":"Beni Rached","zip":"02013"}]},{"arabic":"المرسى","ascii":"El Marsa","communes":[{"arabic":"المرسى","ascii":"El Marsa","zip":"02023"},{"arabic":"مصدق","ascii":"Moussadek","zip":"02026"}]},{"arabic":"الشلف","ascii":"Chlef","communes":[{"arabic":"الشلف","ascii":"Chlef","zip":"02001"},{"arabic":"أم الدروع","ascii":"Oum Drou","zip":"02033"},{"arabic":"سنجاس","ascii":"Sendjas","zip":"02019"}]},{"arabic":"تنس","ascii":"Tenes","communes":[{"arabic":"سيدي عبد الرحمن","ascii":"Sidi Abderrahmane","zip":"02025"},{"arabic":"سيدي عكاشة","ascii":"Sidi Akkacha","zip":null},{"arabic":"تنس","ascii":"Tenes","zip":"02002"}]},{"arabic":"الكريمية","ascii":"El Karimia","communes":[{"arabic":"بني بوعتاب","ascii":"Beni  Bouattab","zip":null},{"arabic":"الكريمية","ascii":"El Karimia","zip":"02004"},{"arabic":"حرشون","ascii":"Harchoun","zip":"02009"}]},{"arabic":"تاوقريت","ascii":"Taougrit","communes":[{"arabic":"تاوقريت","ascii":"Taougrit","zip":null},{"arabic":"الظهرة","ascii":"Dahra","zip":"02017"}]},{"arabic":"أولاد فارس","ascii":"Ouled Fares","communes":[{"arabic":"الشطية","ascii":"Chettia","zip":"02024"},{"arabic":"أولاد فارس","ascii":"Ouled Fares","zip":"02010"},{"arabic":"الأبيض مجاجة","ascii":"Labiod Medjadja","zip":"02028"}]},{"arabic":"بوقادير","ascii":"Boukadir","communes":[{"arabic":"بوقادير","ascii":"Boukadir","zip":"02012"},{"arabic":"وادي سلي","ascii":"Oued Sly","zip":"02021"},{"arabic":"الصبحة","ascii":"Sobha","zip":"02008"}]}]}
+{
+  "code": 2,
+  "arabic": "الشلف",
+  "ascii": "Chlef",
+  "dairas": [
+    {
+      "arabic": "أبو الحسن",
+      "ascii": "Abou El Hassane",
+      "communes": [
+        {
+          "arabic": "تلعصة",
+          "ascii": "Talassa",
+          "zip": "02014"
+        },
+        {
+          "arabic": "تاجنة",
+          "ascii": "Tadjena",
+          "zip": null
+        },
+        {
+          "arabic": "أبو الحسن",
+          "ascii": "Abou El Hassane",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "الزبوجة",
+      "ascii": "Zeboudja",
+      "communes": [
+        {
+          "arabic": "الزبوجة",
+          "ascii": "Zeboudja",
+          "zip": "02020"
+        },
+        {
+          "arabic": "بوزغاية",
+          "ascii": "Bouzeghaia",
+          "zip": null
+        },
+        {
+          "arabic": "بنايرية",
+          "ascii": "Benairia",
+          "zip": "02003"
+        }
+      ]
+    },
+    {
+      "arabic": "أولاد بن عبد القادر",
+      "ascii": "Ouled Ben Abdelkader",
+      "communes": [
+        {
+          "arabic": "الحجاج",
+          "ascii": "El Hadjadj",
+          "zip": "02027"
+        },
+        {
+          "arabic": "أولاد بن عبد القادر",
+          "ascii": "Ouled Ben Abdelkader",
+          "zip": "02030"
+        }
+      ]
+    },
+    {
+      "arabic": "عين مران",
+      "ascii": "Ain Merane",
+      "communes": [
+        {
+          "arabic": "عين مران",
+          "ascii": "Ain Merane",
+          "zip": "02032"
+        },
+        {
+          "arabic": "الهرانفة",
+          "ascii": "Herenfa",
+          "zip": "02015"
+        }
+      ]
+    },
+    {
+      "arabic": "بني حواء",
+      "ascii": "Beni Haoua",
+      "communes": [
+        {
+          "arabic": "بريرة",
+          "ascii": "Breira",
+          "zip": "02034"
+        },
+        {
+          "arabic": "بني حواء",
+          "ascii": "Beni Haoua",
+          "zip": "02007"
+        },
+        {
+          "arabic": "وادي قوسين",
+          "ascii": "Oued Goussine",
+          "zip": "02016"
+        }
+      ]
+    },
+    {
+      "arabic": "وادي الفضة",
+      "ascii": "Oued Fodda",
+      "communes": [
+        {
+          "arabic": "أولاد عباس",
+          "ascii": "Ouled Abbes",
+          "zip": "02018"
+        },
+        {
+          "arabic": "وادي الفضة",
+          "ascii": "Oued Fodda",
+          "zip": "02029"
+        },
+        {
+          "arabic": "بني راشد",
+          "ascii": "Beni Rached",
+          "zip": "02013"
+        }
+      ]
+    },
+    {
+      "arabic": "المرسى",
+      "ascii": "El Marsa",
+      "communes": [
+        {
+          "arabic": "المرسى",
+          "ascii": "El Marsa",
+          "zip": "02023"
+        },
+        {
+          "arabic": "مصدق",
+          "ascii": "Moussadek",
+          "zip": "02026"
+        }
+      ]
+    },
+    {
+      "arabic": "الشلف",
+      "ascii": "Chlef",
+      "communes": [
+        {
+          "arabic": "الشلف",
+          "ascii": "Chlef",
+          "zip": "02001"
+        },
+        {
+          "arabic": "أم الدروع",
+          "ascii": "Oum Drou",
+          "zip": "02033"
+        },
+        {
+          "arabic": "سنجاس",
+          "ascii": "Sendjas",
+          "zip": "02019"
+        }
+      ]
+    },
+    {
+      "arabic": "تنس",
+      "ascii": "Tenes",
+      "communes": [
+        {
+          "arabic": "سيدي عبد الرحمن",
+          "ascii": "Sidi Abderrahmane",
+          "zip": "02025"
+        },
+        {
+          "arabic": "سيدي عكاشة",
+          "ascii": "Sidi Akkacha",
+          "zip": null
+        },
+        {
+          "arabic": "تنس",
+          "ascii": "Tenes",
+          "zip": "02002"
+        }
+      ]
+    },
+    {
+      "arabic": "الكريمية",
+      "ascii": "El Karimia",
+      "communes": [
+        {
+          "arabic": "بني بوعتاب",
+          "ascii": "Beni  Bouattab",
+          "zip": null
+        },
+        {
+          "arabic": "الكريمية",
+          "ascii": "El Karimia",
+          "zip": "02004"
+        },
+        {
+          "arabic": "حرشون",
+          "ascii": "Harchoun",
+          "zip": "02009"
+        }
+      ]
+    },
+    {
+      "arabic": "تاوقريت",
+      "ascii": "Taougrit",
+      "communes": [
+        {
+          "arabic": "تاوقريت",
+          "ascii": "Taougrit",
+          "zip": null
+        },
+        {
+          "arabic": "الظهرة",
+          "ascii": "Dahra",
+          "zip": "02017"
+        }
+      ]
+    },
+    {
+      "arabic": "أولاد فارس",
+      "ascii": "Ouled Fares",
+      "communes": [
+        {
+          "arabic": "الشطية",
+          "ascii": "Chettia",
+          "zip": "02024"
+        },
+        {
+          "arabic": "أولاد فارس",
+          "ascii": "Ouled Fares",
+          "zip": "02010"
+        },
+        {
+          "arabic": "الأبيض مجاجة",
+          "ascii": "Labiod Medjadja",
+          "zip": "02028"
+        }
+      ]
+    },
+    {
+      "arabic": "بوقادير",
+      "ascii": "Boukadir",
+      "communes": [
+        {
+          "arabic": "بوقادير",
+          "ascii": "Boukadir",
+          "zip": "02012"
+        },
+        {
+          "arabic": "وادي سلي",
+          "ascii": "Oued Sly",
+          "zip": "02021"
+        },
+        {
+          "arabic": "الصبحة",
+          "ascii": "Sobha",
+          "zip": "02008"
+        }
+      ]
+    }
+  ]
+}

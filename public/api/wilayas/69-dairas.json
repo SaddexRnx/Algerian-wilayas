@@ -1,1 +1,55 @@
-[{"name_ar":"الأبيض سيدي الشيخ","name_ascii":"El Abiodh Sidi Cheikh","slug":"el-abiodh-sidi-cheikh","communes":[{"name_ar":"الأبيض سيدي الشيخ","name_ascii":"El Abiodh Sidi Cheikh","zip":null},{"name_ar":"عين العراك","name_ascii":"Ain El Orak","zip":null},{"name_ar":"أربوات","name_ascii":"Arbaouat","zip":null},{"name_ar":"البنود","name_ascii":"El Bnoud","zip":null}]},{"name_ar":"بوسمغون","name_ascii":"Boussemghoun","slug":"boussemghoun","communes":[{"name_ar":"بوسمغون","name_ascii":"Boussemghoun","zip":null}]},{"name_ar":"الشلالة","name_ascii":"Chellala","slug":"chellala","communes":[{"name_ar":"الشلالة","name_ascii":"Chellala","zip":null},{"name_ar":"المحرة","name_ascii":"El Meharra","zip":null}]}]
+[
+  {
+    "arabic": "الأبيض سيدي الشيخ",
+    "ascii": "El Abiodh Sidi Cheikh",
+    "communes": [
+      {
+        "arabic": "الأبيض سيدي الشيخ",
+        "ascii": "El Abiodh Sidi Cheikh",
+        "zip": null
+      },
+      {
+        "arabic": "عين العراك",
+        "ascii": "Ain El Orak",
+        "zip": null
+      },
+      {
+        "arabic": "أربوات",
+        "ascii": "Arbaouat",
+        "zip": null
+      },
+      {
+        "arabic": "البنود",
+        "ascii": "El Bnoud",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "بوسمغون",
+    "ascii": "Boussemghoun",
+    "communes": [
+      {
+        "arabic": "بوسمغون",
+        "ascii": "Boussemghoun",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "الشلالة",
+    "ascii": "Chellala",
+    "communes": [
+      {
+        "arabic": "الشلالة",
+        "ascii": "Chellala",
+        "zip": null
+      },
+      {
+        "arabic": "المحرة",
+        "ascii": "El Meharra",
+        "zip": null
+      }
+    ]
+  }
+]

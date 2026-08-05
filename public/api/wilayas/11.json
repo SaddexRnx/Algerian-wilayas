@@ -1,1 +1,50 @@
-{"code":11,"arabic":"تمنراست","ascii":"Tamanrasset","dairas":[{"arabic":"تاظروك","ascii":"Tazrouk","communes":[{"arabic":"تاظروك","ascii":"Tazrouk","zip":null},{"arabic":"أدلس","ascii":"Idles","zip":"11005"}]},{"arabic":"سيلت","ascii":"Silet","communes":[{"arabic":"ابلسة","ascii":"Abelsa","zip":null}]},{"arabic":"تمنراست","ascii":"Tamanrasset","communes":[{"arabic":"تمنراست","ascii":"Tamanrasset","zip":null},{"arabic":"عين امقل","ascii":"Ain Amguel","zip":null}]}]}
+{
+  "code": 11,
+  "arabic": "تمنراست",
+  "ascii": "Tamanrasset",
+  "dairas": [
+    {
+      "arabic": "تاظروك",
+      "ascii": "Tazrouk",
+      "communes": [
+        {
+          "arabic": "تاظروك",
+          "ascii": "Tazrouk",
+          "zip": null
+        },
+        {
+          "arabic": "أدلس",
+          "ascii": "Idles",
+          "zip": "11005"
+        }
+      ]
+    },
+    {
+      "arabic": "سيلت",
+      "ascii": "Silet",
+      "communes": [
+        {
+          "arabic": "ابلسة",
+          "ascii": "Abelsa",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "تمنراست",
+      "ascii": "Tamanrasset",
+      "communes": [
+        {
+          "arabic": "تمنراست",
+          "ascii": "Tamanrasset",
+          "zip": null
+        },
+        {
+          "arabic": "عين امقل",
+          "ascii": "Ain Amguel",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

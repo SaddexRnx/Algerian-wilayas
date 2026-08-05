@@ -1,1 +1,34 @@
-{"code":58,"arabic":"المنيعة","ascii":"El Meniaa","dairas":[{"arabic":"المنيعة","ascii":"El Menia","communes":[{"arabic":"المنيعة","ascii":"El Meniaa","zip":null},{"arabic":"حاسي القارة","ascii":"Hassi Gara","zip":null}]},{"arabic":"المنصورة","ascii":"Mansourah","communes":[{"arabic":"حاسي الفحل","ascii":"Hassi Fehal","zip":null}]}]}
+{
+  "code": 58,
+  "arabic": "المنيعة",
+  "ascii": "El Meniaa",
+  "dairas": [
+    {
+      "arabic": "المنيعة",
+      "ascii": "El Menia",
+      "communes": [
+        {
+          "arabic": "المنيعة",
+          "ascii": "El Meniaa",
+          "zip": null
+        },
+        {
+          "arabic": "حاسي القارة",
+          "ascii": "Hassi Gara",
+          "zip": null
+        }
+      ]
+    },
+    {
+      "arabic": "المنصورة",
+      "ascii": "Mansourah",
+      "communes": [
+        {
+          "arabic": "حاسي الفحل",
+          "ascii": "Hassi Fehal",
+          "zip": null
+        }
+      ]
+    }
+  ]
+}

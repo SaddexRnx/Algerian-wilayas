@@ -1,1 +1,45 @@
-[{"name_ar":"القنطرة","name_ascii":"El Kantara","slug":"el-kantara","communes":[{"name_ar":"القنطرة","name_ascii":"El Kantara","zip":null},{"name_ar":"عين زعطوط","name_ascii":"Ain Zaatout","zip":null}]},{"name_ar":"برانيس","name_ascii":"Branis","slug":"branis","communes":[{"name_ar":"برانيس","name_ascii":"Branis","zip":null},{"name_ar":"الوتیة","name_ascii":"El Outaya","zip":null}]},{"name_ar":"جمورة","name_ascii":"Djemourah","slug":"djemourah","communes":[{"name_ar":"جمورة","name_ascii":"Djemourah","zip":null}]}]
+[
+  {
+    "arabic": "القنطرة",
+    "ascii": "El Kantara",
+    "communes": [
+      {
+        "arabic": "القنطرة",
+        "ascii": "El Kantara",
+        "zip": null
+      },
+      {
+        "arabic": "عين زعطوط",
+        "ascii": "Ain Zaatout",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "برانيس",
+    "ascii": "Branis",
+    "communes": [
+      {
+        "arabic": "برانيس",
+        "ascii": "Branis",
+        "zip": null
+      },
+      {
+        "arabic": "الوتیة",
+        "ascii": "El Outaya",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "جمورة",
+    "ascii": "Djemourah",
+    "communes": [
+      {
+        "arabic": "جمورة",
+        "ascii": "Djemourah",
+        "zip": null
+      }
+    ]
+  }
+]

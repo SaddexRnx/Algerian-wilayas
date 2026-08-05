@@ -1,1 +1,18 @@
-[{"name_ar":"تندوف","name_ascii":"Tindouf","slug":"tindouf","communes":[{"name_ar":"تندوف","name_ascii":"Tindouf","zip":"37001"},{"name_ar":"أم العسل","name_ascii":"Oum El Assel","zip":"37002"}]}]
+[
+  {
+    "arabic": "تندوف",
+    "ascii": "Tindouf",
+    "communes": [
+      {
+        "arabic": "تندوف",
+        "ascii": "Tindouf",
+        "zip": "37001"
+      },
+      {
+        "arabic": "أم العسل",
+        "ascii": "Oum El Assel",
+        "zip": "37002"
+      }
+    ]
+  }
+]

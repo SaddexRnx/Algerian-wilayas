@@ -1,1 +1,18 @@
-[{"name_ar":"جانت","name_ascii":"Djanet","slug":"djanet","communes":[{"name_ar":"جانت","name_ascii":"Djanet","zip":null},{"name_ar":"برج الحواس","name_ascii":"Bordj El Haouass","zip":null}]}]
+[
+  {
+    "arabic": "جانت",
+    "ascii": "Djanet",
+    "communes": [
+      {
+        "arabic": "جانت",
+        "ascii": "Djanet",
+        "zip": null
+      },
+      {
+        "arabic": "برج الحواس",
+        "ascii": "Bordj El Haouass",
+        "zip": null
+      }
+    ]
+  }
+]

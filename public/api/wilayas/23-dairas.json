@@ -1,1 +1,104 @@
-[{"name_ar":"عنابة","name_ascii":"Annaba","slug":"annaba","communes":[{"name_ar":"عنابة","name_ascii":"Annaba","zip":"23001"},{"name_ar":"سرايدي","name_ascii":"Seraidi","zip":"23008"}]},{"name_ar":"برحال","name_ascii":"Berrahal","slug":"berrahal","communes":[{"name_ar":"برحال","name_ascii":"Berrahal","zip":null},{"name_ar":"واد العنب","name_ascii":"Oued El Aneb","zip":"23006"},{"name_ar":"التريعات","name_ascii":"Treat","zip":"23012"}]},{"name_ar":"الحجار","name_ascii":"El Hadjar","slug":"el-hadjar","communes":[{"name_ar":"الحجار","name_ascii":"El Hadjar","zip":"23003"},{"name_ar":"سيدي عمار","name_ascii":"Sidi Amar","zip":null}]},{"name_ar":"البوني","name_ascii":"El Bouni","slug":"el-bouni","communes":[{"name_ar":"البوني","name_ascii":"El Bouni","zip":"23005"}]},{"name_ar":"عين الباردة","name_ascii":"Ain El Berda","slug":"ain-el-berda","communes":[{"name_ar":"عين الباردة","name_ascii":"Ain El Berda","zip":null},{"name_ar":"الشرفة","name_ascii":"Cheurfa","zip":"23007"}]},{"name_ar":"العلمة","name_ascii":"El Eulma","slug":"el-eulma","communes":[{"name_ar":"العلمة","name_ascii":"El Eulma","zip":null}]},{"name_ar":"شطايبي","name_ascii":"Chetaibi","slug":"chetaibi","communes":[{"name_ar":"شطايبي","name_ascii":"Chetaibi","zip":"23010"}]}]
+[
+  {
+    "arabic": "عنابة",
+    "ascii": "Annaba",
+    "communes": [
+      {
+        "arabic": "عنابة",
+        "ascii": "Annaba",
+        "zip": "23001"
+      },
+      {
+        "arabic": "سرايدي",
+        "ascii": "Seraidi",
+        "zip": "23008"
+      }
+    ]
+  },
+  {
+    "arabic": "برحال",
+    "ascii": "Berrahal",
+    "communes": [
+      {
+        "arabic": "برحال",
+        "ascii": "Berrahal",
+        "zip": null
+      },
+      {
+        "arabic": "واد العنب",
+        "ascii": "Oued El Aneb",
+        "zip": "23006"
+      },
+      {
+        "arabic": "التريعات",
+        "ascii": "Treat",
+        "zip": "23012"
+      }
+    ]
+  },
+  {
+    "arabic": "الحجار",
+    "ascii": "El Hadjar",
+    "communes": [
+      {
+        "arabic": "الحجار",
+        "ascii": "El Hadjar",
+        "zip": "23003"
+      },
+      {
+        "arabic": "سيدي عمار",
+        "ascii": "Sidi Amar",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "البوني",
+    "ascii": "El Bouni",
+    "communes": [
+      {
+        "arabic": "البوني",
+        "ascii": "El Bouni",
+        "zip": "23005"
+      }
+    ]
+  },
+  {
+    "arabic": "عين الباردة",
+    "ascii": "Ain El Berda",
+    "communes": [
+      {
+        "arabic": "عين الباردة",
+        "ascii": "Ain El Berda",
+        "zip": null
+      },
+      {
+        "arabic": "الشرفة",
+        "ascii": "Cheurfa",
+        "zip": "23007"
+      }
+    ]
+  },
+  {
+    "arabic": "العلمة",
+    "ascii": "El Eulma",
+    "communes": [
+      {
+        "arabic": "العلمة",
+        "ascii": "El Eulma",
+        "zip": null
+      }
+    ]
+  },
+  {
+    "arabic": "شطايبي",
+    "ascii": "Chetaibi",
+    "communes": [
+      {
+        "arabic": "شطايبي",
+        "ascii": "Chetaibi",
+        "zip": "23010"
+      }
+    ]
+  }
+]

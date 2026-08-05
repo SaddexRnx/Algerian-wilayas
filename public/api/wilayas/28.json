@@ -1,1 +1,169 @@
-{"code":28,"arabic":"المسيلة","ascii":"M'Sila","dairas":[{"arabic":"المسيلة","ascii":"M'sila","communes":[{"arabic":"المسيلة","ascii":"M’Sila","zip":"28001"}]},{"arabic":"شلال","ascii":"Chellal","communes":[{"arabic":"شلال","ascii":"Chellal","zip":"28009"},{"arabic":"أولاد ماضي","ascii":"Ouled Madhi","zip":"28010"},{"arabic":"خطوطي سد الجير","ascii":"Khetouti Sed El Djir","zip":null},{"arabic":"المعاريف","ascii":"Maarif","zip":"28029"}]},{"arabic":"مقرة","ascii":"Magra","communes":[{"arabic":"مقرة","ascii":"Magra","zip":"28011"},{"arabic":"برهوم","ascii":"Berhoum","zip":"28012"},{"arabic":"عين الخضراء","ascii":"Ain Khadra","zip":"28013"},{"arabic":"بلعايبة","ascii":"Belaiba","zip":"28015"},{"arabic":"دهاهنة","ascii":"Dehahna","zip":"28030"}]},{"arabic":"سيدي عيسى","ascii":"Sidi Aissa","communes":[{"arabic":"سيدي عيسى","ascii":"Sidi Aissa","zip":"28016"},{"arabic":"بوطي السايح","ascii":"Bouti Sayah","zip":"28031"},{"arabic":"بني يلمان","ascii":"Beni Ilmane","zip":"28045"}]},{"arabic":"عين الحجل","ascii":"Ain El Hadjel","communes":[{"arabic":"عين الحجل","ascii":"Ain El Hadjel","zip":"28017"},{"arabic":"سيدي هجرس","ascii":"Sidi Hadjeres","zip":"28018"}]},{"arabic":"حمام الضلعة","ascii":"Hammam Dalaa","communes":[{"arabic":"حمام الضلعة","ascii":"Hammam Dhalaa","zip":"28003"},{"arabic":"ونوغة","ascii":"Ouanougha","zip":"28019"},{"arabic":"أولاد منصور","ascii":"Ouled Mansour","zip":"28028"},{"arabic":"تارمونت","ascii":"Tarmount","zip":"28005"}]},{"arabic":"أولاد دراج","ascii":"Ouled Derradj","communes":[{"arabic":"أولاد دراج","ascii":"Ouled Derradj","zip":"28004"},{"arabic":"السوامع","ascii":"Souamaa","zip":"28040"},{"arabic":"أولاد عدي لقبالة","ascii":"Ouled Addi Guebala","zip":"28014"},{"arabic":"المعاضيد","ascii":"Maadid","zip":"28002"},{"arabic":"امطارفة","ascii":"M’Tarfa","zip":"28006"}]}]}
+{
+  "code": 28,
+  "arabic": "المسيلة",
+  "ascii": "M'Sila",
+  "dairas": [
+    {
+      "arabic": "المسيلة",
+      "ascii": "M'sila",
+      "communes": [
+        {
+          "arabic": "المسيلة",
+          "ascii": "M’Sila",
+          "zip": "28001"
+        }
+      ]
+    },
+    {
+      "arabic": "شلال",
+      "ascii": "Chellal",
+      "communes": [
+        {
+          "arabic": "شلال",
+          "ascii": "Chellal",
+          "zip": "28009"
+        },
+        {
+          "arabic": "أولاد ماضي",
+          "ascii": "Ouled Madhi",
+          "zip": "28010"
+        },
+        {
+          "arabic": "خطوطي سد الجير",
+          "ascii": "Khetouti Sed El Djir",
+          "zip": null
+        },
+        {
+          "arabic": "المعاريف",
+          "ascii": "Maarif",
+          "zip": "28029"
+        }
+      ]
+    },
+    {
+      "arabic": "مقرة",
+      "ascii": "Magra",
+      "communes": [
+        {
+          "arabic": "مقرة",
+          "ascii": "Magra",
+          "zip": "28011"
+        },
+        {
+          "arabic": "برهوم",
+          "ascii": "Berhoum",
+          "zip": "28012"
+        },
+        {
+          "arabic": "عين الخضراء",
+          "ascii": "Ain Khadra",
+          "zip": "28013"
+        },
+        {
+          "arabic": "بلعايبة",
+          "ascii": "Belaiba",
+          "zip": "28015"
+        },
+        {
+          "arabic": "دهاهنة",
+          "ascii": "Dehahna",
+          "zip": "28030"
+        }
+      ]
+    },
+    {
+      "arabic": "سيدي عيسى",
+      "ascii": "Sidi Aissa",
+      "communes": [
+        {
+          "arabic": "سيدي عيسى",
+          "ascii": "Sidi Aissa",
+          "zip": "28016"
+        },
+        {
+          "arabic": "بوطي السايح",
+          "ascii": "Bouti Sayah",
+          "zip": "28031"
+        },
+        {
+          "arabic": "بني يلمان",
+          "ascii": "Beni Ilmane",
+          "zip": "28045"
+        }
+      ]
+    },
+    {
+      "arabic": "عين الحجل",
+      "ascii": "Ain El Hadjel",
+      "communes": [
+        {
+          "arabic": "عين الحجل",
+          "ascii": "Ain El Hadjel",
+          "zip": "28017"
+        },
+        {
+          "arabic": "سيدي هجرس",
+          "ascii": "Sidi Hadjeres",
+          "zip": "28018"
+        }
+      ]
+    },
+    {
+      "arabic": "حمام الضلعة",
+      "ascii": "Hammam Dalaa",
+      "communes": [
+        {
+          "arabic": "حمام الضلعة",
+          "ascii": "Hammam Dhalaa",
+          "zip": "28003"
+        },
+        {
+          "arabic": "ونوغة",
+          "ascii": "Ouanougha",
+          "zip": "28019"
+        },
+        {
+          "arabic": "أولاد منصور",
+          "ascii": "Ouled Mansour",
+          "zip": "28028"
+        },
+        {
+          "arabic": "تارمونت",
+          "ascii": "Tarmount",
+          "zip": "28005"
+        }
+      ]
+    },
+    {
+      "arabic": "أولاد دراج",
+      "ascii": "Ouled Derradj",
+      "communes": [
+        {
+          "arabic": "أولاد دراج",
+          "ascii": "Ouled Derradj",
+          "zip": "28004"
+        },
+        {
+          "arabic": "السوامع",
+          "ascii": "Souamaa",
+          "zip": "28040"
+        },
+        {
+          "arabic": "أولاد عدي لقبالة",
+          "ascii": "Ouled Addi Guebala",
+          "zip": "28014"
+        },
+        {
+          "arabic": "المعاضيد",
+          "ascii": "Maadid",
+          "zip": "28002"
+        },
+        {
+          "arabic": "امطارفة",
+          "ascii": "M’Tarfa",
+          "zip": "28006"
+        }
+      ]
+    }
+  ]
+}
