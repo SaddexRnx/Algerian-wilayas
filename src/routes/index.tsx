@@ -207,54 +207,50 @@ function Index() {
       className="min-h-screen animate-[fadeIn_400ms_ease-out] bg-white font-[system-ui,Inter,sans-serif] antialiased"
     >
       <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur">
-        <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-4 sm:px-6 sm:py-5">
-          <div className="flex min-w-0 items-center gap-2">
-            <img src={logo} alt="DZ Address Picker logo" className="h-8 w-8 shrink-0" />
-            <span className="min-w-0 truncate text-lg font-bold text-black sm:text-xl">
-              DZ Address Picker
-            </span>
-            <span className="ml-2 inline-flex shrink-0 items-center rounded-full border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
-              v{pkg.version}
-            </span>
-            <div className="ml-4 hidden items-center gap-2 rounded-full bg-gray-50 px-3 py-1 sm:flex">
-              <span className={`h-1.5 w-1.5 rounded-full ${healthData.every(h => h.status === 'up') ? 'bg-green-500' : 'bg-red-500'} animate-pulse`}></span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                {t("common.live")}
+        <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex min-w-0 items-center gap-2">
+              <img src={logo} alt="DZ Address Picker logo" className="h-7 w-7 sm:h-8 sm:w-8 shrink-0" />
+              <span className="min-w-0 truncate text-base font-bold text-black sm:text-lg lg:text-xl">
+                DZ Address Picker
               </span>
-              <button 
-                onClick={runHealth}
-                disabled={healthLoading}
-                className="ml-1 text-[10px] font-bold uppercase text-black underline underline-offset-2 opacity-50 hover:opacity-100 disabled:opacity-20"
-              >
-                {healthLoading ? "..." : t("common.refresh")}
-              </button>
+              <span className="ml-1 inline-flex shrink-0 items-center rounded-full border border-gray-100 bg-gray-100 px-1.5 py-0.5 text-[9px] font-bold text-gray-500">
+                v{pkg.version}
+              </span>
             </div>
-          </div>
 
-          <div className="flex shrink-0 items-center gap-3">
-            <nav className="hidden items-center gap-5 text-sm lg:flex">
-              {navLinks.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="text-gray-600 transition-colors duration-300 hover:text-black"
+            <div className="flex shrink-0 items-center gap-3">
+              <div className="hidden items-center gap-2 rounded-full bg-gray-50 px-3 py-1 lg:flex">
+                <span className={`h-1.5 w-1.5 rounded-full ${healthData.every(h => h.status === 'up') ? 'bg-green-500' : 'bg-red-500'} animate-pulse`}></span>
+                <span className="text-[9px] font-bold uppercase tracking-widest text-gray-500">
+                  {t("common.live")}
+                </span>
+                <button 
+                  onClick={runHealth}
+                  disabled={healthLoading}
+                  className="ml-1 text-[9px] font-bold uppercase text-black underline underline-offset-2 opacity-50 hover:opacity-100 disabled:opacity-20"
                 >
-                  {l.label}
-                </a>
-              ))}
-            </nav>
-            <LanguageToggle />
+                  {healthLoading ? "..." : t("common.refresh")}
+                </button>
+              </div>
+              <LanguageToggle />
+            </div>
           </div>
         </div>
         
-        <nav className="flex gap-4 overflow-x-auto border-t border-gray-100 px-4 py-3 text-sm whitespace-nowrap lg:hidden scrollbar-hide justify-center">
+        <nav className="flex items-center justify-center gap-4 overflow-x-auto border-t border-gray-100 px-4 py-2.5 text-xs whitespace-nowrap scrollbar-hide">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="text-gray-600 font-medium transition hover:text-black">
+            <a 
+              key={l.href} 
+              href={l.href} 
+              className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black"
+            >
               {l.label}
             </a>
           ))}
         </nav>
       </header>
+
 
       <main className="mx-auto max-w-5xl px-4 pb-8 sm:px-6">
         <section className="py-8 sm:py-16 md:py-20 lg:py-24 text-center">
