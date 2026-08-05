@@ -507,8 +507,4 @@ export function DeveloperHub() {
   );
 }
 
-    </div>
-  );
-}
-
 export default DeveloperHub;
