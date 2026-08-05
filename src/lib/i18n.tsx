@@ -31,6 +31,12 @@ const baseTranslations = {
   "nav.report": { en: "Report", fr: "Signaler", ar: "تبليغ" },
   "nav.adminLogin": { en: "Admin Login", fr: "Connexion admin", ar: "دخول المشرف" },
   "nav.dashboard": { en: "Dashboard", fr: "Tableau de bord", ar: "لوحة التحكم" },
+  "common.backHome": { en: "Back to Home", fr: "Retour à l'accueil", ar: "العودة للرئيسية" },
+  "common.contributor": { en: "Contributor", fr: "Contributeur", ar: "المساهم" },
+  "common.contributions": { en: "Contributions", fr: "Contributions", ar: "المساهمات" },
+  "common.badge": { en: "Badge", fr: "Badge", ar: "الوسام" },
+  "common.loading": { en: "Loading...", fr: "Chargement...", ar: "جاري التحميل..." },
+  "common.error": { en: "Error", fr: "Erreur", ar: "خطأ" },
 
   // Hero
   "hero.title": { en: "Modern Algerian Address Integration.", fr: "L'intégration moderne des adresses algériennes.", ar: "التكامل الحديث للعناوين الجزائرية." },
