@@ -323,7 +323,10 @@ const ar: Record<TranslationKey, string> = {
   "api.wilayasDesc": "قائمة خفيفة بالولايات الـ69 مع الرمز والاسم بالعربية واللاتينية.",
   "api.fullDesc": "مجموعة البيانات الهرمية الكاملة: الولايات والدوائر والبلديات في ملف واحد.",
   "api.dairasDesc": "كل دوائر ولاية محددة عبر رمزها.",
-  "api.communesDesc": "كل بلديات دائرة محددة.",
+  "api.catBase": "Points de terminaison de base",
+  "api.catLang": "Points de terminaison par langue",
+  "api.catGranular": "Points de terminaison granulaires",
+  "api.catZip": "Recherche par Code Postal",
   "api.theming": "تريد مطابقة هوية علامتك؟ عدِّل متغيرات CSS الخاصة بنا:",
 
   "tester.title": "مُختبِر الواجهة البرمجية",
