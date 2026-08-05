@@ -8,18 +8,23 @@ import { clearAdminAuthed, isAdminAuthed } from "@/lib/admin-mock-auth";
 import { adminAnalytics, type AnalyticsPayload } from "@/lib/admin-analytics.functions";
 import { supabase } from "@/integrations/supabase/client";
 import { checkApiHealth, type HealthCheckResult } from "@/lib/health.functions";
-
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
+import { 
+  Bar, 
+  BarChart, 
+  CartesianGrid, 
+  Line, 
+  LineChart, 
+  ResponsiveContainer, 
+  Tooltip, 
+  XAxis, 
   YAxis,
+  Area,
+  AreaChart,
+  Pie,
+  PieChart,
+  Cell
 } from "recharts";
+
 
 export const Route = createFileRoute("/admin")({
   ssr: false,
