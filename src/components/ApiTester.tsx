@@ -100,8 +100,8 @@ export function ApiTester() {
   }
 
   return (
-    <div className="mx-auto mt-16 max-w-3xl">
-      <h2 className="text-lg font-semibold text-black">{t("tester.title")}</h2>
+    <div className="mx-auto mt-16 max-w-3xl px-4 sm:px-0">
+      <h2 className="text-xl sm:text-lg font-semibold text-black">{t("tester.title")}</h2>
       <p className="mt-2 text-sm text-gray-500">{t("tester.subtitle")}</p>
 
       <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
