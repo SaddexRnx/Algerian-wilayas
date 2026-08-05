@@ -6,6 +6,8 @@ import { DeveloperHub, SNIPPETS } from "@/components/DeveloperHub";
 import { ApiDocs } from "@/components/ApiDocs";
 import { ApiTester } from "@/components/ApiTester";
 import logo from "@/assets/logo.png";
+import { ChevronRight } from "lucide-react";
+
 import { LanguageToggle, useI18n } from "@/lib/i18n";
 import pkg from '../../package.json';
 
