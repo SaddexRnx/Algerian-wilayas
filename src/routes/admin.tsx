@@ -5,6 +5,7 @@ import { ForcedLanguageProvider, useI18n, type TranslationKey } from "@/lib/i18n
 import { adminLogout } from "@/lib/admin-auth.functions";
 import { clearAdminAuthed, isAdminAuthed } from "@/lib/admin-mock-auth";
 import { adminAnalytics, type AnalyticsPayload } from "@/lib/admin-analytics.functions";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Bar,
   BarChart,
