@@ -61,12 +61,13 @@ function LeaderboardPage() {
             <table className="w-full text-left" dir={isRtl ? 'rtl' : 'ltr'}>
               <thead className="bg-gray-50 border-b text-[10px] font-bold uppercase tracking-widest text-gray-400">
                 <tr>
-                  <th className="px-6 py-4">Rank</th>
-                  <th className="px-6 py-4">Contributor</th>
-                  <th className="px-6 py-4">Contributions</th>
-                  <th className="px-6 py-4">Badge</th>
+                  <th className={`px-6 py-4 ${isRtl ? 'text-right' : 'text-left'}`}>{t("admin.table.rank")}</th>
+                  <th className={`px-6 py-4 ${isRtl ? 'text-right' : 'text-left'}`}>{t("admin.table.contributor")}</th>
+                  <th className={`px-6 py-4 ${isRtl ? 'text-right' : 'text-left'}`}>{t("admin.table.contributions")}</th>
+                  <th className={`px-6 py-4 ${isRtl ? 'text-right' : 'text-left'}`}>{t("admin.table.badge")}</th>
                 </tr>
               </thead>
+
 
 
               <tbody className="divide-y">
