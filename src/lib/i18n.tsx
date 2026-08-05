@@ -116,6 +116,7 @@ const fr = {
   "nav.tester": "Testeur d'API",
   "hub.advanced": "Options avancées",
   "hub.showAdvanced": "Afficher les options avancées",
+  "picker.zipDisclaimer": "Note : Les codes postaux sont basés sur d'anciennes données administratives et peuvent être inexacts. Veuillez utiliser la fonction 'Signaler une erreur' pour nous aider à mettre à jour la base de données.",
 
 
 
@@ -443,7 +444,10 @@ const ar: Record<TranslationKey, string> = {
   "tester.help.daira": "أدخل كود الولاية واسم الدائرة",
   "tester.help.zip": "أدخل رمز بريدي مكون من 5 أرقام (مثلاً 19070)",
   "tester.help.lang": "لا توجد معلمات مطلوبة. يرجع بيانات خاصة باللغة.",
-  "updates.v104": "v1.0.4: إصلاح فساد البيانات، إضافة الأسماء العربية لعمليات البحث عن الرمز البريدي، وتقديم نقاط نهاية خفيفة للغاية خاصة باللغة (/api/ar/، /api/fr/، /api/en/) لتحسين الأداء.",
+  "updates.v104": "v1.0.4: تم إصلاح دقة تعيين الرمز البريدي، وإضافة نقاط وصول خاصة باللغة (/api/ar/ و /api/latin/)، وتحسين مُختبِر API، وتعزيز توثيق مركز المطورين.",
+  "hub.advanced": "خيارات متقدمة",
+  "hub.showAdvanced": "إظهار الخيارات المتقدمة",
+  "picker.zipDisclaimer": "ملاحظة: تعتمد الرموز البريدية على بيانات إدارية قديمة وقد تكون غير دقيقة. يرجى استخدام ميزة 'الإبلاغ عن بيانات غير صحيحة' لمساعدتنا في تحديث قاعدة البيانات.",
   "home.reportLink": "هل هناك خطأ في البيانات؟ اضغط هنا لتقديم تصحيح.",
 
 };
@@ -656,7 +660,10 @@ const en: Record<TranslationKey, string> = {
   "tester.help.daira": "ENTER A WILAYA CODE AND DAIRA SLUG",
   "tester.help.zip": "ENTER A 5-DIGIT ZIP CODE (E.G. 19070)",
   "tester.help.lang": "No parameters needed. Returns language-specific data.",
-  "updates.v104": "v1.0.4: Fixed data corruption, added Arabic names to ZIP lookups, and introduced ultra-lightweight language-specific endpoints (/api/ar/, /api/fr/, /api/en/) for optimized performance.",
+  "updates.v104": "v1.0.4: Fixed ZIP code mapping accuracy, added dynamic language-specific endpoints (/api/ar/ and /api/latin/), improved API tester, and enhanced Developer Hub documentation.",
+  "hub.advanced": "Advanced Options",
+  "hub.showAdvanced": "Show Advanced Options",
+  "picker.zipDisclaimer": "Note: Postal codes are based on historical administrative data and may be inaccurate. Please use the 'Report Incorrect Data' feature to help us keep the database updated.",
   "home.reportLink": "Something wrong with the data? Click here to submit a correction.",
 };
 
