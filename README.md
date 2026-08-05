@@ -1,4 +1,4 @@
-# DZ Address Picker
+# DZ Address Picker v1.0.2
 
 **A free, blazing-fast, plug-and-play Algerian address system — 58 Wilayas (69 with the new administrative divisions), all Dairas and 1,541 Communes — as a static JSON API, an embeddable widget and a React component.**
 
@@ -314,3 +314,9 @@ The administrative dataset is official Algerian public administrative data.
 - **Portfolio:** [SaddexRnx.github.io](https://SaddexRnx.github.io)
 
 Built for the Algerian developer community. Open source and free to use.
+
+## What's New in v1.0.2
+- **Smart ZIP Toggle**: Switch between manual selection and reverse ZIP lookup.
+- **Village/Neighborhood Support**: Collect granular community data.
+- **Crowdsourcing System**: Built-in reporting to keep data accurate.
+- **Admin ZIP Dashboard**: Track and review community-submitted data.
