@@ -1,0 +1,25 @@
+{
+  "current": "2.0.0-beta.2",
+  "history": [
+    {
+      "version": "1.0.0",
+      "date": "2024-01-01",
+      "notes": "Initial release"
+    },
+    {
+      "version": "1.0.5",
+      "date": "2024-06-01",
+      "notes": "Official postal codes integrated"
+    },
+    {
+      "version": "2.0.0-beta.1",
+      "date": "2024-08-01",
+      "notes": "Logistics and Maps"
+    },
+    {
+      "version": "2.0.0-beta.2",
+      "date": "2024-08-05",
+      "notes": "Economy and Utilities"
+    }
+  ]
+}

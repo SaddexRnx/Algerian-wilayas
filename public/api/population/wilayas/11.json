@@ -1,8 +1,10 @@
 {
   "code": 11,
-  "population": 1318161,
-  "area_km2": 31209,
-  "density": 42.24,
+  "name": "",
+  "name_ar": "",
+  "population": 930868,
+  "area_km2": 16266,
+  "density": 57.23,
   "growth_rate": "1.8%",
   "status": "Beta - Data Pending"
 }
