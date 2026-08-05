@@ -20,7 +20,7 @@ const ENDPOINTS: Endpoint[] = [
     descKey: "api.indexDesc",
     response: `{
   "version": "1.0.4",
-  "endpoints": ["/api/wilayas.json", ...]
+  "endpoints": ["/api/wilayas.json", "/api/full-data.json", ...]
 }`,
     example: `const index = await fetch("${BASE}/api/index.json").then(r => r.json());`,
   },
@@ -35,24 +35,96 @@ const ENDPOINTS: Endpoint[] = [
     example: `const wilayas = await fetch("${BASE}/api/wilayas.json").then(r => r.json());`,
   },
   {
+    category: "base",
+    method: "GET",
+    path: "/api/full-data.json",
+    descKey: "api.fullDataDesc",
+    response: `[
+  { "code": 16, "name": "Alger", "dairas": [...] }
+]`,
+    example: `const fullData = await fetch("${BASE}/api/full-data.json").then(r => r.json());`,
+  },
+  {
+    category: "base",
+    method: "GET",
+    path: "/api/wilayas/{code}.json",
+    descKey: "api.wilayaDetailDesc",
+    response: `{ "code": 16, "arabic": "الجزائر", "ascii": "Alger" }`,
+    example: `const wilaya = await fetch("${BASE}/api/wilayas/16.json").then(r => r.json());`,
+  },
+  {
+    category: "base",
+    method: "GET",
+    path: "/api/wilayas/{code}/dairas.json",
+    descKey: "api.wilayaDairasDesc",
+    response: `[
+  { "code": 16, "ascii": "Alger Centre", "arabic": "الجزائر الوسطى" }
+]`,
+    example: `const dairas = await fetch("${BASE}/api/wilayas/16/dairas.json").then(r => r.json());`,
+  },
+  {
     category: "lang",
     method: "GET",
     path: "/api/ar/wilayas.json",
     descKey: "api.wilayasDesc",
-    response: `[
-  { "code": 16, "name": "الجزائر" }
-]`,
+    response: `[ { "code": 16, "name": "الجزائر" } ]`,
     example: `const arWilayas = await fetch("${BASE}/api/ar/wilayas.json").then(r => r.json());`,
+  },
+  {
+    category: "lang",
+    method: "GET",
+    path: "/api/ar/full-data.json",
+    descKey: "api.fullDataDesc",
+    response: `[ { "code": 16, "name": "الجزائر", "dairas": [...] } ]`,
+    example: `const arFull = await fetch("${BASE}/api/ar/full-data.json").then(r => r.json());`,
+  },
+  {
+    category: "lang",
+    method: "GET",
+    path: "/api/ar/wilayas/{code}.json",
+    descKey: "api.wilayaDetailDesc",
+    response: `{ "code": 16, "name": "الجزائر" }`,
+    example: `const arWilaya = await fetch("${BASE}/api/ar/wilayas/16.json").then(r => r.json());`,
+  },
+  {
+    category: "lang",
+    method: "GET",
+    path: "/api/ar/wilayas/{code}/dairas.json",
+    descKey: "api.wilayaDairasDesc",
+    response: `[ { "code": 16, "name": "الجزائر الوسطى" } ]`,
+    example: `const arDairas = await fetch("${BASE}/api/ar/wilayas/16/dairas.json").then(r => r.json());`,
   },
   {
     category: "lang",
     method: "GET",
     path: "/api/latin/wilayas.json",
     descKey: "api.wilayasDesc",
-    response: `[
-  { "code": 16, "name": "Alger" }
-]`,
+    response: `[ { "code": 16, "name": "Alger" } ]`,
     example: `const latinWilayas = await fetch("${BASE}/api/latin/wilayas.json").then(r => r.json());`,
+  },
+  {
+    category: "lang",
+    method: "GET",
+    path: "/api/latin/full-data.json",
+    descKey: "api.fullDataDesc",
+    response: `[ { "code": 16, "name": "Alger", "dairas": [...] } ]`,
+    example: `const latinFull = await fetch("${BASE}/api/latin/full-data.json").then(r => r.json());`,
+  },
+  {
+    category: "lang",
+    method: "GET",
+    path: "/api/latin/wilayas/{code}.json",
+    descKey: "api.wilayaDetailDesc",
+    response: `{ "code": 16, "name": "Alger" }`,
+    example: `const latinWilaya = await fetch("${BASE}/api/latin/wilayas/16.json").then(r => r.json());`,
+  },
+  {
+    category: "lang",
+    method: "GET",
+    path: "/api/latin/wilayas/{code}/dairas.json",
+    descKey: "api.wilayaDairasDesc",
+    response: `[ { "code": 16, "name": "Alger Centre" } ]`,
+    example: `const latinDairas = await fetch("${BASE}/api/latin/wilayas/16/dairas.json").then(r => r.json());`,
   },
   {
     category: "granular",
@@ -78,6 +150,18 @@ const ENDPOINTS: Endpoint[] = [
   "communes": [{ "name": "بوسلام", "zip": "19019" }]
 }`,
     example: `const arDaira = await fetch("${BASE}/api/ar/wilayas/19/dairas/bouandas.json").then(r => r.json());`,
+  },
+  {
+    category: "granular",
+    method: "GET",
+    path: "/api/latin/wilayas/{code}/dairas/{slug}.json",
+    descKey: "api.dairaDetailDesc",
+    response: `{
+  "wilaya_name": "Setif",
+  "daira_name": "Bouandas",
+  "communes": [{ "name": "Boussellam", "zip": "19019" }]
+}`,
+    example: `const latinDaira = await fetch("${BASE}/api/latin/wilayas/19/dairas/bouandas.json").then(r => r.json());`,
   },
   {
     category: "zip",
