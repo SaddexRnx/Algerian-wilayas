@@ -1,0 +1,10 @@
+{
+  "offices": [
+    {
+      "name": "Daira undefined Office",
+      "address": "Daira HQ, Centre undefined",
+      "type": "Biometric Passport"
+    }
+  ],
+  "status": "Automatic mapping: Every Daira has an office."
+}

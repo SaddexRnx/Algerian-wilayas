@@ -1,0 +1,17 @@
+{
+  "post_offices": [
+    {
+      "name": "Grande Poste undefined",
+      "address": "Centre Ville, undefined",
+      "type": "Main",
+      "hours": "08:00 - 16:00"
+    },
+    {
+      "name": "Poste Annexe undefined North",
+      "address": "Quartier Nord, undefined",
+      "type": "Branch",
+      "hours": "08:00 - 15:30"
+    }
+  ],
+  "status": "Beta - Partial List"
+}

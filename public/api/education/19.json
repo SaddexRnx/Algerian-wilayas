@@ -1,0 +1,10 @@
+{
+  "universities": [
+    {
+      "name": "Université de undefined",
+      "campus": "Main",
+      "established": "1975"
+    }
+  ],
+  "status": "Beta"
+}
