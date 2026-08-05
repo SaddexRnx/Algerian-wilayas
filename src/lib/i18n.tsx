@@ -115,6 +115,13 @@ const baseTranslations = {
   "api.dairaDetailDesc": { en: "Details for a specific daira.", fr: "Détails d'une daira spécifique.", ar: "تفاصيل دائرة معينة." },
   "api.zipReverseDesc": { en: "Lookup address by ZIP code.", fr: "Recherche par code postal.", ar: "البحث عن العنوان بالرمز البريدي." },
 
+  // API Tester
+  "tester.title": { en: "API Tester", fr: "Testeur d'API", ar: "مختبر واجهة البرمجة" },
+  "tester.subtitle": { en: "Interactive sandbox to test endpoints in real-time.", fr: "Bac à sable interactif pour tester les points de terminaison.", ar: "بيئة تجريبية تفاعلية لاختبار نقاط الوصول في الوقت الفعلي." },
+  "tester.endpoint": { en: "Select Endpoint", fr: "Choisir un point de terminaison", ar: "اختر نقطة الوصول" },
+  "tester.send": { en: "Send Request", fr: "Envoyer la requête", ar: "إرسال الطلب" },
+  "tester.sending": { en: "Sending...", fr: "Envoi...", ar: "جاري الإرسال..." },
+
   // API Endpoint descriptions (detailed)
   "api.desc.wilayas": { en: "List all 69 wilayas.", fr: "Liste des 69 wilayas.", ar: "قائمة جميع الـ 69 ولاية." },
   "api.desc.full": { en: "Complete hierarchical dataset.", fr: "Jeu de données hiérarchique complet.", ar: "مجموعة البيانات الهيكلية الكاملة." },

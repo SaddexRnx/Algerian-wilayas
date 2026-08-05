@@ -30,14 +30,14 @@ export default function LeafletMap({ wilayas, zones, shipping, lang, t }: Leafle
 
   return (
     <MapContainer
-      center={[32.0, 3.0]}
+      center={[30.0, 3.0]}
       zoom={5}
-      className="h-full w-full"
+      className="h-full w-full rounded-xl overflow-hidden grayscale contrast-125"
       scrollWheelZoom={true}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
       />
       
       {wilayas.map((w) => {

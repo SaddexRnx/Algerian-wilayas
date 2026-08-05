@@ -116,8 +116,8 @@ export function ApiTester() {
 
   return (
     <div className="mx-auto mt-16 max-w-3xl px-4 sm:px-0">
-      <h2 className="text-xl sm:text-lg font-semibold text-black">{t("tester.title")}</h2>
-      <p className="mt-2 text-sm text-gray-500">{t("tester.subtitle")}</p>
+      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-black">{t("tester.title")}</h2>
+      <p className="mt-2 text-lg text-gray-500">{t("tester.subtitle")}</p>
 
       <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
         <label className="block text-sm" htmlFor={`${baseId}-endpoint`}>

@@ -5,67 +5,69 @@ A free, high-performance, and plug-and-play solution for developers and e-commer
 
 ---
 
-## 🚀 What's New in v2.0.0
+## 🚀 Key Features
+
+- **Cascading Selectors** — Professional UI components for Wilaya/Daira/Commune selection.
+- **Trilingual Support** — Native Arabic (RTL), French, and English interfaces.
 - **Logistics Engine** — Shipping rates, delivery zones, and pickup points for all 69 wilayas.
-- **Geographic Data** — Full wilaya coordinates and interactive Leaflet map integration.
-- **Demographics** — Population statistics, density, and growth data.
-- **Economic Indicators** — Cost of living estimates and live currency exchange rates.
-- **Service Locator** — Post offices, Banks, ATMs, and Healthcare facilities map.
-- **Travel Utilities** — Visa requirements and travel information.
+- **Geographic Data** — Full coordinates and interactive map integration.
+- **Demographics & Economy** — Population stats, cost of living, and currency exchange rates.
+- **Service Locator** — Map post offices, banks, and ATMs.
 - **Smart Search** — Global fuzzy matching index for lightning-fast address lookups.
-- **Multi-Format Exports** — Download datasets in CSV or SQL formats.
+- **Multi-Format Exports** — Download datasets in CSV or SQL.
+- **Zero Dependencies** — Lightweight, fast, and works everywhere.
 
 ---
 
-## 📚 API Categories (10 Total)
-Access 30+ new endpoints across these categories:
+## 📚 API Endpoints
+The platform provides 30+ endpoints across 10 categories:
 
-1. **Admin Divisions** — `/api/wilayas.json`, `/api/full-data.json`
-2. **Language-Specific** — `/api/ar/`, `/api/latin/` trees
-3. **ZIP Lookup** — Reverse lookup via `/api/zip/{zipcode}.json`
-4. **Geographic** — `/api/coordinates/wilayas.json`
-5. **Logistics** — `/api/shipping/rates.json`, `/api/shipping/zones.json`
-6. **Demographics** — `/api/population/wilayas.json`
-7. **Economy** — `/api/economy/cost-of-living/`, `/api/economy/exchange-rates.json`
-8. **Services** — Post Office, Bank, and ATM locators
-9. **Travel** — `/api/travel/visa-requirements.json`
-10. **Export** — Downloadable CSV/SQL full datasets
+- **Admin Divisions:** `/api/wilayas.json`, `/api/full-data.json`
+- **Language-Specific:** `/api/ar/`, `/api/latin/` trees
+- **ZIP Lookup:** Reverse lookup via `/api/zip/{zipcode}.json`
+- **Geographic:** `/api/coordinates/wilayas.json`
+- **Logistics:** `/api/shipping/rates.json`, `/api/shipping/zones.json`
+- **Demographics:** `/api/population/wilayas.json`
+- **Economy:** `/api/economy/exchange-rates.json`
+- **Services:** Post Office, Bank, and ATM locators
+- **Travel:** `/api/travel/visa-requirements.json`
+- **Export:** Downloadable CSV/SQL datasets
 
 ---
 
 ## 📦 Integration
 
-### ⚛️ React
+### 🛠️ HTML / Vanilla JS
+```html
+<div class="dz-address-picker"></div>
+<script src="https://dz-address-select.vercel.app/widget.js"></script>
+```
+
+### ⚛️ React / Next.js
 ```tsx
 import { AlgeriaAddressPicker } from "dz-address-picker";
 
 function App() {
   return (
     <AlgeriaAddressPicker 
-      onUpdate={(address) => console.log(address)}
       language="en"
+      onUpdate={(data) => console.log(data)}
     />
   );
 }
-```
-
-### 🛠️ Script Tag (Vanilla JS)
-```html
-<div class="dz-address-picker"></div>
-<script src="https://dz-address-select.vercel.app/widget.js"></script>
 ```
 
 ---
 
 ## 🌟 Support & Community
 
-- **GitHub Star:** [SaddexRnx/Algerian-wilayas](https://github.com/SaddexRnx/Algerian-wilayas)
+- **GitHub Repository:** [SaddexRnx/Algerian-wilayas](https://github.com/SaddexRnx/Algerian-wilayas)
+- **Official Website:** [dz-address-select.vercel.app](https://dz-address-select.vercel.app)
 - **Portfolio:** [SaddexRnx.github.io](https://SaddexRnx.github.io)
 - **Telegram:** [@Saddex_x](https://t.me/Saddex_x)
-
-*Thank you to all developers using this API. More updates are coming!*
 
 ---
 
 ## ⚖️ License
 MIT Licensed. Built for the Algerian developer community.
+
