@@ -147,6 +147,12 @@ const baseTranslations = {
 
   // Changelog
   "changelog.title": { en: "Project Changelog", fr: "Journal des modifications", ar: "سجل التغييرات" },
+  "changelog.export": { en: "Export Changelog", fr: "Exporter le journal", ar: "تصدير سجل التغييرات" },
+  "changelog.desc": { en: "Historical release notes for DZ Address Picker.", fr: "Notes de version historiques pour DZ Address Picker.", ar: "سجل الإصدارات التاريخي لـ DZ Address Picker." },
+  "changelog.v": { en: "Version", fr: "Version", ar: "الإصدار" },
+  "changelog.date": { en: "Date", fr: "التاريخ", ar: "التاريخ" },
+  "changelog.changes": { en: "Changes", fr: "Modifications", ar: "التغييرات" },
+
 
   // Integrations
   "integrations.title": { en: "E-commerce Integrations", fr: "Intégrations E-commerce", ar: "التكامل مع التجارة الإلكترونية" },
