@@ -80,7 +80,7 @@ export default function LeafletMap({ wilayas, zones, shipping, lang, t }: Leafle
               </div>
             </Popup>
           </Marker>
-        })}
+        )})}
       </MapContainer>
 
       {/* Mobile focused detail sheet / QA Overlay */}
