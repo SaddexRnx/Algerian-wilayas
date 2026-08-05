@@ -225,12 +225,8 @@ const baseTranslations = {
   "admin.health.checkAll": { en: "Validate All Endpoints", fr: "Valider tous les points", ar: "التحقق من جميع النقاط" },
   "admin.health.pass": { en: "Pass", fr: "Passé", ar: "ناجح" },
   "admin.health.fail": { en: "Fail", fr: "Échec", ar: "فشل" },
-  "admin.health.status": { en: "Status", fr: "Statut", ar: "الحالة" },
-  "admin.health.lastCheck": { en: "Last Checked", fr: "Dernière vérification", ar: "آخر فحص" },
-
-  "admin.zipMismatch": { en: "ZIP Mismatch Error", fr: "Erreur de correspondance ZIP", ar: "خطأ في تطابق الرمز" },
   "admin.health.check": { en: "Check API Health", fr: "Vérifier la santé de l'API", ar: "فحص سلامة الواجهة" },
-  "admin.health.lastCheck": { en: "Last checked", fr: "Dernière vérification", ar: "آخر فحص" },
+  "admin.health.lastCheck": { en: "Last Checked", fr: "Dernière vérification", ar: "آخر فحص" },
   "admin.health.recheckNote": { en: "Updates every 5 minutes.", fr: "Mise à jour toutes les 5 minutes.", ar: "يتم التحديث كل 5 دقائق." },
   "admin.health.status": { en: "Status", fr: "Statut", ar: "الحالة" },
   "admin.health.endpoint": { en: "Endpoint", fr: "Point d'accès", ar: "نقطة الوصول" },
@@ -239,6 +235,7 @@ const baseTranslations = {
   "admin.health.down": { en: "Down", fr: "Hors ligne", ar: "متوقف" },
   "common.refresh": { en: "Refresh", fr: "Actualiser", ar: "تحديث" },
   "common.live": { en: "Live", fr: "Direct", ar: "مباشر" },
+  "admin.zipMismatch": { en: "ZIP Mismatch Error", fr: "Erreur de correspondance ZIP", ar: "خطأ في تطابق الرمز" },
 };
 
 
