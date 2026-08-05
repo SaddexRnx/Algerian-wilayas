@@ -4,6 +4,7 @@ import { useI18n, type TranslationKey } from "@/lib/i18n";
 import { trackedFetch } from "@/lib/analytics";
 import { cachedJson, cachedJsonWithMeta } from "@/lib/api-cache";
 import { supabase } from "@/integrations/supabase/client";
+import { debounce } from "lodash-es";
 
 
 export interface Commune {
