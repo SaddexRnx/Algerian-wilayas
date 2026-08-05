@@ -152,23 +152,51 @@ export function ApiDocs() {
   const [copied, setCopied] = useState<string | null>(null);
 
   return (
-    <div className="mx-auto mt-16 max-w-3xl">
-      <h2 className="text-lg font-semibold text-black">{t("api.title")}</h2>
-      <p className="mt-2 text-sm text-gray-500">{t("api.subtitle")}</p>
+    <div className="mx-auto mt-16 max-w-4xl px-4 sm:px-0">
+      <div className="text-center mb-16">
+        <h2 className="text-2xl font-bold text-black sm:text-3xl">{t("api.title")}</h2>
+        <p className="mt-4 text-gray-500 max-w-2xl mx-auto">{t("api.subtitle")}</p>
+      </div>
 
-      <p className="mt-4 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
-        {t("api.note")}
-      </p>
+      <div className="grid gap-6 sm:grid-cols-3 mb-16">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm text-center">
+          <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5Z"/></svg>
+          </div>
+          <h3 className="font-semibold text-black">Blazing fast</h3>
+          <p className="mt-2 text-xs text-gray-500">Served from a global CDN, minified data loads in milliseconds.</p>
+        </div>
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm text-center">
+          <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/><path d="m4.93 4.93 14.14 14.14"/><path d="M2 12h20"/><path d="m4.93 19.07 14.14-14.14"/></svg>
+          </div>
+          <h3 className="font-semibold text-black">Works everywhere</h3>
+          <p className="mt-2 text-xs text-gray-500">Vanilla JS, React, Vue, WordPress, and Shopify.</p>
+        </div>
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm text-center">
+          <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+          </div>
+          <h3 className="font-semibold text-black">Always up to date</h3>
+          <p className="mt-2 text-xs text-gray-500">Reflects the latest official administrative reforms, with community-driven corrections.</p>
+        </div>
+      </div>
 
-      <p className="mt-3 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
-        {t("api.theming")}{" "}
-        <code
-          className="rounded bg-gray-950 px-1.5 py-0.5 font-mono text-xs text-gray-100"
-          dir="ltr"
-        >
-          --dz-border-color: #ff0000;
-        </code>
-      </p>
+      <div className="space-y-4">
+        <p className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
+          {t("api.note")}
+        </p>
+
+        <p className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
+          {t("api.theming")}{" "}
+          <code
+            className="rounded bg-gray-950 px-1.5 py-0.5 font-mono text-xs text-gray-100"
+            dir="ltr"
+          >
+            --dz-border-color: #000;
+          </code>
+        </p>
+      </div>
 
       <div className="mt-6 space-y-4">
         {ENDPOINTS.map((e) => {

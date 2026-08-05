@@ -819,6 +819,41 @@ export function AlgeriaAddressPicker({
         </div>
       )}
 
+      {searchByZip && (
+        <div className="mt-4 space-y-2 animate-in fade-in slide-in-from-top-2 duration-300">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="zip-input">
+            {t("picker.zipLabel")}
+          </label>
+          <div className="relative">
+            <input
+              id="zip-input"
+              type="text"
+              inputMode="numeric"
+              maxLength={5}
+              value={zipInput}
+              onChange={(e) => handleZipChange(e.target.value)}
+              className={`w-full rounded-lg border bg-white px-3 py-2.5 text-sm transition focus-visible:ring-2 focus-visible:outline-none ${
+                zipError ? "border-red-300 focus-visible:ring-red-500" : "border-gray-300 focus-visible:ring-black"
+              }`}
+              placeholder="19070"
+            />
+            {isZipSearching && (
+              <div className="absolute top-2.5 right-3">
+                <div className="h-4 w-4 animate-spin rounded-full border-2 border-black border-t-transparent" />
+              </div>
+            )}
+          </div>
+          {zipError && (
+            <p className="text-xs text-red-600 animate-in fade-in duration-200" role="alert">
+              {t(zipError)}
+            </p>
+          )}
+          <p className="text-xs text-gray-500 italic">
+            {t("picker.zipDisclaimer")}
+          </p>
+        </div>
+      )}
+
 
 
       {!searchByZip && (

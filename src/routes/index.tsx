@@ -11,7 +11,7 @@ import { LanguageToggle, useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "🚨 CRITICAL FIX & MAJOR UPDATE REQUIRED: The API endpoints are corrupted. You previously mixed the external ZIP dataset with our base dataset, corrupting the names and breaking the structure. We are now updating to version 1.0.4 with language-specific endpoints." },
+      { title: "🚨 CRITICAL COMPREHENSIVE UPDATE TO v1.0.4: Fix data mapping, API tester logic, language endpoints, and UI clarity." },
       {
         name: "description",
         content:
@@ -196,11 +196,7 @@ function Index() {
             <LanguageToggle />
           </div>
         </div>
-        <div className="bg-black py-2.5 px-4 text-center text-[11px] sm:text-xs text-white">
-          <div className="mx-auto max-w-5xl">
-            {t("picker.disclaimer")}
-          </div>
-        </div>
+        
         <nav className="flex gap-4 overflow-x-auto border-t border-gray-100 px-4 py-2 text-sm whitespace-nowrap lg:hidden">
           {navLinks.map((l) => (
             <a key={l.href} href={l.href} className="text-gray-600 transition hover:text-black">
@@ -231,7 +227,6 @@ function Index() {
                 <div className="mt-3 space-y-2 text-xs text-gray-500">
                   <p><strong className="text-black">v1.0.4:</strong> {t("updates.v104")}</p>
                   <p><strong className="text-black">v1.0.3:</strong> Trilingual data correction system, ZIP reverse lookup, Village field.</p>
-
                   <p><strong className="text-black">v1.0.2:</strong> Initial ZIP code integration and community data collection.</p>
                   <p><strong className="text-black">v1.0.1:</strong> Granular API endpoints for specific Dairas and Communes.</p>
                   <p><strong className="text-black">v1.0.0:</strong> Initial release with 69 Wilayas and 1,541 Communes.</p>

@@ -1,1 +1,13 @@
-{"version":"1.0.4","endpoints":["/api/wilayas.json","/api/full-data.json","/api/wilayas/{code}.json","/api/wilayas/{code}/dairas.json","/api/wilayas/{code}/dairas/{slug}.json","/api/zip/{zipcode}.json","/api/ar/wilayas.json","/api/fr/wilayas.json","/api/en/wilayas.json"]}
+{
+  "version": "1.0.4",
+  "endpoints": [
+    "/api/wilayas.json",
+    "/api/full-data.json",
+    "/api/wilayas/{code}.json",
+    "/api/wilayas/{code}/dairas.json",
+    "/api/wilayas/{code}/dairas/{slug}.json",
+    "/api/zip/{zipcode}.json",
+    "/api/ar/wilayas.json",
+    "/api/latin/wilayas.json"
+  ]
+}
