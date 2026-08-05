@@ -299,7 +299,19 @@ function Index() {
         </section>
       </main>
 
-      <footer className="py-12 text-center text-sm text-gray-400">{t("footer.text")}</footer>
+      <footer className="py-12 text-center text-sm text-gray-400">
+        <div className="mb-4">
+          <Link to="/report" className="text-gray-600 underline transition hover:text-black">
+            {t("home.reportLink")}
+          </Link>
+        </div>
+        <div className="flex justify-center gap-6 mb-4">
+          <a href="https://github.com/Saddexrnx" className="hover:text-black transition">GitHub</a>
+          <a href="https://t.me/Saddex_x" className="hover:text-black transition">Telegram</a>
+        </div>
+        {t("footer.text")}
+      </footer>
+
     </div>
   );
 }
