@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState, useCallback, type ReactNode } from "react";
+import { useEffect, useState, useCallback, useMemo, type ReactNode } from "react";
+
 import { useServerFn } from "@tanstack/react-start";
 import { ForcedLanguageProvider, useI18n, type TranslationKey } from "@/lib/i18n";
 import { adminLogout } from "@/lib/admin-auth.functions";
