@@ -29,16 +29,20 @@ export default function LeafletMap({ wilayas, zones, shipping, lang, t }: Leafle
   };
 
   return (
-    <MapContainer
-      center={[30.0, 3.0]}
-      zoom={5}
-      className="h-full w-full rounded-xl overflow-hidden grayscale contrast-125"
-      scrollWheelZoom={true}
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-      />
+    <div className="h-full w-full relative group">
+      <MapContainer
+        center={[30.0, 3.0]}
+        zoom={5}
+        className="h-full w-full grayscale contrast-125 transition-all duration-700"
+        scrollWheelZoom={true}
+        aria-label="Interactive Algerian Territory Map"
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          className="map-tiles-dark-transition"
+        />
+
       
       {wilayas.map((w) => {
         const rate = shipping.find(r => r.wilaya_code === w.code);
@@ -76,8 +80,30 @@ export default function LeafletMap({ wilayas, zones, shipping, lang, t }: Leafle
               </div>
             </Popup>
           </Marker>
-        );
-      })}
-    </MapContainer>
+        })}
+      </MapContainer>
+
+      {/* Mobile focused detail sheet / QA Overlay */}
+      <div className="absolute bottom-6 left-6 right-6 z-[1000] lg:hidden">
+        <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-2xl border border-gray-200 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Territory QA Mode</span>
+            <button className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></button>
+          </div>
+          <div className="flex items-center gap-3 overflow-x-auto pb-1 no-scrollbar">
+            <button className="shrink-0 px-3 py-1 rounded bg-black text-white text-[10px] font-bold">Refresh Tiles</button>
+            <button className="shrink-0 px-3 py-1 rounded border border-gray-200 text-black text-[10px] font-bold">Re-center</button>
+            <button className="shrink-0 px-3 py-1 rounded border border-gray-200 text-black text-[10px] font-bold">Check ZIPs</button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Keyboard Controls Overlay (Visible on focus) */}
+      <div className="absolute top-4 right-4 z-[1000] pointer-events-none opacity-0 focus-within:opacity-100 transition-opacity">
+        <div className="bg-black text-white text-[10px] font-bold p-2 rounded shadow-lg uppercase tracking-widest">
+          Use Arrow Keys to Pan | +/- to Zoom
+        </div>
+      </div>
+    </div>
   );
 }
