@@ -82,7 +82,7 @@ If you like this project, please **give it a star** on GitHub: [https://github.c
 
 Visit my portfolio for more open-source projects: [https://SaddexRnx.github.io](https://SaddexRnx.github.io)
 
-*A huge thank you to all the developers using this API. More updates are coming soon to make this API as useful and comprehensive as possible for the Algerian developer community!*
+*A huge thank you to all the developers using this API. v1.0.5 brings the most accurate postal data yet, sourced directly from official Algérie Poste records via the GeoAlgeria project.*
 
 ---
 
