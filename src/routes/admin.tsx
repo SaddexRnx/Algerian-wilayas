@@ -405,13 +405,13 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               <table className="w-full min-w-[520px] text-start text-sm">
                 <thead>
                   <tr className="border-b border-gray-200 text-xs text-gray-500">
-                    <th className="py-2 pe-3 text-start font-medium">{t("admin.table.rank")}</th>
-                    <th className="py-2 pe-3 text-start font-medium">{t("admin.table.name")}</th>
-                    <th className="py-2 pe-3 text-start font-medium">{t("admin.table.code")}</th>
-                    <th className="py-2 pe-3 text-start font-medium">{t("admin.searchedZip")}</th>
-                    <th className="py-2 pe-3 text-start font-medium">{t("admin.table.count")}</th>
+                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.rank")}</th>
+                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.name")}</th>
+                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.code")}</th>
+                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.searchedZip")}</th>
+                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.count")}</th>
+                    <th className="py-2 text-start font-medium uppercase tracking-wider">{t("admin.table.share")}</th>
 
-                    <th className="py-2 text-start font-medium">{t("admin.table.share")}</th>
                   </tr>
                 </thead>
                 <tbody>

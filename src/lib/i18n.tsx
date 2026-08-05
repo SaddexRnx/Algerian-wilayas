@@ -30,6 +30,8 @@ const baseTranslations = {
   "nav.tester": { en: "Tester", fr: "Testeur", ar: "مختبر" },
   "nav.report": { en: "Report", fr: "Signaler", ar: "تبليغ" },
   "nav.status": { en: "Status", fr: "Statut", ar: "الحالة" },
+
+  "nav.status": { en: "Status", fr: "Statut", ar: "الحالة" },
   "nav.adminLogin": { en: "Admin Login", fr: "Connexion admin", ar: "دخول المشرف" },
 
   "nav.dashboard": { en: "Dashboard", fr: "Tableau de bord", ar: "لوحة التحكم" },
@@ -193,6 +195,9 @@ const baseTranslations = {
   "common.download": { en: "Download", fr: "Télécharger", ar: "تحميل" },
   "common.search": { en: "Search", fr: "Rechercher", ar: "بحث" },
   "common.submit": { en: "Submit", fr: "Soumettre", ar: "إرسال" },
+  "report.title": { en: "Report Correction", fr: "Signaler une correction", ar: "تبليغ عن تصحيح" },
+  "report.submit": { en: "Submit Report", fr: "Envoyer le signalement", ar: "إرسال التبليغ" },
+
   "common.vote": { en: "Vote", fr: "Voter", ar: "تصويت" },
   "common.share": { en: "Share", fr: "Partager", ar: "مشاركة" },
   "common.viewGuide": { en: "View Guide", fr: "Voir le guide", ar: "عرض الدليل" },
