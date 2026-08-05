@@ -436,8 +436,9 @@ export function AlgeriaAddressPicker({
           setIsZipSearching(false);
         }
       }, 500),
-    [t],
+    [],
   );
+
 
   // Handle ZIP code input change
   const handleZipChange = (val: string) => {
