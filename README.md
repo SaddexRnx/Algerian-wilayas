@@ -94,5 +94,8 @@ We are building a community-driven open-source project to empower Algerian digit
 
 ---
 
+## 🛠️ Contribution
+Found a mistake? Submit a report via our [Data Correction Center](https://dz-address-select.vercel.app/report) or open a PR on GitHub. Every contribution helps improve the accuracy for all Algerian developers.
+
 ## ⚖️ License & Open Source
 Licensed under the **MIT License**. This project belongs to the community. No attribution required for commercial use, but stars on GitHub are highly appreciated! ⭐️
