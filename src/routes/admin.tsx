@@ -756,10 +756,11 @@ function ConfirmSignOut({ onCancel, onConfirm }: { onCancel: () => void; onConfi
         className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-6 shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 id="dz-signout-title" className="text-sm font-semibold text-black">
+        <h2 id="dz-signout-title" className="text-sm font-bold tracking-tighter text-black uppercase">
           {t("admin.logout.title")}
         </h2>
-        <p className="mt-2 text-sm text-gray-500">{t("admin.logout.body")}</p>
+        <p className="mt-2 text-sm text-gray-500 font-medium leading-relaxed">{t("admin.logout.body")}</p>
+
         <div className="mt-6 flex justify-end gap-2">
           <button
             type="button"
