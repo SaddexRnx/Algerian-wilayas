@@ -307,12 +307,12 @@ export function ForcedLanguageProvider({ lang, children }: { lang: Lang; childre
 }
 
 export function LanguageToggle() {
-  const { lang, setLang } = useTranslation();
+  const { lang, setLang, dir } = useTranslation();
   return (
     <div
       role="group"
       aria-label="Language Toggle"
-      className="inline-flex shrink-0 overflow-hidden rounded-md border border-gray-300"
+      className={`inline-flex shrink-0 overflow-hidden rounded-md border border-gray-300 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}
       dir="ltr"
     >
       {(["ar", "fr", "en"] as const).map((l) => (

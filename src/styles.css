@@ -166,3 +166,43 @@
   --dz-focus-ring-color: #000000;
   --dz-disabled-bg: #f9fafb;
 }
+
+/* Map specific dark mode refinements and utility classes */
+.dark {
+  --dz-bg-color: oklch(0.208 0.042 265.755);
+  --dz-text-color: oklch(0.984 0.003 247.858);
+  --dz-border-color: oklch(1 0 0 / 15%);
+  --dz-focus-ring-color: oklch(0.929 0.013 255.508);
+}
+
+.map-tiles-dark-transition {
+  filter: grayscale(1) invert(0.9) brightness(0.8) contrast(1.2);
+}
+
+.dark .map-tiles-dark-transition {
+  filter: grayscale(1) invert(1) contrast(1.1) brightness(0.6);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Accessible focus outlines for map markers */
+.leaflet-marker-icon:focus-visible {
+  outline: 3px solid var(--color-ring);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+.custom-div-icon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-div-icon:hover {
+  transform: scale(1.5);
+  z-index: 1000 !important;
+}
