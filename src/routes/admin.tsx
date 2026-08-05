@@ -578,7 +578,10 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               </table>
             </div>
           </section>
-        ) : activeTab === "health" ? (
+      )}
+
+      {activeTab === "health" && (
+
           <section className={`mt-6 ${cardClass}`}>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
               <div>
@@ -707,7 +710,11 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
           </section>
 
 
-        ) : (
+          </section>
+      )}
+
+      {activeTab === "i18n" && (
+
           <section className={`mt-6 ${cardClass}`}>
             <h2 className="text-sm font-semibold text-black mb-6">{t("admin.i18n.title")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
