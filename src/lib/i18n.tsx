@@ -96,6 +96,7 @@ const fr = {
   "api.note":
     "Note : Les codes postaux sont basés sur d'anciennes données administratives. Pour nous aider à construire la base de données la plus précise et à jour, veuillez saisir votre code postal exact et le nom de votre village/quartier. Vos données nous aident à mettre à jour les registres officiels.",
   "api.wilayasDesc": "Liste légère des 69 wilayas avec code, nom arabe et nom latin.",
+  "api.fullDataDesc": "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
   "api.fullDesc": "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
   "api.wilayaDetailDesc": "Détail complet d'une wilaya : ses dairas et leurs communes.",
   "api.wilayaDairasDesc": "Liste des dairas d'une wilaya, avec le nombre de communes.",
