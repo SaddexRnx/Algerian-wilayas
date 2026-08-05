@@ -96,8 +96,9 @@ const fr = {
   "api.note":
     "Note : Les codes postaux sont basés sur d'anciennes données administratives. Pour nous aider à construire la base de données la plus précise et à jour, veuillez saisir votre code postal exact et le nom de votre village/quartier. Vos données nous aident à mettre à jour les registres officiels.",
   "api.wilayasDesc": "Liste légère des 69 wilayas avec code, nom arabe et nom latin.",
-  "api.fullDesc":
-    "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
+  "api.fullDesc": "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
+  "api.wilayaDetailDesc": "Détail complet d'une wilaya : ses dairas et leurs communes.",
+  "api.wilayaDairasDesc": "Liste des dairas d'une wilaya, avec le nombre de communes.",
   "api.dairasDesc": "Toutes les dairas d'une wilaya donnée, identifiée par son code.",
   "api.catBase": "Points de terminaison de base",
   "api.catLang": "Points de terminaison par langue",
@@ -191,6 +192,7 @@ const fr = {
   "tester.resolved": "Résolu en",
 
   "api.indexDesc": "Index de découverte listant tous les points de terminaison disponibles.",
+  "api.fullDataDesc": "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
   "api.wilayaDesc": "Détail complet d'une wilaya : ses dairas et leurs communes.",
   "api.wilayaDairasDesc": "Liste des dairas d'une wilaya, avec le nombre de communes.",
   "api.wilayaDairasFlatDesc": "Dairas et communes d'une wilaya uniquement. Bien plus léger que full-data.json ; filtrez le tableau côté client.",
