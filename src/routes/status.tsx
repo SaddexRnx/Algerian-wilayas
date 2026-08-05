@@ -1,3 +1,4 @@
+import React from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
@@ -6,6 +7,7 @@ import { checkApiHealth, type HealthCheckResult } from "@/lib/health.functions";
 import logo from "@/assets/logo.png";
 import pkg from '../../package.json';
 import { ChevronLeft, Info, AlertTriangle, CheckCircle2 } from "lucide-react";
+
 
 export const Route = createFileRoute("/status")({
   head: () => ({
