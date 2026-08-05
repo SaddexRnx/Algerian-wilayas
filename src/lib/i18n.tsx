@@ -190,6 +190,9 @@ const fr = {
   "nav.dashboard": "Tableau de bord",
   "api.wilayaCommunesDesc": "Liste à plat de toutes les communes d'une wilaya.",
   "api.dairaDetailDesc": "Détail d'une daira précise et de ses communes.",
+  "api.zipReverseDesc": "Recherche inversée d'un code postal pour obtenir la wilaya, la daira et la commune correspondantes.",
+  "updates.title": "Quoi de neuf dans la v1.0.1",
+  "updates.body": "Intégration complète des codes postaux algériens. Vous pouvez désormais effectuer des recherches inversées à partir d'un code à 5 chiffres pour obtenir instantanément la Wilaya, la Daira et la Commune exactes. Idéal pour l'auto-complétion des formulaires e-commerce.",
 } as const;
 
 export type TranslationKey = keyof typeof fr;
@@ -367,6 +370,9 @@ const ar: Record<TranslationKey, string> = {
   "nav.dashboard": "لوحة التحكم",
   "api.wilayaCommunesDesc": "قائمة مسطحة بكل بلديات الولاية.",
   "api.dairaDetailDesc": "تفاصيل دائرة محددة وبلدياتها.",
+  "api.zipReverseDesc": "البحث العكسي عن الرمز البريدي للحصول على الولاية والدائرة والبلدية المقابلة.",
+  "updates.title": "ما الجديد في الإصدار 1.0.1",
+  "updates.body": "تمت إضافة دمج كامل للرموز البريدية الجزائرية. يمكنك الآن إجراء بحث عكسي من رمز بريدي مكون من 5 أرقام للحصول فورًا على الولاية والدائرة والبلدية بالضبط. مثالي للتعبئة التلقائية لعمليات الدفع في التجارة الإلكترونية.",
 };
 
 const en: Record<TranslationKey, string> = {
@@ -542,6 +548,9 @@ const en: Record<TranslationKey, string> = {
   "nav.dashboard": "Dashboard",
   "api.wilayaCommunesDesc": "Flat list of every commune inside a wilaya.",
   "api.dairaDetailDesc": "Detail for a single daira and its communes.",
+  "api.zipReverseDesc": "Reverse lookup a ZIP code to get the corresponding Wilaya, Daira, and Commune.",
+  "updates.title": "What's New in v1.0.1",
+  "updates.body": "Full Algerian ZIP Code integration added. You can now perform reverse lookups from a 5-digit postal code to instantly get the exact Wilaya, Daira, and Commune. Perfect for auto-filling e-commerce checkouts.",
 };
 
 const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar, en };

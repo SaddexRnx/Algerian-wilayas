@@ -177,7 +177,7 @@ function Index() {
               DZ Address Picker
             </span>
             <span className="ml-2 inline-flex shrink-0 items-center rounded-full border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
-              v1.0.0-beta
+              v1.0.1
             </span>
           </div>
           <div className="flex shrink-0 items-center gap-3">
@@ -205,7 +205,18 @@ function Index() {
       </header>
 
       <main className="mx-auto max-w-5xl px-4 pb-8 sm:px-6">
-        <section className="py-14 text-center sm:py-20">
+        <section className="py-10 text-center sm:py-16">
+          <div className="mx-auto mb-8 max-w-2xl rounded-xl border border-gray-200 bg-gray-50 p-6 text-left sm:p-8">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="flex h-2 w-2 rounded-full bg-black"></span>
+              <h2 className="text-sm font-bold tracking-wider text-black uppercase">
+                {t("updates.title")}
+              </h2>
+            </div>
+            <p className="text-sm leading-relaxed text-gray-600">
+              {t("updates.body")}
+            </p>
+          </div>
           <h1 className="text-3xl font-bold tracking-tight text-black sm:text-4xl md:text-5xl">
             {t("hero.title")}
           </h1>
