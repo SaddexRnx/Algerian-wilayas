@@ -1,4 +1,6 @@
 # 🇩🇿 DZ Address Picker v2.0.0
+[![Trilingual](https://img.shields.io/badge/Language-AR%20%7C%20FR%20%7C%20EN-black)](https://dz-address-select.vercel.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-gray.svg)](https://opensource.org/licenses/MIT)
 
 **The Ultimate Algerian Data Platform.** 
 A free, high-performance, and plug-and-play solution for developers and e-commerce store owners. Access all 69 wilayas, 1,541 communes, official postal codes, logistics, demographics, and economy indicators through professional trilingual APIs.
