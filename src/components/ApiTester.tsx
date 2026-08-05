@@ -5,15 +5,16 @@ import { trackApiCall } from "@/lib/analytics";
 
 export const API_BASE = "https://dz-address-select.vercel.app";
 
-type Shape = "index" | "wilayas" | "full" | "wilaya" | "wilayaDairas" | "daira";
+type Shape = "index" | "wilayas" | "full" | "wilaya" | "wilayaDairas" | "daira" | "zip";
 
-const SHAPES: { id: Shape; template: string; needs: "wilaya" | "daira" | "none" }[] = [
+const SHAPES: { id: Shape; template: string; needs: "wilaya" | "daira" | "zip" | "none" }[] = [
   { id: "index", template: "/api/index.json", needs: "none" },
   { id: "wilayas", template: "/api/wilayas.json", needs: "none" },
   { id: "full", template: "/api/full-data.json", needs: "none" },
   { id: "wilaya", template: "/api/wilayas/{code}.json", needs: "wilaya" },
   { id: "wilayaDairas", template: "/api/wilayas/{code}/dairas.json", needs: "wilaya" },
   { id: "daira", template: "/api/wilayas/{code}/dairas/{daira-slug}.json", needs: "daira" },
+  { id: "zip", template: "/api/zip/{zipcode}.json", needs: "zip" },
 ];
 
 interface WilayaIndexEntry {
@@ -99,8 +100,8 @@ export function ApiTester() {
   const baseId = useId();
   const listboxId = `${baseId}-suggestions`;
 
-  const [shape, setShape] = useState<Shape>("daira");
-  const [query, setQuery] = useState("Bouandas");
+  const [shape, setShape] = useState<Shape>("zip");
+  const [query, setQuery] = useState("19070");
   const [loading, setLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -219,6 +220,9 @@ export function ApiTester() {
         path = current.template
           .replace("{code}", String(match.wilaya_code))
           .replace("{daira-slug}", match.slug);
+      } else if (current.needs === "zip") {
+        resolved = `ZIP: ${query}`;
+        path = current.template.replace("{zipcode}", query.trim());
       }
 
       const started = performance.now();
