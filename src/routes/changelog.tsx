@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useTranslation } from '@/lib/i18n';
-import { CheckCircle2, Package, Map, Database, Sparkles, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
+import { CheckCircle2, Package, Map, Database, Sparkles, Globe, ChevronLeft, ChevronRight, Download, FileText } from 'lucide-react';
+
 
 
 export const Route = createFileRoute('/changelog')({
