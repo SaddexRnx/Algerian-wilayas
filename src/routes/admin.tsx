@@ -402,9 +402,10 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
         <div className="mt-6 grid min-w-0 gap-6 lg:grid-cols-3">
           <section className={`${cardClass} min-w-0 lg:col-span-3`}>
             <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:flex sm:justify-between">
-              <h2 className="min-w-0 truncate text-sm font-semibold text-black">
+              <h2 className="min-w-0 truncate text-sm font-bold text-black uppercase tracking-tighter">
                 {t("admin.table.title")}
               </h2>
+
               <input
                 type="search"
                 value={query}
