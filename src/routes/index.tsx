@@ -328,12 +328,13 @@ function Index() {
 
 
         <section id="in-action" className="mt-16 scroll-mt-32 sm:mt-20">
-          <div className="text-center">
-            <h2 className="text-xl font-bold tracking-tight text-black sm:text-2xl">
+          <div className="mx-auto max-w-3xl px-4 sm:px-0 text-center sm:text-left mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">
               {t("checkout.title")}
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-gray-500">{t("checkout.subtitle")}</p>
+            <p className="mt-2 text-sm text-gray-500 leading-relaxed font-medium">{t("checkout.subtitle")}</p>
           </div>
+
           <CheckoutSimulation live={live} />
         </section>
 
