@@ -314,17 +314,28 @@ function Index() {
         </section>
       </main>
 
-      <footer className="py-12 text-center text-sm text-gray-400">
-        <div className="mb-4">
-          <Link to="/report" className="text-gray-600 underline transition hover:text-black">
-            {t("home.reportLink")}
-          </Link>
+      <footer className="border-t border-gray-200 py-16 text-center">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="mb-10">
+            <Link to="/report" className="text-sm font-medium text-gray-600 underline decoration-gray-300 underline-offset-4 transition hover:text-black hover:decoration-black">
+              {t("home.reportLink")}
+            </Link>
+          </div>
+          
+          <div className="mb-10 flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-bold text-black uppercase tracking-widest">
+            <a href="https://github.com/SaddexRnx/Algerian-wilayas" target="_blank" rel="noopener noreferrer" className="transition hover:opacity-60">GitHub</a>
+            <a href="https://t.me/Saddex_x" target="_blank" rel="noopener noreferrer" className="transition hover:opacity-60">Telegram</a>
+            <a href="https://SaddexRnx.github.io" target="_blank" rel="noopener noreferrer" className="transition hover:opacity-60">Portfolio</a>
+          </div>
+
+          <p className="text-sm leading-relaxed text-gray-500">
+            {t("footer.text")}
+          </p>
+          
+          <div className="mt-12 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300">
+            &copy; {new Date().getFullYear()} DZ Address Picker &bull; v{pkg.version}
+          </div>
         </div>
-        <div className="flex justify-center gap-6 mb-4">
-          <a href="https://github.com/Saddexrnx" className="hover:text-black transition">GitHub</a>
-          <a href="https://t.me/Saddex_x" className="hover:text-black transition">Telegram</a>
-        </div>
-        {t("footer.text")}
       </footer>
 
     </div>
