@@ -200,7 +200,7 @@ const fr: any = {};
 const en: any = {};
 const ar: any = {};
 
-Object.entries(baseTranslations).forEach(([key, values]) => {
+Object.entries(baseTranslations).forEach(([key, values]: [string, any]) => {
   fr[key] = values.fr;
   en[key] = values.en;
   ar[key] = values.ar;
