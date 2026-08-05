@@ -80,11 +80,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "DZ Address Picker - Modern Algerian Address Solutions" },
+      { name: "description", content: "Official dataset of 69 wilayas, dairas, and 1,541 communes. Ready-to-use API, widget, and interactive map for Algerian e-commerce." },
+      { name: "author", content: "SaddexRnx" },
+      { property: "og:title", content: "DZ Address Picker" },
+      { property: "og:description", content: "Modern Algerian Address Integration for developers." },
+
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },

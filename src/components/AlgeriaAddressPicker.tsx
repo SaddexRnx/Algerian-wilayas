@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SearchableSelect } from "@/components/SearchableSelect";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
 import { trackedFetch } from "@/lib/analytics";
-import { cachedJson, cachedJsonWithMeta } from "@/lib/api-cache";
+import { cachedJsonWithMeta } from "@/lib/api-cache";
 import { supabase } from "@/integrations/supabase/client";
 import { debounce } from "lodash-es";
 
@@ -57,6 +57,7 @@ function normalizeWilayas(json: unknown): Wilaya[] {
 }
 
 function normalizeDairas(json: unknown): Daira[] {
+
   return (Array.isArray(json) ? json : []).map((d) => {
     const raw = d as Record<string, unknown>;
     const ascii = String(raw["name_ascii"] ?? raw["ascii"] ?? "");
@@ -80,6 +81,7 @@ function normalizeCommunes(json: unknown): Commune[] {
     };
   });
 }
+
 
 function readCache(): Wilaya[] | null {
   try {
@@ -726,9 +728,10 @@ export function AlgeriaAddressPicker({
       {searchByZip ? (
         <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4">
           <div>
-            <label htmlFor="dz-zip-input" className="block text-xs font-medium tracking-wide text-gray-500 uppercase">
+            <label htmlFor="dz-zip-input" className="block text-[10px] font-bold tracking-widest text-gray-400 uppercase">
               {t("picker.zipLabel")}
             </label>
+
             <div className="relative mt-2">
               <input
                 id="dz-zip-input"
@@ -796,10 +799,11 @@ export function AlgeriaAddressPicker({
         <div className="rounded-lg border border-gray-200 bg-white p-3">
           <label
             htmlFor="dz-quick-search"
-            className="block text-xs font-medium tracking-wide text-gray-500 uppercase"
+            className="block text-[10px] font-bold tracking-widest text-gray-400 uppercase"
           >
             {t("picker.quick")}
           </label>
+
           <input
             id="dz-quick-search"
             type="search"
@@ -918,9 +922,10 @@ export function AlgeriaAddressPicker({
 
       {(wilaya && daira && commune) || (searchByZip && zipLoaded.current) ? (
         <div>
-          <label htmlFor="dz-village" className="block text-xs font-medium tracking-wide text-gray-500 uppercase">
+          <label htmlFor="dz-village" className="block text-[10px] font-bold tracking-widest text-gray-400 uppercase">
             {t("picker.village")}
           </label>
+
           <input
             id="dz-village"
             type="text"
@@ -932,19 +937,21 @@ export function AlgeriaAddressPicker({
         </div>
       ) : null}
 
-      <p className="mt-3 text-[10px] text-gray-400 leading-relaxed picker-zip-disclaimer italic">
+      <p className="mt-3 text-[10px] text-gray-400 font-medium leading-relaxed italic">
         {t("picker.zipDisclaimer")}
       </p>
 
 
 
-      <div className="sm:col-span-2 rounded-lg border border-gray-200 bg-gray-50 p-4 picker-preview">
+
+      <div className="sm:col-span-2 rounded-lg border border-gray-200 bg-gray-50 p-4">
         <p
           id="dz-preview-label"
-          className="text-xs font-medium tracking-wide text-gray-500 uppercase"
+          className="text-[10px] font-bold tracking-widest text-gray-400 uppercase"
         >
           {t("picker.preview")}
         </p>
+
 
 
         <p

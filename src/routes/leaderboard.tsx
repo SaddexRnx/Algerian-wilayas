@@ -47,26 +47,28 @@ function LeaderboardPage() {
         </Link>
 
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold tracking-tight mb-4">
+          <h1 className="text-2xl sm:text-4xl font-bold tracking-tighter mb-4 uppercase">
             {t("leaderboard.title")}
           </h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
             {t("leaderboard.subtitle")}
           </p>
         </div>
+
 
         <div className="bg-card border rounded-xl overflow-hidden shadow-sm">
           <div className="overflow-x-auto">
             <table className="w-full text-left" dir={isRtl ? 'rtl' : 'ltr'}>
               <thead className="bg-gray-50 border-b text-[10px] font-bold uppercase tracking-widest text-gray-400">
                 <tr>
-                  <th className="px-6 py-4">{t("admin.table.rank")}</th>
-                  <th className="px-6 py-4">{t("common.contributor")}</th>
-
-                  <th className="px-6 py-4">{t("common.contributions")}</th>
-                  <th className="px-6 py-4">{t("common.badge")}</th>
+                  <th className={`px-6 py-4 ${isRtl ? 'text-right' : 'text-left'}`}>{t("admin.table.rank")}</th>
+                  <th className={`px-6 py-4 ${isRtl ? 'text-right' : 'text-left'}`}>{t("admin.table.contributor")}</th>
+                  <th className={`px-6 py-4 ${isRtl ? 'text-right' : 'text-left'}`}>{t("admin.table.contributions")}</th>
+                  <th className={`px-6 py-4 ${isRtl ? 'text-right' : 'text-left'}`}>{t("admin.table.badge")}</th>
                 </tr>
               </thead>
+
+
 
               <tbody className="divide-y">
                 {isLoading ? (

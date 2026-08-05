@@ -51,12 +51,13 @@ function StatusPage() {
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
           <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="logo" className="h-8 w-8" />
-            <span className="text-lg font-bold text-black">Status</span>
+            <span className="text-lg font-bold text-black uppercase tracking-tighter">Status</span>
           </Link>
           <div className="flex items-center gap-4">
-            <Link to="/" className="text-sm text-gray-500 hover:text-black transition-colors">
+            <Link to="/" className="text-[10px] font-bold text-gray-400 hover:text-black transition-colors uppercase tracking-widest">
               {t("nav.backHome")}
             </Link>
+
             <LanguageToggle />
           </div>
         </div>
@@ -86,9 +87,10 @@ function StatusPage() {
               <button 
                 onClick={runHealth} 
                 disabled={loading}
-                className="text-xs font-bold text-black underline underline-offset-4 hover:no-underline disabled:opacity-30"
+                className="text-[10px] font-bold text-black underline underline-offset-4 hover:no-underline disabled:opacity-30 uppercase tracking-widest"
               >
-                {loading ? t("common.loading") : t("common.refresh")}
+                {loading ? "CHECKING..." : t("common.refresh")}
+
               </button>
               <p className="mt-1 text-[10px] text-gray-400">
                 {t("admin.health.recheckNote")}

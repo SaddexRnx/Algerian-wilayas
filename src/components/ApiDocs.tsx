@@ -241,15 +241,16 @@ export function ApiDocs() {
   };
 
   return (
-    <div className={`mx-auto max-w-5xl px-4 py-16 sm:px-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-extrabold tracking-tight text-black sm:text-5xl md:text-6xl mb-6">
+    <div className={`mx-auto max-w-3xl px-4 py-16 sm:px-0 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+      <div className="mb-12">
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">
           {t("api.title")}
-        </h1>
-        <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-medium">
+        </h2>
+        <p className="mt-2 text-sm text-gray-500 leading-relaxed font-medium">
           {t("api.subtitle")}
         </p>
       </div>
+
 
       <div className="space-y-24">
         {CATEGORIES.map((cat) => (
@@ -258,10 +259,11 @@ export function ApiDocs() {
               <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-black">
                 {cat.icon}
               </div>
-              <h2 className="text-2xl font-bold text-black uppercase tracking-wide">
+              <h3 className="text-lg font-bold text-black uppercase tracking-wider">
                 {t(cat.titleKey as TranslationKey)}
-              </h2>
+              </h3>
             </div>
+
 
             <div className="grid gap-8">
               {ENDPOINTS.filter((e) => e.category === cat.id).map((e, idx) => {

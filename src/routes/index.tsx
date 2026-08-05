@@ -69,9 +69,10 @@ function EventConsole({ lines }: { lines: string[] }) {
   }, [lines]);
   return (
     <div className="mt-6">
-      <p className="mb-2 text-xs font-medium tracking-wide text-gray-500 uppercase">
+      <p className="mb-2 text-[10px] font-bold tracking-widest text-gray-400 uppercase">
         {t("demo.console")}
       </p>
+
       <div
         ref={boxRef}
         role="log"
@@ -207,61 +208,57 @@ function Index() {
       className="min-h-screen animate-[fadeIn_400ms_ease-out] bg-white font-[system-ui,Inter,sans-serif] antialiased"
     >
       <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur">
-        <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-4 sm:px-6 sm:py-5">
-          <div className="flex min-w-0 items-center gap-2">
-            <img src={logo} alt="DZ Address Picker logo" className="h-8 w-8 shrink-0" />
-            <span className="min-w-0 truncate text-lg font-bold text-black sm:text-xl">
-              DZ Address Picker
-            </span>
-            <span className="ml-2 inline-flex shrink-0 items-center rounded-full border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
-              v{pkg.version}
-            </span>
-            <div className="ml-4 hidden items-center gap-2 rounded-full bg-gray-50 px-3 py-1 sm:flex">
-              <span className={`h-1.5 w-1.5 rounded-full ${healthData.every(h => h.status === 'up') ? 'bg-green-500' : 'bg-red-500'} animate-pulse`}></span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                {t("common.live")}
+        <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex min-w-0 items-center gap-2">
+              <img src={logo} alt="DZ Address Picker logo" className="h-7 w-7 sm:h-8 sm:w-8 shrink-0" />
+              <span className="min-w-0 truncate text-base font-bold text-black sm:text-lg lg:text-xl">
+                DZ Address Picker
               </span>
-              <button 
-                onClick={runHealth}
-                disabled={healthLoading}
-                className="ml-1 text-[10px] font-bold uppercase text-black underline underline-offset-2 opacity-50 hover:opacity-100 disabled:opacity-20"
-              >
-                {healthLoading ? "..." : t("common.refresh")}
-              </button>
+              <span className="ml-1 inline-flex shrink-0 items-center rounded-full border border-gray-100 bg-gray-100 px-1.5 py-0.5 text-[9px] font-bold text-gray-500">
+                v{pkg.version}
+              </span>
             </div>
-          </div>
 
-          <div className="flex shrink-0 items-center gap-3">
-            <nav className="hidden items-center gap-5 text-sm lg:flex">
-              {navLinks.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="text-gray-600 transition-colors duration-300 hover:text-black"
+            <div className="flex shrink-0 items-center gap-3">
+              <div className="hidden items-center gap-2 rounded-full bg-gray-50 px-3 py-1 lg:flex">
+                <span className={`h-1.5 w-1.5 rounded-full ${healthData.every(h => h.status === 'up') ? 'bg-green-500' : 'bg-red-500'} animate-pulse`}></span>
+                <span className="text-[9px] font-bold uppercase tracking-widest text-gray-500">
+                  {t("common.live")}
+                </span>
+                <button 
+                  onClick={runHealth}
+                  disabled={healthLoading}
+                  className="ml-1 text-[9px] font-bold uppercase text-black underline underline-offset-2 opacity-50 hover:opacity-100 disabled:opacity-20"
                 >
-                  {l.label}
-                </a>
-              ))}
-            </nav>
-            <LanguageToggle />
+                  {healthLoading ? "..." : t("common.refresh")}
+                </button>
+              </div>
+              <LanguageToggle />
+            </div>
           </div>
         </div>
         
-        <nav className="flex gap-4 overflow-x-auto border-t border-gray-100 px-4 py-3 text-sm whitespace-nowrap lg:hidden scrollbar-hide justify-center">
+        <nav className="flex items-center justify-center gap-4 overflow-x-auto border-t border-gray-100 px-4 py-2.5 text-xs whitespace-nowrap scrollbar-hide">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="text-gray-600 font-medium transition hover:text-black">
+            <a 
+              key={l.href} 
+              href={l.href} 
+              className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black"
+            >
               {l.label}
             </a>
           ))}
         </nav>
       </header>
 
+
       <main className="mx-auto max-w-5xl px-4 pb-8 sm:px-6">
-        <section className="py-12 text-center sm:py-20 md:py-24">
+        <section className="py-8 sm:py-16 md:py-20 lg:py-24 text-center">
           <div className="mx-auto mb-8 max-w-2xl rounded-2xl border border-gray-200 bg-gray-50 p-6 text-left sm:p-8">
             <div className="flex items-center gap-2 mb-4">
               <span className="flex h-2 w-2 rounded-full bg-black animate-pulse"></span>
-              <h2 className="text-sm font-bold tracking-wider text-black uppercase">
+              <h2 className="text-xs font-bold tracking-wider text-black uppercase">
                 {t("updates.title")}
               </h2>
             </div>
@@ -270,21 +267,21 @@ function Index() {
             </p>
             <div className="pt-4 border-t border-gray-200">
               <details className="group">
-                <summary className="text-xs font-bold text-black cursor-pointer hover:underline list-none flex items-center justify-between">
+                <summary className="text-[10px] font-bold text-black cursor-pointer hover:underline list-none flex items-center justify-between uppercase tracking-widest">
                   {t("updates.showAll")}
-                  <ChevronRight className="w-4 h-4 transition-transform group-open:rotate-90" />
+                  <ChevronRight className="w-3 h-3 transition-transform group-open:rotate-90" />
                 </summary>
-                <div className="mt-4 space-y-3 text-xs text-gray-500">
+                <div className="mt-4 space-y-3 text-[11px] text-gray-500">
                   <div className="border-l-2 border-black pl-3 py-1">
-                    <p className="text-black font-bold mb-1">v2.0.0 — The Ultimate Platform</p>
+                    <p className="text-black font-bold mb-0.5">v2.0.0 — The Ultimate Platform</p>
                     <p>30+ new endpoints, GeoJSON, logistics rates, demographics, and economy data.</p>
                   </div>
                   <div className="border-l-2 border-gray-300 pl-3 py-1">
-                    <p className="text-gray-700 font-bold mb-1">v1.0.5 — Official Dataset</p>
+                    <p className="text-gray-700 font-bold mb-0.5">v1.0.5 — Official Dataset</p>
                     <p>100% accurate postal codes via geoalgeria project.</p>
                   </div>
                   <div className="border-l-2 border-gray-300 pl-3 py-1">
-                    <p className="text-gray-700 font-bold mb-1">v1.0.4 — Trilingual API</p>
+                    <p className="text-gray-700 font-bold mb-0.5">v1.0.4 — Trilingual API</p>
                     <p>Optimized Arabic and Latin hierarchical trees.</p>
                   </div>
                 </div>
@@ -294,12 +291,14 @@ function Index() {
 
 
 
-          <h1 className="text-4xl font-extrabold tracking-tight text-black sm:text-5xl md:text-6xl lg:text-7xl !leading-[1.15]">
+
+          <h1 className="text-4xl font-extrabold tracking-tighter text-black sm:text-5xl md:text-6xl lg:text-7xl !leading-[1.1]">
             {t("hero.title")}
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-500 sm:text-xl lg:text-2xl leading-relaxed">
+          <p className="mx-auto mt-6 max-w-2xl text-base text-gray-500 sm:text-lg lg:text-xl leading-relaxed">
             {t("hero.subtitle")}
           </p>
+
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
             <a
               href="#demo"
@@ -314,21 +313,29 @@ function Index() {
           </div>
         </section>
 
+
         <section id="demo" className="scroll-mt-32">
-          <div className="mx-auto max-w-2xl rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-8">
-            <h2 className="mb-6 text-lg font-semibold text-black">{t("demo.title")}</h2>
-            <AlgeriaAddressPicker />
-            <EventConsole lines={logs} />
+          <div className="mx-auto max-w-3xl px-4 sm:px-0">
+            <div className="mb-12 text-center sm:text-left">
+               <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">{t("demo.title")}</h2>
+               <p className="mt-2 text-sm text-gray-500 leading-relaxed font-medium">Test the picker with live events and state synchronization.</p>
+            </div>
+            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-8">
+              <AlgeriaAddressPicker />
+              <EventConsole lines={logs} />
+            </div>
           </div>
         </section>
 
+
         <section id="in-action" className="mt-16 scroll-mt-32 sm:mt-20">
-          <div className="text-center">
-            <h2 className="text-xl font-bold tracking-tight text-black sm:text-2xl">
+          <div className="mx-auto max-w-3xl px-4 sm:px-0 text-center sm:text-left mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">
               {t("checkout.title")}
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-gray-500">{t("checkout.subtitle")}</p>
+            <p className="mt-2 text-sm text-gray-500 leading-relaxed font-medium">{t("checkout.subtitle")}</p>
           </div>
+
           <CheckoutSimulation live={live} />
         </section>
 

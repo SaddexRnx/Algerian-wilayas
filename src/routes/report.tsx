@@ -48,8 +48,9 @@ function ReportPage() {
         {t("nav.backHome")}
       </Link>
 
-      <h1 className="text-3xl font-extrabold tracking-tight text-black mb-2">{t("report.title")}</h1>
-      <p className="text-gray-500 mb-8">{t("vote.subtitle")}</p>
+      <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tighter text-black uppercase mb-2">{t("report.title")}</h1>
+      <p className="text-sm text-gray-500 font-medium mb-8">{t("vote.subtitle")}</p>
+
 
       {success ? (
         <div className="rounded-xl border border-black bg-black p-8 text-center text-white shadow-xl animate-in fade-in zoom-in duration-300">
@@ -92,8 +93,9 @@ function ReportPage() {
           </div>
 
           <button disabled={loading} className="w-full bg-black text-white p-4 rounded-xl font-bold uppercase tracking-widest hover:bg-gray-800 transition shadow-lg hover:shadow-black/20 disabled:opacity-50">
-            {loading ? t("common.loading") : t("report.submit")}
+            {loading ? "SENDING..." : t("report.submit")}
           </button>
+
         </form>
       )}
     </div>

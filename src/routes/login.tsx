@@ -67,8 +67,9 @@ function LoginPage() {
     >
       <div className="mx-auto w-full max-w-md">
         <form onSubmit={onSubmit} className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
-          <h1 className="text-lg font-bold tracking-tight text-black">Admin Access</h1>
-          <p className="mt-1 text-sm text-gray-500">Sign in to view the analytics dashboard.</p>
+          <h1 className="text-xl font-bold tracking-tighter text-black uppercase">Admin Access</h1>
+          <p className="mt-1 text-sm text-gray-500 font-medium leading-relaxed">Sign in to view the analytics dashboard.</p>
+
 
           <label className="mt-6 block text-xs font-medium text-gray-500" htmlFor="login-email">
             Email address

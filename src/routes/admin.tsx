@@ -256,8 +256,9 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
       <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="min-w-0">
-            <h1 className="truncate text-2xl font-bold tracking-tight text-black sm:text-3xl">
+            <h1 className="truncate text-2xl font-bold tracking-tighter text-black sm:text-3xl uppercase">
               {t("admin.title")}
+
             </h1>
             <p className="mt-1 text-sm text-gray-500">
               {loading ? t("admin.loading") : failed ? t("admin.login.error") : t("admin.live")}
@@ -312,15 +313,17 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               disabled={loading || reportsLoading || healthLoading}
               className="shrink-0 rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-40"
             >
-              {t("common.refresh")}
+              {loading || reportsLoading || healthLoading ? "REFRESHING..." : t("common.refresh")}
+
             </button>
 
           </div>
         </div>
 
-        {activeTab === "analytics" ? (
+        {activeTab === "analytics" && data && (
           <>
             <section className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+
           {KPI_KEYS.map((k, i) => (
             <div key={k} className={cardClass}>
               <p className="truncate text-xs font-medium text-gray-500">{t(k)}</p>
@@ -390,24 +393,25 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             </div>
           ) : (
             <EmptyBox
-              label={loading ? t("admin.loading") : t("admin.empty.chart")}
+              label={loading ? t("common.loading") : t("admin.empty.chart")}
               className="mt-5 h-64 w-full sm:h-80"
             />
           )}
         </section>
 
         <div className="mt-6 grid min-w-0 gap-6 lg:grid-cols-3">
-          <section className={`${cardClass} min-w-0 lg:col-span-2`}>
+          <section className={`${cardClass} min-w-0 lg:col-span-3`}>
             <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:flex sm:justify-between">
-              <h2 className="min-w-0 truncate text-sm font-semibold text-black">
+              <h2 className="min-w-0 truncate text-sm font-bold text-black uppercase tracking-tighter">
                 {t("admin.table.title")}
               </h2>
+
               <input
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder={t("admin.table.search")}
-                aria-label={t("admin.table.search")}
+                placeholder={t("common.search")}
+                aria-label={t("common.search")}
                 className="w-36 shrink-0 rounded-md border border-gray-300 bg-white px-2.5 py-1.5 text-xs text-black outline-none placeholder:text-gray-400 focus:border-black focus:ring-1 focus:ring-black sm:w-56"
               />
             </div>
@@ -415,35 +419,34 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full min-w-[520px] text-start text-sm">
                 <thead>
-                  <tr className="border-b border-gray-200 text-xs text-gray-500">
-                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.rank")}</th>
-                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.name")}</th>
-                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.code")}</th>
-                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.searchedZip")}</th>
-                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.count")}</th>
-                    <th className="py-2 text-start font-medium uppercase tracking-wider">{t("admin.table.share")}</th>
-
+                  <tr className="border-b border-gray-200 text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                    <th className="py-2 pe-3 text-start">{t("admin.table.rank")}</th>
+                    <th className="py-2 pe-3 text-start">{t("admin.table.name")}</th>
+                    <th className="py-2 pe-3 text-start">{t("admin.table.code")}</th>
+                    <th className="py-2 pe-3 text-start">{t("admin.table.calls")}</th>
+                    <th className="py-2 text-start">{t("admin.table.share")}</th>
                   </tr>
+
                 </thead>
                 <tbody>
                   {filteredRows.length === 0 && (
                     <tr>
                       <td colSpan={5} className="py-10 text-center text-sm text-gray-400">
-                        {loading ? t("admin.loading") : t("admin.table.empty")}
+                        {loading ? t("common.loading") : t("admin.table.empty")}
                       </td>
                     </tr>
                   )}
                   {filteredRows.map((r, i) => {
                     const share = totalWilayaCalls ? (r.count / totalWilayaCalls) * 100 : 0;
                     return (
-                      <tr key={r.code} className="border-b border-gray-100 last:border-0">
-                        <td className="py-2.5 pe-3 text-gray-500">{i + 1}</td>
-                        <td className="py-2.5 pe-3 text-black">{r.name}</td>
-                        <td className="py-2.5 pe-3 text-gray-600" dir="ltr">
+                      <tr key={r.code} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
+                        <td className="py-2.5 pe-3 text-gray-500 font-mono">{i + 1}</td>
+                        <td className="py-2.5 pe-3 text-black font-medium">{r.name}</td>
+                        <td className="py-2.5 pe-3 text-gray-600 font-mono" dir="ltr">
                           {r.code}
                         </td>
-                        <td className="py-2.5 pe-3 text-black" dir="ltr">
-                          {r.count}
+                        <td className="py-2.5 pe-3 text-black font-mono" dir="ltr">
+                          {r.count.toLocaleString()}
                         </td>
                         <td className="py-2.5">
                           <div className="flex items-center gap-2">
@@ -453,7 +456,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
                                 style={{ width: `${share.toFixed(1)}%` }}
                               />
                             </div>
-                            <span className="text-xs text-gray-500" dir="ltr">
+                            <span className="text-xs text-gray-500 font-mono" dir="ltr">
                               {share.toFixed(1)}%
                             </span>
                           </div>
@@ -465,9 +468,11 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               </table>
             </div>
           </section>
+        </div>
 
-          <section className={`${cardClass} min-w-0`}>
-            <h2 className="text-sm font-semibold text-black">{t("admin.endpoints.title")}</h2>
+
+          <section className={`${cardClass} min-w-0 mt-6`}>
+            <h2 className="text-sm font-bold text-black uppercase tracking-tighter">{t("admin.endpoints.title")}</h2>
             <p className="mt-1 text-xs text-gray-500">{t("admin.methods.subtitle")}</p>
             {data && data.endpoints.length > 0 ? (
               <div className="mt-4 h-64 w-full" dir="ltr">
@@ -508,11 +513,16 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               />
             )}
           </section>
-        </div>
         </>
-        ) : activeTab === "reports" ? (
+      )}
+
+      {activeTab === "reports" && (
+
+
+
+
           <section className={`mt-6 ${cardClass}`}>
-            <h2 className="text-sm font-semibold text-black">{t("admin.reports")}</h2>
+            <h2 className="text-sm font-bold text-black uppercase tracking-tighter">{t("admin.reports")}</h2>
             <div className="mt-4 overflow-x-auto">
               <table className="w-full min-w-[600px] text-start text-sm">
                  <thead>
@@ -572,11 +582,14 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               </table>
             </div>
           </section>
-        ) : activeTab === "health" ? (
+      )}
+
+      {activeTab === "health" && (
+
           <section className={`mt-6 ${cardClass}`}>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
               <div>
-                <h2 className="text-sm font-semibold text-black">{t("admin.health.title")}</h2>
+                <h2 className="text-sm font-bold text-black uppercase tracking-tighter">{t("admin.health.title")}</h2>
                 <div className="mt-1 flex items-center gap-2">
                   <p className="text-[10px] text-gray-500">
                     {t("admin.health.recheckNote")}
@@ -593,7 +606,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
                 disabled={healthLoading}
                 className="text-[10px] font-bold uppercase tracking-widest bg-black text-white px-4 py-2 rounded-lg hover:opacity-80 transition disabled:opacity-50"
               >
-                {healthLoading ? t("tester.sending") : t("admin.health.check")}
+                {healthLoading ? "TESTING..." : t("admin.health.check")}
               </button>
             </div>
             
@@ -699,9 +712,11 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               </div>
             )}
           </section>
+      )}
+
+      {activeTab === "i18n" && (
 
 
-        ) : (
           <section className={`mt-6 ${cardClass}`}>
             <h2 className="text-sm font-semibold text-black mb-6">{t("admin.i18n.title")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -729,6 +744,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
 }
 
 
+
 function ConfirmSignOut({ onCancel, onConfirm }: { onCancel: () => void; onConfirm: () => void }) {
   const { t } = useI18n();
   return (
@@ -743,10 +759,11 @@ function ConfirmSignOut({ onCancel, onConfirm }: { onCancel: () => void; onConfi
         className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-6 shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 id="dz-signout-title" className="text-sm font-semibold text-black">
+        <h2 id="dz-signout-title" className="text-sm font-bold tracking-tighter text-black uppercase">
           {t("admin.logout.title")}
         </h2>
-        <p className="mt-2 text-sm text-gray-500">{t("admin.logout.body")}</p>
+        <p className="mt-2 text-sm text-gray-500 font-medium leading-relaxed">{t("admin.logout.body")}</p>
+
         <div className="mt-6 flex justify-end gap-2">
           <button
             type="button"
