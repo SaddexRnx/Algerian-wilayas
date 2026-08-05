@@ -64,16 +64,20 @@ export const checkApiHealth = createServerFn({ method: "GET" })
           status,
           latency: Math.floor(Math.random() * 100) + 10,
           timestamp: new Date().toISOString(),
+          statusCode: 200,
         });
-      } catch (e) {
+      } catch (e: any) {
         results.push({
           endpoint,
           status: "down",
           latency: 0,
           timestamp: new Date().toISOString(),
+          statusCode: e.message?.includes("HTTP") ? parseInt(e.message.split(" ")[1]) : 500,
+          error: e.message || "Unknown Error",
         });
       }
     }
     
     return results;
   });
+
