@@ -1,0 +1,15 @@
+{
+  "hospitals": [
+    {
+      "name": "CHU undefined",
+      "type": "Public University Hospital",
+      "address": "Centre, undefined"
+    },
+    {
+      "name": "Clinique El Amel",
+      "type": "Private",
+      "address": "Suburb, undefined"
+    }
+  ],
+  "status": "Beta"
+}

@@ -1,0 +1,45 @@
+{
+  "atms": [
+    {
+      "bank": "BEA",
+      "location": "BEA Branch, undefined",
+      "available_24h": true
+    },
+    {
+      "bank": "CPA",
+      "location": "CPA Branch, undefined",
+      "available_24h": true
+    },
+    {
+      "bank": "BNA",
+      "location": "BNA Branch, undefined",
+      "available_24h": true
+    },
+    {
+      "bank": "CNEP",
+      "location": "CNEP Branch, undefined",
+      "available_24h": true
+    },
+    {
+      "bank": "BADR",
+      "location": "BADR Branch, undefined",
+      "available_24h": true
+    },
+    {
+      "bank": "BDL",
+      "location": "BDL Branch, undefined",
+      "available_24h": true
+    },
+    {
+      "bank": "Al Salam Bank",
+      "location": "Al Salam Bank Branch, undefined",
+      "available_24h": true
+    },
+    {
+      "bank": "Gulf Bank Algeria",
+      "location": "Gulf Bank Algeria Branch, undefined",
+      "available_24h": true
+    }
+  ],
+  "status": "Beta"
+}

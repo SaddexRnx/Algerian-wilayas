@@ -1,0 +1,31 @@
+{
+  "passport": "Algeria",
+  "destinations": [
+    {
+      "country": "Tunisia",
+      "requirement": "Visa Free",
+      "duration": "90 days"
+    },
+    {
+      "country": "Morocco",
+      "requirement": "Visa Free",
+      "duration": "90 days"
+    },
+    {
+      "country": "France",
+      "requirement": "Visa Required",
+      "type": "Schengen"
+    },
+    {
+      "country": "Turkey",
+      "requirement": "e-Visa / Visa Required",
+      "note": "e-Visa for certain ages"
+    },
+    {
+      "country": "Malaysia",
+      "requirement": "Visa Free",
+      "duration": "30 days"
+    }
+  ],
+  "status": "Beta - Consult Official Sources"
+}

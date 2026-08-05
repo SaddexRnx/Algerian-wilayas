@@ -1,0 +1,31 @@
+{
+  "last_updated": "2026-08-05T20:46:29.534Z",
+  "source": "Square Port Said (Estimated)",
+  "rates": [
+    {
+      "currency": "EUR",
+      "official": 145.2,
+      "parallel": 242.5,
+      "unit": "1 EUR"
+    },
+    {
+      "currency": "USD",
+      "official": 134.1,
+      "parallel": 224,
+      "unit": "1 USD"
+    },
+    {
+      "currency": "GBP",
+      "official": 170.5,
+      "parallel": 280,
+      "unit": "1 GBP"
+    },
+    {
+      "currency": "CAD",
+      "official": 98.2,
+      "parallel": 160,
+      "unit": "1 CAD"
+    }
+  ],
+  "status": "Beta - Market Estimates"
+}

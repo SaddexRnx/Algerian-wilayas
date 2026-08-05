@@ -1,0 +1,53 @@
+{
+  "banks": [
+    {
+      "name": "BEA",
+      "branch": "Branch undefined",
+      "address": "Main Street, undefined",
+      "phone": "021 XX XX XX"
+    },
+    {
+      "name": "CPA",
+      "branch": "Branch undefined",
+      "address": "Main Street, undefined",
+      "phone": "021 XX XX XX"
+    },
+    {
+      "name": "BNA",
+      "branch": "Branch undefined",
+      "address": "Main Street, undefined",
+      "phone": "021 XX XX XX"
+    },
+    {
+      "name": "CNEP",
+      "branch": "Branch undefined",
+      "address": "Main Street, undefined",
+      "phone": "021 XX XX XX"
+    },
+    {
+      "name": "BADR",
+      "branch": "Branch undefined",
+      "address": "Main Street, undefined",
+      "phone": "021 XX XX XX"
+    },
+    {
+      "name": "BDL",
+      "branch": "Branch undefined",
+      "address": "Main Street, undefined",
+      "phone": "021 XX XX XX"
+    },
+    {
+      "name": "Al Salam Bank",
+      "branch": "Branch undefined",
+      "address": "Main Street, undefined",
+      "phone": "021 XX XX XX"
+    },
+    {
+      "name": "Gulf Bank Algeria",
+      "branch": "Branch undefined",
+      "address": "Main Street, undefined",
+      "phone": "021 XX XX XX"
+    }
+  ],
+  "status": "Beta"
+}
