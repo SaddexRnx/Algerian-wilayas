@@ -8,6 +8,14 @@
     "/api/wilayas/{code}/dairas/{slug}.json",
     "/api/zip/{zipcode}.json",
     "/api/ar/wilayas.json",
-    "/api/latin/wilayas.json"
+    "/api/ar/full-data.json",
+    "/api/ar/wilayas/{code}.json",
+    "/api/ar/wilayas/{code}/dairas.json",
+    "/api/ar/wilayas/{code}/dairas/{slug}.json",
+    "/api/latin/wilayas.json",
+    "/api/latin/full-data.json",
+    "/api/latin/wilayas/{code}.json",
+    "/api/latin/wilayas/{code}/dairas.json",
+    "/api/latin/wilayas/{code}/dairas/{slug}.json"
   ]
 }
