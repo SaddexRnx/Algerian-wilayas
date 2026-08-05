@@ -196,7 +196,7 @@ function Index() {
             <LanguageToggle />
           </div>
         </div>
-        <div className="bg-black py-2.5 px-4 text-center text-[11px] sm:text-xs text-white">
+        
         <nav className="flex gap-4 overflow-x-auto border-t border-gray-100 px-4 py-2 text-sm whitespace-nowrap lg:hidden">
           {navLinks.map((l) => (
             <a key={l.href} href={l.href} className="text-gray-600 transition hover:text-black">
