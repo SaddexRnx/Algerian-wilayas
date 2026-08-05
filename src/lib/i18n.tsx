@@ -196,8 +196,9 @@ const fr = {
   "api.wilayaCommunesDesc": "Liste à plat de toutes les communes d'une wilaya.",
   "api.dairaDetailDesc": "Détail d'une daira précise et de ses communes.",
   "api.zipReverseDesc": "Recherche inversée d'un code postal pour obtenir la wilaya, la daira et la commune correspondantes.",
-  "updates.title": "🚨 CRITICAL COMPREHENSIVE UPDATE TO v1.0.4",
-  "updates.body": "v1.0.4: Fixed ZIP code mapping accuracy, added dynamic language-specific endpoints (/api/ar/ and /api/latin/), improved API tester, and enhanced Developer Hub documentation.",
+  "updates.title": "🚨 تحديث شامل وحرج للإصدار v1.0.4",
+  "updates.body": "الإصدار v1.0.4: تم تصحيح دقة تعيين الرموز البريدية، وإضافة نقاط وصول ديناميكية خاصة باللغة (/api/ar/ و /api/latin/)، وتحسين مُختبِر واجهة البرمجة، وتطوير توثيق مركز المطورين.",
+
   "picker.searchByZip": "Search by ZIP Code / Postal Code",
   "picker.village": "Village / Neighborhood",
   "picker.zipLabel": "Enter 5-digit ZIP code",
@@ -227,7 +228,8 @@ const fr = {
   "tester.help.daira": "Enter Wilaya Code and Daira Slug",
   "tester.help.zip": "Enter 5-digit ZIP code (e.g., 19070)",
   "tester.help.lang": "No parameters required. Returns language-specific data.",
-  "updates.v104": "v1.0.4: Fixed ZIP code mapping accuracy, added dynamic language-specific endpoints (/api/ar/ and /api/latin/), improved API tester, and enhanced Developer Hub documentation.",
+  "updates.v104": "الإصدار v1.0.4: تم تصحيح دقة تعيين الرموز البريدية، وإضافة نقاط وصول ديناميكية خاصة باللغة (/api/ar/ و /api/latin/)، وتحسين مُختبِر واجهة البرمجة، وتطوير توثيق مركز المطورين.",
+
   "home.reportLink": "Quelque chose ne va pas avec les données ? Cliquez ici pour soumettre une correction.",
 
 } as const;
