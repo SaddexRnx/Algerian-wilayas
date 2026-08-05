@@ -51,7 +51,7 @@ const baseTranslations = {
     ar: "من مجرد أداة اختيار إلى منصة بيانات كاملة. الخدمات اللوجستية، الخرائط، الديموغرافيا، والاقتصاد لـ 69 ولاية." 
   },
 
-  // Demo & Picker
+  // Picker & Demo
   "demo.title": { en: "Interactive Demo", fr: "Démo interactive", ar: "تجربة تفاعلية" },
   "demo.console": { en: "Event Console", fr: "Console des évènements", ar: "لوحة الأحداث" },
   "demo.waiting": { en: "Waiting for events...", fr: "En attente des évènements", ar: "بانتظار الأحداث..." },
@@ -71,6 +71,14 @@ const baseTranslations = {
   "picker.export": { en: "Export as CSV", fr: "Exporter en CSV", ar: "تصدير CSV" },
   "picker.village": { en: "Village / Neighborhood", fr: "Village / Quartier", ar: "القرية / الحي" },
   "picker.searchByZip": { en: "Search by ZIP", fr: "Recherche par ZIP", ar: "البحث بالرمز البريدي" },
+  "picker.presetShort": { en: "Short", fr: "Courte", ar: "مختصر" },
+  "picker.presetFull": { en: "Full", fr: "Complète", ar: "كامل" },
+  "picker.presetCompact": { en: "Compact", fr: "Compacte", ar: "مضغوط" },
+  "picker.zipInvalid": { en: "Invalid ZIP code", fr: "Code postal invalide", ar: "رمز بريدي غير صالح" },
+  "picker.zipNotFound": { en: "ZIP not found", fr: "Code postal non trouvé", ar: "الرمز البريدي غير موجود" },
+  "picker.error": { en: "Could not load data", fr: "Impossible de charger les données", ar: "تعذّر تحميل البيانات" },
+  "picker.retry": { en: "Retry", fr: "Réessayer", ar: "إعادة المحاولة" },
+  "picker.loading": { en: "Loading data", fr: "Chargement des données", ar: "جارٍ تحميل البيانات" },
 
   // Checkout
   "checkout.title": { en: "See it in action", fr: "Voyez-le en action", ar: "شاهده قيد التشغيل" },
@@ -92,84 +100,72 @@ const baseTranslations = {
   "api.catSmart": { en: "Smart Utilities", fr: "Utilitaires intelligents", ar: "الأدوات الذكية" },
   "api.catExport": { en: "Export", fr: "Exportation", ar: "التصدير" },
 
-  // API Documentation text
+  // API Content
   "api.title": { en: "API Documentation", fr: "Documentation API", ar: "توثيق واجهة البرمجة" },
-  "api.subtitle": { en: "10 categories of high-performance static endpoints.", fr: "10 catégories de points de terminaison statiques.", ar: "10 فئات من نقاط الوصول الثابتة عالية الأداء." },
-  "api.method": { en: "Method", fr: "Méthode", ar: "الطريقة" },
-  "api.url": { en: "URL", fr: "URL", ar: "الرابط" },
-  "api.params": { en: "Parameters", fr: "Paramètres", ar: "المعاملات" },
-  "api.response": { en: "Response", fr: "Réponse", ar: "الاستجابة" },
+  "api.subtitle": { en: "Comprehensive endpoints for every use case.", fr: "Points de terminaison complets pour chaque cas.", ar: "نقاط وصول شاملة لكل حالة استخدام." },
   "api.example": { en: "Example", fr: "Exemple", ar: "مثال" },
+  "api.response": { en: "Response", fr: "Réponse", ar: "الاستجابة" },
+  "api.params": { en: "Parameters", fr: "Paramètres", ar: "المعاملات" },
   "api.copyUrl": { en: "Copy URL", fr: "Copier l'URL", ar: "نسخ الرابط" },
+  "api.indexDesc": { en: "API index and versioning.", fr: "Index API et versionnage.", ar: "فهرس الواجهة والإصدارات." },
+  "api.wilayasDesc": { en: "List all 69 wilayas.", fr: "Liste des 69 wilayas.", ar: "قائمة جميع الـ 69 ولاية." },
+  "api.fullDataDesc": { en: "Complete hierarchical dataset.", fr: "Jeu de données hiérarchique complet.", ar: "مجموعة البيانات الهيكلية الكاملة." },
+  "api.wilayaDetailDesc": { en: "Details for a specific wilaya.", fr: "Détails d'une wilaya spécifique.", ar: "تفاصيل ولاية معينة." },
+  "api.wilayaDairasDesc": { en: "List dairas for a wilaya.", fr: "Liste des dairas d'une wilaya.", ar: "قائمة الدوائر لولاية ما." },
+  "api.dairaDetailDesc": { en: "Details for a specific daira.", fr: "Détails d'une daira spécifique.", ar: "تفاصيل دائرة معينة." },
+  "api.zipReverseDesc": { en: "Lookup address by ZIP code.", fr: "Recherche par code postal.", ar: "البحث عن العنوان بالرمز البريدي." },
+
+  // API Endpoint descriptions (detailed)
+  "api.desc.wilayas": { en: "List all 69 wilayas.", fr: "Liste des 69 wilayas.", ar: "قائمة جميع الـ 69 ولاية." },
+  "api.desc.full": { en: "Complete hierarchical dataset.", fr: "Jeu de données hiérarchique complet.", ar: "مجموعة البيانات الهيكلية الكاملة." },
+  "api.desc.zipReverse": { en: "Lookup address by ZIP code.", fr: "Recherche par code postal.", ar: "البحث عن العنوان بالرمز البريدي." },
+  "api.desc.geo": { en: "Wilaya geographic coordinates.", fr: "Coordonnées géographiques wilaya.", ar: "الإحداثيات الجغرافية للولاية." },
+  "api.desc.shipping": { en: "Logistics rates and zones.", fr: "Tarifs et zones logistiques.", ar: "أسعار ومناطق الشحن." },
+  "api.desc.population": { en: "Demographic and density data.", fr: "Données démographiques et densité.", ar: "بيانات الديموغرافيا والكثافة." },
+  "api.desc.services": { en: "Locate banks, ATMs, and post offices.", fr: "Localiser banques, distributeurs et postes.", ar: "تحديد مواقع البنوك وأجهزة الصراف والبريد." },
+  "api.desc.travel": { en: "Visa requirements and travel info.", fr: "Exigences de visa et infos voyage.", ar: "متطلبات التأشيرة ومعلومات السفر." },
+  "api.desc.search": { en: "Fuzzy search across all names.", fr: "Recherche floue sur tous les noms.", ar: "البحث التقريبي في جميع الأسماء." },
+  "api.desc.export": { en: "Download full data in CSV or SQL.", fr: "Télécharger les données en CSV ou SQL.", ar: "تنزيل البيانات بصيغة CSV أو SQL." },
 
   // Leaderboard
   "leaderboard.title": { en: "Contributor Leaderboard", fr: "Classement des contributeurs", ar: "لوحة المتصدرين للمساهمين" },
   "leaderboard.subtitle": { en: "Honoring the heroes helping us perfect Algerian address data.", fr: "Honorer les héros qui nous aident à perfectionner les données.", ar: "تكريم الأبطال الذين يساعدون في تحسين بيانات العناوين الجزائرية." },
-  "leaderboard.rank": { en: "Rank", fr: "Rang", ar: "الرتبة" },
-  "leaderboard.contributor": { en: "Contributor", fr: "Contributeur", ar: "المساهم" },
-  "leaderboard.contributions": { en: "Contributions", fr: "Contributions", ar: "المساهمات" },
-  "leaderboard.badge": { en: "Badge", fr: "Badge", ar: "الوسام" },
 
   // Vote
   "vote.title": { en: "Vote for Upcoming Features", fr: "Votez pour les fonctionnalités", ar: "صوّت للميزات القادمة" },
-  "vote.subtitle": { en: "Help us prioritize our roadmap. What should we build next?", fr: "Aidez-nous à prioriser notre feuille de route.", ar: "ساعدنا في تحديد أولويات خريطة الطريق الخاصة بنا." },
-  "vote.button": { en: "Vote", fr: "Voter", ar: "تصويت" },
+  "vote.subtitle": { en: "Help us prioritize our roadmap.", fr: "Aidez-nous à prioriser notre feuille de route.", ar: "ساعدنا في تحديد أولويات خريطة الطريق الخاصة بنا." },
   "vote.voted": { en: "Voted", fr: "Voté", ar: "تم التصويت" },
-  "vote.count": { en: "votes", fr: "votes", ar: "صوت" },
   "vote.success": { en: "Vote recorded!", fr: "Vote enregistré !", ar: "تم تسجيل تصويتك!" },
   "vote.error": { en: "Already voted.", fr: "Déjà voté.", ar: "لقد قمت بالتصويت بالفعل." },
 
   // Changelog
   "changelog.title": { en: "Project Changelog", fr: "Journal des modifications", ar: "سجل التغييرات" },
-  "changelog.subtitle": { en: "Track the evolution of DZ Address Picker.", fr: "Suivez l'évolution de DZ Address Picker.", ar: "تتبع تطور DZ Address Picker." },
 
   // Integrations
   "integrations.title": { en: "E-commerce Integrations", fr: "Intégrations E-commerce", ar: "التكامل مع التجارة الإلكترونية" },
-  "integrations.subtitle": { en: "Guides to integrate into your store.", fr: "Guides d'intégration pour votre boutique.", ar: "أدلة لدمج الأداة في متجرك." },
-  "integrations.viewGuide": { en: "View Guide", fr: "Voir le guide", ar: "عرض الدليل" },
-  "integrations.difficulty": { en: "Difficulty", fr: "Difficulté", ar: "الصعوبة" },
 
-  // Footer & Misc
-  "footer.text": { 
-    en: "Built for the Algerian developer community. Open source and free forever.", 
-    fr: "Conçu pour la communauté des développeurs algériens. Open source et gratuit à vie.", 
-    ar: "صُنع لمجتمع المطورين الجزائريين. مفتوح المصدر ومجاني للأبد." 
-  },
+  // Developer Hub
+  "hub.title": { en: "Developer Hub", fr: "Espace développeur", ar: "مركز المطورين" },
+  "hub.subtitle": { en: "Ready-to-use snippets.", fr: "Extraits prêts à l'emploi.", ar: "قصاصات برمجية جاهزة." },
+  "hub.copy": { en: "Copy", fr: "Copier", ar: "نسخ" },
+  "hub.copied": { en: "Copied!", fr: "Copié !", ar: "تم النسخ!" },
+
+  // Footer & Features
+  "footer.text": { en: "Built for the Algerian developer community.", fr: "Conçu pour les développeurs algériens.", ar: "صُنع لمجتمع المطورين الجزائريين." },
   "footer.support": { en: "Support & Community", fr: "Support et communauté", ar: "الدعم والمجتمع" },
-  "footer.thanks": { en: "More updates are coming!", fr: "Plus de mises à jour arrivent !", ar: "المزيد من التحديثات قادمة!" },
+  "footer.thanks": { en: "More updates are coming!", fr: "Plus de mises à jour !", ar: "المزيد من التحديثات قادمة!" },
   "home.reportLink": { en: "Report Error", fr: "Signaler une erreur", ar: "تبليغ عن خطأ" },
-
-  // Features grid
   "features.fast": { en: "Fast", fr: "Rapide", ar: "سريع" },
   "features.fastDesc": { en: "CDN served.", fr: "Servi par CDN.", ar: "عبر CDN." },
   "features.agnostic": { en: "Compatible", fr: "Compatible", ar: "متوافق" },
   "features.agnosticDesc": { en: "Works everywhere.", fr: "Fonctionne partout.", ar: "يعمل في كل مكان." },
   "features.updated": { en: "Updated", fr: "Mis à jour", ar: "محدث" },
   "features.updatedDesc": { en: "Always fresh.", fr: "Toujours frais.", ar: "دائما جديد." },
-
-  // Admin
   "admin.logout": { en: "Logout", fr: "Déconnexion", ar: "خروج" },
   "admin.kpi.calls": { en: "Calls", fr: "Appels", ar: "الطلبات" },
   "admin.kpi.stores": { en: "Stores", fr: "Boutiques", ar: "المتاجر" },
   "admin.kpi.loads": { en: "Loads", fr: "Chargements", ar: "التحميلات" },
   "admin.kpi.latency": { en: "Latency", fr: "Latence", ar: "التأخير" },
-
-  // API Endpoint descriptions (used in documentation)
-  "api.desc.index": { en: "API index and versioning.", fr: "Index API et versionnage.", ar: "فهرس الواجهة والإصدارات." },
-  "api.desc.wilayas": { en: "List all 69 wilayas.", fr: "Liste des 69 wilayas.", ar: "قائمة جميع الـ 69 ولاية." },
-  "api.desc.full": { en: "Complete hierarchical dataset.", fr: "Jeu de données hiérarchique complet.", ar: "مجموعة البيانات الهيكلية الكاملة." },
-  "api.desc.wilayaDetail": { en: "Details for a specific wilaya.", fr: "Détails d'une wilaya spécifique.", ar: "تفاصيل ولاية معينة." },
-  "api.desc.wilayaDairas": { en: "List dairas for a wilaya.", fr: "Liste des dairas d'une wilaya.", ar: "قائمة الدوائر لولاية ما." },
-  "api.desc.dairaDetail": { en: "Details for a specific daira.", fr: "Détails d'une daira spécifique.", ar: "تفاصيل دائرة معينة." },
-  "api.desc.zipReverse": { en: "Lookup address by ZIP code.", fr: "Recherche par code postal.", ar: "البحث عن العنوان بالرمز البريدي." },
-  "api.desc.geo": { en: "Wilaya geographic coordinates.", fr: "Coordonnées géographiques wilaya.", ar: "الإحداثيات الجغرافية للولاية." },
-  "api.desc.shipping": { en: "Logistics rates and zones.", fr: "Tarifs et zones logistiques.", ar: "أسعار ومناطق الشحن." },
-  "api.desc.population": { en: "Demographic and density data.", fr: "Données démographiques et densité.", ar: "بيانات الديموغرافيا والكثافة." },
-  "api.desc.economy": { en: "Cost of living and exchange rates.", fr: "Coût de la vie et taux de change.", ar: "تكلفة المعيشة وأسعار الصرف." },
-  "api.desc.services": { en: "Locate banks, ATMs, and post offices.", fr: "Localiser banques, distributeurs et postes.", ar: "تحديد مواقع البنوك وأجهزة الصراف والبريد." },
-  "api.desc.travel": { en: "Visa requirements and travel info.", fr: "Exigences de visa et infos voyage.", ar: "متطلبات التأشيرة ومعلومات السفر." },
-  "api.desc.search": { en: "Fuzzy search across all names.", fr: "Recherche floue sur tous les noms.", ar: "البحث التقريبي في جميع الأسماء." },
-  "api.desc.export": { en: "Download full data in CSV or SQL.", fr: "Télécharger les données en CSV ou SQL.", ar: "تنزيل البيانات بصيغة CSV أو SQL." },
 };
 
 const fr: any = {};
