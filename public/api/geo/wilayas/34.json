@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 34,
+  "properties": {
+    "code": 34,
+    "name": "Bordj Bou Arreridj"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.829800152613191,
+      36.043289315225984
+    ]
+  }
+}

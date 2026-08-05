@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 26,
+  "properties": {
+    "code": 26,
+    "name": "Medea"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.3764186219434196,
+      35.33568511565955
+    ]
+  }
+}

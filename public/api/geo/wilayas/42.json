@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 42,
+  "properties": {
+    "code": 42,
+    "name": "Tipaza"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.75835676290931,
+      36.38929204704249
+    ]
+  }
+}

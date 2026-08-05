@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 33,
+  "properties": {
+    "code": 33,
+    "name": "Illizi"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.9282375066447073,
+      36.992695185646376
+    ]
+  }
+}

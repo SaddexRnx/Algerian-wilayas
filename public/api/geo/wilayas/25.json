@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 25,
+  "properties": {
+    "code": 25,
+    "name": "Constantine"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.464325314058439,
+      36.98414160429837
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 16,
+  "properties": {
+    "code": 16,
+    "name": "Alger"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.3621887761109166,
+      35.182515895581936
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 37,
+  "properties": {
+    "code": 37,
+    "name": "Tindouf"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.5896464917206243,
+      35.878165128444394
+    ]
+  }
+}

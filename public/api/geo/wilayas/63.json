@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 63,
+  "properties": {
+    "code": 63,
+    "name": "El Aricha"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.77076599471546,
+      36.97070759305726
+    ]
+  }
+}

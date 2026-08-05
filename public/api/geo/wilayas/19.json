@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 19,
+  "properties": {
+    "code": 19,
+    "name": "Setif"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.108100523052008,
+      36.18711947530676
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 45,
+  "properties": {
+    "code": 45,
+    "name": "Naama"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.59735496437152,
+      36.9169433017894
+    ]
+  }
+}

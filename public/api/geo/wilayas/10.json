@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 10,
+  "properties": {
+    "code": 10,
+    "name": "Bouira"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.509656621374162,
+      35.88246458253958
+    ]
+  }
+}

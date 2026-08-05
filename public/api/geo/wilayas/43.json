@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 43,
+  "properties": {
+    "code": 43,
+    "name": "Mila"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.8246779149678023,
+      35.81444745601948
+    ]
+  }
+}

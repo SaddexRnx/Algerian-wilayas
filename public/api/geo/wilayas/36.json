@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 36,
+  "properties": {
+    "code": 36,
+    "name": "El Tarf"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.192116210452736,
+      35.82991183043421
+    ]
+  }
+}

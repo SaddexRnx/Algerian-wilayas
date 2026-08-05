@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 29,
+  "properties": {
+    "code": 29,
+    "name": "Mascara"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.3247996122666366,
+      35.91671879617443
+    ]
+  }
+}

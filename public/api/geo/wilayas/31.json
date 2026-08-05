@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 31,
+  "properties": {
+    "code": 31,
+    "name": "Oran"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.80216242471514,
+      36.763627318440626
+    ]
+  }
+}

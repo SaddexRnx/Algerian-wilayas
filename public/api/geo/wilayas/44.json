@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 44,
+  "properties": {
+    "code": 44,
+    "name": "Ain Defla"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.8138817339754234,
+      36.81387565435501
+    ]
+  }
+}

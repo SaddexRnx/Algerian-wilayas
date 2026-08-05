@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 8,
+  "properties": {
+    "code": 8,
+    "name": "Bechar"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.106607496524756,
+      35.052260809730384
+    ]
+  }
+}

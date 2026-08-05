@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 23,
+  "properties": {
+    "code": 23,
+    "name": "Annaba"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.375592158179929,
+      36.86272802609864
+    ]
+  }
+}

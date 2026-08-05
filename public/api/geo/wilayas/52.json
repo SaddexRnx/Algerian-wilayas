@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 52,
+  "properties": {
+    "code": 52,
+    "name": "Beni Abbes"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.2677271480659336,
+      36.16374834392249
+    ]
+  }
+}

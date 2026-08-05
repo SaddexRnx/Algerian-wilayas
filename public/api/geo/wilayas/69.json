@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 69,
+  "properties": {
+    "code": 69,
+    "name": "El Abiodh Sidi Cheikh"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.901177591416008,
+      35.08142696671251
+    ]
+  }
+}

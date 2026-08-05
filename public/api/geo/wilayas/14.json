@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 14,
+  "properties": {
+    "code": 14,
+    "name": "Tiaret"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.467768245611602,
+      35.76191739959778
+    ]
+  }
+}

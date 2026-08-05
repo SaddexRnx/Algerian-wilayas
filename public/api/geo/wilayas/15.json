@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 15,
+  "properties": {
+    "code": 15,
+    "name": "Tizi Ouzou"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.844462642572628,
+      35.73371864082226
+    ]
+  }
+}

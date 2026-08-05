@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 32,
+  "properties": {
+    "code": 32,
+    "name": "El Bayadh"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.742669634596864,
+      36.01337099694387
+    ]
+  }
+}

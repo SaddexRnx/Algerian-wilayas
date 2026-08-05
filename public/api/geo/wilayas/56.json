@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 56,
+  "properties": {
+    "code": 56,
+    "name": "Djanet"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.3521501777781384,
+      36.59524323666195
+    ]
+  }
+}

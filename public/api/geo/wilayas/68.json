@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 68,
+  "properties": {
+    "code": 68,
+    "name": "Bou Saada"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.499653561660194,
+      35.549623502325346
+    ]
+  }
+}

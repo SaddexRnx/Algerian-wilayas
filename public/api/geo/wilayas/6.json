@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 6,
+  "properties": {
+    "code": 6,
+    "name": "Bejaia"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.5012400939962527,
+      36.90545505168109
+    ]
+  }
+}

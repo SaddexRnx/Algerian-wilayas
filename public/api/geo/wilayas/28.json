@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 28,
+  "properties": {
+    "code": 28,
+    "name": "M'Sila"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.1003472453681944,
+      35.32628104904232
+    ]
+  }
+}

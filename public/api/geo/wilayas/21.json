@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 21,
+  "properties": {
+    "code": 21,
+    "name": "Skikda"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.163486096602734,
+      35.827988181981624
+    ]
+  }
+}

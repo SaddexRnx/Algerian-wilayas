@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 50,
+  "properties": {
+    "code": 50,
+    "name": "Bordj Badji Mokhtar"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.321050415189575,
+      35.75106761309936
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 9,
+  "properties": {
+    "code": 9,
+    "name": "Blida"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.999741739743524,
+      36.41783970448495
+    ]
+  }
+}

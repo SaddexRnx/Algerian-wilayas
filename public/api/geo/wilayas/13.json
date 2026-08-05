@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 13,
+  "properties": {
+    "code": 13,
+    "name": "Tlemcen"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.7742236607386546,
+      35.382776078375485
+    ]
+  }
+}

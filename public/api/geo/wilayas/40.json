@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 40,
+  "properties": {
+    "code": 40,
+    "name": "Khenchela"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.078034732301709,
+      35.12258944745212
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 35,
+  "properties": {
+    "code": 35,
+    "name": "Boumerdes"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.442097308687415,
+      36.62687855912959
+    ]
+  }
+}

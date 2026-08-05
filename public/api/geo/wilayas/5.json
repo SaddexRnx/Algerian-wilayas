@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 5,
+  "properties": {
+    "code": 5,
+    "name": "Batna"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.8049088774544635,
+      36.33103715619698
+    ]
+  }
+}

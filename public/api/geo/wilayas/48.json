@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 48,
+  "properties": {
+    "code": 48,
+    "name": "Relizane"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.4436660937313808,
+      36.32967034551977
+    ]
+  }
+}

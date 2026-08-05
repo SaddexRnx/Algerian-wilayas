@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 46,
+  "properties": {
+    "code": 46,
+    "name": "Ain Temouchent"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.7406373819467573,
+      35.56106805705727
+    ]
+  }
+}

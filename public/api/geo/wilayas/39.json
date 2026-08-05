@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 39,
+  "properties": {
+    "code": 39,
+    "name": "El Oued"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.7929757187867983,
+      35.022217360902026
+    ]
+  }
+}

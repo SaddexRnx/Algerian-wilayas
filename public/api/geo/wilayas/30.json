@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 30,
+  "properties": {
+    "code": 30,
+    "name": "Ouargla"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.1727640237074084,
+      35.831112197272176
+    ]
+  }
+}

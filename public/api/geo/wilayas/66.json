@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 66,
+  "properties": {
+    "code": 66,
+    "name": "Messaad"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.1908895686632355,
+      35.85768863100388
+    ]
+  }
+}
