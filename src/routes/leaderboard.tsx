@@ -1,8 +1,9 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { useTranslation } from '@/lib/i18n';
 import { supabase } from '@/integrations/supabase/client';
 import { useQuery } from '@tanstack/react-query';
-import { Trophy, Medal, Star, User } from 'lucide-react';
+import { Trophy, Medal, Star, User, ChevronLeft, ChevronRight } from 'lucide-react';
+
 
 export const Route = createFileRoute('/leaderboard')({
   component: LeaderboardPage,

@@ -1,6 +1,7 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { useTranslation } from '@/lib/i18n';
-import { ShoppingBag, Code, Terminal, Layers } from 'lucide-react';
+import { ShoppingBag, Code, Terminal, Layers, ChevronLeft, ChevronRight } from 'lucide-react';
+
 
 export const Route = createFileRoute('/integrations')({
   component: IntegrationsPage,

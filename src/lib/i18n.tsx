@@ -195,6 +195,7 @@ const baseTranslations = {
   "admin.zipMismatch": { en: "ZIP Mismatch Error", fr: "Erreur de correspondance ZIP", ar: "خطأ في تطابق الرمز" },
 };
 
+
 const fr: any = {};
 const en: any = {};
 const ar: any = {};
