@@ -42,14 +42,14 @@ const INTEGRATIONS = [
 ];
 
 function IntegrationsPage() {
-  const { lang } = useTranslation();
+  const { lang, t } = useTranslation();
   const isRtl = lang === 'ar';
 
   return (
     <div className={`min-h-screen bg-background py-12 px-4 ${isRtl ? 'rtl' : ''}`}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold mb-4">{isRtl ? 'التكامل مع منصات التجارة الإلكترونية' : 'E-commerce Integrations'}</h1>
+          <h1 className="text-4xl font-bold mb-4">{t('integrations.title')}</h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             {isRtl ? 'أدلة شاملة لدمج DZ Address Picker في متجرك الحالي.' : 'Comprehensive guides to integrate DZ Address Picker into your existing store.'}
           </p>
