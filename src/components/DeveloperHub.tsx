@@ -228,8 +228,9 @@ function PluginDownload() {
   return (
     <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:flex-row sm:p-6">
       <div className="text-center sm:text-start">
-        <h3 className="text-sm font-semibold text-black">{t("hub.wpTitle")}</h3>
-        <p className="mt-1 text-sm text-gray-500">{t("hub.wpDesc")}</p>
+        <h3 className="text-sm font-bold tracking-tighter text-black uppercase">{t("hub.wpTitle")}</h3>
+        <p className="mt-1 text-sm text-gray-500 font-medium">{t("hub.wpDesc")}</p>
+
       </div>
       <div className="flex w-full shrink-0 gap-2 sm:w-auto">
         <select
@@ -387,12 +388,14 @@ export function DeveloperHub() {
 
 
       <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
-        <h3 className="text-sm font-semibold text-black">{t("hub.liveConfig")}</h3>
-        <p className="mt-1 text-sm text-gray-500">{t("hub.liveConfigDesc")}</p>
+        <h3 className="text-sm font-bold tracking-tighter text-black uppercase">{t("hub.liveConfig")}</h3>
+        <p className="mt-1 text-sm text-gray-500 font-medium">{t("hub.liveConfigDesc")}</p>
+
         <div className="mt-4">
-          <label htmlFor="cfg-target" className="mb-1.5 block text-xs font-medium text-gray-700">
+          <label htmlFor="cfg-target" className="mb-1.5 block text-[10px] font-bold tracking-widest text-gray-400 uppercase">
             {t("hub.target")}
           </label>
+
           <input
             id="cfg-target"
             type="text"
@@ -418,9 +421,10 @@ export function DeveloperHub() {
           {showAdvanced && (
             <div className="mt-4 grid gap-4 sm:grid-cols-2 border-t border-gray-100 pt-4 animate-in fade-in slide-in-from-top-2">
               <div>
-                <label htmlFor="cfg-format" className="mb-1.5 block text-xs font-medium text-gray-700">
+                <label htmlFor="cfg-format" className="mb-1.5 block text-[10px] font-bold tracking-widest text-gray-400 uppercase">
                   {t("hub.format")}
                 </label>
+
                 <select
                   id="cfg-format"
                   value={config.format}
@@ -436,9 +440,10 @@ export function DeveloperHub() {
                 </select>
               </div>
               <div>
-                <label htmlFor="cfg-name" className="mb-1.5 block text-xs font-medium text-gray-700">
+                <label htmlFor="cfg-name" className="mb-1.5 block text-[10px] font-bold tracking-widest text-gray-400 uppercase">
                   {t("hub.inputName")}
                 </label>
+
                 <input
                   id="cfg-name"
                   type="text"
