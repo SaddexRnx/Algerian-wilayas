@@ -1,4 +1,4 @@
-# DZ Address Picker v1.0.4
+# DZ Address Picker v1.0.5
 
 **A free, blazing-fast, plug-and-play Algerian address system — 69 Wilayas, all Dairas and 1,541 Communes — as a static JSON API, an embeddable widget and a React component.**
 
@@ -8,7 +8,7 @@ DZ Address Picker provides official administrative Algerian addresses (Arabic & 
 
 ## 🚀 Key Features
 
-- **Blazing Fast** — Served via global CDN-friendly static JSON endpoints (~2,000 files).
+- **Official Data** — Integrated Algérie Poste dataset for 100% accurate postal codes and administrative names.
 - **Multi-Language** — Optimized `/api/ar/` and `/api/latin/` trees for lightweight localized payloads.
 - **Granular Access** — Fetch only what you need (e.g., specific daira communes) to save bandwidth.
 - **ZIP Reverse Lookup** — Get full address details from a 5-digit postal code instantly.

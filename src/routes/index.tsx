@@ -227,7 +227,7 @@ function Index() {
                   <svg className="w-3 h-3 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
                 </summary>
                 <div className="mt-3 space-y-2 text-xs text-gray-500">
-                  <p><strong className="text-black">v{pkg.version}:</strong> {t("updates.v104")}</p>
+                  <p><strong className="text-black">v{pkg.version}:</strong> {t("updates.body")}</p>
                   <p><strong className="text-black">v1.0.3:</strong> Trilingual data correction system, ZIP reverse lookup, Village field.</p>
                   <p><strong className="text-black">v1.0.2:</strong> Initial ZIP code integration and community data collection.</p>
                   <p><strong className="text-black">v1.0.1:</strong> Granular API endpoints for specific Dairas and Communes.</p>
