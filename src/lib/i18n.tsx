@@ -642,8 +642,8 @@ const en: Record<TranslationKey, string> = {
   "api.wilayaCommunesDesc": "Flat list of every commune inside a wilaya.",
   "api.dairaDetailDesc": "Detail for a single daira and its communes.",
   "api.zipReverseDesc": "Reverse lookup a ZIP code to get the corresponding Wilaya, Daira, and Commune.",
-  "updates.title": "🚨 CRITICAL COMPREHENSIVE UPDATE TO v1.0.4",
-  "updates.body": "v1.0.4: Fixed ZIP code mapping accuracy, added dynamic language-specific endpoints (/api/ar/ and /api/latin/), improved API tester, and enhanced Developer Hub documentation.",
+  "updates.title": "🚨 CRITICAL DATA UPGRADE v1.0.5",
+  "updates.body": "v1.0.5: Integrated the official Algérie Poste dataset (via GeoAlgeria). Postal codes are now 100% accurate and officially mapped to communes.",
 
   "picker.searchByZip": "Search by ZIP Code / Postal Code",
   "picker.village": "Village / Neighborhood",
