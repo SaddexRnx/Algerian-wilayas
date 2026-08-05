@@ -113,13 +113,13 @@ export function ApiDocs() {
         <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">{t("api.subtitle")}</p>
       </div>
 
-      <div className="grid gap-8 sm:grid-cols-3 mb-20">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-20">
         {[
           { icon: "zap", title: "features.fast", desc: "features.fastDesc" },
           { icon: "globe", title: "features.agnostic", desc: "features.agnosticDesc" },
           { icon: "refresh", title: "features.updated", desc: "features.updatedDesc" },
         ].map((feat) => (
-          <div key={feat.title} className="relative group rounded-2xl border border-gray-200 bg-white p-8 transition hover:border-black hover:shadow-lg">
+          <div key={feat.title} className="relative group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 transition hover:border-black hover:shadow-lg">
             <h3 className="font-bold text-black text-lg">{t(feat.title as TranslationKey)}</h3>
             <p className="mt-2 text-sm text-gray-500 leading-relaxed">{t(feat.desc as TranslationKey)}</p>
           </div>
