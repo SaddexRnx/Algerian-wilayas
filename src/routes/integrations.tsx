@@ -61,7 +61,6 @@ function IntegrationsPage() {
         >
           <span dir="ltr">{isRtl ? '→' : '←'}</span> {t("common.backHome")}
         </Link>
-      <div className="max-w-5xl mx-auto">
 
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold mb-4">{t('integrations.title')}</h1>
