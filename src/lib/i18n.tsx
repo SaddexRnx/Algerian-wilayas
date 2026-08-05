@@ -210,6 +210,18 @@ const baseTranslations = {
   "transit.disclaimer": { en: "Static data - Live tracking coming soon. Data is based on published schedules.", fr: "Données statiques - Suivi en direct bientôt. Basé sur les horaires publiés.", ar: "بيانات ثابتة - تتبع حي قريبًا. البيانات مبنية على الجداول المنشورة." },
   "admin.searchedZip": { en: "Searched ZIP", fr: "ZIP recherché", ar: "الرمز المبحوث" },
   "admin.resultZip": { en: "Result ZIP", fr: "ZIP résultant", ar: "الرمز الناتج" },
+  "admin.i18n.title": { en: "I18n Validation", fr: "Validation I18n", ar: "تحقق اللغات" },
+  "admin.i18n.missing": { en: "Missing Keys", fr: "Clés manquantes", ar: "مفاتيح مفقودة" },
+  "admin.i18n.duplicate": { en: "Duplicate Values", fr: "Valeurs en double", ar: "قيم مكررة" },
+  "admin.i18n.untranslated": { en: "Untranslated", fr: "Non traduit", ar: "غير مترجم" },
+  "admin.i18n.scan": { en: "Scan UI Routes", fr: "Scanner les routes UI", ar: "فحص مسارات الواجهة" },
+  "admin.health.title": { en: "API Health Checker", fr: "Vérificateur de santé API", ar: "فحص صحة الواجهة" },
+  "admin.health.checkAll": { en: "Validate All Endpoints", fr: "Valider tous les points", ar: "التحقق من جميع النقاط" },
+  "admin.health.pass": { en: "Pass", fr: "Passé", ar: "ناجح" },
+  "admin.health.fail": { en: "Fail", fr: "Échec", ar: "فشل" },
+  "admin.health.status": { en: "Status", fr: "Statut", ar: "الحالة" },
+  "admin.health.lastCheck": { en: "Last Checked", fr: "Dernière vérification", ar: "آخر فحص" },
+
   "admin.zipMismatch": { en: "ZIP Mismatch Error", fr: "Erreur de correspondance ZIP", ar: "خطأ في تطابق الرمز" },
 };
 
