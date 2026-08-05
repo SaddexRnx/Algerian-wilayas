@@ -101,6 +101,7 @@ const fr = {
   "api.wilayaDesc": "Détail complet d'une wilaya : ses dairas et leurs communes.",
   "api.wilayaDetailDesc": "Détail complet d'une wilaya : ses dairas et leurs communes.",
   "api.wilayaDairasDesc": "Liste des dairas d'une wilaya, avec le nombre de communes.",
+  "api.wilayaDairasFlatDesc": "Dairas et communes d'une wilaya uniquement. Bien plus léger que full-data.json ; filtrez le tableau côté client.",
   "api.dairasDesc": "Toutes les dairas d'une wilaya donnée, identifiée par son code.",
   "api.catBase": "Points de terminaison de base",
   "api.catLang": "Points de terminaison par langue",
