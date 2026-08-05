@@ -542,7 +542,10 @@ const en: Record<TranslationKey, string> = {
   "api.wilayasDesc": "Lightweight list of the 69 wilayas with code, Arabic name and Latin name.",
   "api.fullDesc": "Complete hierarchical dataset: wilayas, dairas and communes in a single file.",
   "api.dairasDesc": "All dairas of a given wilaya, identified by its code.",
-  "api.communesDesc": "All communes of a given daira.",
+  "api.catBase": "Base Endpoints",
+  "api.catLang": "Language-Specific Endpoints",
+  "api.catGranular": "Granular Endpoints",
+  "api.catZip": "ZIP Code Lookup",
   "api.theming": "Want to match your brand? Override our CSS variables:",
 
   "tester.title": "Live API Tester",
