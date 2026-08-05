@@ -589,7 +589,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
           <section className={`mt-6 ${cardClass}`}>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
               <div>
-                <h2 className="text-sm font-semibold text-black">{t("admin.health.title")}</h2>
+                <h2 className="text-sm font-bold text-black uppercase tracking-tighter">{t("admin.health.title")}</h2>
                 <div className="mt-1 flex items-center gap-2">
                   <p className="text-[10px] text-gray-500">
                     {t("admin.health.recheckNote")}
