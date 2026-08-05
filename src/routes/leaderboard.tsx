@@ -35,8 +35,15 @@ function LeaderboardPage() {
   });
 
   return (
-    <div dir={dir} className={`min-h-screen bg-background text-foreground py-12 px-4 sm:px-6 lg:px-8 ${isRtl ? 'rtl' : ''}`}>
+    <div dir={dir} className={`min-h-screen bg-background text-foreground py-12 px-4 sm:px-6 lg:px-8 relative ${isRtl ? 'rtl' : ''}`}>
+      <Link
+        to="/"
+        className="fixed top-4 left-4 z-50 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-600 shadow-sm transition-all hover:bg-gray-50 hover:text-black sm:static sm:mb-8 sm:w-fit"
+      >
+        <span dir="ltr">←</span> {t("common.backHome")}
+      </Link>
       <div className="max-w-4xl mx-auto">
+
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight mb-4">
             {lang === 'ar' ? 'لوحة المتصدرين للمساهمين' : lang === 'fr' ? 'Classement des contributeurs' : 'Contributor Leaderboard'}

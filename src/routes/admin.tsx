@@ -354,7 +354,9 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
                     <th className="py-2 pe-3 text-start font-medium">{t("admin.table.rank")}</th>
                     <th className="py-2 pe-3 text-start font-medium">{t("admin.table.name")}</th>
                     <th className="py-2 pe-3 text-start font-medium">{t("admin.table.code")}</th>
+                    <th className="py-2 pe-3 text-start font-medium">{t("admin.searchedZip")}</th>
                     <th className="py-2 pe-3 text-start font-medium">{t("admin.table.count")}</th>
+
                     <th className="py-2 text-start font-medium">{t("admin.table.share")}</th>
                   </tr>
                 </thead>

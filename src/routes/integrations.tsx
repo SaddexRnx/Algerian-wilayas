@@ -52,8 +52,15 @@ function IntegrationsPage() {
 
 
   return (
-    <div dir={dir} className={`min-h-screen bg-background py-12 px-4 ${isRtl ? 'rtl' : ''}`}>
+    <div dir={dir} className={`min-h-screen bg-background py-12 px-4 relative ${isRtl ? 'rtl' : ''}`}>
+      <Link
+        to="/"
+        className="fixed top-4 left-4 z-50 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-600 shadow-sm transition-all hover:bg-gray-50 hover:text-black sm:static sm:mb-8 sm:w-fit"
+      >
+        <span dir="ltr">←</span> {t("common.backHome")}
+      </Link>
       <div className="max-w-5xl mx-auto">
+
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold mb-4">{t('integrations.title')}</h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

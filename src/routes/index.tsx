@@ -301,31 +301,36 @@ function Index() {
           <ApiDocs />
         </section>
 
-        <section id="features" className="mx-auto mt-16 max-w-4xl scroll-mt-32 sm:mt-20">
+        <section id="features" className="mx-auto mt-16 max-w-5xl scroll-mt-32 sm:mt-20">
           <h2 className="sr-only">{t("features.title")}</h2>
-          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:gap-8">
             {features.map((f) => (
-              <div key={f.title}>
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-gray-600"
-                  aria-hidden="true"
-                >
-                  {f.icon}
-                </svg>
-                <h3 className="mt-4 font-semibold text-black">{f.title}</h3>
-                <p className="mt-2 text-sm text-gray-500">{f.description}</p>
+              <div 
+                key={f.title}
+                className="flex flex-col items-center justify-center p-8 text-center rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-gray-200 group"
+              >
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gray-50 text-gray-600 transition-colors group-hover:bg-black group-hover:text-white">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    {f.icon}
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-black">{f.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-gray-500">{f.description}</p>
               </div>
             ))}
           </div>
         </section>
+
       </main>
 
       <footer className="border-t border-gray-200 py-16 text-center">
