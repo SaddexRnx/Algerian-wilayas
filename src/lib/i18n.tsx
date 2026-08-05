@@ -115,6 +115,13 @@ const baseTranslations = {
   "api.dairaDetailDesc": { en: "Details for a specific daira.", fr: "Détails d'une daira spécifique.", ar: "تفاصيل دائرة معينة." },
   "api.zipReverseDesc": { en: "Lookup address by ZIP code.", fr: "Recherche par code postal.", ar: "البحث عن العنوان بالرمز البريدي." },
 
+  // API Tester
+  "tester.title": { en: "API Tester", fr: "Testeur d'API", ar: "مختبر واجهة البرمجة" },
+  "tester.subtitle": { en: "Interactive sandbox to test endpoints in real-time.", fr: "Bac à sable interactif pour tester les points de terminaison.", ar: "بيئة تجريبية تفاعلية لاختبار نقاط الوصول في الوقت الفعلي." },
+  "tester.endpoint": { en: "Select Endpoint", fr: "Choisir un point de terminaison", ar: "اختر نقطة الوصول" },
+  "tester.send": { en: "Send Request", fr: "Envoyer la requête", ar: "إرسال الطلب" },
+  "tester.sending": { en: "Sending...", fr: "Envoi...", ar: "جاري الإرسال..." },
+
   // API Endpoint descriptions (detailed)
   "api.desc.wilayas": { en: "List all 69 wilayas.", fr: "Liste des 69 wilayas.", ar: "قائمة جميع الـ 69 ولاية." },
   "api.desc.full": { en: "Complete hierarchical dataset.", fr: "Jeu de données hiérarchique complet.", ar: "مجموعة البيانات الهيكلية الكاملة." },
@@ -187,6 +194,11 @@ const baseTranslations = {
   "integrations.difficulty": { en: "Difficulty", fr: "Difficulté", ar: "الصعوبة" },
   "picker.zipDisclaimer": { en: "Postal codes are provided for reference and may vary by specific neighborhood.", fr: "Les codes postaux sont fournis à titre de référence et peuvent varier selon le quartier.", ar: "يتم توفير الرموز البريدية كمرجع وقد تختلف حسب الحي." },
   "picker.preview": { en: "Address Preview", fr: "Aperçu de l'adresse", ar: "معاينة العنوان" },
+  "picker.previewEmpty": { en: "Selected address will appear here...", fr: "L'adresse sélectionnée apparaîtra ici...", ar: "سيظهر العنوان المختار هنا..." },
+  "picker.zipLabel": { en: "Postal Code", fr: "Code postal", ar: "الرمز البريدي" },
+  "picker.wilayaFirst": { en: "Select wilaya first", fr: "Choisir d'abord la wilaya", ar: "اختر الولاية أولاً" },
+  "picker.dairaFirst": { en: "Select daira first", fr: "Choisir d'abord la daira", ar: "اختر الدائرة أولاً" },
+  "admin.table.zip": { en: "ZIP", fr: "ZIP", ar: "الرمز البريدي" },
   "check.auto": { en: "Auto-fill Demo", fr: "Démo remplissage auto", ar: "عرض الملء التلقائي" },
   "transit.title": { en: "Transit & Routes", fr: "Transit et itinéraires", ar: "النقل والمسارات" },
   "transit.disclaimer": { en: "Static data - Live tracking coming soon. Data is based on published schedules.", fr: "Données statiques - Suivi en direct bientôt. Basé sur les horaires publiés.", ar: "بيانات ثابتة - تتبع حي قريبًا. البيانات مبنية على الجداول المنشورة." },

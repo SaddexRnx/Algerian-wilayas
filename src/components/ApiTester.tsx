@@ -115,9 +115,9 @@ export function ApiTester() {
   }
 
   return (
-    <div className="mx-auto mt-16 max-w-3xl px-4 sm:px-0">
-      <h2 className="text-xl sm:text-lg font-semibold text-black">{t("tester.title")}</h2>
-      <p className="mt-2 text-sm text-gray-500">{t("tester.subtitle")}</p>
+    <div className={`mx-auto mt-16 max-w-3xl px-4 sm:px-0 ${useI18n().dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-black">{t("tester.title")}</h2>
+      <p className="mt-2 text-lg text-gray-500 leading-relaxed">{t("tester.subtitle")}</p>
 
       <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
         <label className="block text-sm" htmlFor={`${baseId}-endpoint`}>
@@ -203,6 +203,13 @@ export function ApiTester() {
             )}
             {loading ? t("tester.sending") : t("tester.send")}
           </button>
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-2 py-2 border-t border-gray-100" dir="ltr">
+          <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest w-full mb-1">Quick Presets:</span>
+          <button onClick={() => { setCode("16"); setShape("wilaya"); }} className="px-2 py-1 rounded bg-gray-50 border border-gray-200 text-[10px] font-mono hover:bg-black hover:text-white transition">Wilaya 16</button>
+          <button onClick={() => { setZipcode("19070"); setShape("zip"); }} className="px-2 py-1 rounded bg-gray-50 border border-gray-200 text-[10px] font-mono hover:bg-black hover:text-white transition">ZIP 19070</button>
+          <button onClick={() => { setShape("wilayas"); }} className="px-2 py-1 rounded bg-gray-50 border border-gray-200 text-[10px] font-mono hover:bg-black hover:text-white transition">All Wilayas</button>
         </div>
 
         <div className="mt-5 min-h-[13rem]" dir="ltr" aria-live="polite">

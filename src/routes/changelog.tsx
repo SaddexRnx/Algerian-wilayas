@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useTranslation } from '@/lib/i18n';
-import { CheckCircle2, Package, Map, Database, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import { CheckCircle2, Package, Map, Database, Sparkles, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
 
 
 export const Route = createFileRoute('/changelog')({
@@ -9,29 +9,19 @@ export const Route = createFileRoute('/changelog')({
 
 const UPDATES = [
   {
-    version: '2.0.0-beta.2',
+    version: '2.0.0',
     date: 'August 5, 2026',
-    title: 'Economy & Utilities',
+    title: 'The Ultimate Algerian Data Platform',
     icon: <Sparkles className="w-5 h-5" />,
     changes: [
-      'Added Population & Demographics endpoints (Wilaya level).',
-      'Added Cost of Living & Real Estate estimates.',
-      'Live Currency Exchange rates (Official vs Parallel).',
-      'Services locator (Post Offices, Banks, ATMs, Healthcare).',
-      'Smart Search with fuzzy matching index.',
-      'Data Export formats (CSV/SQL).'
-    ]
-  },
-  {
-    version: '2.0.0-beta.1',
-    date: 'August 1, 2026',
-    title: 'Logistics & Maps',
-    icon: <Map className="w-5 h-5" />,
-    changes: [
-      'Interactive Leaflet map for all 69 wilayas.',
-      'Shipping rates API integration (Estimated).',
-      'Delivery zones classification (North, Highlands, South).',
-      'Pickup points coordinates (Beta).'
+      'Logistics Engine: Shipping rates and zones for all 69 wilayas.',
+      'Geographic Data: Coordinates and interactive Leaflet map.',
+      'Demographics: Population statistics and density data.',
+      'Economic Indicators: Cost of living and currency exchange rates.',
+      'Service Locator: Post offices, Banks, ATMs map.',
+      'Travel Utilities: Visa requirements and travel information.',
+      'Smart Search: Global fuzzy matching index.',
+      'Multi-Format Exports: CSV and SQL datasets.'
     ]
   },
   {
@@ -46,14 +36,36 @@ const UPDATES = [
     ]
   },
   {
+    version: '1.0.4',
+    date: 'May 15, 2026',
+    title: 'Trilingual API Overhaul',
+    icon: <Globe className="w-5 h-5" />,
+    changes: [
+      'Added full English support across the platform.',
+      'Optimized Arabic and Latin hierarchical API trees.',
+      'Improved SEO and OpenGraph metadata.'
+    ]
+  },
+  {
+    version: '1.0.1',
+    date: 'February 20, 2026',
+    title: 'Postal Infrastructure',
+    icon: <Map className="w-5 h-5" />,
+    changes: [
+      'Initial integration of Algerian ZIP codes.',
+      'Reverse ZIP lookup endpoint.',
+      'Village and neighborhood level details.'
+    ]
+  },
+  {
     version: '1.0.0',
     date: 'January 1, 2026',
     title: 'Grand Launch',
     icon: <Package className="w-5 h-5" />,
     changes: [
-      'Initial release with 69 wilayas.',
+      'Initial release with 69 wilayas and 1,541 communes.',
       'Cascading dropdown components.',
-      'React & Vanilla JS integration snippets.'
+      'React, Vanilla JS, and WordPress integration snippets.'
     ]
   }
 ];

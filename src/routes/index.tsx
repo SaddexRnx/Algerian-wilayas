@@ -176,7 +176,7 @@ function Index() {
       key={lang}
       className="min-h-screen animate-[fadeIn_400ms_ease-out] bg-white font-[system-ui,Inter,sans-serif] antialiased"
     >
-      <header className="sticky top-0 z-20 border-b border-gray-200 bg-white/90 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur">
         <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-4 sm:px-6 sm:py-5">
           <div className="flex min-w-0 items-center gap-2">
             <img src={logo} alt="DZ Address Picker logo" className="h-8 w-8 shrink-0" />
@@ -204,9 +204,9 @@ function Index() {
           </div>
         </div>
         
-        <nav className="flex gap-4 overflow-x-auto border-t border-gray-100 px-4 py-2 text-sm whitespace-nowrap lg:hidden">
+        <nav className="flex gap-4 overflow-x-auto border-t border-gray-100 px-4 py-3 text-sm whitespace-nowrap lg:hidden scrollbar-hide justify-center">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="text-gray-600 transition hover:text-black">
+            <a key={l.href} href={l.href} className="text-gray-600 font-medium transition hover:text-black">
               {l.label}
             </a>
           ))}
@@ -214,7 +214,7 @@ function Index() {
       </header>
 
       <main className="mx-auto max-w-5xl px-4 pb-8 sm:px-6">
-        <section className="py-8 text-center sm:py-16">
+        <section className="py-12 text-center sm:py-20 md:py-24">
           <div className="mx-auto mb-8 max-w-2xl rounded-2xl border border-gray-200 bg-gray-50 p-6 text-left sm:p-8">
             <div className="flex items-center gap-2 mb-4">
               <span className="flex h-2 w-2 rounded-full bg-black animate-pulse"></span>
@@ -251,7 +251,7 @@ function Index() {
 
 
 
-          <h1 className="text-3xl font-bold tracking-tight text-black sm:text-4xl md:text-5xl">
+          <h1 className="text-4xl font-extrabold tracking-tight text-black sm:text-5xl md:text-6xl lg:text-7xl">
             {t("hero.title")}
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-gray-500 sm:text-xl">
@@ -303,7 +303,7 @@ function Index() {
 
         <section id="features" className="mx-auto mt-16 max-w-5xl scroll-mt-32 sm:mt-20">
           <h2 className="sr-only">{t("features.title")}</h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:gap-8">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {features.map((f) => (
               <div 
                 key={f.title}
@@ -341,10 +341,10 @@ function Index() {
             </Link>
           </div>
           
-          <div className="mb-10 flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-bold text-black uppercase tracking-widest">
-            <a href="https://github.com/SaddexRnx/Algerian-wilayas" target="_blank" rel="noopener noreferrer" className="transition hover:opacity-60">GitHub</a>
-            <a href="https://t.me/Saddex_x" target="_blank" rel="noopener noreferrer" className="transition hover:opacity-60">Telegram</a>
-            <a href="https://SaddexRnx.github.io" target="_blank" rel="noopener noreferrer" className="transition hover:opacity-60">Portfolio</a>
+          <div className="mb-10 flex flex-wrap justify-center gap-x-8 gap-y-6 text-sm font-bold text-black uppercase tracking-widest px-4">
+            <a href="https://github.com/SaddexRnx/Algerian-wilayas" target="_blank" rel="noopener noreferrer" className="transition hover:opacity-60 border-b-2 border-transparent hover:border-black pb-1">GitHub</a>
+            <a href="https://t.me/Saddex_x" target="_blank" rel="noopener noreferrer" className="transition hover:opacity-60 border-b-2 border-transparent hover:border-black pb-1">Telegram</a>
+            <a href="https://SaddexRnx.github.io" target="_blank" rel="noopener noreferrer" className="transition hover:opacity-60 border-b-2 border-transparent hover:border-black pb-1">Portfolio</a>
           </div>
 
           <p className="text-sm leading-relaxed text-gray-500">
