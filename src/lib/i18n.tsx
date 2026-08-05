@@ -649,6 +649,10 @@ const en: Record<TranslationKey, string> = {
   "tester.help.lang": "No parameters needed. Returns language-specific data.",
   "updates.v104": "v1.0.4: Fixed data corruption, added Arabic names to ZIP lookups, and introduced ultra-lightweight language-specific endpoints (/api/ar/, /api/fr/, /api/en/) for optimized performance.",
 
+  "tester.help.lang": "No parameters needed. Returns language-specific data.",
+  "updates.v104": "v1.0.4: Fixed data corruption, added Arabic names to ZIP lookups, and introduced ultra-lightweight language-specific endpoints (/api/ar/, /api/fr/, /api/en/) for optimized performance.",
+
+
   "home.reportLink": "Something wrong with the data? Click here to submit a correction.",
 };
 
