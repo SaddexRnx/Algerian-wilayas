@@ -114,9 +114,6 @@ const fr = {
   "tester.empty": "Aucune requête envoyée.",
   "tester.error": "Échec de la requête.",
   "nav.tester": "Testeur d'API",
-  "tester.help.none": "Aucun paramètre requis. Récupère toutes les données.",
-  "tester.help.wilaya": "ENTREZ UN CODE DE WILAYA (EX. 16, 19)",
-  "tester.help.zip": "ENTREZ UN CODE POSTAL À 5 CHIFFRES (EX. 19070)",
 
 
 
@@ -330,9 +327,6 @@ const ar: Record<TranslationKey, string> = {
   "tester.empty": "لم يتم إرسال أي طلب بعد.",
   "tester.error": "فشل الطلب.",
   "nav.tester": "مُختبِر API",
-  "tester.help.none": "لا حاجة لمعاملات. يجلب جميع البيانات.",
-  "tester.help.wilaya": "أدخل رمز الولاية (مثال: 16، 19).",
-  "tester.help.zip": "أدخل رمزًا بريديًا مكونًا من 5 أرقام (مثال: 19070).",
 
 
 
@@ -543,9 +537,6 @@ const en: Record<TranslationKey, string> = {
   "tester.empty": "No request sent yet.",
   "tester.error": "Request failed.",
   "nav.tester": "API Tester",
-  "tester.help.none": "No parameters needed. Fetches all data.",
-  "tester.help.wilaya": "ENTER A WILAYA CODE (E.G. 16, 19)",
-  "tester.help.zip": "ENTER A 5-DIGIT ZIP CODE (E.G. 19070)",
 
 
 
