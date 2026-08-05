@@ -123,6 +123,7 @@ const baseTranslations = {
   "tester.sending": { en: "Sending...", fr: "Envoi...", ar: "جاري الإرسال..." },
 
   // API Endpoint descriptions (detailed)
+  "api.desc.index": { en: "Dynamic list of all active endpoints.", fr: "Liste dynamique des points de terminaison actifs.", ar: "قائمة ديناميكية لجميع نقاط الوصول النشطة." },
   "api.desc.wilayas": { en: "List all 69 wilayas.", fr: "Liste des 69 wilayas.", ar: "قائمة جميع الـ 69 ولاية." },
   "api.desc.full": { en: "Complete hierarchical dataset.", fr: "Jeu de données hiérarchique complet.", ar: "مجموعة البيانات الهيكلية الكاملة." },
   "api.desc.zipReverse": { en: "Lookup address by ZIP code.", fr: "Recherche par code postal.", ar: "البحث عن العنوان بالرمز البريدي." },
