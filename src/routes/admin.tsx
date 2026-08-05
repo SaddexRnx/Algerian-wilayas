@@ -708,12 +708,10 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               </div>
             )}
           </section>
-
-
-          </section>
       )}
 
       {activeTab === "i18n" && (
+
 
           <section className={`mt-6 ${cardClass}`}>
             <h2 className="text-sm font-semibold text-black mb-6">{t("admin.i18n.title")}</h2>
