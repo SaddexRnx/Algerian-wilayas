@@ -6,6 +6,8 @@ import { DeveloperHub, SNIPPETS } from "@/components/DeveloperHub";
 import { ApiDocs } from "@/components/ApiDocs";
 import { ApiTester } from "@/components/ApiTester";
 import logo from "@/assets/logo.png";
+import { ChevronRight } from "lucide-react";
+
 import { LanguageToggle, useI18n } from "@/lib/i18n";
 import pkg from '../../package.json';
 
@@ -130,13 +132,14 @@ function Index() {
 
   const navLinks = [
     { href: "#demo", label: t("nav.demo") },
-    { href: "/map", label: "🗺️ Map" },
-    { href: "#in-action", label: t("nav.inAction") },
-    { href: "#tester", label: t("nav.tester") },
-    { href: "#integration", label: t("nav.integration") },
+    { href: "/map", label: t("nav.map") },
+    { href: "/leaderboard", label: t("nav.leaderboard") },
+    { href: "/vote", label: t("nav.vote") },
+    { href: "/changelog", label: t("nav.changelog") },
+    { href: "/integrations", label: t("nav.integrations") },
     { href: "#api", label: t("nav.api") },
-    { href: "#features", label: t("nav.features") },
   ];
+
 
 
   const features = [
@@ -212,32 +215,40 @@ function Index() {
 
       <main className="mx-auto max-w-5xl px-4 pb-8 sm:px-6">
         <section className="py-8 text-center sm:py-16">
-          <div className="mx-auto mb-8 max-w-2xl rounded-xl border border-gray-200 bg-gray-50 p-5 text-left sm:p-8">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="flex h-2 w-2 rounded-full bg-black"></span>
+          <div className="mx-auto mb-8 max-w-2xl rounded-2xl border border-gray-200 bg-gray-50 p-6 text-left sm:p-8">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="flex h-2 w-2 rounded-full bg-black animate-pulse"></span>
               <h2 className="text-sm font-bold tracking-wider text-black uppercase">
-                🚨 MEGA UPDATE TO v2.0.0 - PART 1 OF 3: CORE DATA, LOGISTICS & MAPS
+                {t("updates.title")}
               </h2>
             </div>
-            <p className="text-sm leading-relaxed text-gray-600">
-              We've upgraded from a simple address picker to a comprehensive Algerian Data Platform.
-              Version 2.0 Part 1 introduces official logistics rates, zones, and geographic coordinates for all 69 wilayas.
+            <p className="text-sm leading-relaxed text-gray-600 mb-6">
+              {t("updates.desc")}
             </p>
-            <div className="mt-4 pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-gray-200">
               <details className="group">
-                <summary className="text-xs font-semibold text-black cursor-pointer hover:underline list-none flex items-center gap-1">
+                <summary className="text-xs font-bold text-black cursor-pointer hover:underline list-none flex items-center justify-between">
                   {t("updates.showAll")}
-                  <svg className="w-3 h-3 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                  <ChevronRight className="w-4 h-4 transition-transform group-open:rotate-90" />
                 </summary>
-                <div className="mt-3 space-y-2 text-xs text-gray-500">
-                  <p><strong className="text-black">v2.0.0 (P1):</strong> Logistics APIs, Zone Mapping, Geographic Coordinates, and Interactive Map.</p>
-                  <p><strong className="text-black">v1.0.5:</strong> Official Algérie Poste dataset integration (100% accuracy).</p>
-                  <p><strong className="text-black">v1.0.4:</strong> Hierarchical language-specific endpoints and UI overhaul.</p>
-                  <p><strong className="text-black">v1.0.3:</strong> Trilingual data correction system and ZIP reverse lookup.</p>
+                <div className="mt-4 space-y-3 text-xs text-gray-500">
+                  <div className="border-l-2 border-black pl-3 py-1">
+                    <p className="text-black font-bold mb-1">v2.0.0 — The Ultimate Platform</p>
+                    <p>30+ new endpoints, GeoJSON, logistics rates, demographics, and economy data.</p>
+                  </div>
+                  <div className="border-l-2 border-gray-300 pl-3 py-1">
+                    <p className="text-gray-700 font-bold mb-1">v1.0.5 — Official Dataset</p>
+                    <p>100% accurate postal codes via geoalgeria project.</p>
+                  </div>
+                  <div className="border-l-2 border-gray-300 pl-3 py-1">
+                    <p className="text-gray-700 font-bold mb-1">v1.0.4 — Trilingual API</p>
+                    <p>Optimized Arabic and Latin hierarchical trees.</p>
+                  </div>
                 </div>
               </details>
             </div>
           </div>
+
 
 
           <h1 className="text-3xl font-bold tracking-tight text-black sm:text-4xl md:text-5xl">

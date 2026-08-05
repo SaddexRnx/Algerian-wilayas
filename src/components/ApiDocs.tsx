@@ -1,272 +1,242 @@
 import { useState } from "react";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
+import { Copy, Terminal, ChevronRight, Globe, Zap, Database, Map, Truck, Users, Landmark, Plane, Search, FileDown } from "lucide-react";
 
 const BASE = "https://dz-address-select.vercel.app";
 
 interface Endpoint {
+  category: string;
   method: "GET";
   path: string;
   descKey: TranslationKey;
   response: string;
   example: string;
-  category: "base" | "lang" | "granular" | "zip";
+  params?: { name: string; type: string; desc: string }[];
 }
 
+const CATEGORIES = [
+  { id: "base", titleKey: "api.catBase", icon: <Database className="w-5 h-5" /> },
+  { id: "lang", titleKey: "api.catLang", icon: <Globe className="w-5 h-5" /> },
+  { id: "zip", titleKey: "api.catZip", icon: <Zap className="w-5 h-5" /> },
+  { id: "geo", titleKey: "api.catGeo", icon: <Map className="w-5 h-5" /> },
+  { id: "logistics", titleKey: "api.catLogistics", icon: <Truck className="w-5 h-5" /> },
+  { id: "demo", titleKey: "api.catDemo", icon: <Users className="w-5 h-5" /> },
+  { id: "services", titleKey: "api.catServices", icon: <Landmark className="w-5 h-5" /> },
+  { id: "travel", titleKey: "api.catTravel", icon: <Plane className="w-5 h-5" /> },
+  { id: "smart", titleKey: "api.catSmart", icon: <Search className="w-5 h-5" /> },
+  { id: "export", titleKey: "api.catExport", icon: <FileDown className="w-5 h-5" /> },
+];
+
 const ENDPOINTS: Endpoint[] = [
-  {
-    category: "base",
-    method: "GET",
-    path: "/api/index.json",
-    descKey: "api.indexDesc",
-    response: `{
-  "version": "1.0.4",
-  "endpoints": ["/api/wilayas.json", "/api/full-data.json", ...]
-}`,
-    example: `const index = await fetch("${BASE}/api/index.json").then(r => r.json());`,
-  },
+  // Admin Divisions
   {
     category: "base",
     method: "GET",
     path: "/api/wilayas.json",
-    descKey: "api.wilayasDesc",
-    response: `[
-  { "code": 16, "arabic": "الجزائر", "ascii": "Alger" }
-]`,
-    example: `const wilayas = await fetch("${BASE}/api/wilayas.json").then(r => r.json());`,
+    descKey: "api.desc.wilayas",
+    response: `[{"code": 16, "arabic": "الجزائر", "ascii": "Alger"}]`,
+    example: `fetch("${BASE}/api/wilayas.json")`,
   },
   {
     category: "base",
     method: "GET",
     path: "/api/full-data.json",
-    descKey: "api.fullDataDesc",
-    response: `[
-  { "code": 16, "name": "Alger", "dairas": [...] }
-]`,
-    example: `const fullData = await fetch("${BASE}/api/full-data.json").then(r => r.json());`,
+    descKey: "api.desc.full",
+    response: `[{"code": 16, "name": "Alger", "dairas": [...]}]`,
+    example: `fetch("${BASE}/api/full-data.json")`,
   },
-  {
-    category: "base",
-    method: "GET",
-    path: "/api/wilayas/{code}.json",
-    descKey: "api.wilayaDetailDesc",
-    response: `{ "code": 16, "arabic": "الجزائر", "ascii": "Alger" }`,
-    example: `const wilaya = await fetch("${BASE}/api/wilayas/16.json").then(r => r.json());`,
-  },
-  {
-    category: "base",
-    method: "GET",
-    path: "/api/wilayas/{code}/dairas.json",
-    descKey: "api.wilayaDairasDesc",
-    response: `[
-  { "code": 16, "ascii": "Alger Centre", "arabic": "الجزائر الوسطى" }
-]`,
-    example: `const dairas = await fetch("${BASE}/api/wilayas/16/dairas.json").then(r => r.json());`,
-  },
+  // Language-Specific
   {
     category: "lang",
     method: "GET",
     path: "/api/ar/wilayas.json",
-    descKey: "api.wilayasDesc",
-    response: `[ { "code": 16, "name": "الجزائر" } ]`,
-    example: `const arWilayas = await fetch("${BASE}/api/ar/wilayas.json").then(r => r.json());`,
-  },
-  {
-    category: "lang",
-    method: "GET",
-    path: "/api/ar/full-data.json",
-    descKey: "api.fullDataDesc",
-    response: `[ { "code": 16, "name": "الجزائر", "dairas": [...] } ]`,
-    example: `const arFull = await fetch("${BASE}/api/ar/full-data.json").then(r => r.json());`,
-  },
-  {
-    category: "lang",
-    method: "GET",
-    path: "/api/ar/wilayas/{code}.json",
-    descKey: "api.wilayaDetailDesc",
-    response: `{ "code": 16, "name": "الجزائر" }`,
-    example: `const arWilaya = await fetch("${BASE}/api/ar/wilayas/16.json").then(r => r.json());`,
-  },
-  {
-    category: "lang",
-    method: "GET",
-    path: "/api/ar/wilayas/{code}/dairas.json",
-    descKey: "api.wilayaDairasDesc",
-    response: `[ { "code": 16, "name": "الجزائر الوسطى" } ]`,
-    example: `const arDairas = await fetch("${BASE}/api/ar/wilayas/16/dairas.json").then(r => r.json());`,
+    descKey: "api.desc.wilayas",
+    response: `[{"code": 16, "name": "الجزائر"}]`,
+    example: `fetch("${BASE}/api/ar/wilayas.json")`,
   },
   {
     category: "lang",
     method: "GET",
     path: "/api/latin/wilayas.json",
-    descKey: "api.wilayasDesc",
-    response: `[ { "code": 16, "name": "Alger" } ]`,
-    example: `const latinWilayas = await fetch("${BASE}/api/latin/wilayas.json").then(r => r.json());`,
+    descKey: "api.desc.wilayas",
+    response: `[{"code": 16, "name": "Alger"}]`,
+    example: `fetch("${BASE}/api/latin/wilayas.json")`,
   },
-  {
-    category: "lang",
-    method: "GET",
-    path: "/api/latin/full-data.json",
-    descKey: "api.fullDataDesc",
-    response: `[ { "code": 16, "name": "Alger", "dairas": [...] } ]`,
-    example: `const latinFull = await fetch("${BASE}/api/latin/full-data.json").then(r => r.json());`,
-  },
-  {
-    category: "lang",
-    method: "GET",
-    path: "/api/latin/wilayas/{code}.json",
-    descKey: "api.wilayaDetailDesc",
-    response: `{ "code": 16, "name": "Alger" }`,
-    example: `const latinWilaya = await fetch("${BASE}/api/latin/wilayas/16.json").then(r => r.json());`,
-  },
-  {
-    category: "lang",
-    method: "GET",
-    path: "/api/latin/wilayas/{code}/dairas.json",
-    descKey: "api.wilayaDairasDesc",
-    response: `[ { "code": 16, "name": "Alger Centre" } ]`,
-    example: `const latinDairas = await fetch("${BASE}/api/latin/wilayas/16/dairas.json").then(r => r.json());`,
-  },
-  {
-    category: "granular",
-    method: "GET",
-    path: "/api/wilayas/{code}/dairas/{slug}.json",
-    descKey: "api.dairaDetailDesc",
-    response: `{
-  "wilayaCode": 19,
-  "wilayaNameAscii": "Setif",
-  "dairaNameAscii": "Bouandas",
-  "communes": [{ "nameAscii": "Bouandas", "zip": "19050" }]
-}`,
-    example: `const daira = await fetch("${BASE}/api/wilayas/19/dairas/bouandas.json").then(r => r.json());`,
-  },
-  {
-    category: "granular",
-    method: "GET",
-    path: "/api/ar/wilayas/{code}/dairas/{slug}.json",
-    descKey: "api.dairaDetailDesc",
-    response: `{
-  "wilaya_name": "سطيف",
-  "daira_name": "بوعنداس",
-  "communes": [{ "name": "بوسلام", "zip": "19019" }]
-}`,
-    example: `const arDaira = await fetch("${BASE}/api/ar/wilayas/19/dairas/bouandas.json").then(r => r.json());`,
-  },
-  {
-    category: "granular",
-    method: "GET",
-    path: "/api/latin/wilayas/{code}/dairas/{slug}.json",
-    descKey: "api.dairaDetailDesc",
-    response: `{
-  "wilaya_name": "Setif",
-  "daira_name": "Bouandas",
-  "communes": [{ "name": "Boussellam", "zip": "19019" }]
-}`,
-    example: `const latinDaira = await fetch("${BASE}/api/latin/wilayas/19/dairas/bouandas.json").then(r => r.json());`,
-  },
+  // ZIP Lookup
   {
     category: "zip",
     method: "GET",
     path: "/api/zip/{zipcode}.json",
-    descKey: "api.zipReverseDesc",
-    response: `{
-  "zip": "19070",
-  "wilayaCode": 19,
-  "wilayaNameAr": "سطيف",
-  "dairaName": "Bouandas",
-  "communeName": "Boussellam"
-}`,
-    example: `const zip = await fetch("${BASE}/api/zip/19070.json").then(r => r.json());`,
+    descKey: "api.desc.zipReverse",
+    params: [{ name: "zipcode", type: "string", desc: "5-digit postal code" }],
+    response: `{"zip": "16000", "wilaya": "Alger", "commune": "Alger Centre"}`,
+    example: `fetch("${BASE}/api/zip/16000.json")`,
+  },
+  // Geographic
+  {
+    category: "geo",
+    method: "GET",
+    path: "/api/coordinates/wilayas.json",
+    descKey: "api.desc.geo",
+    response: `[{"code": 16, "lat": 36.75, "lng": 3.05}]`,
+    example: `fetch("${BASE}/api/coordinates/wilayas.json")`,
+  },
+  // Logistics
+  {
+    category: "logistics",
+    method: "GET",
+    path: "/api/shipping/rates.json",
+    descKey: "api.desc.shipping",
+    response: `[{"wilaya_code": 16, "delivery_home": {"min": 400, "max": 600}}]`,
+    example: `fetch("${BASE}/api/shipping/rates.json")`,
+  },
+  // Demographics
+  {
+    category: "demo",
+    method: "GET",
+    path: "/api/population/wilayas.json",
+    descKey: "api.desc.population",
+    response: `[{"code": 16, "population": 2988145, "density": 2511}]`,
+    example: `fetch("${BASE}/api/population/wilayas.json")`,
+  },
+  // Services
+  {
+    category: "services",
+    method: "GET",
+    path: "/api/postoffices/{wilaya_code}.json",
+    descKey: "api.desc.services",
+    params: [{ name: "wilaya_code", type: "number", desc: "Wilaya code (1-58+)" }],
+    response: `[{"name": "Alger RP", "address": "1 rue Didouche Mourad"}]`,
+    example: `fetch("${BASE}/api/postoffices/16.json")`,
+  },
+  // Travel
+  {
+    category: "travel",
+    method: "GET",
+    path: "/api/travel/visa-requirements.json",
+    descKey: "api.desc.travel",
+    response: `{"france": "Required", "tunisia": "Visa-free"}`,
+    example: `fetch("${BASE}/api/travel/visa-requirements.json")`,
+  },
+  // Smart Utilities
+  {
+    category: "smart",
+    method: "GET",
+    path: "/api/search?q={query}",
+    descKey: "api.desc.search",
+    params: [{ name: "q", type: "string", desc: "Search query (e.g. 'bou')" }],
+    response: `[{"name": "Bouandas", "type": "commune"}]`,
+    example: `fetch("${BASE}/api/search?q=bou")`,
+  },
+  // Export
+  {
+    category: "export",
+    method: "GET",
+    path: "/api/export/wilayas-communes.csv",
+    descKey: "api.desc.export",
+    response: `code,name_ar,name_en\n1,أدرار,Adrar\n...`,
+    example: `fetch("${BASE}/api/export/wilayas-communes.csv")`,
   },
 ];
 
 export function ApiDocs() {
-  const { t } = useI18n();
+  const { t, lang, dir } = useI18n();
   const [copied, setCopied] = useState<string | null>(null);
 
-  const categories = [
-    { id: "base", title: "api.catBase" },
-    { id: "lang", title: "api.catLang" },
-    { id: "granular", title: "api.catGranular" },
-    { id: "zip", title: "api.catZip" },
-  ];
+  const handleCopy = (text: string, id: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(id);
+    setTimeout(() => setCopied(null), 2000);
+  };
 
   return (
-    <div className="mx-auto mt-16 max-w-5xl px-4 sm:px-6">
+    <div className={`mx-auto max-w-5xl px-4 py-16 sm:px-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
       <div className="text-center mb-16">
-        <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">Expend the api documentation to include every end point</h2>
-        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">{t("api.subtitle")}</p>
+        <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl mb-4">
+          {t("api.title")}
+        </h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          {t("api.subtitle")}
+        </p>
       </div>
 
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-20">
-        {[
-          { icon: "zap", title: "features.fast", desc: "features.fastDesc" },
-          { icon: "globe", title: "features.agnostic", desc: "features.agnosticDesc" },
-          { icon: "refresh", title: "features.updated", desc: "features.updatedDesc" },
-        ].map((feat) => (
-          <div key={feat.title} className="relative group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 transition hover:border-black hover:shadow-lg">
-            <h3 className="font-bold text-black text-lg">{t(feat.title as TranslationKey)}</h3>
-            <p className="mt-2 text-sm text-gray-500 leading-relaxed">{t(feat.desc as TranslationKey)}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="space-y-20">
-        {categories.map((cat) => (
-          <section key={cat.id} className="scroll-mt-20">
-            <div className="flex items-center gap-4 mb-8">
-              <h3 className="text-xl font-bold text-black uppercase tracking-wider">
-                {t(cat.title as TranslationKey)}
-              </h3>
-              <div className="h-px flex-1 bg-gray-200"></div>
+      <div className="space-y-24">
+        {CATEGORIES.map((cat) => (
+          <section key={cat.id} className="scroll-mt-24">
+            <div className="flex items-center gap-3 mb-8 border-b border-gray-100 pb-4">
+              <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-black">
+                {cat.icon}
+              </div>
+              <h2 className="text-2xl font-bold text-black uppercase tracking-wide">
+                {t(cat.titleKey as TranslationKey)}
+              </h2>
             </div>
 
-            <div className="grid gap-6">
+            <div className="grid gap-8">
               {ENDPOINTS.filter((e) => e.category === cat.id).map((e, idx) => {
-                const url = `${BASE}${e.path}`;
+                const endpointId = `${cat.id}-${idx}`;
                 return (
-                  <article key={`${e.path}-${idx}`} className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-                    <div className="border-b border-gray-100 bg-gray-50/50 p-4 sm:px-6">
-                      <div className="flex flex-wrap items-center justify-between gap-4">
-                        <div className="flex items-center gap-3" dir="ltr">
-                          <span className="rounded-md bg-black px-2.5 py-1 font-mono text-xs font-bold text-white uppercase">
+                  <div key={endpointId} className="group rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden transition-all hover:border-black">
+                    <div className="bg-gray-50 p-6 sm:px-8 border-b border-gray-100">
+                      <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <div className="flex items-center gap-3 font-mono text-sm" dir="ltr">
+                          <span className="bg-black text-white px-2 py-0.5 rounded text-[10px] font-bold">
                             {e.method}
                           </span>
-                          <code className="font-mono text-sm font-semibold text-black">{e.path}</code>
+                          <span className="font-bold text-black">{e.path}</span>
                         </div>
                         <button
-                          type="button"
-                          onClick={() => {
-                            void navigator.clipboard.writeText(url);
-                            setCopied(e.path);
-                            setTimeout(() => setCopied(null), 2000);
-                          }}
-                          className="text-xs font-medium text-gray-500 hover:text-black transition"
+                          onClick={() => handleCopy(`${BASE}${e.path}`, endpointId)}
+                          className="flex items-center gap-2 text-xs font-semibold text-gray-500 hover:text-black"
                         >
-                          {copied === e.path ? t("hub.copied") : t("hub.copy")}
+                          <Copy className="w-3 h-3" />
+                          {copied === endpointId ? t("hub.copied") : t("api.copyUrl")}
                         </button>
                       </div>
-                      <p className="mt-2 text-sm text-gray-600">{t(e.descKey)}</p>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {t(e.descKey)}
+                      </p>
                     </div>
-                    
-                    <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100">
-                      <div className="p-4 sm:p-6" dir="ltr">
-                        <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">{t("api.example")}</h4>
-                        <div className="rounded-xl bg-gray-950 p-4">
-                          <pre className="font-mono text-xs text-gray-300 overflow-x-auto">
+
+                    <div className="grid lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-gray-100">
+                      <div className="p-6 sm:px-8" dir="ltr">
+                        <div className="flex items-center gap-2 mb-4 text-gray-400">
+                          <Terminal className="w-4 h-4" />
+                          <span className="text-[10px] font-bold uppercase tracking-widest">{t("api.example")}</span>
+                        </div>
+                        <div className="relative rounded-xl bg-gray-950 p-4 group/code">
+                          <pre className="text-xs text-gray-300 font-mono overflow-x-auto">
                             <code>{e.example}</code>
                           </pre>
                         </div>
+                        {e.params && (
+                          <div className="mt-6">
+                            <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">{t("api.params")}</h4>
+                            <div className="space-y-3">
+                              {e.params.map(p => (
+                                <div key={p.name} className="flex gap-3 text-xs">
+                                  <span className="font-mono text-primary font-bold">`{p.name}`</span>
+                                  <span className="text-gray-400">({p.type})</span>
+                                  <span className="text-gray-600">— {p.desc}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
-                      <div className="p-4 sm:p-6" dir="ltr">
-                        <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">{t("api.response")}</h4>
-                        <div className="rounded-xl bg-gray-950 p-4">
-                          <pre className="font-mono text-xs text-gray-300 overflow-x-auto">
+                      <div className="p-6 sm:px-8 bg-gray-50/30" dir="ltr">
+                        <div className="flex items-center gap-2 mb-4 text-gray-400">
+                          <Database className="w-4 h-4" />
+                          <span className="text-[10px] font-bold uppercase tracking-widest">{t("api.response")}</span>
+                        </div>
+                        <div className="rounded-xl bg-white border border-gray-200 p-4 shadow-inner">
+                          <pre className="text-xs text-gray-700 font-mono overflow-x-auto">
                             <code>{e.response}</code>
                           </pre>
                         </div>
                       </div>
                     </div>
-                  </article>
+                  </div>
                 );
               })}
             </div>
@@ -274,27 +244,34 @@ export function ApiDocs() {
         ))}
       </div>
 
-      <div className="mt-24 border-t border-gray-200 pt-16 pb-16">
-        <div className="rounded-2xl sm:rounded-3xl bg-black p-6 sm:p-12 text-white text-center">
-          <h3 className="text-xl sm:text-2xl font-bold mb-4">🌟 Support & Community</h3>
-          <p className="text-sm sm:text-base text-gray-400 mb-8 max-w-xl mx-auto">
-            If you like this project, please give it a star on GitHub. Visit my portfolio for more open-source projects.
-          </p>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
-            <a href="https://github.com/SaddexRnx/Algerian-wilayas" target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-8 py-3 text-sm font-bold text-black transition hover:bg-gray-200">
-              GitHub Repo
-            </a>
-            <a href="https://SaddexRnx.github.io" target="_blank" rel="noopener noreferrer" className="rounded-full border border-gray-800 px-8 py-3 text-sm font-bold text-white transition hover:bg-gray-800">
-              My Portfolio
-            </a>
+      <div className="mt-32 pt-16 border-t border-gray-100">
+        <div className="rounded-3xl bg-black p-8 sm:p-16 text-center text-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="grid grid-cols-12 h-full w-full gap-4 p-8">
+              {Array.from({ length: 48 }).map((_, i) => (
+                <div key={i} className="h-4 w-4 rounded-full bg-white"></div>
+              ))}
+            </div>
           </div>
-          <p className="mt-12 text-xs text-gray-500 italic">
-            A huge thank you to all the developers using this API. More updates are coming soon!
-          </p>
+          <div className="relative z-10">
+            <h2 className="text-3xl font-bold mb-6">{t("footer.support")}</h2>
+            <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
+              {t("footer.text")}
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="https://github.com/SaddexRnx/Algerian-wilayas" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold rounded-2xl hover:bg-gray-100 transition-colors">
+                Star on GitHub
+              </a>
+              <a href="https://SaddexRnx.github.io" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-white/10 text-white font-bold rounded-2xl border border-white/20 hover:bg-white/20 transition-colors">
+                Visit Portfolio
+              </a>
+            </div>
+            <p className="mt-12 text-sm text-gray-500 italic">
+              {t("footer.thanks")}
+            </p>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default ApiDocs;

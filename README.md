@@ -1,94 +1,71 @@
-# DZ Address Picker v1.0.5
+# 🇩🇿 DZ Address Picker v2.0.0
 
-**A free, blazing-fast, plug-and-play Algerian address system — 69 Wilayas, all Dairas and 1,541 Communes — as a static JSON API, an embeddable widget and a React component.**
-
-DZ Address Picker provides official administrative Algerian addresses (Arabic & Latin) through high-performance static JSON endpoints. It is designed to be a plug-and-play solution for developers and e-commerce store owners.
-
----
-
-## 🚀 Key Features
-
-- **Official Data** — Integrated Algérie Poste dataset for 100% accurate postal codes and administrative names.
-- **Multi-Language** — Optimized `/api/ar/` and `/api/latin/` trees for lightweight localized payloads.
-- **Granular Access** — Fetch only what you need (e.g., specific daira communes) to save bandwidth.
-- **ZIP Reverse Lookup** — Get full address details from a 5-digit postal code instantly.
-- **Framework Agnostic** — Ready-to-use snippets for Vanilla JS, React, Vue, WordPress, Shopify, and more.
-- **Zero Dependencies** — No bulky libraries or server-side requirements.
+**The Ultimate Algerian Data Platform.** 
+A free, high-performance, and plug-and-play solution for developers and e-commerce store owners. Access 69 wilayas, 1,541 communes, postal codes, logistics, demographics, and economy through trilingual static APIs.
 
 ---
 
-## 📚 API Documentation
+## 🚀 What's New in v2.0.0
+- **Logistics Engine** — Shipping rates, delivery zones, and pickup points for all 69 wilayas.
+- **Geographic Data** — Full wilaya coordinates and interactive Leaflet map integration.
+- **Demographics** — Population statistics, density, and growth data.
+- **Economic Indicators** — Cost of living estimates and live currency exchange rates.
+- **Service Locator** — Post offices, Banks, ATMs, and Healthcare facilities map.
+- **Travel Utilities** — Visa requirements and travel information.
+- **Smart Search** — Global fuzzy matching index for lightning-fast address lookups.
+- **Multi-Format Exports** — Download datasets in CSV or SQL formats.
 
-Base URL: `https://dz-address-select.vercel.app/api`
+---
 
-### 1. Base Endpoints (Mixed Languages)
-| Endpoint | Description |
-| :--- | :--- |
-| `GET /index.json` | Discovery index with all available endpoints and versions. |
-| `GET /wilayas.json` | List of all 69 wilayas with both Arabic and Latin names. |
-| `GET /full-data.json` | The entire hierarchical dataset (Large file). |
+## 📚 API Categories (10 Total)
+Access 30+ new endpoints across these categories:
 
-### 2. Language-Specific Endpoints
-| Endpoint | Description |
-| :--- | :--- |
-| `GET /ar/wilayas.json` | Arabic-only list of all wilayas. |
-| `GET /latin/wilayas.json` | Latin-only list of all wilayas. |
-| `GET /ar/wilayas/{code}.json` | Wilaya details (dairas/communes) in Arabic only. |
-| `GET /latin/wilayas/{code}.json` | Wilaya details (dairas/communes) in Latin only. |
-
-### 3. Granular Daira Endpoints
-| Endpoint | Description |
-| :--- | :--- |
-| `GET /wilayas/{code}/dairas/{daira-slug}.json` | Details of a specific daira and its communes. |
-| `GET /ar/wilayas/{code}/dairas/{daira-slug}.json` | Daira details in Arabic. |
-| `GET /latin/wilayas/{code}/dairas/{daira-slug}.json` | Daira details in Latin. |
-
-### 4. ZIP Code Lookup
-| Endpoint | Description |
-| :--- | :--- |
-| `GET /zip/{zipcode}.json` | Reverse lookup for a 5-digit postal code. |
+1. **Admin Divisions** — `/api/wilayas.json`, `/api/full-data.json`
+2. **Language-Specific** — `/api/ar/`, `/api/latin/` trees
+3. **ZIP Lookup** — Reverse lookup via `/api/zip/{zipcode}.json`
+4. **Geographic** — `/api/coordinates/wilayas.json`
+5. **Logistics** — `/api/shipping/rates.json`, `/api/shipping/zones.json`
+6. **Demographics** — `/api/population/wilayas.json`
+7. **Economy** — `/api/economy/cost-of-living/`, `/api/economy/exchange-rates.json`
+8. **Services** — Post Office, Bank, and ATM locators
+9. **Travel** — `/api/travel/visa-requirements.json`
+10. **Export** — Downloadable CSV/SQL full datasets
 
 ---
 
 ## 📦 Integration
 
-### 🛠️ Script Tag (Vanilla JS)
-Add the following to your HTML to mount the picker into any element with the `dz-address-picker` class:
-
-```html
-<div class="dz-address-picker"></div>
-<script src="https://dz-address-select.vercel.app/widget.js"></script>
-```
-
 ### ⚛️ React
 ```tsx
-import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
+import { AlgeriaAddressPicker } from "dz-address-picker";
 
-function MyForm() {
+function App() {
   return (
     <AlgeriaAddressPicker 
-      onUpdate={(data) => console.log(data)} 
+      onUpdate={(address) => console.log(address)}
       language="en"
     />
   );
 }
 ```
 
+### 🛠️ Script Tag (Vanilla JS)
+```html
+<div class="dz-address-picker"></div>
+<script src="https://dz-address-select.vercel.app/widget.js"></script>
+```
+
 ---
 
 ## 🌟 Support & Community
 
-If you like this project, please **give it a star** on GitHub: [https://github.com/SaddexRnx/Algerian-wilayas](https://github.com/SaddexRnx/Algerian-wilayas)
+- **GitHub Star:** [SaddexRnx/Algerian-wilayas](https://github.com/SaddexRnx/Algerian-wilayas)
+- **Portfolio:** [SaddexRnx.github.io](https://SaddexRnx.github.io)
+- **Telegram:** [@Saddex_x](https://t.me/Saddex_x)
 
-Visit my portfolio for more open-source projects: [https://SaddexRnx.github.io](https://SaddexRnx.github.io)
-
-*A huge thank you to all the developers using this API. v1.0.5 brings the most accurate postal data yet, sourced directly from official Algérie Poste records via the GeoAlgeria project.*
+*Thank you to all developers using this API. More updates are coming!*
 
 ---
 
-## 📞 Contact
-
-- **Telegram:** [@Saddex_x](https://t.me/Saddex_x)
-- **Live Demo:** [dz-address-select.vercel.app](https://dz-address-select.vercel.app)
-
-Built for the Algerian developer community. MIT Licensed.
+## ⚖️ License
+MIT Licensed. Built for the Algerian developer community.

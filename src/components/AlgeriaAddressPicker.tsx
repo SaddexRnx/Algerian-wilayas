@@ -130,11 +130,12 @@ function Skeleton() {
 
 type Preset = "short" | "full" | "compact";
 
-const PRESETS: { id: Preset; labelKey: TranslationKey }[] = [
+const PRESETS: { id: Preset; labelKey: string }[] = [
   { id: "short", labelKey: "picker.presetShort" },
   { id: "full", labelKey: "picker.presetFull" },
   { id: "compact", labelKey: "picker.presetCompact" },
 ];
+
 
 function csvEscape(value: string) {
   return `"${value.replace(/"/g, '""')}"`;
@@ -181,7 +182,7 @@ export function AlgeriaAddressPicker({
 
   const [searchByZip, setSearchByZip] = useState(false);
   const [zipInput, setZipInput] = useState("");
-  const [zipError, setZipError] = useState<TranslationKey | null>(null);
+  const [zipError, setZipError] = useState<string | null>(null);
   const [isZipSearching, setIsZipSearching] = useState(false);
   const [village, setVillage] = useState("");
 
@@ -435,8 +436,9 @@ export function AlgeriaAddressPicker({
           setIsZipSearching(false);
         }
       }, 500),
-    [t],
+    [],
   );
+
 
   // Handle ZIP code input change
   const handleZipChange = (val: string) => {

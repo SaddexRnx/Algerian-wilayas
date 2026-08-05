@@ -9,8 +9,9 @@ export const Route = createFileRoute('/leaderboard')({
 });
 
 function LeaderboardPage() {
-  const { t, lang } = useTranslation();
+  const { t, lang, dir } = useTranslation();
   const isRtl = lang === 'ar';
+
 
   const { data: leaders, isLoading } = useQuery({
     queryKey: ['leaderboard'],
@@ -34,27 +35,31 @@ function LeaderboardPage() {
   });
 
   return (
-    <div className={`min-h-screen bg-background text-foreground py-12 px-4 sm:px-6 lg:px-8 ${isRtl ? 'rtl' : ''}`}>
+    <div dir={dir} className={`min-h-screen bg-background text-foreground py-12 px-4 sm:px-6 lg:px-8 ${isRtl ? 'rtl' : ''}`}>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight mb-4">
-            {isRtl ? 'لوحة المتصدرين للمساهمين' : 'Contributor Leaderboard'}
+            {lang === 'ar' ? 'لوحة المتصدرين للمساهمين' : lang === 'fr' ? 'Classement des contributeurs' : 'Contributor Leaderboard'}
           </h1>
           <p className="text-muted-foreground text-lg">
-            {isRtl ? 'تكريم الأبطال الذين يساعدون في تحسين بيانات العناوين الجزائرية.' : 'Honoring the heroes helping us perfect Algerian address data.'}
+            {lang === 'ar' ? 'تكريم الأبطال الذين يساعدون في تحسين بيانات العناوين الجزائرية.' : 
+             lang === 'fr' ? 'Honorer les héros qui nous aident à perfectionner les données.' : 
+             'Honoring the heroes helping us perfect Algerian address data.'}
+
           </p>
         </div>
 
         <div className="bg-card border rounded-xl overflow-hidden shadow-sm">
           <div className="overflow-x-auto">
-            <table className="w-full text-left">
+            <table className="w-full text-left" dir={isRtl ? 'rtl' : 'ltr'}>
               <thead className="bg-muted/50 border-b text-xs font-semibold uppercase tracking-wider">
                 <tr>
-                  <th className="px-6 py-4">{isRtl ? 'الرتبة' : 'Rank'}</th>
-                  <th className="px-6 py-4">{isRtl ? 'المساهم' : 'Contributor'}</th>
-                  <th className="px-6 py-4">{isRtl ? 'المساهمات' : 'Contributions'}</th>
-                  <th className="px-6 py-4">{isRtl ? 'الوسام' : 'Badge'}</th>
+                  <th className="px-6 py-4">{lang === 'ar' ? 'الرتبة' : lang === 'fr' ? 'Rang' : 'Rank'}</th>
+                  <th className="px-6 py-4">{lang === 'ar' ? 'المساهم' : lang === 'fr' ? 'Contributeur' : 'Contributor'}</th>
+                  <th className="px-6 py-4">{lang === 'ar' ? 'المساهمات' : lang === 'fr' ? 'Contributions' : 'Contributions'}</th>
+                  <th className="px-6 py-4">{lang === 'ar' ? 'الوسام' : lang === 'fr' ? 'Badge' : 'Badge'}</th>
                 </tr>
+
               </thead>
               <tbody className="divide-y">
                 {isLoading ? (
@@ -63,9 +68,10 @@ function LeaderboardPage() {
                   <tr key={leader.rank} className="hover:bg-muted/30 transition-colors">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        {leader.rank === 1 && <Trophy className="w-5 h-5 text-yellow-500 mr-2" />}
-                        {leader.rank === 2 && <Medal className="w-5 h-5 text-gray-400 mr-2" />}
-                        {leader.rank === 3 && <Medal className="w-5 h-5 text-amber-600 mr-2" />}
+                        {leader.rank === 1 && <Trophy className={`w-5 h-5 text-yellow-500 ${isRtl ? 'ml-2' : 'mr-2'}`} />}
+                        {leader.rank === 2 && <Medal className={`w-5 h-5 text-gray-400 ${isRtl ? 'ml-2' : 'mr-2'}`} />}
+                        {leader.rank === 3 && <Medal className={`w-5 h-5 text-amber-600 ${isRtl ? 'ml-2' : 'mr-2'}`} />}
+
                         <span className="font-medium">#{leader.rank}</span>
                       </div>
                     </td>

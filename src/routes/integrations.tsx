@@ -11,6 +11,7 @@ const INTEGRATIONS = [
     id: 'woocommerce',
     name: 'WooCommerce / WordPress',
     desc_en: 'Native plugin for checkout fields synchronization.',
+    desc_fr: 'Plugin natif pour la synchronisation des champs de commande.',
     desc_ar: 'إضافة أصلية لمزامنة حقول الدفع.',
     icon: <ShoppingBag className="w-6 h-6" />,
     difficulty: 'Easy'
@@ -19,6 +20,7 @@ const INTEGRATIONS = [
     id: 'shopify',
     name: 'Shopify',
     desc_en: 'Custom script for Shopify Liquid themes.',
+    desc_fr: 'Script personnalisé pour les thèmes Shopify Liquid.',
     desc_ar: 'سكربت مخصص لقوالب Shopify Liquid.',
     icon: <Code className="w-6 h-6" />,
     difficulty: 'Medium'
@@ -27,6 +29,7 @@ const INTEGRATIONS = [
     id: 'laravel',
     name: 'Laravel / PHP',
     desc_en: 'Composer package for backend validation.',
+    desc_fr: 'Package Composer pour la validation backend.',
     desc_ar: 'حزمة Composer للتحقق من البيانات في الخلفية.',
     icon: <Terminal className="w-6 h-6" />,
     difficulty: 'Easy'
@@ -35,24 +38,30 @@ const INTEGRATIONS = [
     id: 'nodejs',
     name: 'Node.js / React',
     desc_en: 'NPM package with full TypeScript support.',
+    desc_fr: 'Package NPM avec support TypeScript complet.',
     desc_ar: 'حزمة NPM مع دعم كامل لـ TypeScript.',
     icon: <Layers className="w-6 h-6" />,
     difficulty: 'Easy'
   }
+
 ];
 
 function IntegrationsPage() {
-  const { lang, t } = useTranslation();
+  const { lang, t, dir } = useTranslation();
   const isRtl = lang === 'ar';
 
+
   return (
-    <div className={`min-h-screen bg-background py-12 px-4 ${isRtl ? 'rtl' : ''}`}>
+    <div dir={dir} className={`min-h-screen bg-background py-12 px-4 ${isRtl ? 'rtl' : ''}`}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold mb-4">{t('integrations.title')}</h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {isRtl ? 'أدلة شاملة لدمج DZ Address Picker في متجرك الحالي.' : 'Comprehensive guides to integrate DZ Address Picker into your existing store.'}
+            {lang === 'ar' ? 'أدلة شاملة لدمج DZ Address Picker في متجرك الحالي.' : 
+             lang === 'fr' ? 'Guides complets pour intégrer DZ Address Picker dans votre boutique.' : 
+             'Comprehensive guides to integrate DZ Address Picker into your existing store.'}
           </p>
+
         </div>
 
         <div className="grid gap-8 md:grid-cols-2">
@@ -68,11 +77,12 @@ function IntegrationsPage() {
               </div>
               <h3 className="text-2xl font-bold mb-2">{item.name}</h3>
               <p className="text-muted-foreground mb-6">
-                {isRtl ? item.desc_ar : item.desc_en}
+                {lang === 'ar' ? item.desc_ar : lang === 'fr' ? item.desc_fr : item.desc_en}
               </p>
               <button className="w-full py-3 rounded-xl bg-foreground text-background font-bold hover:opacity-90 transition-opacity">
-                {isRtl ? 'عرض الدليل' : 'View Guide'}
+                {lang === 'ar' ? 'عرض الدليل' : lang === 'fr' ? 'Voir le guide' : 'View Guide'}
               </button>
+
             </div>
           ))}
         </div>

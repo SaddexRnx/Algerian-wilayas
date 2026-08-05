@@ -32,10 +32,11 @@ export const Route = createFileRoute("/map")({
 });
 
 function MapPage() {
-  const { t, dir } = useI18n();
+  const { t, dir, lang } = useI18n();
   const [wilayas, setWilayas] = useState<any[]>([]);
   const [zones, setZones] = useState<any>(null);
   const [shipping, setShipping] = useState<any[]>([]);
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -83,9 +84,10 @@ function MapPage() {
     <div dir={dir} className="flex h-screen flex-col bg-white font-sans antialiased">
       <header className="border-b border-gray-200 bg-white p-4">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <h1 className="text-xl font-bold text-black">DZ Address Map - v2.0 Beta</h1>
-          <a href="/" className="text-sm font-medium text-gray-600 hover:text-black">← Back Home</a>
+          <h1 className="text-xl font-bold text-black">{t("nav.map")} - v2.0</h1>
+          <a href="/" className="text-sm font-medium text-gray-600 hover:text-black">← {t("nav.backHome")}</a>
         </div>
+
       </header>
 
       <div className="flex-1">
@@ -115,22 +117,23 @@ function MapPage() {
               >
                 <Popup>
                   <div className="p-1 font-sans">
-                    <h3 className="mb-1 text-base font-bold text-black">{w.code}. {w.name}</h3>
+                    <h3 className="mb-1 text-base font-bold text-black">{w.code}. {lang === "ar" ? w.arabic : w.ascii}</h3>
                     {rate && (
                       <div className="space-y-1 text-xs text-gray-600">
-                        <p className="font-semibold uppercase text-gray-400 tracking-wider">Logistics</p>
-                        <div className="flex justify-between">
+                        <p className="font-semibold uppercase text-gray-400 tracking-wider">{t("api.catLogistics")}</p>
+                        <div className="flex justify-between gap-4">
                           <span>Home Delivery:</span>
                           <span className="font-bold text-black">{rate.delivery_home.min}-{rate.delivery_home.max} {rate.currency}</span>
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex justify-between gap-4">
                           <span>Office Delivery:</span>
                           <span className="font-bold text-black">{rate.delivery_office.min}-{rate.delivery_office.max} {rate.currency}</span>
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex justify-between gap-4">
                           <span>Zone:</span>
                           <span className="capitalize font-bold text-black">{rate.zone}</span>
                         </div>
+
                       </div>
                     )}
                   </div>
@@ -144,14 +147,15 @@ function MapPage() {
       <footer className="border-t border-gray-200 bg-gray-50 p-4">
         <div className="mx-auto max-w-7xl flex flex-wrap gap-6 text-xs font-medium text-gray-500 uppercase tracking-widest">
            <div className="flex items-center gap-2">
-             <span className="h-3 w-3 rounded-full bg-blue-500"></span> Zone 1: North
+             <span className="h-3 w-3 rounded-full bg-blue-500"></span> Zone 1: {lang === "ar" ? "الشمال" : "North"}
            </div>
            <div className="flex items-center gap-2">
-             <span className="h-3 w-3 rounded-full bg-emerald-500"></span> Zone 2: Highlands
+             <span className="h-3 w-3 rounded-full bg-emerald-500"></span> Zone 2: {lang === "ar" ? "الهضاب العليا" : "Highlands"}
            </div>
            <div className="flex items-center gap-2">
-             <span className="h-3 w-3 rounded-full bg-amber-500"></span> Zone 3: South
+             <span className="h-3 w-3 rounded-full bg-amber-500"></span> Zone 3: {lang === "ar" ? "الجنوب" : "South"}
            </div>
+
         </div>
       </footer>
     </div>
