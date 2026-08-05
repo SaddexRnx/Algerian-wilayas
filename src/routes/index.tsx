@@ -314,12 +314,18 @@ function Index() {
 
 
         <section id="demo" className="scroll-mt-32">
-          <div className="mx-auto max-w-2xl rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-8">
-            <h2 className="mb-6 text-lg font-semibold text-black">{t("demo.title")}</h2>
-            <AlgeriaAddressPicker />
-            <EventConsole lines={logs} />
+          <div className="mx-auto max-w-3xl px-4 sm:px-0">
+            <div className="mb-12 text-center sm:text-left">
+               <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">{t("demo.title")}</h2>
+               <p className="mt-2 text-sm text-gray-500 leading-relaxed font-medium">Test the picker with live events and state synchronization.</p>
+            </div>
+            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-8">
+              <AlgeriaAddressPicker />
+              <EventConsole lines={logs} />
+            </div>
           </div>
         </section>
+
 
         <section id="in-action" className="mt-16 scroll-mt-32 sm:mt-20">
           <div className="text-center">
