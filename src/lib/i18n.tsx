@@ -98,6 +98,7 @@ const fr = {
   "api.wilayasDesc": "Liste légère des 69 wilayas avec code, nom arabe et nom latin.",
   "api.fullDataDesc": "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
   "api.fullDesc": "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
+  "api.wilayaDesc": "Détail complet d'une wilaya : ses dairas et leurs communes.",
   "api.wilayaDetailDesc": "Détail complet d'une wilaya : ses dairas et leurs communes.",
   "api.wilayaDairasDesc": "Liste des dairas d'une wilaya, avec le nombre de communes.",
   "api.dairasDesc": "Toutes les dairas d'une wilaya donnée, identifiée par son code.",
