@@ -115,8 +115,9 @@ const fr = {
   "tester.error": "Échec de la requête.",
   "nav.tester": "Testeur d'API",
   "tester.help.none": "Aucun paramètre requis. Récupère toutes les données.",
-  "tester.help.wilaya": "Entrez un code de wilaya (ex: 16, 19).",
-  "tester.help.zip": "Entrez un code postal à 5 chiffres (ex: 19070).",
+  "tester.help.wilaya": "ENTREZ UN CODE DE WILAYA (EX. 16, 19)",
+  "tester.help.zip": "ENTREZ UN CODE POSTAL À 5 CHIFFRES (EX. 19070)",
+
 
 
   "features.title": "Fonctionnalités",
@@ -334,6 +335,7 @@ const ar: Record<TranslationKey, string> = {
   "tester.help.zip": "أدخل رمزًا بريديًا مكونًا من 5 أرقام (مثال: 19070).",
 
 
+
   "features.title": "المميزات",
   "features.fast": "سرعة فائقة",
   "features.fastDesc": "يتم تقديمه من شبكة CDN عالمية، ويتم تحميل البيانات المصغرة في أجزاء من الثانية.",
@@ -542,8 +544,9 @@ const en: Record<TranslationKey, string> = {
   "tester.error": "Request failed.",
   "nav.tester": "API Tester",
   "tester.help.none": "No parameters needed. Fetches all data.",
-  "tester.help.wilaya": "Enter a wilaya code (e.g. 16, 19).",
-  "tester.help.zip": "Enter a 5-digit ZIP code (e.g. 19070).",
+  "tester.help.wilaya": "ENTER A WILAYA CODE (E.G. 16, 19)",
+  "tester.help.zip": "ENTER A 5-DIGIT ZIP CODE (E.G. 19070)",
+
 
 
   "features.title": "Features",
