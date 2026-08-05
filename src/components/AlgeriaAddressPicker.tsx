@@ -932,7 +932,7 @@ export function AlgeriaAddressPicker({
         </div>
       ) : null}
 
-      <p className="mt-3 text-[10px] text-gray-400 leading-relaxed picker-zip-disclaimer">
+      <p className="mt-3 text-[10px] text-gray-400 leading-relaxed picker-zip-disclaimer italic">
         {t("picker.zipDisclaimer")}
       </p>
 
@@ -948,7 +948,7 @@ export function AlgeriaAddressPicker({
 
 
         <p
-          className={`mt-3 text-sm ${fullAddress ? "text-black" : "text-gray-400"}`}
+          className={`mt-3 text-sm font-medium ${fullAddress ? "text-black" : "text-gray-400"}`}
           dir="auto"
           aria-live="polite"
           aria-labelledby="dz-preview-label"
