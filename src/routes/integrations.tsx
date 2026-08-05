@@ -63,14 +63,14 @@ function IntegrationsPage() {
         </Link>
 
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold mb-4">{t('integrations.title')}</h1>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <h1 className="text-2xl sm:text-4xl font-bold mb-4 tracking-tighter uppercase">{t('integrations.title')}</h1>
+          <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             {lang === 'ar' ? 'أدلة شاملة لدمج DZ Address Picker في متجرك الحالي.' : 
              lang === 'fr' ? 'Guides complets pour intégrer DZ Address Picker dans votre boutique.' : 
              'Comprehensive guides to integrate DZ Address Picker into your existing store.'}
           </p>
-
         </div>
+
 
         <div className="grid gap-8 md:grid-cols-2">
           {INTEGRATIONS.map(item => (
