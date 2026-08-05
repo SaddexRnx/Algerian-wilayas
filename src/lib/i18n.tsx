@@ -202,7 +202,6 @@ const fr = {
   "picker.village": "Village / Neighborhood",
   "picker.zipLabel": "Enter 5-digit ZIP code",
   "picker.zipDisclaimer": "Note: Postal codes are based on historical administrative data and may be inaccurate. Please use the 'Report Incorrect Data' feature to help us keep the database updated.",
-  "picker.disclaimer": "Note: Postal codes are based on historical administrative data and may be inaccurate. Please use the 'Report Incorrect Data' feature to help us keep the database updated.",
   "admin.reports": "Rapports ZIP",
   "admin.reports.empty": "Aucun rapport soumis pour le moment.",
   "admin.table.village": "Village",
