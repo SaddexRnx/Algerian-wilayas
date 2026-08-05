@@ -152,7 +152,6 @@ async function run() {
             };
             const latinDairaCommunesDirPath = path.join(latinDairasDir, 'dairas');
             // Wait, I need to make sure the dir exists
-            const latinDairaCommunesDirPath = path.join(latinDairasDir, 'dairas');
             if (!fs.existsSync(latinDairaCommunesDirPath)) fs.mkdirSync(latinDairaCommunesDirPath, { recursive: true });
             fs.writeFileSync(path.join(latinDairaCommunesDirPath, `${dSlug}.json`), JSON.stringify(latinDaira));
         });
