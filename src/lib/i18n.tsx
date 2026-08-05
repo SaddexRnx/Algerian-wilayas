@@ -94,7 +94,7 @@ const fr = {
   "api.response": "Réponse",
   "api.example": "Exemple",
   "api.note":
-    "Note : Les codes postaux sont basés sur d'anciennes données administratives. Pour nous aider à construire la base de données la plus précise et à jour, veuillez saisir votre code postal exact et le nom de votre village/quartier. Vos données nous aident à mettre à jour les registres officiels.",
+    "Postal codes are sourced from official Algérie Poste data and community corrections. Please use the 'Report Incorrect Data' feature to help us maintain 100% accuracy.",
   "api.wilayasDesc": "Liste légère des 69 wilayas avec code, nom arabe et nom latin.",
   "api.fullDataDesc": "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
   "api.fullDesc": "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
