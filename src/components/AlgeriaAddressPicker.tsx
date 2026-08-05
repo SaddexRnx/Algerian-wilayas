@@ -4,6 +4,7 @@ import { useI18n, type TranslationKey } from "@/lib/i18n";
 import { trackedFetch } from "@/lib/analytics";
 import { cachedJson, cachedJsonWithMeta } from "@/lib/api-cache";
 import { supabase } from "@/integrations/supabase/client";
+import { debounce } from "lodash-es";
 
 
 export interface Commune {
@@ -16,6 +17,7 @@ export interface Daira {
   arabic: string;
   ascii: string;
   slug: string;
+  zip?: string | null;
   communes: Commune[];
 }
 
@@ -62,6 +64,7 @@ function normalizeDairas(json: unknown): Daira[] {
       arabic: String(raw["name_ar"] ?? raw["arabic"] ?? ""),
       ascii,
       slug: String(raw["slug"] ?? slugify(ascii)),
+      zip: raw["zip"] ? String(raw["zip"]) : null,
       communes: normalizeCommunes(raw["communes"]),
     };
   });
@@ -178,6 +181,8 @@ export function AlgeriaAddressPicker({
 
   const [searchByZip, setSearchByZip] = useState(false);
   const [zipInput, setZipInput] = useState("");
+  const [zipError, setZipError] = useState<TranslationKey | null>(null);
+  const [isZipSearching, setIsZipSearching] = useState(false);
   const [village, setVillage] = useState("");
 
   const load = useCallback((useCache = true) => {
@@ -399,25 +404,60 @@ export function AlgeriaAddressPicker({
     [communes, lang],
   );
 
-  // Handle ZIP code search globally if entered in Quick Search
-  useEffect(() => {
-    const q = quickQuery.trim();
-    if (!/^\d{5}$/.test(q) || zipLoaded.current === q) return;
+  // Debounced ZIP lookup function
+  const debouncedZipLookup = useMemo(
+    () =>
+      debounce(async (zip: string) => {
+        if (!/^\d{5}$/.test(zip)) {
+          setZipError("picker.zipInvalid");
+          setIsZipSearching(false);
+          return;
+        }
 
-    let active = true;
-    fetch(`/api/zip/${q}.json`)
-      .then(r => r.ok ? r.json() : null)
-      .then(data => {
-        if (!active || !data) return;
-        zipLoaded.current = q;
-        const { wilayaCode: code, dairaName, communeName } = data;
+        setZipError(null);
+        setIsZipSearching(true);
         
-        setWilayaCode(String(code));
-        pending.current = { daira: dairaName, commune: communeName };
-      });
+        try {
+          const res = await fetch(`/api/zip/${zip}.json`);
+          if (!res.ok) {
+            setZipError("picker.zipNotFound");
+            setIsZipSearching(false);
+            return;
+          }
+          const data = await res.json();
+          zipLoaded.current = zip;
+          
+          setWilayaCode(String(data.wilayaCode));
+          pending.current = { daira: data.dairaName, commune: data.communeName };
+        } catch (e) {
+          setZipError("picker.error");
+        } finally {
+          setIsZipSearching(false);
+        }
+      }, 500),
+    [t],
+  );
 
-    return () => { active = false; };
-  }, [quickQuery]);
+  // Handle ZIP code input change
+  const handleZipChange = (val: string) => {
+    // Auto-normalize: trim and remove non-digits
+    const normalized = val.trim().replace(/\D/g, "");
+    setZipInput(normalized);
+    setZipError(null);
+
+    if (normalized.length === 5) {
+      void debouncedZipLookup(normalized);
+    } else if (normalized.length > 0) {
+      // Don't clear error if user is still typing, but if they had an error, clear it
+    }
+  };
+
+  // Quick Search ZIP logic (existing but enhanced)
+  useEffect(() => {
+    const q = quickQuery.trim().replace(/\D/g, "");
+    if (q.length !== 5 || zipLoaded.current === q) return;
+    void debouncedZipLookup(q);
+  }, [quickQuery, debouncedZipLookup]);
 
   // Restore selection from props, then the URL, then the persisted localStorage state.
   useEffect(() => {
@@ -533,6 +573,8 @@ export function AlgeriaAddressPicker({
   const fullAddressLatin = [commune?.ascii, daira?.ascii, wilaya?.ascii]
     .filter(Boolean)
     .join(", ");
+
+  const resolvedZip = commune?.zip || daira?.zip || (wilaya ? "—" : null);
 
   const formatted = (() => {
     if (!wilaya) return "";
@@ -655,21 +697,29 @@ export function AlgeriaAddressPicker({
             <label htmlFor="dz-zip-input" className="block text-xs font-medium tracking-wide text-gray-500 uppercase">
               {t("picker.zipLabel")}
             </label>
-            <input
-              id="dz-zip-input"
-              type="text"
-              maxLength={5}
-              value={zipInput}
-              onChange={(e) => {
-                const val = e.target.value.replace(/\D/g, "");
-                setZipInput(val);
-                if (val.length === 5) {
-                  setQuickQuery(val);
-                }
-              }}
-              placeholder="19070"
-              className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-black focus:ring-1 focus:ring-black"
-            />
+            <div className="relative mt-2">
+              <input
+                id="dz-zip-input"
+                type="text"
+                maxLength={5}
+                value={zipInput}
+                onChange={(e) => handleZipChange(e.target.value)}
+                placeholder="19070"
+                className={`w-full rounded-md border bg-white px-3 py-2 text-sm text-black transition outline-none focus:ring-1 ${
+                  zipError ? "border-red-500 focus:border-red-500 focus:ring-red-500" : "border-gray-300 focus:border-black focus:ring-black"
+                }`}
+              />
+              {isZipSearching && (
+                <div className="absolute inset-y-0 right-3 flex items-center">
+                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-gray-300 border-t-black" />
+                </div>
+              )}
+            </div>
+            {zipError && (
+              <p className="mt-1.5 text-xs text-red-500" role="alert">
+                {t(zipError)}
+              </p>
+            )}
           </div>
         </div>
       ) : (
@@ -839,6 +889,28 @@ export function AlgeriaAddressPicker({
         >
           {fullAddress || t("picker.previewEmpty")}
         </p>
+        
+        {resolvedZip && resolvedZip !== "—" && (
+          <div className="mt-2 flex items-center gap-2">
+            <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
+              {t("admin.table.zip")}:
+            </span>
+            <button
+              onClick={() => {
+                void navigator.clipboard.writeText(resolvedZip);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+              }}
+              className="group flex items-center gap-1.5 rounded bg-white px-2 py-0.5 border border-gray-200 text-xs font-mono text-black hover:bg-gray-50 transition"
+              title="Click to copy ZIP"
+            >
+              {resolvedZip}
+              <svg className="h-3 w-3 text-gray-400 group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+              </svg>
+            </button>
+          </div>
+        )}
 
         <div className="mt-4 flex flex-wrap gap-2">
           <button
