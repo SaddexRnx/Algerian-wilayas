@@ -47,13 +47,14 @@ function LeaderboardPage() {
         </Link>
 
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold tracking-tight mb-4">
+          <h1 className="text-2xl sm:text-4xl font-bold tracking-tighter mb-4 uppercase">
             {t("leaderboard.title")}
           </h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
             {t("leaderboard.subtitle")}
           </p>
         </div>
+
 
         <div className="bg-card border rounded-xl overflow-hidden shadow-sm">
           <div className="overflow-x-auto">
