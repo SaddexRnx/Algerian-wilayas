@@ -659,6 +659,7 @@ const en: Record<TranslationKey, string> = {
   "tester.help.zip": "ENTER A 5-DIGIT ZIP CODE (E.G. 19070)",
   "tester.help.lang": "No parameters needed. Returns language-specific data.",
   "updates.v104": "v1.0.4: Fixed ZIP code mapping accuracy, added dynamic language-specific endpoints (/api/ar/ and /api/latin/), improved API tester, and enhanced Developer Hub documentation.",
+
   "hub.advanced": "Advanced Options",
   "hub.showAdvanced": "Show Advanced Options",
   "picker.zipDisclaimer": "Note: Postal codes are based on historical administrative data and may be inaccurate. Please use the 'Report Incorrect Data' feature to help us keep the database updated.",
