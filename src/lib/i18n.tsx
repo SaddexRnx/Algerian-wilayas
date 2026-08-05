@@ -202,6 +202,12 @@ const fr = {
   "admin.table.village": "Village",
   "admin.table.zip": "Code postal",
   "admin.table.date": "Date",
+  "admin.table.status": "Status",
+  "admin.status.pending": "Pending",
+  "admin.status.approved": "Approved",
+  "admin.approve": "Approve",
+  "picker.zipInvalid": "Invalid ZIP code. Must be 5 digits.",
+  "picker.zipNotFound": "ZIP code not found in our database.",
 } as const;
 
 export type TranslationKey = keyof typeof fr;
@@ -578,6 +584,12 @@ const en: Record<TranslationKey, string> = {
   "admin.table.village": "Village",
   "admin.table.zip": "ZIP Code",
   "admin.table.date": "Date",
+  "admin.table.status": "Status",
+  "admin.status.pending": "Pending",
+  "admin.status.approved": "Approved",
+  "admin.approve": "Approve",
+  "picker.zipInvalid": "Invalid ZIP code. Must be 5 digits.",
+  "picker.zipNotFound": "ZIP code not found in our database.",
 };
 
 const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar, en };
