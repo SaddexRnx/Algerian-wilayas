@@ -1,18 +1,1 @@
-[
-  {
-    "arabic": "برج باجي مختار",
-    "ascii": "Bordj Badji Mokhtar",
-    "communes": [
-      {
-        "arabic": "تيمياوين",
-        "ascii": "Timiaouine",
-        "zip": null
-      },
-      {
-        "arabic": "برج باجي مختار",
-        "ascii": "Bordj Badji Mokhtar",
-        "zip": null
-      }
-    ]
-  }
-]
+[{"name_ar":"برج باجي مختار","name_ascii":"Bordj Badji Mokhtar","slug":"bordj-badji-mokhtar","communes":[{"name_ar":"تيمياوين","name_ascii":"Timiaouine","zip":"01028"},{"name_ar":"برج باجي مختار","name_ascii":"Bordj Badji Mokhtar","zip":"01025"}]}]

@@ -224,7 +224,10 @@ const fr = {
   "tester.help.dairas": "ENTREZ UN CODE DE WILAYA POUR VOIR SES DAIRAS",
   "tester.help.daira": "ENTREZ UN CODE DE WILAYA ET UN SLUG DE DAIRA",
   "tester.help.zip": "ENTREZ UN CODE POSTAL À 5 CHIFFRES (EX. 19070)",
+  "tester.help.lang": "Aucun paramètre requis. Renvoie des données spécifiques à la langue.",
+  "updates.v104": "v1.0.4 : Correction de la corruption des données, ajout des noms arabes aux recherches ZIP et introduction de points de terminaison ultra-légers (/api/ar/, /api/fr/, /api/en/) pour des performances optimisées.",
   "home.reportLink": "Quelque chose ne va pas avec les données ? Cliquez ici pour soumettre une correction.",
+
 } as const;
 
 export type TranslationKey = keyof typeof fr;
@@ -436,7 +439,10 @@ const ar: Record<TranslationKey, string> = {
   "tester.help.dairas": "أدخل كود الولاية لرؤية دوائرها",
   "tester.help.daira": "أدخل كود الولاية واسم الدائرة",
   "tester.help.zip": "أدخل رمز بريدي مكون من 5 أرقام (مثلاً 19070)",
+  "tester.help.lang": "لا توجد معلمات مطلوبة. يرجع بيانات خاصة باللغة.",
+  "updates.v104": "v1.0.4: إصلاح فساد البيانات، إضافة الأسماء العربية لعمليات البحث عن الرمز البريدي، وتقديم نقاط نهاية خفيفة للغاية خاصة باللغة (/api/ar/، /api/fr/، /api/en/) لتحسين الأداء.",
   "home.reportLink": "هل هناك خطأ في البيانات؟ اضغط هنا لتقديم تصحيح.",
+
 };
 
 const en: Record<TranslationKey, string> = {
@@ -646,8 +652,11 @@ const en: Record<TranslationKey, string> = {
   "tester.help.dairas": "ENTER A WILAYA CODE TO SEE ITS DAIRAS",
   "tester.help.daira": "ENTER A WILAYA CODE AND DAIRA SLUG",
   "tester.help.zip": "ENTER A 5-DIGIT ZIP CODE (E.G. 19070)",
+  "tester.help.lang": "No parameters needed. Returns language-specific data.",
+  "updates.v104": "v1.0.4: Fixed data corruption, added Arabic names to ZIP lookups, and introduced ultra-lightweight language-specific endpoints (/api/ar/, /api/fr/, /api/en/) for optimized performance.",
   "home.reportLink": "Something wrong with the data? Click here to submit a correction.",
 };
+
 
 const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar, en };
 

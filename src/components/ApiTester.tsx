@@ -5,7 +5,7 @@ import { trackApiCall } from "@/lib/analytics";
 
 export const API_BASE = "https://dz-address-select.vercel.app";
 
-type Shape = "index" | "wilayas" | "full" | "wilaya" | "wilayaDairas" | "daira" | "zip";
+type Shape = "index" | "wilayas" | "full" | "wilaya" | "wilayaDairas" | "daira" | "zip" | "arWilayas" | "frWilayas" | "enWilayas";
 
 const SHAPES: { id: Shape; template: string; needs: "wilaya" | "daira" | "zip" | "none" }[] = [
   { id: "index", template: "/api/index.json", needs: "none" },
@@ -15,7 +15,11 @@ const SHAPES: { id: Shape; template: string; needs: "wilaya" | "daira" | "zip" |
   { id: "wilayaDairas", template: "/api/wilayas/{code}/dairas.json", needs: "wilaya" },
   { id: "daira", template: "/api/wilayas/{code}/dairas/{daira-slug}.json", needs: "daira" },
   { id: "zip", template: "/api/zip/{zipcode}.json", needs: "zip" },
+  { id: "arWilayas", template: "/api/ar/wilayas.json", needs: "none" },
+  { id: "frWilayas", template: "/api/fr/wilayas.json", needs: "none" },
+  { id: "enWilayas", template: "/api/en/wilayas.json", needs: "none" },
 ];
+
 
 interface WilayaIndexEntry {
   code: number;
@@ -318,7 +322,10 @@ export function ApiTester() {
             ? t("tester.help.index")
             : shape === "zip"
             ? t("tester.help.zip")
+            : shape.endsWith("Wilayas")
+            ? t("tester.help.lang")
             : t("tester.help.wilaya")}
+
         </p>
 
 
