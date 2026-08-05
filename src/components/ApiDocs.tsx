@@ -259,10 +259,11 @@ export function ApiDocs() {
               <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-black">
                 {cat.icon}
               </div>
-              <h2 className="text-2xl font-bold text-black uppercase tracking-wide">
+              <h3 className="text-lg font-bold text-black uppercase tracking-wider">
                 {t(cat.titleKey as TranslationKey)}
-              </h2>
+              </h3>
             </div>
+
 
             <div className="grid gap-8">
               {ENDPOINTS.filter((e) => e.category === cat.id).map((e, idx) => {
