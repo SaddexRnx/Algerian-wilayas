@@ -2,10 +2,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SearchableSelect } from "@/components/SearchableSelect";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
 import { trackedFetch } from "@/lib/analytics";
-import { cachedJson, cachedJsonWithMeta } from "@/lib/api-cache";
-import { supabase } from "@/integrations/supabase/client";
+import { cachedJsonWithMeta } from "@/lib/api-cache";
 import { debounce } from "lodash-es";
-
 
 export interface Commune {
   arabic: string;
@@ -80,6 +78,7 @@ function normalizeCommunes(json: unknown): Commune[] {
     };
   });
 }
+
 
 function readCache(): Wilaya[] | null {
   try {
