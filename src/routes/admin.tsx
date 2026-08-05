@@ -312,7 +312,8 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               disabled={loading || reportsLoading || healthLoading}
               className="shrink-0 rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-40"
             >
-              {t("common.refresh")}
+              {loading || reportsLoading || healthLoading ? "REFRESHING..." : t("common.refresh")}
+
             </button>
 
           </div>
