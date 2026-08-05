@@ -17,6 +17,7 @@ export interface Daira {
   arabic: string;
   ascii: string;
   slug: string;
+  zip?: string | null;
   communes: Commune[];
 }
 
@@ -63,6 +64,7 @@ function normalizeDairas(json: unknown): Daira[] {
       arabic: String(raw["name_ar"] ?? raw["arabic"] ?? ""),
       ascii,
       slug: String(raw["slug"] ?? slugify(ascii)),
+      zip: raw["zip"] ? String(raw["zip"]) : null,
       communes: normalizeCommunes(raw["communes"]),
     };
   });
