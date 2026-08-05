@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from "react";
 
-export type Lang = "ar" | "fr" | "en";
+export type Lang = "en" | "fr" | "ar";
 
 const LANG_KEY = "dz-address-picker:lang";
 
