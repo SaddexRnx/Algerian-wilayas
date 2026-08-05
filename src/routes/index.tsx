@@ -314,7 +314,7 @@ function Index() {
         </section>
 
 
-        <section id="demo" className="scroll-mt-32">
+        <section id="demo" className="scroll-mt-32 my-16">
           <div className="mx-auto max-w-3xl px-4 sm:px-0">
             <div className="mb-12 text-center sm:text-left">
                <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">{t("demo.title")}</h2>
@@ -328,7 +328,7 @@ function Index() {
         </section>
 
 
-        <section id="in-action" className="mt-16 scroll-mt-32 sm:mt-20">
+        <section id="in-action" className="my-16 scroll-mt-32">
           <div className="mx-auto max-w-3xl px-4 sm:px-0 text-center sm:text-left mb-12">
             <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">
               {t("checkout.title")}
@@ -336,18 +336,20 @@ function Index() {
             <p className="mt-2 text-sm text-gray-500 leading-relaxed font-medium">{t("checkout.subtitle")}</p>
           </div>
 
-          <CheckoutSimulation live={live} />
+          <div className="mx-auto max-w-3xl flex justify-center">
+            <CheckoutSimulation live={live} />
+          </div>
         </section>
 
-        <section id="tester" className="scroll-mt-32">
+        <section id="tester" className="scroll-mt-32 my-16">
           <ApiTester />
         </section>
 
-        <section id="integration" className="scroll-mt-32">
+        <section id="integration" className="scroll-mt-32 my-16">
           <DeveloperHub />
         </section>
 
-        <section id="api" className="scroll-mt-32">
+        <section id="api" className="scroll-mt-32 my-16">
           <ApiDocs />
         </section>
 
