@@ -13,7 +13,7 @@ import pkg from '../../package.json';
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "🚨 CRITICAL COMPREHENSIVE UPDATE TO v1.0.4: Fix data mapping, API tester logic, language endpoints, and UI clarity." },
+      { title: "DZ Address Picker | The Modern Algerian Address API" },
       {
         name: "description",
         content:
