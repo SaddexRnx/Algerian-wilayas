@@ -154,7 +154,7 @@ export function AlgeriaAddressPicker({
   defaultDairaName,
   defaultCommuneName,
 }: AlgeriaAddressPickerProps = {}) {
-  const { t, lang } = useI18n();
+  const { t, lang, dir } = useI18n();
 
   const [wilayas, setWilayas] = useState<Wilaya[]>([]);
   const [dairas, setDairas] = useState<Daira[]>([]);
@@ -652,31 +652,58 @@ export function AlgeriaAddressPicker({
   }
 
   return (
-    <div className="space-y-5">
-      {(isStale || levelError) && (
-        <div
-          role="status"
-          aria-live="polite"
-          className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-gray-200 bg-gray-50 px-3 py-2"
-        >
-          <p className={levelError ? "text-xs text-gray-700" : "text-xs text-gray-500"}>
-            {levelError ? t("picker.error") : t("picker.stale")}
-          </p>
-          <button
-            type="button"
-            onClick={() => {
-              setLevelError(false);
-              setReloadKey((k) => k + 1);
-              load(false);
-            }}
-            className="rounded border border-gray-300 bg-white px-2.5 py-1 text-xs text-gray-700 transition hover:bg-gray-100"
-          >
-            {t("picker.retry")}
-          </button>
+    <div className="space-y-6 sm:space-y-8" dir={dir}>
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div className="sm:col-span-2">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
+            <h3 className="text-sm font-bold tracking-wider text-black uppercase">
+              {t("demo.title")}
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {PRESETS.map((p) => (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => setPreset(p.id)}
+                  className={`rounded px-2 py-1 text-[10px] font-bold tracking-widest uppercase transition ${
+                    preset === p.id
+                      ? "bg-black text-white"
+                      : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+                  }`}
+                >
+                  {t(p.labelKey)}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
-      )}
 
-      <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white p-3">
+        {isStale || levelError ? (
+          <div className="sm:col-span-2">
+            <div
+              role="status"
+              aria-live="polite"
+              className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-gray-200 bg-gray-50 px-3 py-2"
+            >
+              <p className={levelError ? "text-xs text-gray-700" : "text-xs text-gray-500"}>
+                {levelError ? t("picker.error") : t("picker.stale")}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setLevelError(false);
+                  setReloadKey((k) => k + 1);
+                  load(false);
+                }}
+                className="rounded border border-gray-300 bg-white px-2.5 py-1 text-xs text-gray-700 transition hover:bg-gray-100"
+              >
+                {t("picker.retry")}
+              </button>
+            </div>
+          </div>
+        ) : null}
+
+        <div className="sm:col-span-2 flex items-center gap-2 rounded-lg border border-gray-200 bg-white p-3">
         <input
           id="dz-zip-toggle"
           type="checkbox"
@@ -904,40 +931,13 @@ export function AlgeriaAddressPicker({
       ) : null}
 
 
-      <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+      <div className="sm:col-span-2 rounded-lg border border-gray-200 bg-gray-50 p-4">
         <p
           id="dz-preview-label"
           className="text-xs font-medium tracking-wide text-gray-500 uppercase"
         >
           {t("picker.preview")}
         </p>
-
-        <div
-          role="radiogroup"
-          aria-label={t("picker.preview")}
-          className="mt-3 flex flex-wrap gap-2"
-        >
-          {PRESETS.map((p) => {
-            const isActive = p.id === preset;
-            return (
-              <button
-                key={p.id}
-                type="button"
-                role="radio"
-                aria-checked={isActive}
-                onClick={() => setPreset(p.id)}
-                className={
-                  (isActive
-                    ? "bg-black text-white "
-                    : "border border-gray-300 bg-white text-gray-600 hover:bg-gray-100 ") +
-                  "rounded-md px-3 py-1.5 text-xs font-medium transition focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none"
-                }
-              >
-                {t(p.labelKey)}
-              </button>
-            );
-          })}
-        </div>
 
         <p
           className={`mt-3 text-sm ${fullAddress ? "text-black" : "text-gray-400"}`}
@@ -993,6 +993,7 @@ export function AlgeriaAddressPicker({
             {t("picker.export")}
           </button>
         </div>
+      </div>
       </div>
     </div>
   );

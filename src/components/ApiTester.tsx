@@ -100,8 +100,8 @@ export function ApiTester() {
   }
 
   return (
-    <div className="mx-auto mt-16 max-w-3xl">
-      <h2 className="text-lg font-semibold text-black">{t("tester.title")}</h2>
+    <div className="mx-auto mt-16 max-w-3xl px-4 sm:px-0">
+      <h2 className="text-xl sm:text-lg font-semibold text-black">{t("tester.title")}</h2>
       <p className="mt-2 text-sm text-gray-500">{t("tester.subtitle")}</p>
 
       <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
@@ -193,13 +193,15 @@ export function ApiTester() {
         <div className="mt-5 min-h-[13rem]" dir="ltr" aria-live="polite">
           {result ? (
             <>
-              <div className="flex flex-wrap items-center gap-2 text-xs">
-                <span className={`rounded-full px-2.5 py-1 font-mono font-semibold text-white ${result.ok ? 'bg-black' : 'bg-red-600'}`}>
-                  {result.status || "ERR"} {result.statusText}
-                </span>
-                <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 font-mono text-gray-600">
-                  {result.ms}ms
-                </span>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-xs">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className={`rounded-full px-2.5 py-1 font-mono font-semibold text-white ${result.ok ? 'bg-black' : 'bg-red-600'}`}>
+                    {result.status || "ERR"} {result.statusText}
+                  </span>
+                  <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 font-mono text-gray-600">
+                    {result.ms}ms
+                  </span>
+                </div>
                 <span className="max-w-full truncate rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 font-mono text-gray-600">
                   {result.url}
                 </span>

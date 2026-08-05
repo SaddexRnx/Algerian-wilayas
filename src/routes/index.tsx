@@ -209,8 +209,8 @@ function Index() {
       </header>
 
       <main className="mx-auto max-w-5xl px-4 pb-8 sm:px-6">
-        <section className="py-10 text-center sm:py-16">
-          <div className="mx-auto mb-8 max-w-2xl rounded-xl border border-gray-200 bg-gray-50 p-6 text-left sm:p-8">
+        <section className="py-8 text-center sm:py-16">
+          <div className="mx-auto mb-8 max-w-2xl rounded-xl border border-gray-200 bg-gray-50 p-5 text-left sm:p-8">
             <div className="flex items-center gap-2 mb-3">
               <span className="flex h-2 w-2 rounded-full bg-black"></span>
               <h2 className="text-sm font-bold tracking-wider text-black uppercase">

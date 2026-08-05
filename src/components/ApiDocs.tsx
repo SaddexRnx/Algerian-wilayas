@@ -113,13 +113,13 @@ export function ApiDocs() {
         <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">{t("api.subtitle")}</p>
       </div>
 
-      <div className="grid gap-8 sm:grid-cols-3 mb-20">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mb-20">
         {[
           { icon: "zap", title: "features.fast", desc: "features.fastDesc" },
           { icon: "globe", title: "features.agnostic", desc: "features.agnosticDesc" },
           { icon: "refresh", title: "features.updated", desc: "features.updatedDesc" },
         ].map((feat) => (
-          <div key={feat.title} className="relative group rounded-2xl border border-gray-200 bg-white p-8 transition hover:border-black hover:shadow-lg">
+          <div key={feat.title} className="relative group rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 transition hover:border-black hover:shadow-lg">
             <h3 className="font-bold text-black text-lg">{t(feat.title as TranslationKey)}</h3>
             <p className="mt-2 text-sm text-gray-500 leading-relaxed">{t(feat.desc as TranslationKey)}</p>
           </div>
@@ -191,12 +191,12 @@ export function ApiDocs() {
       </div>
 
       <div className="mt-24 border-t border-gray-200 pt-16 pb-16">
-        <div className="rounded-3xl bg-black p-8 sm:p-12 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">🌟 Support & Community</h3>
-          <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+        <div className="rounded-2xl sm:rounded-3xl bg-black p-6 sm:p-12 text-white text-center">
+          <h3 className="text-xl sm:text-2xl font-bold mb-4">🌟 Support & Community</h3>
+          <p className="text-sm sm:text-base text-gray-400 mb-8 max-w-xl mx-auto">
             If you like this project, please give it a star on GitHub. Visit my portfolio for more open-source projects.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
             <a href="https://github.com/SaddexRnx/Algerian-wilayas" target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-8 py-3 text-sm font-bold text-black transition hover:bg-gray-200">
               GitHub Repo
             </a>
