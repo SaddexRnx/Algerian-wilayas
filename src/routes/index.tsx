@@ -69,9 +69,10 @@ function EventConsole({ lines }: { lines: string[] }) {
   }, [lines]);
   return (
     <div className="mt-6">
-      <p className="mb-2 text-xs font-medium tracking-wide text-gray-500 uppercase">
+      <p className="mb-2 text-[10px] font-bold tracking-widest text-gray-400 uppercase">
         {t("demo.console")}
       </p>
+
       <div
         ref={boxRef}
         role="log"

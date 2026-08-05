@@ -125,9 +125,10 @@ export function ApiTester() {
 
       <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
         <label className="block text-sm" htmlFor={`${baseId}-endpoint`}>
-          <span className="mb-1.5 block text-xs font-medium tracking-wide text-gray-500 uppercase">
+          <span className="mb-1.5 block text-[10px] font-bold tracking-widest text-gray-400 uppercase">
             {t("tester.endpoint")}
           </span>
+
         </label>
         <select
           id={`${baseId}-endpoint`}
@@ -206,7 +207,7 @@ export function ApiTester() {
             ) : (
               <Play className="h-4 w-4" aria-hidden="true" />
             )}
-            {loading ? t("tester.sending") : t("tester.send")}
+            {loading ? "SENDING..." : t("tester.send")}
           </button>
         </div>
 

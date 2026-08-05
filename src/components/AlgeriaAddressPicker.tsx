@@ -57,6 +57,7 @@ function normalizeWilayas(json: unknown): Wilaya[] {
 }
 
 function normalizeDairas(json: unknown): Daira[] {
+
   return (Array.isArray(json) ? json : []).map((d) => {
     const raw = d as Record<string, unknown>;
     const ascii = String(raw["name_ascii"] ?? raw["ascii"] ?? "");
