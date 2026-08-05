@@ -472,7 +472,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
 
 
           <section className={`${cardClass} min-w-0 mt-6`}>
-            <h2 className="text-sm font-semibold text-black">{t("admin.endpoints.title")}</h2>
+            <h2 className="text-sm font-bold text-black uppercase tracking-tighter">{t("admin.endpoints.title")}</h2>
             <p className="mt-1 text-xs text-gray-500">{t("admin.methods.subtitle")}</p>
             {data && data.endpoints.length > 0 ? (
               <div className="mt-4 h-64 w-full" dir="ltr">
