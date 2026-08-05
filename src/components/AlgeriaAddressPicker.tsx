@@ -557,13 +557,16 @@ export function AlgeriaAddressPicker({
     if (!restored.current) return;
     const timer = setTimeout(() => {
       if ((village || (searchByZip && zipInput.length === 5)) && wilaya && daira && commune) {
-        void supabase.from("zip_reports").insert({
+        void supabase.from("data_corrections").insert({
           zip_code: searchByZip ? zipInput : (commune.zip || ""),
           wilaya_code: wilaya.code,
           daira_name: daira.ascii,
           commune_name: commune.ascii,
           village_name: village,
+          language_submitted: lang,
+          status: "pending",
         });
+
       }
     }, 2000);
     return () => clearTimeout(timer);
