@@ -1,5 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { useTranslation } from '@/lib/i18n';
+
 import { supabase } from '@/integrations/supabase/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
@@ -18,8 +19,9 @@ const FEATURES = [
 ];
 
 function VotePage() {
-  const { lang } = useTranslation();
+  const { lang, t } = useTranslation();
   const isRtl = lang === 'ar';
+
   const queryClient = useQueryClient();
   const [voterId, setVoterId] = useState<string>('');
 
@@ -68,8 +70,15 @@ function VotePage() {
   });
 
   return (
-    <div className={`min-h-screen bg-background py-12 px-4 ${isRtl ? 'rtl' : ''}`}>
+    <div className={`min-h-screen bg-background py-12 px-4 relative ${isRtl ? 'rtl' : ''}`}>
+      <Link
+        to="/"
+        className="fixed top-4 left-4 z-50 flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-600 shadow-sm transition-all hover:bg-gray-50 hover:text-black sm:static sm:mb-8 sm:w-fit"
+      >
+        <span dir="ltr">←</span> {t("common.backHome")}
+      </Link>
       <div className="max-w-4xl mx-auto">
+
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">{isRtl ? 'صوّت للميزات القادمة' : 'Vote for Upcoming Features'}</h1>
           <p className="text-muted-foreground">{isRtl ? 'ساعدنا في تحديد أولويات خريطة الطريق الخاصة بنا.' : 'Help us prioritize our roadmap. What should we build next?'}</p>

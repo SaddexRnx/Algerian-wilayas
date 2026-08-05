@@ -134,9 +134,9 @@ const baseTranslations = {
   // Vote
   "vote.title": { en: "Vote for Upcoming Features", fr: "Votez pour les fonctionnalités", ar: "صوّت للميزات القادمة" },
   "vote.subtitle": { en: "Help us prioritize our roadmap.", fr: "Aidez-nous à prioriser notre feuille de route.", ar: "ساعدنا في تحديد أولويات خريطة الطريق الخاصة بنا." },
-  "vote.voted": { en: "Voted", fr: "Voté", ar: "تم التصويت" },
   "vote.success": { en: "Vote recorded!", fr: "Vote enregistré !", ar: "تم تسجيل تصويتك!" },
   "vote.error": { en: "Already voted.", fr: "Déjà voté.", ar: "لقد قمت بالتصويت بالفعل." },
+
 
   // Changelog
   "changelog.title": { en: "Project Changelog", fr: "Journal des modifications", ar: "سجل التغييرات" },
@@ -166,13 +166,41 @@ const baseTranslations = {
   "admin.kpi.stores": { en: "Stores", fr: "Boutiques", ar: "المتاجر" },
   "admin.kpi.loads": { en: "Loads", fr: "Chargements", ar: "التحميلات" },
   "admin.kpi.latency": { en: "Latency", fr: "Latence", ar: "التأخير" },
+  "common.back": { en: "Back", fr: "Retour", ar: "رجوع" },
+  "common.copy": { en: "Copy", fr: "Copier", ar: "نسخ" },
+  "common.download": { en: "Download", fr: "Télécharger", ar: "تحميل" },
+  "common.search": { en: "Search", fr: "Rechercher", ar: "بحث" },
+  "common.submit": { en: "Submit", fr: "Soumettre", ar: "إرسال" },
+  "common.vote": { en: "Vote", fr: "Voter", ar: "تصويت" },
+  "common.share": { en: "Share", fr: "Partager", ar: "مشاركة" },
+  "common.viewGuide": { en: "View Guide", fr: "Voir le guide", ar: "عرض الدليل" },
+  "common.backHome": { en: "Back to Home", fr: "Retour à l'accueil", ar: "العودة للرئيسية" },
+  "leaderboard.anonymous": { en: "Share my contributions anonymously", fr: "Partager mes contributions anonymement", ar: "مشاركة مساهماتي بشكل مجهول" },
+  "leaderboard.privacy": { en: "Your data will be used to improve the database but your identity will not be displayed publicly.", fr: "Vos données seront utilisées pour améliorer la base de données mais votre identité ne sera pas affichée publiquement.", ar: "سيتم استخدام بياناتك لتحسين قاعدة البيانات ولكن لن يتم عرض هويتك علنًا." },
+  "vote.voted": { en: "Voted ✓", fr: "Voté ✓", ar: "تم التصويت ✓" },
+  "vote.share": { en: "Share this vote", fr: "Partager ce vote", ar: "مشاركة هذا التصويت" },
+  "changelog.current": { en: "Current", fr: "Actuel", ar: "الحالي" },
+  "integrations.installation": { en: "Step-by-step installation", fr: "Installation étape par étape", ar: "تثبيت خطوة بخطوة" },
+  "integrations.copyCode": { en: "Copy Code", fr: "Copier le code", ar: "نسخ الكود" },
+  "integrations.downloadPlugin": { en: "Download Plugin", fr: "Télécharger le plugin", ar: "تحميل الإضافة" },
+  "integrations.time": { en: "Estimated time", fr: "Temps estimé", ar: "الوقت المقدر" },
+  "integrations.difficulty": { en: "Difficulty", fr: "Difficulté", ar: "الصعوبة" },
+  "picker.zipDisclaimer": { en: "Postal codes are provided for reference and may vary by specific neighborhood.", fr: "Les codes postaux sont fournis à titre de référence et peuvent varier selon le quartier.", ar: "يتم توفير الرموز البريدية كمرجع وقد تختلف حسب الحي." },
+  "picker.preview": { en: "Address Preview", fr: "Aperçu de l'adresse", ar: "معاينة العنوان" },
+  "check.auto": { en: "Auto-fill Demo", fr: "Démo remplissage auto", ar: "عرض الملء التلقائي" },
+  "transit.title": { en: "Transit & Routes", fr: "Transit et itinéraires", ar: "النقل والمسارات" },
+  "transit.disclaimer": { en: "Static data - Live tracking coming soon. Data is based on published schedules.", fr: "Données statiques - Suivi en direct bientôt. Basé sur les horaires publiés.", ar: "بيانات ثابتة - تتبع حي قريبًا. البيانات مبنية على الجداول المنشورة." },
+  "admin.searchedZip": { en: "Searched ZIP", fr: "ZIP recherché", ar: "الرمز المبحوث" },
+  "admin.resultZip": { en: "Result ZIP", fr: "ZIP résultant", ar: "الرمز الناتج" },
+  "admin.zipMismatch": { en: "ZIP Mismatch Error", fr: "Erreur de correspondance ZIP", ar: "خطأ في تطابق الرمز" },
 };
+
 
 const fr: any = {};
 const en: any = {};
 const ar: any = {};
 
-Object.entries(baseTranslations).forEach(([key, values]) => {
+Object.entries(baseTranslations).forEach(([key, values]: [string, any]) => {
   fr[key] = values.fr;
   en[key] = values.en;
   ar[key] = values.ar;
