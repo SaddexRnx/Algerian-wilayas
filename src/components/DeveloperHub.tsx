@@ -252,10 +252,7 @@ function PluginDownload() {
   );
 }
 
-      )}
-    </div>
-  );
-}
+
 
 
 export const WIDGET_OPTIONS: { attr: string; description: string; example: string }[] = [
