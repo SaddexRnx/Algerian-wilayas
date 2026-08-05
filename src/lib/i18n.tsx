@@ -116,7 +116,7 @@ const fr = {
   "nav.tester": "Testeur d'API",
   "hub.advanced": "Options avancées",
   "hub.showAdvanced": "Afficher les options avancées",
-  "picker.zipDisclaimer": "Note: ZIP codes are based on historical data.",
+  "picker.zipDisclaimer": "Note : Les codes postaux sont basés sur d'anciennes données administratives et peuvent être inexacts. Veuillez utiliser la fonction 'Signaler une erreur' pour nous aider à mettre à jour la base de données.",
 
 
 
