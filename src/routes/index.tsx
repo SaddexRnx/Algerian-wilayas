@@ -130,13 +130,14 @@ function Index() {
 
   const navLinks = [
     { href: "#demo", label: t("nav.demo") },
-    { href: "/map", label: "🗺️ Map" },
-    { href: "#in-action", label: t("nav.inAction") },
-    { href: "#tester", label: t("nav.tester") },
-    { href: "#integration", label: t("nav.integration") },
+    { href: "/map", label: t("nav.map") },
+    { href: "/leaderboard", label: t("nav.leaderboard") },
+    { href: "/vote", label: t("nav.vote") },
+    { href: "/changelog", label: t("nav.changelog") },
+    { href: "/integrations", label: t("nav.integrations") },
     { href: "#api", label: t("nav.api") },
-    { href: "#features", label: t("nav.features") },
   ];
+
 
 
   const features = [
