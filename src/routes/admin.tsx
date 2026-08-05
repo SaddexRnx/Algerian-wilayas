@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState, useCallback, type ReactNode } from "react";
+import { useEffect, useState, useCallback, useMemo, type ReactNode } from "react";
+
 import { useServerFn } from "@tanstack/react-start";
 import { ForcedLanguageProvider, useI18n, type TranslationKey } from "@/lib/i18n";
 import { adminLogout } from "@/lib/admin-auth.functions";
@@ -7,18 +8,23 @@ import { clearAdminAuthed, isAdminAuthed } from "@/lib/admin-mock-auth";
 import { adminAnalytics, type AnalyticsPayload } from "@/lib/admin-analytics.functions";
 import { supabase } from "@/integrations/supabase/client";
 import { checkApiHealth, type HealthCheckResult } from "@/lib/health.functions";
-
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
+import { 
+  Bar, 
+  BarChart, 
+  CartesianGrid, 
+  Line, 
+  LineChart, 
+  ResponsiveContainer, 
+  Tooltip, 
+  XAxis, 
   YAxis,
+  Area,
+  AreaChart,
+  Pie,
+  PieChart,
+  Cell
 } from "recharts";
+
 
 export const Route = createFileRoute("/admin")({
   ssr: false,
@@ -96,7 +102,10 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
   const [data, setData] = useState<AnalyticsPayload | null>(null);
   const [healthData, setHealthData] = useState<HealthCheckResult[]>([]);
   const [healthLoading, setHealthLoading] = useState(false);
+  const [prevHealthData, setPrevHealthData] = useState<HealthCheckResult[]>([]);
+  const [selectedHealth, setSelectedHealth] = useState<HealthCheckResult | null>(null);
   const [lastHealthCheck, setLastHealthCheck] = useState<Date | null>(null);
+
   const [loading, setLoading] = useState(true);
   const [failed, setFailed] = useState(false);
   const [wilayaRefs, setWilayaRefs] = useState<WilayaRef[]>([]);
@@ -141,9 +150,11 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
     setHealthLoading(true);
     try {
       const res = await healthCheck();
+      setPrevHealthData(healthData);
       setHealthData(res);
       setLastHealthCheck(new Date());
     } catch (e) {
+
       console.error("Health check failed", e);
     } finally {
       setHealthLoading(false);
@@ -405,13 +416,13 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               <table className="w-full min-w-[520px] text-start text-sm">
                 <thead>
                   <tr className="border-b border-gray-200 text-xs text-gray-500">
-                    <th className="py-2 pe-3 text-start font-medium">{t("admin.table.rank")}</th>
-                    <th className="py-2 pe-3 text-start font-medium">{t("admin.table.name")}</th>
-                    <th className="py-2 pe-3 text-start font-medium">{t("admin.table.code")}</th>
-                    <th className="py-2 pe-3 text-start font-medium">{t("admin.searchedZip")}</th>
-                    <th className="py-2 pe-3 text-start font-medium">{t("admin.table.count")}</th>
+                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.rank")}</th>
+                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.name")}</th>
+                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.code")}</th>
+                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.searchedZip")}</th>
+                    <th className="py-2 pe-3 text-start font-medium uppercase tracking-wider">{t("admin.table.count")}</th>
+                    <th className="py-2 text-start font-medium uppercase tracking-wider">{t("admin.table.share")}</th>
 
-                    <th className="py-2 text-start font-medium">{t("admin.table.share")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -505,17 +516,18 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full min-w-[600px] text-start text-sm">
                  <thead>
-                  <tr className="border-b border-gray-200 text-xs text-gray-500 uppercase tracking-wider">
-                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.zip")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.name")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("picker.daira")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("picker.commune")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.village")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("report.message")}</th>
-                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.status")}</th>
-                    <th className="py-3 text-start font-medium">{t("admin.table.date")}</th>
+                  <tr className="border-b border-gray-200 text-[10px] text-gray-400 uppercase tracking-widest">
+                    <th className="py-3 pe-3 text-start font-bold">{t("admin.table.zip")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("admin.table.name")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("picker.daira")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("picker.commune")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("admin.table.village")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("report.message")}</th>
+                    <th className="py-3 pe-3 text-start font-bold">{t("admin.table.status")}</th>
+                    <th className="py-3 text-start font-bold">{t("admin.table.date")}</th>
                   </tr>
                 </thead>
+
 
                 <tbody>
                   {reports.length === 0 && (
@@ -603,41 +615,91 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
                       </td>
                     </tr>
                   )}
-                  {healthData.map((res) => (
-                    <tr key={res.endpoint} className="hover:bg-gray-50/50 transition-colors">
-                      <td className="py-4 pe-3">
-                        <span className="text-xs font-mono font-bold text-gray-800 bg-gray-100 px-2 py-1 rounded">
-                          {res.endpoint}
-                        </span>
-                      </td>
-                      <td className="py-4 pe-3">
-                        <div className="flex items-center gap-2">
-                          <span className={`h-2 w-2 rounded-full animate-pulse ${
-                            res.status === 'up' ? 'bg-green-500' : 'bg-red-500'
-                          }`}></span>
-                          <span className={`text-[10px] font-bold uppercase tracking-widest ${
-                            res.status === 'up' ? 'text-green-600' : 'text-red-600'
-                          }`}>
-                            {t(res.status === 'up' ? "admin.health.up" : "admin.health.down")}
+                  {healthData.map((res) => {
+                    const prev = prevHealthData.find(p => p.endpoint === res.endpoint);
+                    const flipped = prev && prev.status !== res.status;
+                    return (
+                      <tr 
+                        key={res.endpoint} 
+                        onClick={() => setSelectedHealth(res)}
+                        className={`hover:bg-gray-50/50 transition-colors cursor-pointer ${flipped ? 'animate-pulse bg-gray-50' : ''}`}
+                      >
+                        <td className="py-4 pe-3">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-mono font-bold text-gray-800 bg-gray-100 px-2 py-1 rounded">
+                              {res.endpoint}
+                            </span>
+                            {flipped && (
+                              <span className="text-[8px] font-bold text-black border border-black px-1 rounded uppercase">Changed</span>
+                            )}
+                          </div>
+                        </td>
+                        <td className="py-4 pe-3">
+                          <div className="flex items-center gap-2">
+                            <span className={`h-2 w-2 rounded-full animate-pulse ${
+                              res.status === 'up' ? 'bg-green-500' : 'bg-red-500'
+                            }`}></span>
+                            <span className={`text-[10px] font-bold uppercase tracking-widest ${
+                              res.status === 'up' ? 'text-green-600' : 'text-red-600'
+                            }`}>
+                              {t(res.status === 'up' ? "admin.health.up" : "admin.health.down")}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="py-4 pe-3">
+                          <span className="text-xs font-medium text-gray-600" dir="ltr">
+                            {res.latency > 0 ? `${res.latency}ms` : "—"}
                           </span>
-                        </div>
-                      </td>
-                      <td className="py-4 pe-3">
-                        <span className="text-xs font-medium text-gray-600" dir="ltr">
-                          {res.latency > 0 ? `${res.latency}ms` : "—"}
-                        </span>
-                      </td>
-                      <td className="py-4 text-end">
-                        <span className="text-[10px] text-gray-400 tabular-nums">
-                          {new Date(res.timestamp).toLocaleTimeString()}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
+                        </td>
+                        <td className="py-4 text-end">
+                          <span className="text-[10px] text-gray-400 tabular-nums">
+                            {new Date(res.timestamp).toLocaleTimeString()}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
+
+            {selectedHealth && (
+              <div className="fixed inset-y-0 right-0 z-[60] w-full max-w-sm bg-white shadow-2xl border-l border-gray-200 p-8 transform transition-transform animate-in slide-in-from-right">
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-lg font-bold text-black uppercase tracking-tighter">Endpoint Details</h3>
+                  <button onClick={() => setSelectedHealth(null)} className="text-gray-400 hover:text-black transition">✕</button>
+                </div>
+                <div className="space-y-6">
+                  <div>
+                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-1">Route</label>
+                    <p className="font-mono text-xs font-bold text-black break-all">{selectedHealth.endpoint}</p>
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-1">Status</label>
+                    <div className="flex items-center gap-2">
+                      <span className={`h-2 w-2 rounded-full ${selectedHealth.status === 'up' ? 'bg-green-500' : 'bg-red-500'}`}></span>
+                      <span className="font-bold text-black">{selectedHealth.status.toUpperCase()} (HTTP {selectedHealth.statusCode || 200})</span>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-1">Latency</label>
+                    <p className="font-bold text-black">{selectedHealth.latency}ms</p>
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-1">Last Checked</label>
+                    <p className="text-sm text-gray-600">{new Date(selectedHealth.timestamp).toLocaleString()}</p>
+                  </div>
+                  {selectedHealth.error && (
+                    <div className="rounded-lg bg-red-50 border border-red-100 p-4">
+                      <label className="text-[10px] font-bold text-red-400 uppercase tracking-widest block mb-1">Error Message</label>
+                      <p className="text-xs text-red-700 font-mono">{selectedHealth.error}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
           </section>
+
 
         ) : (
           <section className={`mt-6 ${cardClass}`}>

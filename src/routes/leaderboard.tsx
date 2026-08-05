@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { useTranslation } from '@/lib/i18n';
+import { useTranslation, ForcedLanguageProvider } from '@/lib/i18n';
 import { supabase } from '@/integrations/supabase/client';
 import { useQuery } from '@tanstack/react-query';
 import { Trophy, Medal, Star, User, ChevronLeft, ChevronRight } from 'lucide-react';
 
 
+
 export const Route = createFileRoute('/leaderboard')({
-  component: LeaderboardPage,
+  component: () => <ForcedLanguageProvider lang="en"><LeaderboardPage /></ForcedLanguageProvider>,
 });
 
 function LeaderboardPage() {
@@ -57,15 +58,16 @@ function LeaderboardPage() {
         <div className="bg-card border rounded-xl overflow-hidden shadow-sm">
           <div className="overflow-x-auto">
             <table className="w-full text-left" dir={isRtl ? 'rtl' : 'ltr'}>
-              <thead className="bg-muted/50 border-b text-xs font-semibold uppercase tracking-wider">
+              <thead className="bg-gray-50 border-b text-[10px] font-bold uppercase tracking-widest text-gray-400">
                 <tr>
-                  <th className="px-6 py-4">{t("admin.table.rank") || "Rank"}</th>
-                  <th className="px-6 py-4">{t("common.contributor") || "Contributor"}</th>
-                  <th className="px-6 py-4">{t("common.contributions") || "Contributions"}</th>
-                  <th className="px-6 py-4">{t("common.badge") || "Badge"}</th>
-                </tr>
+                  <th className="px-6 py-4">{t("admin.table.rank")}</th>
+                  <th className="px-6 py-4">{t("common.contributor")}</th>
 
+                  <th className="px-6 py-4">{t("common.contributions")}</th>
+                  <th className="px-6 py-4">{t("common.badge")}</th>
+                </tr>
               </thead>
+
               <tbody className="divide-y">
                 {isLoading ? (
                   <tr><td colSpan={4} className="px-6 py-8 text-center text-muted-foreground">{t("common.loading")}</td></tr>
