@@ -5,33 +5,30 @@ import { trackApiCall } from "@/lib/analytics";
 
 export const API_BASE = "https://dz-address-select.vercel.app";
 
-type Shape = "index" | "wilayas" | "full" | "wilaya" | "wilayaDairas" | "daira" | "zip" | "arWilayas" | "latinWilayas";
+type Shape = 
+  | "index" | "wilayas" | "full" | "wilaya" | "wilayaDairas" | "daira" | "zip" 
+  | "arWilayas" | "arFull" | "arWilaya" | "arWilayaDairas" | "arDaira"
+  | "latinWilayas" | "latinFull" | "latinWilaya" | "latinWilayaDairas" | "latinDaira";
 
-const SHAPES: { id: Shape; template: string; needs: string }[] = [
-  { id: "index", template: "/api/index.json", needs: "none" },
-  { id: "wilayas", template: "/api/wilayas.json", needs: "none" },
-  { id: "full", template: "/api/full-data.json", needs: "none" },
-  { id: "wilaya", template: "/api/wilayas/{code}.json", needs: "wilaya" },
-  { id: "wilayaDairas", template: "/api/wilayas/{code}/dairas.json", needs: "wilaya" },
-  { id: "daira", template: "/api/wilayas/{code}/dairas/{daira-slug}.json", needs: "daira" },
-  { id: "zip", template: "/api/zip/{zipcode}.json", needs: "zip" },
-  { id: "arWilayas", template: "/api/ar/wilayas.json", needs: "none" },
-  { id: "latinWilayas", template: "/api/latin/wilayas.json", needs: "none" },
+const SHAPES: { id: Shape; template: string }[] = [
+  { id: "index", template: "/api/index.json" },
+  { id: "wilayas", template: "/api/wilayas.json" },
+  { id: "full", template: "/api/full-data.json" },
+  { id: "wilaya", template: "/api/wilayas/{code}.json" },
+  { id: "wilayaDairas", template: "/api/wilayas/{code}/dairas.json" },
+  { id: "daira", template: "/api/wilayas/{code}/dairas/{daira-slug}.json" },
+  { id: "zip", template: "/api/zip/{zipcode}.json" },
+  { id: "arWilayas", template: "/api/ar/wilayas.json" },
+  { id: "arFull", template: "/api/ar/full-data.json" },
+  { id: "arWilaya", template: "/api/ar/wilayas/{code}.json" },
+  { id: "arWilayaDairas", template: "/api/ar/wilayas/{code}/dairas.json" },
+  { id: "arDaira", template: "/api/ar/wilayas/{code}/dairas/{daira-slug}.json" },
+  { id: "latinWilayas", template: "/api/latin/wilayas.json" },
+  { id: "latinFull", template: "/api/latin/full-data.json" },
+  { id: "latinWilaya", template: "/api/latin/wilayas/{code}.json" },
+  { id: "latinWilayaDairas", template: "/api/latin/wilayas/{code}/dairas.json" },
+  { id: "latinDaira", template: "/api/latin/wilayas/{code}/dairas/{daira-slug}.json" },
 ];
-
-
-interface WilayaIndexEntry {
-  code: number;
-  arabic: string;
-  ascii: string;
-}
-
-interface DairaIndexEntry {
-  wilaya_code: number;
-  slug: string;
-  name_ar: string;
-  name_ascii: string;
-}
 
 type Result = {
   status: number;
@@ -40,201 +37,44 @@ type Result = {
   body: string;
   ok: boolean;
   url: string;
-  resolved?: string;
 };
-
-let wilayaCache: WilayaIndexEntry[] | null = null;
-let dairaCache: DairaIndexEntry[] | null = null;
-
-async function loadWilayas(): Promise<WilayaIndexEntry[]> {
-  if (wilayaCache) return wilayaCache;
-  const res = await fetch("/api/wilayas.json", { cache: "force-cache" });
-  wilayaCache = (await res.json()) as WilayaIndexEntry[];
-  return wilayaCache;
-}
-
-async function loadDairas(): Promise<DairaIndexEntry[]> {
-  if (dairaCache) return dairaCache;
-  const res = await fetch("/api/dairas/index.json", { cache: "force-cache" });
-  dairaCache = (await res.json()) as DairaIndexEntry[];
-  return dairaCache;
-}
-
-function norm(value: string) {
-  return value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/['\u2019]/g, "")
-    .trim();
-}
-
-function matchWilaya(list: WilayaIndexEntry[], query: string): WilayaIndexEntry | undefined {
-  const raw = query.trim();
-  const q = norm(raw);
-  if (!q) return undefined;
-  if (/^\d+$/.test(q)) return list.find((w) => w.code === Number(q));
-  return (
-    list.find((w) => norm(w.ascii) === q || w.arabic === raw) ??
-    list.find((w) => norm(w.ascii).includes(q) || w.arabic.includes(raw))
-  );
-}
-
-function matchDaira(list: DairaIndexEntry[], query: string): DairaIndexEntry | undefined {
-  const raw = query.trim();
-  const q = norm(raw);
-  if (!q) return undefined;
-  return (
-    list.find((d) => norm(d.name_ascii) === q || d.slug === q || d.name_ar === raw) ??
-    list.find((d) => norm(d.name_ascii).includes(q) || d.name_ar.includes(raw))
-  );
-}
-
-interface Suggestion {
-  key: string;
-  primary: string;
-  secondary: string;
-  /** Value written into the input when picked. */
-  value: string;
-}
 
 export function ApiTester() {
   const { t } = useI18n();
   const baseId = useId();
-  const listboxId = `${baseId}-suggestions`;
 
-  const [shape, setShape] = useState<Shape>("zip");
-  const [query, setQuery] = useState("19070");
+  const [shape, setShape] = useState<Shape>("wilaya");
+  const [code, setCode] = useState("");
+  const [dairaSlug, setDairaSlug] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  
   const [loading, setLoading] = useState(false);
-  const [notFound, setNotFound] = useState(false);
   const [copied, setCopied] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
 
-  const [wilayaList, setWilayaList] = useState<WilayaIndexEntry[]>([]);
-  const [dairaList, setDairaList] = useState<DairaIndexEntry[]>([]);
-  const [open, setOpen] = useState(false);
-  const [highlight, setHighlight] = useState(0);
-
-  const rootRef = useRef<HTMLDivElement>(null);
-  const listRef = useRef<HTMLUListElement>(null);
-
   const current = SHAPES.find((s) => s.id === shape)!;
-
-  // Preload the lookup indexes used for autocomplete.
-  useEffect(() => {
-    let active = true;
-    void loadWilayas()
-      .then((l) => active && setWilayaList(l))
-      .catch(() => undefined);
-    void loadDairas()
-      .then((l) => active && setDairaList(l))
-      .catch(() => undefined);
-    return () => {
-      active = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    const onDocClick = (e: MouseEvent) => {
-      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener("mousedown", onDocClick);
-    return () => document.removeEventListener("mousedown", onDocClick);
-  }, []);
-
-  const suggestions = useMemo<Suggestion[]>(() => {
-    const q = norm(query);
-    if (current.needs === "wilaya") {
-      const list = q
-        ? wilayaList.filter(
-            (w) =>
-              String(w.code) === q ||
-              String(w.code).startsWith(q) ||
-              norm(w.ascii).includes(q) ||
-              w.arabic.includes(query.trim()),
-          )
-        : wilayaList;
-      return list.slice(0, 8).map((w) => ({
-        key: `w-${w.code}`,
-        primary: `${w.code} — ${w.ascii}`,
-        secondary: w.arabic,
-        value: w.ascii,
-      }));
-    }
-    if (current.needs === "daira") {
-      const list = q
-        ? dairaList.filter(
-            (d) =>
-              norm(d.name_ascii).includes(q) ||
-              d.slug.includes(q) ||
-              d.name_ar.includes(query.trim()),
-          )
-        : dairaList;
-      return list.slice(0, 8).map((d) => ({
-        key: `d-${d.wilaya_code}-${d.slug}`,
-        primary: d.name_ascii,
-        secondary: `${d.name_ar} — ${d.wilaya_code}`,
-        value: d.name_ascii,
-      }));
-    }
-    return [];
-  }, [current.needs, query, wilayaList, dairaList]);
-
-  useEffect(() => {
-    setHighlight(0);
-  }, [query, shape]);
-
-  useEffect(() => {
-    if (!open) return;
-    const el = listRef.current?.children[highlight] as HTMLElement | undefined;
-    el?.scrollIntoView({ block: "nearest" });
-  }, [highlight, open]);
+  const hasCode = current.template.includes("{code}");
+  const hasDaira = current.template.includes("{daira-slug}");
+  const hasZip = current.template.includes("{zipcode}");
+  const hasParams = hasCode || hasDaira || hasZip;
 
   async function send() {
-    setOpen(false);
     setLoading(true);
-    setNotFound(false);
     setResult(null);
 
     let path = current.template;
-    let resolved: string | undefined;
-    let wilayaCode: number | null = null;
+    if (hasCode) path = path.replace("{code}", code.trim());
+    if (hasDaira) path = path.replace("{daira-slug}", dairaSlug.trim().toLowerCase());
+    if (hasZip) path = path.replace("{zipcode}", zipcode.trim());
 
     try {
-      if (current.needs === "wilaya") {
-        const match = matchWilaya(wilayaList.length ? wilayaList : await loadWilayas(), query);
-        if (!match) {
-          setNotFound(true);
-          setLoading(false);
-          return;
-        }
-        wilayaCode = match.code;
-        resolved = `${match.code} — ${match.ascii} / ${match.arabic}`;
-        path = current.template.replace("{code}", String(match.code));
-      } else if (current.needs === "daira") {
-        const match = matchDaira(dairaList.length ? dairaList : await loadDairas(), query);
-        if (!match) {
-          setNotFound(true);
-          setLoading(false);
-          return;
-        }
-        wilayaCode = match.wilaya_code;
-        resolved = `${match.name_ascii} / ${match.name_ar} — wilaya ${match.wilaya_code}`;
-        path = current.template
-          .replace("{code}", String(match.wilaya_code))
-          .replace("{daira-slug}", match.slug);
-      } else if (current.needs === "zip") {
-        resolved = `ZIP: ${query}`;
-        path = current.template.replace("{zipcode}", query.trim());
-      }
-
       const started = performance.now();
       const res = await fetch(path, { cache: "no-store" });
       const ms = Math.round(performance.now() - started);
       const json: unknown = await res.json();
       const text = JSON.stringify(json, null, 2);
 
-      trackApiCall(path, res.status, ms, { source: "tester", wilayaCode });
+      trackApiCall(path, res.status, ms, { source: "tester" });
 
       setResult({
         status: res.status,
@@ -243,15 +83,14 @@ export function ApiTester() {
         body: text.length > 4000 ? `${text.slice(0, 4000)}\n…` : text,
         ok: res.ok,
         url: `${API_BASE}${path}`,
-        ...(resolved ? { resolved } : {}),
       });
     } catch {
-      trackApiCall(path, 0, 0, { source: "tester", wilayaCode });
+      trackApiCall(path, 0, 0, { source: "tester" });
       setResult({
         status: 0,
-        statusText: t("tester.error"),
+        statusText: "Error",
         ms: 0,
-        body: t("tester.error"),
+        body: "Failed to fetch. The endpoint might not exist or the parameters are invalid.",
         ok: false,
         url: `${API_BASE}${path}`,
       });
@@ -259,36 +98,6 @@ export function ApiTester() {
       setLoading(false);
     }
   }
-
-  const onInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      if (!open) {
-        setOpen(true);
-        return;
-      }
-      setHighlight((h) => Math.min(h + 1, suggestions.length - 1));
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      setHighlight((h) => Math.max(h - 1, 0));
-    } else if (e.key === "Escape") {
-      if (open) {
-        e.preventDefault();
-        setOpen(false);
-      }
-    } else if (e.key === "Tab") {
-      setOpen(false);
-    } else if (e.key === "Enter") {
-      e.preventDefault();
-      const opt = open ? suggestions[highlight] : undefined;
-      if (opt) {
-        setQuery(opt.value);
-        setOpen(false);
-        return;
-      }
-      void send();
-    }
-  };
 
   return (
     <div className="mx-auto mt-16 max-w-3xl">
@@ -304,103 +113,68 @@ export function ApiTester() {
         <select
           id={`${baseId}-endpoint`}
           value={shape}
-          onChange={(e) => setShape(e.target.value as Shape)}
+          onChange={(e) => {
+            setShape(e.target.value as Shape);
+            setResult(null);
+          }}
           dir="ltr"
           className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none"
         >
           {SHAPES.map((s) => (
             <option key={s.id} value={s.id}>
-              GET {API_BASE}
-              {s.template}
+              GET {s.template}
             </option>
           ))}
         </select>
 
-        <p className="mt-2 text-xs text-gray-400">
-          {shape === "index" || shape === "wilayas" || shape === "full"
-            ? t("tester.help.index")
-            : shape === "zip"
-            ? t("tester.help.zip")
-            : shape.endsWith("Wilayas") || shape.startsWith("ar") || shape.startsWith("latin")
-            ? t("tester.help.lang")
-            : t("tester.help.wilaya")}
-
-        </p>
-
-
-
-        {current.needs !== "none" && (
-          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
-          <div className="min-w-0 flex-1" ref={rootRef}>
-            <label
-              htmlFor={`${baseId}-query`}
-              className="mb-1.5 block text-xs font-medium tracking-wide text-gray-500 uppercase"
-            >
-              {t("tester.inputLabel")}
-            </label>
-            <div className="relative">
-              <input
-                id={`${baseId}-query`}
-                type="text"
-                role="combobox"
-                autoComplete="off"
-                aria-expanded={open && suggestions.length > 0}
-                aria-controls={listboxId}
-                aria-autocomplete="list"
-                aria-activedescendant={
-                  open && suggestions[highlight] ? `${baseId}-opt-${highlight}` : undefined
-                }
-                value={query}
-                disabled={current.needs === "none"}
-                onChange={(e) => {
-                  setQuery(e.target.value);
-                  setOpen(true);
-                }}
-                onFocus={() => current.needs !== "none" && setOpen(true)}
-                onKeyDown={onInputKeyDown}
-                placeholder={
-                  current.needs === "wilaya" 
-                    ? t("tester.help.wilaya") 
-                    : current.needs === "zip" 
-                      ? t("tester.help.zip") 
-                      : t("tester.inputPlaceholder")
-                }
-                dir="auto"
-                className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black placeholder:text-gray-400 focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none disabled:bg-gray-50 disabled:text-gray-400"
-              />
-              {open && current.needs !== "none" && suggestions.length > 0 && (
-                <ul
-                  id={listboxId}
-                  ref={listRef}
-                  role="listbox"
-                  aria-label={t("tester.inputLabel")}
-                  className="absolute z-20 mt-1 max-h-60 w-full overflow-y-auto rounded-lg border border-gray-200 bg-white py-1 shadow-lg"
-                >
-                  {suggestions.map((s, i) => (
-                    <li
-                      key={s.key}
-                      id={`${baseId}-opt-${i}`}
-                      role="option"
-                      aria-selected={i === highlight}
-                      onMouseEnter={() => setHighlight(i)}
-                      onMouseDown={(e) => {
-                        e.preventDefault();
-                        setQuery(s.value);
-                        setOpen(false);
-                      }}
-                      dir="auto"
-                      className={`flex cursor-pointer items-center justify-between gap-3 px-3 py-2 text-sm ${
-                        i === highlight ? "bg-gray-100 text-black" : "text-gray-700"
-                      }`}
-                    >
-                      <span className="truncate">{s.primary}</span>
-                      <span className="shrink-0 text-xs text-gray-500">{s.secondary}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+        {hasParams && (
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {hasCode && (
+              <div>
+                <label className="mb-1.5 block text-xs font-medium tracking-wide text-gray-500 uppercase">
+                  Enter Wilaya Code (e.g., 16, 19)
+                </label>
+                <input
+                  type="text"
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                  placeholder="e.g. 16"
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none"
+                />
+              </div>
+            )}
+            {hasDaira && (
+              <div>
+                <label className="mb-1.5 block text-xs font-medium tracking-wide text-gray-500 uppercase">
+                  Enter Daira Slug (e.g., bouandas)
+                </label>
+                <input
+                  type="text"
+                  value={dairaSlug}
+                  onChange={(e) => setDairaSlug(e.target.value)}
+                  placeholder="e.g. bouandas"
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none"
+                />
+              </div>
+            )}
+            {hasZip && (
+              <div>
+                <label className="mb-1.5 block text-xs font-medium tracking-wide text-gray-500 uppercase">
+                  Enter 5-digit ZIP (e.g., 19070)
+                </label>
+                <input
+                  type="text"
+                  value={zipcode}
+                  onChange={(e) => setZipcode(e.target.value)}
+                  placeholder="e.g. 19070"
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none"
+                />
+              </div>
+            )}
           </div>
+        )}
+
+        <div className="mt-6 flex justify-end">
           <button
             type="button"
             onClick={() => void send()}
@@ -414,38 +188,13 @@ export function ApiTester() {
             )}
             {loading ? t("tester.sending") : t("tester.send")}
           </button>
-          </div>
-        )}
-
-        {current.needs === "none" && (
-          <div className="mt-4 flex justify-end">
-            <button
-              type="button"
-              onClick={() => void send()}
-              disabled={loading}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-black px-4 py-2 text-sm text-white transition hover:bg-gray-800 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-50"
-            >
-              {loading ? (
-                <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
-              ) : (
-                <Play className="h-4 w-4" aria-hidden="true" />
-              )}
-              {loading ? t("tester.sending") : t("tester.send")}
-            </button>
-          </div>
-        )}
+        </div>
 
         <div className="mt-5 min-h-[13rem]" dir="ltr" aria-live="polite">
-          {notFound && (
-            <p className="rounded-lg border border-gray-300 bg-gray-50 p-4 text-sm text-gray-700">
-              {t("tester.notFound")}
-            </p>
-          )}
-
           {result ? (
             <>
               <div className="flex flex-wrap items-center gap-2 text-xs">
-                <span className="rounded-full bg-black px-2.5 py-1 font-mono font-semibold text-white">
+                <span className={`rounded-full px-2.5 py-1 font-mono font-semibold text-white ${result.ok ? 'bg-black' : 'bg-red-600'}`}>
                   {result.status || "ERR"} {result.statusText}
                 </span>
                 <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 font-mono text-gray-600">
@@ -461,8 +210,7 @@ export function ApiTester() {
                     setCopied(true);
                     setTimeout(() => setCopied(false), 2000);
                   }}
-                  aria-label={t("hub.copy")}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-2.5 py-1 font-mono text-gray-700 transition hover:bg-gray-100 focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-2.5 py-1 font-mono text-gray-700 transition hover:bg-gray-100"
                 >
                   {copied ? (
                     <Check className="h-3 w-3" aria-hidden="true" />
@@ -472,26 +220,20 @@ export function ApiTester() {
                   {copied ? t("hub.copied") : t("hub.copy")}
                 </button>
               </div>
-              {result.resolved && (
-                <p className="mt-2 text-xs text-gray-500">
-                  {t("tester.resolved")}: <span className="font-mono">{result.resolved}</span>
-                </p>
-              )}
-              <pre className="mt-3 max-h-80 overflow-auto rounded-lg bg-gray-950 p-4 font-mono text-xs leading-relaxed text-gray-100">
-                <code>{result.body}</code>
-              </pre>
+
+              <div className="mt-4 overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
+                <pre className="max-h-[30rem] overflow-auto p-4 font-mono text-xs text-gray-800 scrollbar-thin scrollbar-thumb-gray-300">
+                  {result.body}
+                </pre>
+              </div>
             </>
           ) : (
-            !notFound && (
-              <div className="rounded-lg border border-dashed border-gray-200 bg-gray-50 p-6 text-center text-sm text-gray-500">
-                {t("tester.empty")}
-              </div>
-            )
+            <div className="flex h-[13rem] items-center justify-center rounded-lg border border-dashed border-gray-200 text-sm text-gray-400">
+              {loading ? t("tester.sending") : "Run a request to see the response…"}
+            </div>
           )}
         </div>
       </div>
     </div>
   );
 }
-
-export default ApiTester;
