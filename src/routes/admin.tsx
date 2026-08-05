@@ -464,20 +464,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             </div>
           </section>
         </div>
-      </main>
-    </div>
 
-                              {share.toFixed(1)}%
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </section>
 
           <section className={`${cardClass} min-w-0`}>
             <h2 className="text-sm font-semibold text-black">{t("admin.endpoints.title")}</h2>
