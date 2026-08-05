@@ -19,8 +19,9 @@ const FEATURES = [
 ];
 
 function VotePage() {
-  const { lang } = useTranslation();
+  const { lang, t } = useTranslation();
   const isRtl = lang === 'ar';
+
   const queryClient = useQueryClient();
   const [voterId, setVoterId] = useState<string>('');
 

@@ -59,8 +59,9 @@ const UPDATES = [
 ];
 
 function ChangelogPage() {
-  const { lang } = useTranslation();
+  const { lang, t } = useTranslation();
   const isRtl = lang === 'ar';
+
 
   return (
     <div className={`min-h-screen bg-background py-12 px-4 relative ${isRtl ? 'rtl' : ''}`}>

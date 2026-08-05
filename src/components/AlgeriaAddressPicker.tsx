@@ -933,13 +933,14 @@ export function AlgeriaAddressPicker({
       ) : null}
 
 
-      <div className="sm:col-span-2 rounded-lg border border-gray-200 bg-gray-50 p-4">
+      <div className="sm:col-span-2 rounded-lg border border-gray-200 bg-gray-50 p-4 picker-preview">
         <p
           id="dz-preview-label"
           className="text-xs font-medium tracking-wide text-gray-500 uppercase"
         >
           {t("picker.preview")}
         </p>
+
 
         <p
           className={`mt-3 text-sm ${fullAddress ? "text-black" : "text-gray-400"}`}
