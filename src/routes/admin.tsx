@@ -114,19 +114,31 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
     };
   }, [analytics, range]);
 
+  const fetchReports = useCallback(async () => {
+    setReportsLoading(true);
+    const { data } = await supabase
+      .from("zip_reports")
+      .select("*")
+      .order("created_at", { ascending: false });
+    setReports(data || []);
+    setReportsLoading(false);
+  }, []);
+
   useEffect(() => {
     if (activeTab === "reports") {
-      setReportsLoading(true);
-      void supabase
-        .from("zip_reports")
-        .select("*")
-        .order("created_at", { ascending: false })
-        .then(({ data }) => {
-          setReports(data || []);
-          setReportsLoading(false);
-        });
+      void fetchReports();
     }
-  }, [activeTab]);
+  }, [activeTab, fetchReports]);
+
+  const approveReport = async (id: string) => {
+    const { error } = await supabase
+      .from("zip_reports")
+      .update({ status: "approved" })
+      .eq("id", id);
+    if (!error) {
+      void fetchReports();
+    }
+  };
 
   useEffect(() => {
     let active = true;
@@ -442,6 +454,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
                     <th className="py-3 pe-3 text-start font-medium">{t("picker.daira")}</th>
                     <th className="py-3 pe-3 text-start font-medium">{t("picker.commune")}</th>
                     <th className="py-3 pe-3 text-start font-medium">{t("admin.table.village")}</th>
+                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.status")}</th>
                     <th className="py-3 text-start font-medium">{t("admin.table.date")}</th>
                   </tr>
                 </thead>
@@ -456,11 +469,28 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
                   {reports.map((r) => (
                     <tr key={r.id} className="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition">
                       <td className="py-3 pe-3 font-mono font-medium text-black">{r.zip_code}</td>
-                      <td className="py-3 pe-3 text-gray-600">Wilaya {r.wilaya_code}</td>
-                      <td className="py-3 pe-3 text-gray-600">{r.daira_name}</td>
-                      <td className="py-3 pe-3 text-gray-600">{r.commune_name}</td>
-                      <td className="py-3 pe-3 text-black font-medium">{r.village_name || "—"}</td>
-                      <td className="py-3 text-gray-500 text-xs">
+                      <td className="py-3 pe-3 text-gray-600 text-xs">Wilaya {r.wilaya_code}</td>
+                      <td className="py-3 pe-3 text-gray-600 text-xs">{r.daira_name}</td>
+                      <td className="py-3 pe-3 text-gray-600 text-xs">{r.commune_name}</td>
+                      <td className="py-3 pe-3 text-black font-medium text-xs">{r.village_name || "—"}</td>
+                      <td className="py-3 pe-3">
+                        <div className="flex items-center gap-2">
+                          <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide ${
+                            r.status === 'approved' ? 'bg-black text-white' : 'bg-gray-100 text-gray-500'
+                          }`}>
+                            {t(r.status === 'approved' ? "admin.status.approved" : "admin.status.pending")}
+                          </span>
+                          {r.status !== 'approved' && (
+                            <button
+                              onClick={() => approveReport(r.id)}
+                              className="text-[10px] font-semibold text-black underline underline-offset-2 hover:no-underline"
+                            >
+                              {t("admin.approve")}
+                            </button>
+                          )}
+                        </div>
+                      </td>
+                      <td className="py-3 text-gray-500 text-[10px]">
                         {new Date(r.created_at).toLocaleDateString()}
                       </td>
                     </tr>
