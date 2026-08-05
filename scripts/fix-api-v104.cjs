@@ -5,7 +5,7 @@ const API_DIR = path.join(__dirname, '../public/api');
 const BASE_DATA_PATH = path.join(API_DIR, 'full-data.json');
 
 async function run() {
-    console.log('Starting API fix and regeneration v1.0.4...');
+    console.log('Starting API fix and regeneration v1.0.4 (NESTED FIX)...');
 
     if (!fs.existsSync(BASE_DATA_PATH)) {
         console.error('Base data not found at', BASE_DATA_PATH);
@@ -15,23 +15,7 @@ async function run() {
     const fullData = JSON.parse(fs.readFileSync(BASE_DATA_PATH, 'utf8'));
     console.log(`Loaded base data with ${fullData.length} wilayas.`);
 
-    // 1. Fix ZIP 19070 mapping
-    // Correct mapping: Wilaya: Setif (19), Daira: Bouandas, Commune: Boussellam
-    const setif = fullData.find(w => w.code === 19);
-    if (setif) {
-        // First ensure Bouandas exists
-        let bouandas = setif.dairas.find(d => d.ascii === 'Bouandas' || d.arabic === 'بوعنداس');
-        if (bouandas) {
-            // Check Boussellam
-            let boussellam = bouandas.communes.find(c => c.ascii === 'Boussellam' || c.arabic === 'بوسلام');
-            if (boussellam) {
-                boussellam.zip = '19070';
-                console.log('Fixed ZIP 19070 mapping to Boussellam.');
-            }
-        }
-    }
-
-    // 2. Prepare directories
+    // 1. Prepare directories
     const arDir = path.join(API_DIR, 'ar');
     const latinDir = path.join(API_DIR, 'latin');
     const zipDir = path.join(API_DIR, 'zip');
@@ -108,7 +92,7 @@ async function run() {
         fs.writeFileSync(path.join(latinDairasDir, 'dairas.json'), JSON.stringify(w.dairas.map(d => ({ name: d.ascii, slug: d.slug }))));
 
         w.dairas.forEach(d => {
-            const dSlug = d.slug;
+            const dSlug = d.slug || d.ascii.toLowerCase().replace(/[^a-z0-9]/g, '-');
             
             // /api/wilayas/{code}/dairas/{slug}.json
             const dairaCommunesDir = path.join(dairasDir, 'dairas');
@@ -128,8 +112,9 @@ async function run() {
             const arDairaCommunesDir = path.join(arDairasDir, 'dairas');
             if (!fs.existsSync(arDairaCommunesDir)) fs.mkdirSync(arDairaCommunesDir, { recursive: true });
             fs.writeFileSync(path.join(arDairaCommunesDir, `${dSlug}.json`), JSON.stringify({
-                wilayaName: wAr,
-                dairaName: d.arabic,
+                wilaya_code: wCode,
+                wilaya_name: wAr,
+                daira_name: d.arabic,
                 communes: d.communes.map(c => ({ name: c.arabic, zip: c.zip }))
             }));
 
@@ -137,8 +122,9 @@ async function run() {
             const latinDairaCommunesDir = path.join(latinDairasDir, 'dairas');
             if (!fs.existsSync(latinDairaCommunesDir)) fs.mkdirSync(latinDairaCommunesDir, { recursive: true });
             fs.writeFileSync(path.join(latinDairaCommunesDir, `${dSlug}.json`), JSON.stringify({
-                wilayaName: wLat,
-                dairaName: d.ascii,
+                wilaya_code: wCode,
+                wilaya_name: wLat,
+                daira_name: d.ascii,
                 communes: d.communes.map(c => ({ name: c.ascii, zip: c.zip }))
             }));
 
@@ -194,9 +180,6 @@ async function run() {
         }))
     }));
     fs.writeFileSync(path.join(latinDir, 'full-data.json'), JSON.stringify(fullDataLatin));
-
-    // Update the main source of truth
-    fs.writeFileSync(BASE_DATA_PATH, JSON.stringify(fullData));
 
     // 5. Update index.json
     const index = {
