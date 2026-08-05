@@ -14,7 +14,7 @@ export const Route = createFileRoute('/api/travel/visa-requirements')({
         const data = JSON.parse(raw);
         
         if (destination) {
-          const match = data.destinations.find(d => d.country.toLowerCase() === destination);
+          const match = data.destinations.find((d: any) => d.country.toLowerCase() === destination);
           if (match) {
             return new Response(JSON.stringify(match), { 
               headers: { 'Content-Type': 'application/json' } 

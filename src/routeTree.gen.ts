@@ -18,9 +18,13 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as MapRouteImport } from './routes/map'
 import { Route as ReportRouteImport } from './routes/report'
 import { Route as VoteRouteImport } from './routes/vote'
+import { Route as ApiDistanceRouteImport } from './routes/api/distance'
 import { Route as ApiSearchRouteImport } from './routes/api/search'
 import { Route as ApiFormatAddressRouteImport } from './routes/api/format/address'
+import { Route as ApiGeofenceCheckRouteImport } from './routes/api/geofence/check'
 import { Route as ApiPublicBulkZipRouteImport } from './routes/api/public/bulk-zip'
+import { Route as ApiShippingEstimateRouteImport } from './routes/api/shipping/estimate'
+import { Route as ApiTravelVisaRequirementsRouteImport } from './routes/api/travel/visa-requirements'
 import { Route as ApiUtilsAnonymizeRouteImport } from './routes/api/utils/anonymize'
 
 const IndexRoute = IndexRouteImport.update({
@@ -68,6 +72,11 @@ const VoteRoute = VoteRouteImport.update({
   path: '/vote',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiDistanceRoute = ApiDistanceRouteImport.update({
+  id: '/api/distance',
+  path: '/api/distance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiSearchRoute = ApiSearchRouteImport.update({
   id: '/api/search',
   path: '/api/search',
@@ -78,11 +87,27 @@ const ApiFormatAddressRoute = ApiFormatAddressRouteImport.update({
   path: '/api/format/address',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiGeofenceCheckRoute = ApiGeofenceCheckRouteImport.update({
+  id: '/api/geofence/check',
+  path: '/api/geofence/check',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicBulkZipRoute = ApiPublicBulkZipRouteImport.update({
   id: '/api/public/bulk-zip',
   path: '/api/public/bulk-zip',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiShippingEstimateRoute = ApiShippingEstimateRouteImport.update({
+  id: '/api/shipping/estimate',
+  path: '/api/shipping/estimate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTravelVisaRequirementsRoute =
+  ApiTravelVisaRequirementsRouteImport.update({
+    id: '/api/travel/visa-requirements',
+    path: '/api/travel/visa-requirements',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiUtilsAnonymizeRoute = ApiUtilsAnonymizeRouteImport.update({
   id: '/api/utils/anonymize',
   path: '/api/utils/anonymize',
@@ -99,9 +124,13 @@ export interface FileRoutesByFullPath {
   '/map': typeof MapRoute
   '/report': typeof ReportRoute
   '/vote': typeof VoteRoute
+  '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
   '/api/format/address': typeof ApiFormatAddressRoute
+  '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/shipping/estimate': typeof ApiShippingEstimateRoute
+  '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
   '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
 }
 export interface FileRoutesByTo {
@@ -114,9 +143,13 @@ export interface FileRoutesByTo {
   '/map': typeof MapRoute
   '/report': typeof ReportRoute
   '/vote': typeof VoteRoute
+  '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
   '/api/format/address': typeof ApiFormatAddressRoute
+  '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/shipping/estimate': typeof ApiShippingEstimateRoute
+  '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
   '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
 }
 export interface FileRoutesById {
@@ -130,9 +163,13 @@ export interface FileRoutesById {
   '/map': typeof MapRoute
   '/report': typeof ReportRoute
   '/vote': typeof VoteRoute
+  '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
   '/api/format/address': typeof ApiFormatAddressRoute
+  '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/shipping/estimate': typeof ApiShippingEstimateRoute
+  '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
   '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
 }
 export interface FileRouteTypes {
@@ -147,9 +184,13 @@ export interface FileRouteTypes {
     | '/map'
     | '/report'
     | '/vote'
+    | '/api/distance'
     | '/api/search'
     | '/api/format/address'
+    | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/shipping/estimate'
+    | '/api/travel/visa-requirements'
     | '/api/utils/anonymize'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -162,9 +203,13 @@ export interface FileRouteTypes {
     | '/map'
     | '/report'
     | '/vote'
+    | '/api/distance'
     | '/api/search'
     | '/api/format/address'
+    | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/shipping/estimate'
+    | '/api/travel/visa-requirements'
     | '/api/utils/anonymize'
   id:
     | '__root__'
@@ -177,9 +222,13 @@ export interface FileRouteTypes {
     | '/map'
     | '/report'
     | '/vote'
+    | '/api/distance'
     | '/api/search'
     | '/api/format/address'
+    | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/shipping/estimate'
+    | '/api/travel/visa-requirements'
     | '/api/utils/anonymize'
   fileRoutesById: FileRoutesById
 }
@@ -193,9 +242,13 @@ export interface RootRouteChildren {
   MapRoute: typeof MapRoute
   ReportRoute: typeof ReportRoute
   VoteRoute: typeof VoteRoute
+  ApiDistanceRoute: typeof ApiDistanceRoute
   ApiSearchRoute: typeof ApiSearchRoute
   ApiFormatAddressRoute: typeof ApiFormatAddressRoute
+  ApiGeofenceCheckRoute: typeof ApiGeofenceCheckRoute
   ApiPublicBulkZipRoute: typeof ApiPublicBulkZipRoute
+  ApiShippingEstimateRoute: typeof ApiShippingEstimateRoute
+  ApiTravelVisaRequirementsRoute: typeof ApiTravelVisaRequirementsRoute
   ApiUtilsAnonymizeRoute: typeof ApiUtilsAnonymizeRoute
 }
 
@@ -264,6 +317,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VoteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/distance': {
+      id: '/api/distance'
+      path: '/api/distance'
+      fullPath: '/api/distance'
+      preLoaderRoute: typeof ApiDistanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/search': {
       id: '/api/search'
       path: '/api/search'
@@ -278,11 +338,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiFormatAddressRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/geofence/check': {
+      id: '/api/geofence/check'
+      path: '/api/geofence/check'
+      fullPath: '/api/geofence/check'
+      preLoaderRoute: typeof ApiGeofenceCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/bulk-zip': {
       id: '/api/public/bulk-zip'
       path: '/api/public/bulk-zip'
       fullPath: '/api/public/bulk-zip'
       preLoaderRoute: typeof ApiPublicBulkZipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/shipping/estimate': {
+      id: '/api/shipping/estimate'
+      path: '/api/shipping/estimate'
+      fullPath: '/api/shipping/estimate'
+      preLoaderRoute: typeof ApiShippingEstimateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/travel/visa-requirements': {
+      id: '/api/travel/visa-requirements'
+      path: '/api/travel/visa-requirements'
+      fullPath: '/api/travel/visa-requirements'
+      preLoaderRoute: typeof ApiTravelVisaRequirementsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/utils/anonymize': {
@@ -305,9 +386,13 @@ const rootRouteChildren: RootRouteChildren = {
   MapRoute: MapRoute,
   ReportRoute: ReportRoute,
   VoteRoute: VoteRoute,
+  ApiDistanceRoute: ApiDistanceRoute,
   ApiSearchRoute: ApiSearchRoute,
   ApiFormatAddressRoute: ApiFormatAddressRoute,
+  ApiGeofenceCheckRoute: ApiGeofenceCheckRoute,
   ApiPublicBulkZipRoute: ApiPublicBulkZipRoute,
+  ApiShippingEstimateRoute: ApiShippingEstimateRoute,
+  ApiTravelVisaRequirementsRoute: ApiTravelVisaRequirementsRoute,
   ApiUtilsAnonymizeRoute: ApiUtilsAnonymizeRoute,
 }
 export const routeTree = rootRouteImport
