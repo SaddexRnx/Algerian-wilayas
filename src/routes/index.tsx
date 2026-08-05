@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
+import { checkApiHealth, type HealthCheckResult } from "@/lib/health.functions";
+
 import { CheckoutSimulation, type LiveAddress } from "@/components/CheckoutSimulation";
 import { DeveloperHub, SNIPPETS } from "@/components/DeveloperHub";
 import { ApiDocs } from "@/components/ApiDocs";
@@ -95,7 +98,32 @@ function EventConsole({ lines }: { lines: string[] }) {
 
 function Index() {
   const { t, dir, lang } = useI18n();
+  const healthCheck = useServerFn(checkApiHealth);
+  const [healthData, setHealthData] = useState<HealthCheckResult[]>([]);
+  const [healthLoading, setHealthLoading] = useState(false);
+  const [lastCheck, setLastCheck] = useState<Date | null>(null);
+
+  const runHealth = useCallback(async () => {
+    setHealthLoading(true);
+    try {
+      const res = await healthCheck();
+      setHealthData(res);
+      setLastCheck(new Date());
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setHealthLoading(false);
+    }
+  }, [healthCheck]);
+
+  useEffect(() => {
+    void runHealth();
+    const interval = setInterval(() => void runHealth(), 5 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, [runHealth]);
+
   const [live, setLive] = useState<LiveAddress | undefined>(undefined);
+
   const [logs, setLogs] = useState<string[]>([]);
   const prev = useRef<LiveAddress>({
     wilayaCode: "",
@@ -186,8 +214,21 @@ function Index() {
             <span className="ml-2 inline-flex shrink-0 items-center rounded-full border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
               v{pkg.version}
             </span>
-
+            <div className="ml-4 hidden items-center gap-2 rounded-full bg-gray-50 px-3 py-1 sm:flex">
+              <span className={`h-1.5 w-1.5 rounded-full ${healthData.every(h => h.status === 'up') ? 'bg-green-500' : 'bg-red-500'} animate-pulse`}></span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                {t("common.live")}
+              </span>
+              <button 
+                onClick={runHealth}
+                disabled={healthLoading}
+                className="ml-1 text-[10px] font-bold uppercase text-black underline underline-offset-2 opacity-50 hover:opacity-100 disabled:opacity-20"
+              >
+                {healthLoading ? "..." : t("common.refresh")}
+              </button>
+            </div>
           </div>
+
           <div className="flex shrink-0 items-center gap-3">
             <nav className="hidden items-center gap-5 text-sm lg:flex">
               {navLinks.map((l) => (
