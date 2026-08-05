@@ -53,6 +53,7 @@ export type Database = {
           created_at: string
           daira_name: string
           id: string
+          status: string | null
           village_name: string | null
           wilaya_code: number
           zip_code: string
@@ -62,6 +63,7 @@ export type Database = {
           created_at?: string
           daira_name: string
           id?: string
+          status?: string | null
           village_name?: string | null
           wilaya_code: number
           zip_code: string
@@ -71,6 +73,7 @@ export type Database = {
           created_at?: string
           daira_name?: string
           id?: string
+          status?: string | null
           village_name?: string | null
           wilaya_code?: number
           zip_code?: string
