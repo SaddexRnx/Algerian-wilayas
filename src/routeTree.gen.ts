@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as MapRouteImport } from './routes/map'
 import { Route as ReportRouteImport } from './routes/report'
 import { Route as ApiPublicBulkZipRouteImport } from './routes/api/public/bulk-zip'
 
@@ -30,6 +31,11 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MapRoute = MapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportRoute = ReportRouteImport.update({
   id: '/report',
   path: '/report',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/login': typeof LoginRoute
+  '/map': typeof MapRoute
   '/report': typeof ReportRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/login': typeof LoginRoute
+  '/map': typeof MapRoute
   '/report': typeof ReportRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
 }
@@ -60,22 +68,31 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/login': typeof LoginRoute
+  '/map': typeof MapRoute
   '/report': typeof ReportRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/login' | '/report' | '/api/public/bulk-zip'
+  fullPaths:
+    '/' | '/admin' | '/login' | '/map' | '/report' | '/api/public/bulk-zip'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/login' | '/report' | '/api/public/bulk-zip'
+  to: '/' | '/admin' | '/login' | '/map' | '/report' | '/api/public/bulk-zip'
   id:
-    '__root__' | '/' | '/admin' | '/login' | '/report' | '/api/public/bulk-zip'
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/login'
+    | '/map'
+    | '/report'
+    | '/api/public/bulk-zip'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
   LoginRoute: typeof LoginRoute
+  MapRoute: typeof MapRoute
   ReportRoute: typeof ReportRoute
   ApiPublicBulkZipRoute: typeof ApiPublicBulkZipRoute
 }
@@ -103,6 +120,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/map': {
+      id: '/map'
+      path: '/map'
+      fullPath: '/map'
+      preLoaderRoute: typeof MapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/report': {
       id: '/report'
       path: '/report'
@@ -124,6 +148,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
   LoginRoute: LoginRoute,
+  MapRoute: MapRoute,
   ReportRoute: ReportRoute,
   ApiPublicBulkZipRoute: ApiPublicBulkZipRoute,
 }
