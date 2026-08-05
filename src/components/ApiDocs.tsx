@@ -118,6 +118,15 @@ const ENDPOINTS: Endpoint[] = [
     response: `{"france": "Required", "tunisia": "Visa-free"}`,
     example: `fetch("${BASE}/api/travel/visa-requirements.json")`,
   },
+  {
+    category: "travel",
+    method: "GET",
+    path: "/api/travel/visa-requirements?destination=france",
+    descKey: "api.desc.travel",
+    params: [{ name: "destination", type: "string", desc: "Target country" }],
+    response: `{"country": "France", "requirement": "Visa Required"}`,
+    example: `fetch("${BASE}/api/travel/visa-requirements?destination=france")`,
+  },
   // Smart Utilities
   {
     category: "smart",
@@ -128,6 +137,24 @@ const ENDPOINTS: Endpoint[] = [
     response: `[{"name": "Bouandas", "type": "commune"}]`,
     example: `fetch("${BASE}/api/search?q=bou")`,
   },
+  {
+    category: "smart",
+    method: "GET",
+    path: "/api/distance?from={code1}&to={code2}",
+    descKey: "api.desc.geo",
+    params: [{ name: "from", type: "number", desc: "Start wilaya code" }, { name: "to", type: "number", desc: "End wilaya code" }],
+    response: `{"distance_km": 435, "status": "Beta"}`,
+    example: `fetch("${BASE}/api/distance?from=16&to=31")`,
+  },
+  {
+    category: "smart",
+    method: "GET",
+    path: "/api/geofence/check?lat={lat}&lng={lng}",
+    descKey: "api.desc.geo",
+    params: [{ name: "lat", type: "number", desc: "Latitude" }, { name: "lng", type: "number", desc: "Longitude" }],
+    response: `{"inside": true, "wilaya": 16}`,
+    example: `fetch("${BASE}/api/geofence/check?lat=36.77&lng=3.05")`,
+  },
   // Export
   {
     category: "export",
@@ -137,7 +164,16 @@ const ENDPOINTS: Endpoint[] = [
     response: `code,name_ar,name_en\n1,أدرار,Adrar\n...`,
     example: `fetch("${BASE}/api/export/wilayas-communes.csv")`,
   },
+  {
+    category: "export",
+    method: "GET",
+    path: "/api/export/full-data.sql",
+    descKey: "api.desc.export",
+    response: `CREATE TABLE wilayas (...);\nINSERT INTO wilayas ...`,
+    example: `fetch("${BASE}/api/export/full-data.sql")`,
+  },
 ];
+
 
 export function ApiDocs() {
   const { t, lang, dir } = useI18n();
