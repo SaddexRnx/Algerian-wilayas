@@ -1,5 +1,7 @@
 {
-  "version": "1.0.4",
+  "version": "1.0.5",
+  "last_update": "2026-08-05T19:59:26.425Z",
+  "source": "Algérie Poste via GeoAlgeria",
   "endpoints": [
     "/api/wilayas.json",
     "/api/full-data.json",
