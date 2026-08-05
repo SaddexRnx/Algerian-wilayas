@@ -154,7 +154,7 @@ export function AlgeriaAddressPicker({
   defaultDairaName,
   defaultCommuneName,
 }: AlgeriaAddressPickerProps = {}) {
-  const { t, lang } = useI18n();
+  const { t, lang, dir } = useI18n();
 
   const [wilayas, setWilayas] = useState<Wilaya[]>([]);
   const [dairas, setDairas] = useState<Daira[]>([]);
@@ -657,7 +657,7 @@ export function AlgeriaAddressPicker({
         <div className="sm:col-span-2">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
             <h3 className="text-sm font-bold tracking-wider text-black uppercase">
-              {t("picker.title")}
+              {t("demo.title")}
             </h3>
             <div className="flex flex-wrap gap-2">
               {PRESETS.map((p) => (
