@@ -234,10 +234,10 @@ export function ApiDocs() {
   return (
     <div className={`mx-auto max-w-5xl px-4 py-16 sm:px-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
       <div className="text-center mb-16">
-        <h1 className="text-4xl font-extrabold tracking-tight text-black sm:text-5xl md:text-6xl mb-4">
+        <h1 className="text-4xl font-extrabold tracking-tight text-black sm:text-5xl md:text-6xl mb-6">
           {t("api.title")}
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-medium">
           {t("api.subtitle")}
         </p>
       </div>
