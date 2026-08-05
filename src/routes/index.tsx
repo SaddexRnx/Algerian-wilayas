@@ -130,12 +130,14 @@ function Index() {
 
   const navLinks = [
     { href: "#demo", label: t("nav.demo") },
+    { href: "/map", label: "🗺️ Map" },
     { href: "#in-action", label: t("nav.inAction") },
     { href: "#tester", label: t("nav.tester") },
     { href: "#integration", label: t("nav.integration") },
     { href: "#api", label: t("nav.api") },
     { href: "#features", label: t("nav.features") },
   ];
+
 
   const features = [
     {
@@ -214,11 +216,12 @@ function Index() {
             <div className="flex items-center gap-2 mb-3">
               <span className="flex h-2 w-2 rounded-full bg-black"></span>
               <h2 className="text-sm font-bold tracking-wider text-black uppercase">
-                {t("updates.title").replace("v1.0.4", `v${pkg.version}`)}
+                🚨 MEGA UPDATE TO v2.0.0 - PART 1 OF 3: CORE DATA, LOGISTICS & MAPS
               </h2>
             </div>
             <p className="text-sm leading-relaxed text-gray-600">
-              {t("updates.body")}
+              We've upgraded from a simple address picker to a comprehensive Algerian Data Platform.
+              Version 2.0 Part 1 introduces official logistics rates, zones, and geographic coordinates for all 69 wilayas.
             </p>
             <div className="mt-4 pt-4 border-t border-gray-200">
               <details className="group">
@@ -227,15 +230,15 @@ function Index() {
                   <svg className="w-3 h-3 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
                 </summary>
                 <div className="mt-3 space-y-2 text-xs text-gray-500">
-                  <p><strong className="text-black">v{pkg.version}:</strong> {t("updates.body")}</p>
-                  <p><strong className="text-black">v1.0.3:</strong> Trilingual data correction system, ZIP reverse lookup, Village field.</p>
-                  <p><strong className="text-black">v1.0.2:</strong> Initial ZIP code integration and community data collection.</p>
-                  <p><strong className="text-black">v1.0.1:</strong> Granular API endpoints for specific Dairas and Communes.</p>
-                  <p><strong className="text-black">v1.0.0:</strong> Initial release with 69 Wilayas and 1,541 Communes.</p>
+                  <p><strong className="text-black">v2.0.0 (P1):</strong> Logistics APIs, Zone Mapping, Geographic Coordinates, and Interactive Map.</p>
+                  <p><strong className="text-black">v1.0.5:</strong> Official Algérie Poste dataset integration (100% accuracy).</p>
+                  <p><strong className="text-black">v1.0.4:</strong> Hierarchical language-specific endpoints and UI overhaul.</p>
+                  <p><strong className="text-black">v1.0.3:</strong> Trilingual data correction system and ZIP reverse lookup.</p>
                 </div>
               </details>
             </div>
           </div>
+
 
           <h1 className="text-3xl font-bold tracking-tight text-black sm:text-4xl md:text-5xl">
             {t("hero.title")}

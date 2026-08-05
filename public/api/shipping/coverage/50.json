@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 50,
+  "wilaya_name": "Bordj Badji Mokhtar",
+  "covered": true,
+  "estimated_days": {
+    "min": 4,
+    "max": 7
+  }
+}

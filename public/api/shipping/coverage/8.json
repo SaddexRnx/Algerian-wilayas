@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 8,
+  "wilaya_name": "Bechar",
+  "covered": true,
+  "estimated_days": {
+    "min": 4,
+    "max": 7
+  }
+}

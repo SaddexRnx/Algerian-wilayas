@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 33,
+  "wilaya_name": "Illizi",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

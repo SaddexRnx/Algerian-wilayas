@@ -1,0 +1,19 @@
+{
+  "wilaya_code": 52,
+  "wilaya_name": "Beni Abbes",
+  "delivery_home": {
+    "min": 800,
+    "max": 1500
+  },
+  "delivery_office": {
+    "min": 600,
+    "max": 1000
+  },
+  "estimated_days": {
+    "min": 4,
+    "max": 7
+  },
+  "zone": "south",
+  "currency": "DZD",
+  "disclaimer": "Rates are estimates based on publicly available data."
+}

@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 20,
+  "wilaya_name": "Saida",
+  "covered": true,
+  "estimated_days": {
+    "min": 2,
+    "max": 4
+  }
+}

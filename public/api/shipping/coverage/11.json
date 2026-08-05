@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 11,
+  "wilaya_name": "Tamanrasset",
+  "covered": true,
+  "estimated_days": {
+    "min": 2,
+    "max": 4
+  }
+}

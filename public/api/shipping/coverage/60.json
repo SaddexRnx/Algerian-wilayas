@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 60,
+  "wilaya_name": "Barika",
+  "covered": true,
+  "estimated_days": {
+    "min": 4,
+    "max": 7
+  }
+}

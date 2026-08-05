@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 24,
+  "wilaya_name": "Guelma",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

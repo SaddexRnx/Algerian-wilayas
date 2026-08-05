@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 15,
+  "wilaya_name": "Tizi Ouzou",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

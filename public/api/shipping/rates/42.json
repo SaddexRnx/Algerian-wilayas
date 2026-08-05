@@ -1,0 +1,19 @@
+{
+  "wilaya_code": 42,
+  "wilaya_name": "Tipaza",
+  "delivery_home": {
+    "min": 400,
+    "max": 600
+  },
+  "delivery_office": {
+    "min": 300,
+    "max": 450
+  },
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  },
+  "zone": "north",
+  "currency": "DZD",
+  "disclaimer": "Rates are estimates based on publicly available data."
+}

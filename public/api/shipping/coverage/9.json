@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 9,
+  "wilaya_name": "Blida",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

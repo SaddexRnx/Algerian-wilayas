@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 31,
+  "wilaya_name": "Oran",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

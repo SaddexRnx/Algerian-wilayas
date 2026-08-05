@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 1,
+  "wilaya_name": "Adrar",
+  "covered": true,
+  "estimated_days": {
+    "min": 4,
+    "max": 7
+  }
+}

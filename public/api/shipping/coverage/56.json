@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 56,
+  "wilaya_name": "Djanet",
+  "covered": true,
+  "estimated_days": {
+    "min": 4,
+    "max": 7
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 45,
+  "wilaya_name": "Naama",
+  "covered": true,
+  "estimated_days": {
+    "min": 2,
+    "max": 4
+  }
+}

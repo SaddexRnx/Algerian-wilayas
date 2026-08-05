@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 32,
+  "wilaya_name": "El Bayadh",
+  "covered": true,
+  "estimated_days": {
+    "min": 4,
+    "max": 7
+  }
+}

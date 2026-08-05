@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 30,
+  "wilaya_name": "Ouargla",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

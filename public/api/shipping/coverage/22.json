@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 22,
+  "wilaya_name": "Sidi Bel Abbes",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

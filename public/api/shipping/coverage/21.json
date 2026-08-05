@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 21,
+  "wilaya_name": "Skikda",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

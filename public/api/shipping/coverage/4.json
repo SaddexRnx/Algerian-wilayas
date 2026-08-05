@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 4,
+  "wilaya_name": "Oum El Bouaghi",
+  "covered": true,
+  "estimated_days": {
+    "min": 2,
+    "max": 4
+  }
+}

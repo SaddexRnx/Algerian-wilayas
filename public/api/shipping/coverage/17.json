@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 17,
+  "wilaya_name": "Djelfa",
+  "covered": true,
+  "estimated_days": {
+    "min": 2,
+    "max": 4
+  }
+}

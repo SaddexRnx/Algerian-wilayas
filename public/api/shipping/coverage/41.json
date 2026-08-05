@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 41,
+  "wilaya_name": "Souk Ahras",
+  "covered": true,
+  "estimated_days": {
+    "min": 2,
+    "max": 4
+  }
+}
