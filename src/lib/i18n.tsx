@@ -30,9 +30,8 @@ const baseTranslations = {
   "nav.tester": { en: "Tester", fr: "Testeur", ar: "مختبر" },
   "nav.report": { en: "Report", fr: "Signaler", ar: "تبليغ" },
   "nav.status": { en: "Status", fr: "Statut", ar: "الحالة" },
-
-  "nav.status": { en: "Status", fr: "Statut", ar: "الحالة" },
   "nav.adminLogin": { en: "Admin Login", fr: "Connexion admin", ar: "دخول المشرف" },
+
 
   "nav.dashboard": { en: "Dashboard", fr: "Tableau de bord", ar: "لوحة التحكم" },
   "common.backHome": { en: "Back to Home", fr: "Retour à l'accueil", ar: "العودة للرئيسية" },
