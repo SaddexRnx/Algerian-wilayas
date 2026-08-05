@@ -18,7 +18,25 @@ export interface HealthCheckResult {
   status: "up" | "down";
   latency: number;
   timestamp: string;
+  statusCode?: number;
+  error?: string;
+  lastUp?: string;
 }
+
+const retryFetch = async (url: string, retries = 3, delay = 500): Promise<Response> => {
+  try {
+    const res = await fetch(url);
+    if (!res.ok && retries > 0) throw new Error(`HTTP ${res.status}`);
+    return res;
+  } catch (err) {
+    if (retries > 0) {
+      await new Promise(r => setTimeout(r, delay));
+      return retryFetch(url, retries - 1, delay * 2);
+    }
+    throw err;
+  }
+};
+
 
 export const checkApiHealth = createServerFn({ method: "GET" })
   .handler(async () => {
