@@ -318,11 +318,10 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
           </div>
         </div>
 
-        {activeTab === "analytics" ? (
+        {activeTab === "analytics" && (
           <>
-
-
             <section className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+
           {KPI_KEYS.map((k, i) => (
             <div key={k} className={cardClass}>
               <p className="truncate text-xs font-medium text-gray-500">{t(k)}</p>
@@ -510,9 +509,11 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               />
             )}
           </section>
-        </div>
-          </>
-        ) : activeTab === "reports" ? (
+        </>
+      )}
+
+      {activeTab === "reports" && (
+
 
 
 
