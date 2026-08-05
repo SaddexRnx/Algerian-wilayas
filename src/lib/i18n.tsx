@@ -191,8 +191,17 @@ const fr = {
   "api.wilayaCommunesDesc": "Liste à plat de toutes les communes d'une wilaya.",
   "api.dairaDetailDesc": "Détail d'une daira précise et de ses communes.",
   "api.zipReverseDesc": "Recherche inversée d'un code postal pour obtenir la wilaya, la daira et la commune correspondantes.",
-  "updates.title": "Quoi de neuf dans la v1.0.1",
-  "updates.body": "Intégration complète des codes postaux algériens. Vous pouvez désormais effectuer des recherches inversées à partir d'un code à 5 chiffres pour obtenir instantanément la Wilaya, la Daira et la Commune exactes. Idéal pour l'auto-complétion des formulaires e-commerce.",
+  "updates.title": "Quoi de neuf dans la v1.0.2",
+  "updates.body": "Ajout de la recherche inversée par code postal, d'un champ Village/Quartier et d'un système de collecte de données communautaires pour maintenir notre base de données 100 % précise et à jour.",
+  "picker.searchByZip": "Rechercher par code postal",
+  "picker.village": "Village / Quartier",
+  "picker.zipLabel": "Entrez le code postal à 5 chiffres",
+  "picker.disclaimer": "Note : Les codes postaux sont basés sur d'anciennes données administratives. Pour nous aider à construire la base de données la plus précise, veuillez saisir votre code postal exact et le nom de votre village/quartier. Vos données nous aident à mettre à jour les registres officiels.",
+  "admin.reports": "Rapports ZIP",
+  "admin.reports.empty": "Aucun rapport soumis pour le moment.",
+  "admin.table.village": "Village",
+  "admin.table.zip": "Code postal",
+  "admin.table.date": "Date",
 } as const;
 
 export type TranslationKey = keyof typeof fr;
@@ -371,8 +380,17 @@ const ar: Record<TranslationKey, string> = {
   "api.wilayaCommunesDesc": "قائمة مسطحة بكل بلديات الولاية.",
   "api.dairaDetailDesc": "تفاصيل دائرة محددة وبلدياتها.",
   "api.zipReverseDesc": "البحث العكسي عن الرمز البريدي للحصول على الولاية والدائرة والبلدية المقابلة.",
-  "updates.title": "ما الجديد في الإصدار 1.0.1",
-  "updates.body": "تمت إضافة دمج كامل للرموز البريدية الجزائرية. يمكنك الآن إجراء بحث عكسي من رمز بريدي مكون من 5 أرقام للحصول فورًا على الولاية والدائرة والبلدية بالضبط. مثالي للتعبئة التلقائية لعمليات الدفع في التجارة الإلكترونية.",
+  "updates.title": "ما الجديد في الإصدار 1.0.2",
+  "updates.body": "تمت إضافة البحث العكسي عن طريق الرمز البريدي، وحقل القرية/الحي، ونظام جمع البيانات المجتمعية للحفاظ على قاعدة بياناتنا دقيقة ومحدثة بنسبة 100٪.",
+  "picker.searchByZip": "البحث عن طريق الرمز البريدي",
+  "picker.village": "القرية / الحي",
+  "picker.zipLabel": "أدخل الرمز البريدي المكون من 5 أرقام",
+  "picker.disclaimer": "ملاحظة: تعتمد الرموز البريدية على بيانات إدارية قديمة. لمساعدتنا في بناء قاعدة بيانات العناوين الجزائرية الأكثر دقة وحداثة، يرجى كتابة الرمز البريدي الدقيق واسم القرية/الحي. تساعدنا بياناتك في تحديث السجلات الرسمية.",
+  "admin.reports": "تقارير الرمز البريدي",
+  "admin.reports.empty": "لا توجد تقارير مقدمة بعد.",
+  "admin.table.village": "القرية",
+  "admin.table.zip": "الرمز البريدي",
+  "admin.table.date": "التاريخ",
 };
 
 const en: Record<TranslationKey, string> = {
@@ -549,8 +567,17 @@ const en: Record<TranslationKey, string> = {
   "api.wilayaCommunesDesc": "Flat list of every commune inside a wilaya.",
   "api.dairaDetailDesc": "Detail for a single daira and its communes.",
   "api.zipReverseDesc": "Reverse lookup a ZIP code to get the corresponding Wilaya, Daira, and Commune.",
-  "updates.title": "What's New in v1.0.1",
-  "updates.body": "Full Algerian ZIP Code integration added. You can now perform reverse lookups from a 5-digit postal code to instantly get the exact Wilaya, Daira, and Commune. Perfect for auto-filling e-commerce checkouts.",
+  "updates.title": "What's New in v1.0.2",
+  "updates.body": "Added ZIP code reverse lookup, Village/Neighborhood field, and a community data collection system to keep our database 100% accurate and up-to-date.",
+  "picker.searchByZip": "Search by ZIP Code / Postal Code",
+  "picker.village": "Village / Neighborhood",
+  "picker.zipLabel": "Enter 5-digit ZIP code",
+  "picker.disclaimer": "Note: Postal codes are based on older administrative data. To help us build the most accurate and up-to-date Algerian address database, please type your exact ZIP code and Village/Neighborhood name. Your data helps us update the official records.",
+  "admin.reports": "ZIP Reports",
+  "admin.reports.empty": "No reports submitted yet.",
+  "admin.table.village": "Village",
+  "admin.table.zip": "ZIP Code",
+  "admin.table.date": "Date",
 };
 
 const DICT: Record<Lang, Record<TranslationKey, string>> = { fr, ar, en };

@@ -177,7 +177,7 @@ function Index() {
               DZ Address Picker
             </span>
             <span className="ml-2 inline-flex shrink-0 items-center rounded-full border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
-              v1.0.1
+              v1.0.2
             </span>
           </div>
           <div className="flex shrink-0 items-center gap-3">
@@ -193,6 +193,11 @@ function Index() {
               ))}
             </nav>
             <LanguageToggle />
+          </div>
+        </div>
+        <div className="bg-black py-2.5 px-4 text-center text-[11px] sm:text-xs text-white">
+          <div className="mx-auto max-w-5xl">
+            {t("picker.disclaimer")}
           </div>
         </div>
         <nav className="flex gap-4 overflow-x-auto border-t border-gray-100 px-4 py-2 text-sm whitespace-nowrap lg:hidden">

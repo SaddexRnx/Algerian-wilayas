@@ -5,6 +5,7 @@ import { ForcedLanguageProvider, useI18n, type TranslationKey } from "@/lib/i18n
 import { adminLogout } from "@/lib/admin-auth.functions";
 import { clearAdminAuthed, isAdminAuthed } from "@/lib/admin-mock-auth";
 import { adminAnalytics, type AnalyticsPayload } from "@/lib/admin-analytics.functions";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Bar,
   BarChart,
@@ -84,7 +85,10 @@ function Sparkline({ values }: { values: number[] }) {
 function Dashboard({ onSignOut }: { onSignOut: () => void }) {
   const { t, dir } = useI18n();
   const [range, setRange] = useState<7 | 30 | 90>(30);
+  const [activeTab, setActiveTab] = useState<"analytics" | "reports">("analytics");
   const [query, setQuery] = useState("");
+  const [reports, setReports] = useState<any[]>([]);
+  const [reportsLoading, setReportsLoading] = useState(false);
   const analytics = useServerFn(adminAnalytics);
   const [data, setData] = useState<AnalyticsPayload | null>(null);
   const [loading, setLoading] = useState(true);
@@ -109,6 +113,20 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
       active = false;
     };
   }, [analytics, range]);
+
+  useEffect(() => {
+    if (activeTab === "reports") {
+      setReportsLoading(true);
+      void supabase
+        .from("zip_reports")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .then(({ data }) => {
+          setReports(data || []);
+          setReportsLoading(false);
+        });
+    }
+  }, [activeTab]);
 
   useEffect(() => {
     let active = true;
@@ -178,7 +196,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
-        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 sm:flex sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="min-w-0">
             <h1 className="truncate text-2xl font-bold tracking-tight text-black sm:text-3xl">
               {t("admin.title")}
@@ -187,17 +205,44 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               {loading ? t("admin.loading") : failed ? t("admin.login.error") : t("admin.live")}
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => setRange((r) => r)}
-            disabled={loading}
-            className="shrink-0 rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-40"
-          >
-            {t("admin.refresh")}
-          </button>
+          <div className="flex shrink-0 items-center gap-2">
+            <div className="flex rounded-md border border-gray-300 bg-white p-1">
+              <button
+                type="button"
+                onClick={() => setActiveTab("analytics")}
+                className={`rounded px-3 py-1.5 text-xs font-medium transition ${
+                  activeTab === "analytics" ? "bg-black text-white" : "text-gray-500 hover:text-black"
+                }`}
+              >
+                {t("admin.series.api")}
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("reports")}
+                className={`rounded px-3 py-1.5 text-xs font-medium transition ${
+                  activeTab === "reports" ? "bg-black text-white" : "text-gray-500 hover:text-black"
+                }`}
+              >
+                {t("admin.reports")}
+              </button>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                if (activeTab === "analytics") setRange((r) => r);
+                else setActiveTab("reports");
+              }}
+              disabled={loading || reportsLoading}
+              className="shrink-0 rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800 disabled:opacity-40"
+            >
+              {t("admin.refresh")}
+            </button>
+          </div>
         </div>
 
-        <section className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {activeTab === "analytics" ? (
+          <>
+            <section className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
           {KPI_KEYS.map((k, i) => (
             <div key={k} className={cardClass}>
               <p className="truncate text-xs font-medium text-gray-500">{t(k)}</p>
@@ -384,6 +429,47 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             )}
           </section>
         </div>
+        </>
+        ) : (
+          <section className={`mt-6 ${cardClass}`}>
+            <h2 className="text-sm font-semibold text-black">{t("admin.reports")}</h2>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full min-w-[600px] text-start text-sm">
+                <thead>
+                  <tr className="border-b border-gray-200 text-xs text-gray-500 uppercase tracking-wider">
+                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.zip")}</th>
+                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.name")}</th>
+                    <th className="py-3 pe-3 text-start font-medium">{t("picker.daira")}</th>
+                    <th className="py-3 pe-3 text-start font-medium">{t("picker.commune")}</th>
+                    <th className="py-3 pe-3 text-start font-medium">{t("admin.table.village")}</th>
+                    <th className="py-3 text-start font-medium">{t("admin.table.date")}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {reports.length === 0 && (
+                    <tr>
+                      <td colSpan={6} className="py-12 text-center text-sm text-gray-400">
+                        {reportsLoading ? t("admin.loading") : t("admin.reports.empty")}
+                      </td>
+                    </tr>
+                  )}
+                  {reports.map((r) => (
+                    <tr key={r.id} className="border-b border-gray-100 last:border-0 hover:bg-gray-50 transition">
+                      <td className="py-3 pe-3 font-mono font-medium text-black">{r.zip_code}</td>
+                      <td className="py-3 pe-3 text-gray-600">Wilaya {r.wilaya_code}</td>
+                      <td className="py-3 pe-3 text-gray-600">{r.daira_name}</td>
+                      <td className="py-3 pe-3 text-gray-600">{r.commune_name}</td>
+                      <td className="py-3 pe-3 text-black font-medium">{r.village_name || "—"}</td>
+                      <td className="py-3 text-gray-500 text-xs">
+                        {new Date(r.created_at).toLocaleDateString()}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
       </main>
     </div>
   );

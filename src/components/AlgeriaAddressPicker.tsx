@@ -3,6 +3,7 @@ import { SearchableSelect } from "@/components/SearchableSelect";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
 import { trackedFetch } from "@/lib/analytics";
 import { cachedJson, cachedJsonWithMeta } from "@/lib/api-cache";
+import { supabase } from "@/integrations/supabase/client";
 
 
 export interface Commune {
@@ -174,6 +175,10 @@ export function AlgeriaAddressPicker({
   const restored = useRef(false);
   const zipLoaded = useRef<string | null>(null);
   const pending = useRef<{ daira?: string | null; commune?: string | null }>({});
+
+  const [searchByZip, setSearchByZip] = useState(false);
+  const [zipInput, setZipInput] = useState("");
+  const [village, setVillage] = useState("");
 
   const load = useCallback((useCache = true) => {
     setIsLoading(true);
@@ -507,6 +512,23 @@ export function AlgeriaAddressPicker({
     );
   }, [wilaya, daira, commune]);
 
+  // Crowdsourcing: Report data to Supabase when a village or ZIP is provided
+  useEffect(() => {
+    if (!restored.current) return;
+    const timer = setTimeout(() => {
+      if ((village || (searchByZip && zipInput.length === 5)) && wilaya && daira && commune) {
+        void supabase.from("zip_reports").insert({
+          zip_code: searchByZip ? zipInput : (commune.zip || ""),
+          wilaya_code: wilaya.code,
+          daira_name: daira.ascii,
+          commune_name: commune.ascii,
+          village_name: village,
+        });
+      }
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [wilaya, daira, commune, village, zipInput, searchByZip]);
+
   const fullAddressAr = [commune?.arabic, daira?.arabic, wilaya?.arabic].filter(Boolean).join("، ");
   const fullAddressLatin = [commune?.ascii, daira?.ascii, wilaya?.ascii]
     .filter(Boolean)
@@ -609,22 +631,65 @@ export function AlgeriaAddressPicker({
         </div>
       )}
 
-      <SearchableSelect
-        id="dz-wilaya"
-        label={t("picker.wilaya")}
-        value={wilayaCode}
-        options={wilayaOptions}
-        placeholder={t("picker.selectWilaya")}
-        searchPlaceholder={t("picker.searchWilaya")}
-        emptyLabel={t("picker.noMatches")}
-        onChange={(v) => {
-          pending.current = {};
-          setWilayaCode(v);
-          setDairaIndex("");
-          setCommuneIndex("");
-          setQuickQuery("");
-        }}
-      />
+      <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white p-3">
+        <input
+          id="dz-zip-toggle"
+          type="checkbox"
+          checked={searchByZip}
+          onChange={(e) => {
+            setSearchByZip(e.target.checked);
+            if (!e.target.checked) {
+              setZipInput("");
+            }
+          }}
+          className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black"
+        />
+        <label htmlFor="dz-zip-toggle" className="text-sm font-medium text-gray-700">
+          {t("picker.searchByZip")}
+        </label>
+      </div>
+
+      {searchByZip ? (
+        <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4">
+          <div>
+            <label htmlFor="dz-zip-input" className="block text-xs font-medium tracking-wide text-gray-500 uppercase">
+              {t("picker.zipLabel")}
+            </label>
+            <input
+              id="dz-zip-input"
+              type="text"
+              maxLength={5}
+              value={zipInput}
+              onChange={(e) => {
+                const val = e.target.value.replace(/\D/g, "");
+                setZipInput(val);
+                if (val.length === 5) {
+                  setQuickQuery(val);
+                }
+              }}
+              placeholder="19070"
+              className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-black focus:ring-1 focus:ring-black"
+            />
+          </div>
+        </div>
+      ) : (
+        <SearchableSelect
+          id="dz-wilaya"
+          label={t("picker.wilaya")}
+          value={wilayaCode}
+          options={wilayaOptions}
+          placeholder={t("picker.selectWilaya")}
+          searchPlaceholder={t("picker.searchWilaya")}
+          emptyLabel={t("picker.noMatches")}
+          onChange={(v) => {
+            pending.current = {};
+            setWilayaCode(v);
+            setDairaIndex("");
+            setCommuneIndex("");
+            setQuickQuery("");
+          }}
+        />
+      )}
 
       {wilaya && dairas.length > 0 && (
         <div className="rounded-lg border border-gray-200 bg-white p-3">
@@ -684,32 +749,52 @@ export function AlgeriaAddressPicker({
 
 
 
-      <SearchableSelect
-        id="dz-daira"
-        label={t("picker.daira")}
-        value={dairaIndex}
-        options={dairaOptions}
-        disabled={!wilaya || dairasLoading}
-        placeholder={wilaya ? t("picker.selectDaira") : t("picker.wilayaFirst")}
-        searchPlaceholder={t("picker.searchDaira")}
-        emptyLabel={t("picker.noMatches")}
-        onChange={(v) => {
-          setDairaIndex(v);
-          setCommuneIndex("");
-        }}
-      />
+      {!searchByZip && (
+        <>
+          <SearchableSelect
+            id="dz-daira"
+            label={t("picker.daira")}
+            value={dairaIndex}
+            options={dairaOptions}
+            disabled={!wilaya || dairasLoading}
+            placeholder={wilaya ? t("picker.selectDaira") : t("picker.wilayaFirst")}
+            searchPlaceholder={t("picker.searchDaira")}
+            emptyLabel={t("picker.noMatches")}
+            onChange={(v) => {
+              setDairaIndex(v);
+              setCommuneIndex("");
+            }}
+          />
 
-      <SearchableSelect
-        id="dz-commune"
-        label={t("picker.commune")}
-        value={communeIndex}
-        options={communeOptions}
-        disabled={!daira || communesLoading}
-        placeholder={daira ? t("picker.selectCommune") : t("picker.dairaFirst")}
-        searchPlaceholder={t("picker.searchCommune")}
-        emptyLabel={t("picker.noMatches")}
-        onChange={setCommuneIndex}
-      />
+          <SearchableSelect
+            id="dz-commune"
+            label={t("picker.commune")}
+            value={communeIndex}
+            options={communeOptions}
+            disabled={!daira || communesLoading}
+            placeholder={daira ? t("picker.selectCommune") : t("picker.dairaFirst")}
+            searchPlaceholder={t("picker.searchCommune")}
+            emptyLabel={t("picker.noMatches")}
+            onChange={setCommuneIndex}
+          />
+        </>
+      )}
+
+      {wilaya && daira && commune && (
+        <div>
+          <label htmlFor="dz-village" className="block text-xs font-medium tracking-wide text-gray-500 uppercase">
+            {t("picker.village")}
+          </label>
+          <input
+            id="dz-village"
+            type="text"
+            value={village}
+            onChange={(e) => setVillage(e.target.value)}
+            placeholder="e.g. Village Ain Soltane"
+            className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-black focus:ring-1 focus:ring-black"
+          />
+        </div>
+      )}
 
       <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
         <p
