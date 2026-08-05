@@ -522,7 +522,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
 
 
           <section className={`mt-6 ${cardClass}`}>
-            <h2 className="text-sm font-semibold text-black">{t("admin.reports")}</h2>
+            <h2 className="text-sm font-bold text-black uppercase tracking-tighter">{t("admin.reports")}</h2>
             <div className="mt-4 overflow-x-auto">
               <table className="w-full min-w-[600px] text-start text-sm">
                  <thead>
