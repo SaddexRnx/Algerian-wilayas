@@ -19,7 +19,7 @@ const FEATURES = [
 ];
 
 function VotePage() {
-  const { lang, t } = useTranslation();
+  const { lang, t, dir } = useTranslation();
   const isRtl = lang === 'ar';
 
   const queryClient = useQueryClient();
