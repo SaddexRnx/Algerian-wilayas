@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 35,
+  "wilaya_name": "Boumerdes",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

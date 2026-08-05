@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 53,
+  "wilaya_name": "In Salah",
+  "covered": true,
+  "estimated_days": {
+    "min": 4,
+    "max": 7
+  }
+}

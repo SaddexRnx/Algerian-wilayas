@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 23,
+  "wilaya_name": "Annaba",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

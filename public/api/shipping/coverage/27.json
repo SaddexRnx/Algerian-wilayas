@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 27,
+  "wilaya_name": "Mostaganem",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

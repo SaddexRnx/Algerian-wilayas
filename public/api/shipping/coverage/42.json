@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 42,
+  "wilaya_name": "Tipaza",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

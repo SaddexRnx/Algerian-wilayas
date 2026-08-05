@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 7,
+  "wilaya_name": "Biskra",
+  "covered": true,
+  "estimated_days": {
+    "min": 2,
+    "max": 4
+  }
+}

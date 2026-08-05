@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 13,
+  "wilaya_name": "Tlemcen",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

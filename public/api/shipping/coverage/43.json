@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 43,
+  "wilaya_name": "Mila",
+  "covered": true,
+  "estimated_days": {
+    "min": 1,
+    "max": 2
+  }
+}

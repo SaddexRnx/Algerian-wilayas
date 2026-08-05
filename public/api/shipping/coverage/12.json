@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 12,
+  "wilaya_name": "Tebessa",
+  "covered": true,
+  "estimated_days": {
+    "min": 2,
+    "max": 4
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "wilaya_code": 55,
+  "wilaya_name": "Touggourt",
+  "covered": true,
+  "estimated_days": {
+    "min": 4,
+    "max": 7
+  }
+}
