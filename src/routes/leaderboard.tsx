@@ -61,6 +61,7 @@ function LeaderboardPage() {
                 <tr>
                   <th className="px-6 py-4">{t("admin.table.rank")}</th>
                   <th className="px-6 py-4">{t("common.contributor")}</th>
+
                   <th className="px-6 py-4">{t("common.contributions")}</th>
                   <th className="px-6 py-4">{t("common.badge")}</th>
                 </tr>

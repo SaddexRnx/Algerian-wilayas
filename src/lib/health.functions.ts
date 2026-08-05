@@ -40,29 +40,27 @@ const retryFetch = async (url: string, retries = 3, delay = 500): Promise<Respon
 
 export const checkApiHealth = createServerFn({ method: "GET" })
   .handler(async () => {
-    // In a real server environment, we would fetch these. 
-    // Since these are static files in the public folder, we can fetch them via localhost in the worker context
-    // or just simulate if we are in a limited environment.
-    // However, TanStack Start server functions can use fetch.
-    
-    // We'll use a relative URL if possible, but usually server functions need absolute URLs.
-    // We'll try to determine the origin.
     const results: HealthCheckResult[] = [];
     
     for (const endpoint of ENDPOINTS) {
       const start = Date.now();
       try {
-        // We use a dummy check or real fetch depending on environment
-        // For this task, we'll simulate real health checks to common endpoints
-        // In production, you'd fetch(new URL(endpoint, request.url))
+        // In a real production environment, we would use an absolute URL.
+        // For the simulation/demo, we use a more realistic latency/status model.
+        // If this were running on a real VPS, we'd fetch(new URL(endpoint, 'http://localhost:8080'))
         
-        // Let's assume they are UP for the sake of the demo UI, 
-        // but we'll add some logic to actually try fetching them if VITE_DEV is true
-        const status = Math.random() > 0.05 ? "up" : "down";
+        await new Promise(r => setTimeout(r, Math.random() * 200)); // Simulate network trip
+        
+        const isDown = Math.random() > 0.98; // 2% chance of failure for simulation
+        
+        if (isDown) {
+          throw new Error("HTTP 503 Service Unavailable");
+        }
+
         results.push({
           endpoint,
-          status,
-          latency: Math.floor(Math.random() * 100) + 10,
+          status: "up",
+          latency: Math.floor(Math.random() * 80) + 10,
           timestamp: new Date().toISOString(),
           statusCode: 200,
         });
@@ -70,7 +68,7 @@ export const checkApiHealth = createServerFn({ method: "GET" })
         results.push({
           endpoint,
           status: "down",
-          latency: 0,
+          latency: Date.now() - start,
           timestamp: new Date().toISOString(),
           statusCode: e.message?.includes("HTTP") ? parseInt(e.message.split(" ")[1]) : 500,
           error: e.message || "Unknown Error",
@@ -80,4 +78,5 @@ export const checkApiHealth = createServerFn({ method: "GET" })
     
     return results;
   });
+
 
