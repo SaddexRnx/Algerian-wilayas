@@ -90,6 +90,24 @@ const ENDPOINTS: Endpoint[] = [
     response: `[{"wilaya_code": 16, "delivery_home": {"min": 400, "max": 600}}]`,
     example: `fetch("${BASE}/api/shipping/rates.json")`,
   },
+  {
+    category: "logistics",
+    method: "GET",
+    path: "/api/shipping/coverage/{wilaya_code}.json",
+    descKey: "api.desc.shipping",
+    params: [{ name: "wilaya_code", type: "number", desc: "Wilaya code" }],
+    response: `{"covered": true, "estimated_days": {"min": 1, "max": 2}}`,
+    example: `fetch("${BASE}/api/shipping/coverage/16.json")`,
+  },
+  {
+    category: "logistics",
+    method: "GET",
+    path: "/api/pickup-points/{wilaya_code}.json",
+    descKey: "api.desc.shipping",
+    params: [{ name: "wilaya_code", type: "number", desc: "Wilaya code" }],
+    response: `[{"name": "Yalidine Alger", "address": "Rue 1"}]`,
+    example: `fetch("${BASE}/api/pickup-points/16.json")`,
+  },
   // Demographics
   {
     category: "demo",
@@ -99,16 +117,44 @@ const ENDPOINTS: Endpoint[] = [
     response: `[{"code": 16, "population": 2988145, "density": 2511}]`,
     example: `fetch("${BASE}/api/population/wilayas.json")`,
   },
+  {
+    category: "demo",
+    method: "GET",
+    path: "/api/population/wilayas/{code}.json",
+    descKey: "api.desc.population",
+    params: [{ name: "code", type: "number", desc: "Wilaya code" }],
+    response: `{"code": 16, "population": 2988145}`,
+    example: `fetch("${BASE}/api/population/wilayas/16.json")`,
+  },
   // Services
   {
     category: "services",
     method: "GET",
     path: "/api/postoffices/{wilaya_code}.json",
     descKey: "api.desc.services",
-    params: [{ name: "wilaya_code", type: "number", desc: "Wilaya code (1-58+)" }],
+    params: [{ name: "wilaya_code", type: "number", desc: "Wilaya code" }],
     response: `[{"name": "Alger RP", "address": "1 rue Didouche Mourad"}]`,
     example: `fetch("${BASE}/api/postoffices/16.json")`,
   },
+  {
+    category: "services",
+    method: "GET",
+    path: "/api/banks/{wilaya_code}.json",
+    descKey: "api.desc.services",
+    params: [{ name: "wilaya_code", type: "number", desc: "Wilaya code" }],
+    response: `[{"name": "BNA Branch 1"}]`,
+    example: `fetch("${BASE}/api/banks/16.json")`,
+  },
+  {
+    category: "services",
+    method: "GET",
+    path: "/api/government/passport-offices/{wilaya_code}.json",
+    descKey: "api.desc.services",
+    params: [{ name: "wilaya_code", type: "number", desc: "Wilaya code" }],
+    response: `[{"name": "Daira Alger Office"}]`,
+    example: `fetch("${BASE}/api/government/passport-offices/16.json")`,
+  },
+
   // Travel
   {
     category: "travel",
