@@ -130,11 +130,12 @@ function Skeleton() {
 
 type Preset = "short" | "full" | "compact";
 
-const PRESETS: { id: Preset; labelKey: TranslationKey }[] = [
+const PRESETS: { id: Preset; labelKey: string }[] = [
   { id: "short", labelKey: "picker.presetShort" },
   { id: "full", labelKey: "picker.presetFull" },
   { id: "compact", labelKey: "picker.presetCompact" },
 ];
+
 
 function csvEscape(value: string) {
   return `"${value.replace(/"/g, '""')}"`;
