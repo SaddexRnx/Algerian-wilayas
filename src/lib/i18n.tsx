@@ -412,7 +412,9 @@ const ar: Record<TranslationKey, string> = {
   "tester.resolved": "تم التعرف على",
 
   "api.indexDesc": "فهرس يعرض جميع المسارات المتاحة.",
+  "api.fullDataDesc": "مجموعة البيانات الهرمية الكاملة: الولايات والدوائر والبلديات في ملف واحد.",
   "api.wilayaDesc": "تفاصيل ولاية واحدة مع دوائرها وبلدياتها.",
+  "api.wilayaDetailDesc": "تفاصيل كاملة عن ولاية معينة: دوائرها وبلدياتها.",
   "api.wilayaDairasDesc": "قائمة دوائر ولاية معينة مع عدد البلديات.",
   "api.wilayaDairasFlatDesc": "دوائر وبلديات ولاية معينة فقط. أخف بكثير من full-data.json؛ رشّح المصفوفة من جهة العميل.",
   "nav.adminLogin": "دخول المشرف",
@@ -631,7 +633,9 @@ const en: Record<TranslationKey, string> = {
   "tester.resolved": "Resolved to",
 
   "api.indexDesc": "Discovery index listing every available endpoint.",
+  "api.fullDataDesc": "Complete hierarchical dataset: wilayas, dairas and communes in a single file.",
   "api.wilayaDesc": "Full detail for one wilaya, including its dairas and communes.",
+  "api.wilayaDetailDesc": "Full detail for one wilaya, including its dairas and communes.",
   "api.wilayaDairasDesc": "All dairas of a wilaya with their commune counts.",
   "api.wilayaDairasFlatDesc": "Only the dairas and their communes for one wilaya. Much lighter than full-data.json — filter the array client-side to find your daira.",
   "nav.adminLogin": "Admin Login",
