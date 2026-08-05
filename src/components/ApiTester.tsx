@@ -116,8 +116,9 @@ export function ApiTester() {
 
   return (
     <div className={`mx-auto mt-16 max-w-3xl px-4 sm:px-0 ${useI18n().dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-black sm:text-4xl">{t("tester.title")}</h2>
-      <p className="mt-2 text-lg text-gray-500 leading-relaxed max-w-2xl">{t("tester.subtitle")}</p>
+      <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">{t("tester.title")}</h2>
+      <p className="mt-2 text-sm text-gray-500 leading-relaxed max-w-2xl">{t("tester.subtitle")}</p>
+
 
       <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
         <label className="block text-sm" htmlFor={`${baseId}-endpoint`}>
@@ -143,8 +144,9 @@ export function ApiTester() {
         </select>
 
         {hasParams && (
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" dir="ltr">
             {hasCode && (
+
               <div>
                 <label className="mb-1.5 block text-xs font-medium tracking-wide text-gray-500 uppercase">
                   Enter Wilaya Code (e.g., 16, 19)
