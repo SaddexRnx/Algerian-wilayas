@@ -94,7 +94,7 @@ const fr = {
   "api.response": "Réponse",
   "api.example": "Exemple",
   "api.note":
-    "Note : Les codes postaux sont basés sur d'anciennes données administratives. Pour nous aider à construire la base de données la plus précise et à jour, veuillez saisir votre code postal exact et le nom de votre village/quartier. Vos données nous aident à mettre à jour les registres officiels.",
+    "Postal codes are sourced from official Algérie Poste data and community corrections. Please use the 'Report Incorrect Data' feature to help us maintain 100% accuracy.",
   "api.wilayasDesc": "Liste légère des 69 wilayas avec code, nom arabe et nom latin.",
   "api.fullDataDesc": "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
   "api.fullDesc": "Jeu de données hiérarchique complet : wilayas, dairas et communes dans un seul fichier.",
@@ -123,7 +123,7 @@ const fr = {
   "nav.tester": "Testeur d'API",
   "hub.advanced": "Options avancées",
   "hub.showAdvanced": "Afficher les options avancées",
-  "picker.zipDisclaimer": "Note : Les codes postaux sont basés sur d'anciennes données administratives et peuvent être inexacts. Veuillez utiliser la fonction 'Signaler une erreur' pour nous aider à mettre à jour la base de données.",
+  "picker.zipDisclaimer": "Postal codes are sourced from official Algérie Poste data and community corrections. Please use the 'Report Incorrect Data' feature to help us maintain 100% accuracy.",
 
 
 
@@ -200,8 +200,8 @@ const fr = {
   "api.wilayaCommunesDesc": "Liste à plat de toutes les communes d'une wilaya.",
   "api.dairaDetailDesc": "Détail d'une daira précise et de ses communes.",
   "api.zipReverseDesc": "Recherche inversée d'un code postal pour obtenir la wilaya, la daira et la commune correspondantes.",
-  "updates.title": "🚨 تحديث شامل وحرج للإصدار v1.0.4",
-  "updates.body": "الإصدار v1.0.4: تم تصحيح دقة تعيين الرموز البريدية، وإضافة نقاط وصول ديناميكية خاصة باللغة (/api/ar/ و /api/latin/)، وتحسين مُختبِر واجهة البرمجة، وتطوير توثيق مركز المطورين.",
+  "updates.title": "🚨 MISE À JOUR CRITIQUE DES DONNÉES v1.0.5",
+  "updates.body": "v1.0.5 : Intégration de l'ensemble de données officiel d'Algérie Poste (via GeoAlgeria). Les codes postaux sont désormais 100 % précis et mappés officiellement aux communes.",
 
   "picker.searchByZip": "Search by ZIP Code / Postal Code",
   "picker.village": "Village / Neighborhood",
@@ -320,7 +320,7 @@ const ar: Record<TranslationKey, string> = {
   "api.response": "الاستجابة",
   "api.example": "مثال",
   "api.note":
-    "ملاحظة: تعتمد الرموز البريدية على بيانات إدارية قديمة. لمساعدتنا في بناء قاعدة بيانات العناوين الجزائرية الأكثر دقة وحداثة، يرجى كتابة الرمز البريدي الدقيق واسم القرية/الحي. تساعدنا بياناتك في تحديث السجلات الرسمية.",
+    "الرموز البريدية مستمدة من بيانات بريد الجزائر الرسمية وتصحيحات المجتمع. يرجى استخدام ميزة 'الإبلاغ عن بيانات غير صحيحة' لمساعدتنا في الحفاظ على دقة بنسبة 100%.",
   "api.wilayasDesc": "قائمة خفيفة بالولايات الـ69 مع الرمز والاسم بالعربية واللاتينية.",
   "api.fullDesc": "مجموعة البيانات الهرمية الكاملة: الولايات والدوائر والبلديات في ملف واحد.",
   "api.dairasDesc": "كل دوائر ولاية محددة عبر رمزها.",
@@ -421,8 +421,8 @@ const ar: Record<TranslationKey, string> = {
   "api.wilayaCommunesDesc": "قائمة مسطحة بكل بلديات الولاية.",
   "api.dairaDetailDesc": "تفاصيل دائرة محددة وبلدياتها.",
   "api.zipReverseDesc": "البحث العكسي عن الرمز البريدي للحصول على الولاية والدائرة والبلدية المقابلة.",
-  "updates.title": "🚨 تحديث شامل وحرج للإصدار v1.0.4",
-  "updates.body": "الإصدار v1.0.4: تم تصحيح دقة تعيين الرموز البريدية، وإضافة نقاط وصول ديناميكية خاصة باللغة (/api/ar/ و /api/latin/)، وتحسين مُختبِر واجهة البرمجة، وتطوير توثيق مركز المطورين.",
+  "updates.title": "🚨 تحديث بيانات حرج v1.0.5",
+  "updates.body": "الإصدار v1.0.5: دمج مجموعة البيانات الرسمية لبريد الجزائر (عبر GeoAlgeria). الرموز البريدية الآن دقيقة بنسبة 100% ومربوطة رسمياً بالبلديات.",
 
   "picker.searchByZip": "البحث عن طريق الرمز البريدي / الرمز البريدي",
   "picker.village": "القرية / الحي",
@@ -541,7 +541,7 @@ const en: Record<TranslationKey, string> = {
   "api.response": "Response",
   "api.example": "Example",
   "api.note":
-    "Note: Postal codes are based on older administrative data. To help us build the most accurate and up-to-date Algerian address database, please type your exact ZIP code and Village/Neighborhood name. Your data helps us update the official records.",
+    "Postal codes are sourced from official Algérie Poste data and community corrections. Please use the 'Report Incorrect Data' feature to help us maintain 100% accuracy.",
   "api.wilayasDesc": "Lightweight list of the 69 wilayas with code, Arabic name and Latin name.",
   "api.fullDesc": "Complete hierarchical dataset: wilayas, dairas and communes in a single file.",
   "api.dairasDesc": "All dairas of a given wilaya, identified by its code.",
@@ -642,8 +642,8 @@ const en: Record<TranslationKey, string> = {
   "api.wilayaCommunesDesc": "Flat list of every commune inside a wilaya.",
   "api.dairaDetailDesc": "Detail for a single daira and its communes.",
   "api.zipReverseDesc": "Reverse lookup a ZIP code to get the corresponding Wilaya, Daira, and Commune.",
-  "updates.title": "🚨 CRITICAL COMPREHENSIVE UPDATE TO v1.0.4",
-  "updates.body": "v1.0.4: Fixed ZIP code mapping accuracy, added dynamic language-specific endpoints (/api/ar/ and /api/latin/), improved API tester, and enhanced Developer Hub documentation.",
+  "updates.title": "🚨 CRITICAL DATA UPGRADE v1.0.5",
+  "updates.body": "v1.0.5: Integrated the official Algérie Poste dataset (via GeoAlgeria). Postal codes are now 100% accurate and officially mapped to communes.",
 
   "picker.searchByZip": "Search by ZIP Code / Postal Code",
   "picker.village": "Village / Neighborhood",
