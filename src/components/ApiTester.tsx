@@ -7,7 +7,7 @@ export const API_BASE = "https://dz-address-select.vercel.app";
 
 type Shape = "index" | "wilayas" | "full" | "wilaya" | "wilayaDairas" | "daira" | "zip" | "arWilayas" | "latinWilayas";
 
-const SHAPES: { id: Shape; template: string; needs: "wilaya" | "daira" | "zip" | "none" }[] = [
+const SHAPES: { id: Shape; template: string; needs: string }[] = [
   { id: "index", template: "/api/index.json", needs: "none" },
   { id: "wilayas", template: "/api/wilayas.json", needs: "none" },
   { id: "full", template: "/api/full-data.json", needs: "none" },
