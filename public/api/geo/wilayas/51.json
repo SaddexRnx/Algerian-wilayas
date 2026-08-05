@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 51,
+  "properties": {
+    "code": 51,
+    "name": "Ouled Djellal"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.460852005138442,
+      35.96441881571312
+    ]
+  }
+}

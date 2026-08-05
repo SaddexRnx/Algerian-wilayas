@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 4,
+  "properties": {
+    "code": 4,
+    "name": "Oum El Bouaghi"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.588968104099277,
+      35.17835460772409
+    ]
+  }
+}

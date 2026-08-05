@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 58,
+  "properties": {
+    "code": 58,
+    "name": "El Meniaa"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.3358483837346338,
+      36.01090200255097
+    ]
+  }
+}

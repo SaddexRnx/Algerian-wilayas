@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 61,
+  "properties": {
+    "code": 61,
+    "name": "El Kantara"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.1694154104826557,
+      35.1558480850164
+    ]
+  }
+}

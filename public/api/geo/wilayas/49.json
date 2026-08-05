@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 49,
+  "properties": {
+    "code": 49,
+    "name": "Timimoun"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.5262551868760212,
+      35.5598374207635
+    ]
+  }
+}

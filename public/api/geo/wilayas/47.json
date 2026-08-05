@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 47,
+  "properties": {
+    "code": 47,
+    "name": "Ghardaia"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.8301440057201535,
+      35.80021560140217
+    ]
+  }
+}

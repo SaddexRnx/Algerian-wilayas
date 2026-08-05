@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 2,
+  "properties": {
+    "code": 2,
+    "name": "Chlef"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.911977424197361,
+      36.51777835339572
+    ]
+  }
+}

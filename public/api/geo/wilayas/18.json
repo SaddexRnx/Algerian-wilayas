@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 18,
+  "properties": {
+    "code": 18,
+    "name": "Jijel"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.866510602579389,
+      35.12215215987918
+    ]
+  }
+}

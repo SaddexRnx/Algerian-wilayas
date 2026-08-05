@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 60,
+  "properties": {
+    "code": 60,
+    "name": "Barika"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.480473012516826,
+      35.135754601142686
+    ]
+  }
+}

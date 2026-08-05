@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 59,
+  "properties": {
+    "code": 59,
+    "name": "Aflou"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.5954457917880736,
+      36.596554733594004
+    ]
+  }
+}

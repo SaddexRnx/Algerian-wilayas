@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 11,
+  "properties": {
+    "code": 11,
+    "name": "Tamanrasset"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.0677372808552223,
+      36.92896706529712
+    ]
+  }
+}

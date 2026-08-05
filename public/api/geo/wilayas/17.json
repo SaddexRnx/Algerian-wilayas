@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 17,
+  "properties": {
+    "code": 17,
+    "name": "Djelfa"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.0285329623540758,
+      36.55420649046206
+    ]
+  }
+}

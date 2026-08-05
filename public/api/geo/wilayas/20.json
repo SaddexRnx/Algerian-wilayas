@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 20,
+  "properties": {
+    "code": 20,
+    "name": "Saida"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.238471210848855,
+      35.65407974423335
+    ]
+  }
+}

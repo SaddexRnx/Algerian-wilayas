@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 41,
+  "properties": {
+    "code": 41,
+    "name": "Souk Ahras"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.227440722759314,
+      35.2216851955023
+    ]
+  }
+}

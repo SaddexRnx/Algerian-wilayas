@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 1,
+  "properties": {
+    "code": 1,
+    "name": "Adrar"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.438310945860582,
+      36.341988486989166
+    ]
+  }
+}

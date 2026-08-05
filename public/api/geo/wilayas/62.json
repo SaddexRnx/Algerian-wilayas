@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 62,
+  "properties": {
+    "code": 62,
+    "name": "Bir El Ater"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.967855174463001,
+      36.45436316398767
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 55,
+  "properties": {
+    "code": 55,
+    "name": "Touggourt"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.0553692570016566,
+      36.730922788608204
+    ]
+  }
+}

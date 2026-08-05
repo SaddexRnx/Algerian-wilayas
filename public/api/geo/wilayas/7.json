@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 7,
+  "properties": {
+    "code": 7,
+    "name": "Biskra"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.4126112458216182,
+      36.08818703193081
+    ]
+  }
+}

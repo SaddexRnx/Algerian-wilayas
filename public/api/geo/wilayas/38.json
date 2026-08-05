@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 38,
+  "properties": {
+    "code": 38,
+    "name": "Tissemsilt"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.7340572068900424,
+      35.02109294540809
+    ]
+  }
+}

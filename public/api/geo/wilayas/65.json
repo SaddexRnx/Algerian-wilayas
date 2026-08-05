@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 65,
+  "properties": {
+    "code": 65,
+    "name": "Ain Oussara"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.156372942505271,
+      36.272243808973805
+    ]
+  }
+}

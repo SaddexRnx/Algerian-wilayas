@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 53,
+  "properties": {
+    "code": 53,
+    "name": "In Salah"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.5687760355859006,
+      35.90175432513073
+    ]
+  }
+}

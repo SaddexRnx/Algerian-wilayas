@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 27,
+  "properties": {
+    "code": 27,
+    "name": "Mostaganem"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.9950469595568006,
+      35.48542777168024
+    ]
+  }
+}

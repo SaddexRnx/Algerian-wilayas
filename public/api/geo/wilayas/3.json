@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 3,
+  "properties": {
+    "code": 3,
+    "name": "Laghouat"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.218042272837177,
+      36.976003358200906
+    ]
+  }
+}

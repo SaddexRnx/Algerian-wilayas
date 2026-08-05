@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 12,
+  "properties": {
+    "code": 12,
+    "name": "Tebessa"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.424234752314443,
+      35.454332176960754
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 22,
+  "properties": {
+    "code": 22,
+    "name": "Sidi Bel Abbes"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.871091461606086,
+      35.22881779109322
+    ]
+  }
+}

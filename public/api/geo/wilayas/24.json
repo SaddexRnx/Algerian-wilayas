@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 24,
+  "properties": {
+    "code": 24,
+    "name": "Guelma"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.5249702601478385,
+      35.371463047292515
+    ]
+  }
+}

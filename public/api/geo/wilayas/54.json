@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 54,
+  "properties": {
+    "code": 54,
+    "name": "In Guezzam"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.2937358519892954,
+      35.18877688379328
+    ]
+  }
+}

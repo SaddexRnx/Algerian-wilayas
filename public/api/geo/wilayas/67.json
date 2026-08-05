@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 67,
+  "properties": {
+    "code": 67,
+    "name": "Ksar El Boukhari"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      3.1798278874027006,
+      36.72438816085592
+    ]
+  }
+}

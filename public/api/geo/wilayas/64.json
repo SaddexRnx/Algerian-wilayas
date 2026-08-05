@@ -1,0 +1,15 @@
+{
+  "type": "Feature",
+  "id": 64,
+  "properties": {
+    "code": 64,
+    "name": "Ksar Chellala"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      2.575207923192923,
+      35.62233479437767
+    ]
+  }
+}
