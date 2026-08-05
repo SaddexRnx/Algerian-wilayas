@@ -154,7 +154,11 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
     if (activeTab === "health") {
       void runHealthCheck();
       const interval = setInterval(() => void runHealthCheck(), 5 * 60 * 1000);
-      return () => clearInterval(interval);
+      return () => {
+        active = false;
+        clearInterval(interval);
+      };
+
     }
   }, [activeTab, runHealthCheck]);
 
