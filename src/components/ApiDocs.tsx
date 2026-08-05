@@ -129,6 +129,22 @@ const communes = alger.dairas.flatMap((d) => d.communes);`,
 ).then((r) => r.json());`,
 
   },
+  {
+    method: "GET",
+    path: "/api/zip/{zipcode}.json",
+    descKey: "api.zipReverseDesc",
+    response: `{
+  "zip": "19070",
+  "wilayaCode": 19,
+  "wilayaNameAr": "سطيف",
+  "wilayaNameAscii": "Setif",
+  "dairaName": "Bouandas",
+  "communeName": "Boussellam"
+}`,
+    example: `const result = await fetch(
+  "\${BASE}/api/zip/19070.json"
+).then((r) => r.json());`,
+  },
 ];
 
 export function ApiDocs() {
