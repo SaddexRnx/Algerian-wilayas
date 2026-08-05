@@ -191,8 +191,17 @@ const fr = {
   "api.wilayaCommunesDesc": "Liste à plat de toutes les communes d'une wilaya.",
   "api.dairaDetailDesc": "Détail d'une daira précise et de ses communes.",
   "api.zipReverseDesc": "Recherche inversée d'un code postal pour obtenir la wilaya, la daira et la commune correspondantes.",
-  "updates.title": "Quoi de neuf dans la v1.0.1",
-  "updates.body": "Intégration complète des codes postaux algériens. Vous pouvez désormais effectuer des recherches inversées à partir d'un code à 5 chiffres pour obtenir instantanément la Wilaya, la Daira et la Commune exactes. Idéal pour l'auto-complétion des formulaires e-commerce.",
+  "updates.title": "Quoi de neuf dans la v1.0.2",
+  "updates.body": "Ajout de la recherche inversée par code postal, d'un champ Village/Quartier et d'un système de collecte de données communautaires pour maintenir notre base de données 100 % précise et à jour.",
+  "picker.searchByZip": "Rechercher par code postal",
+  "picker.village": "Village / Quartier",
+  "picker.zipLabel": "Entrez le code postal à 5 chiffres",
+  "picker.disclaimer": "Note : Les codes postaux sont basés sur d'anciennes données administratives. Pour nous aider à construire la base de données la plus précise, veuillez saisir votre code postal exact et le nom de votre village/quartier. Vos données nous aident à mettre à jour les registres officiels.",
+  "admin.reports": "Rapports ZIP",
+  "admin.reports.empty": "Aucun rapport soumis pour le moment.",
+  "admin.table.village": "Village",
+  "admin.table.zip": "Code postal",
+  "admin.table.date": "Date",
 } as const;
 
 export type TranslationKey = keyof typeof fr;
