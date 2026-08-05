@@ -193,13 +193,15 @@ export function ApiTester() {
         <div className="mt-5 min-h-[13rem]" dir="ltr" aria-live="polite">
           {result ? (
             <>
-              <div className="flex flex-wrap items-center gap-2 text-xs">
-                <span className={`rounded-full px-2.5 py-1 font-mono font-semibold text-white ${result.ok ? 'bg-black' : 'bg-red-600'}`}>
-                  {result.status || "ERR"} {result.statusText}
-                </span>
-                <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 font-mono text-gray-600">
-                  {result.ms}ms
-                </span>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-xs">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className={`rounded-full px-2.5 py-1 font-mono font-semibold text-white ${result.ok ? 'bg-black' : 'bg-red-600'}`}>
+                    {result.status || "ERR"} {result.statusText}
+                  </span>
+                  <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 font-mono text-gray-600">
+                    {result.ms}ms
+                  </span>
+                </div>
                 <span className="max-w-full truncate rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 font-mono text-gray-600">
                   {result.url}
                 </span>
