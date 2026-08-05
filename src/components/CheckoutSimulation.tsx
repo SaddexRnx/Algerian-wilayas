@@ -93,7 +93,7 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
             disabled={running || hasLive}
             className="flex items-center justify-center gap-2 rounded-md bg-black px-4 py-2 text-xs text-white transition hover:bg-gray-800 disabled:bg-gray-300 disabled:text-gray-500"
           >
-            {t("check.auto")}
+            {t("common.live")}
           </button>
           {step === 4 && !running && (
             <button

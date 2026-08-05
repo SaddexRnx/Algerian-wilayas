@@ -1,5 +1,6 @@
+import React, { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+
 import { useI18n } from "@/lib/i18n";
 import { supabase } from "@/integrations/supabase/client";
 import { ChevronLeft } from "lucide-react";

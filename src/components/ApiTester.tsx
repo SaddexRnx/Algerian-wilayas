@@ -1,4 +1,4 @@
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import React, { useEffect, useId, useMemo, useRef, useState } from "react";
 import { Play, Loader2, Copy, Check } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { trackApiCall } from "@/lib/analytics";

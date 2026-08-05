@@ -48,6 +48,28 @@ const UPDATES = [
     ]
   },
   {
+    version: '1.0.3',
+    date: 'April 5, 2026',
+    title: 'Data Correction Flow',
+    icon: <FileText className="w-5 h-5" />,
+    changes: [
+      'New data correction reporting system.',
+      'Community leaderboard for data contributors.',
+      'Versioned WordPress plugin downloads.'
+    ]
+  },
+  {
+    version: '1.0.2',
+    date: 'March 12, 2026',
+    title: 'Validation & Search',
+    icon: <Database className="w-5 h-5" />,
+    changes: [
+      'Added ZIP code search toggle.',
+      'Implemented Village/Neighborhood granular fields.',
+      '5-digit ZIP validation with smart normalization.'
+    ]
+  },
+  {
     version: '1.0.1',
     date: 'February 20, 2026',
     title: 'Postal Infrastructure',
@@ -58,6 +80,7 @@ const UPDATES = [
       'Village and neighborhood level details.'
     ]
   },
+
   {
     version: '1.0.0',
     date: 'January 1, 2026',

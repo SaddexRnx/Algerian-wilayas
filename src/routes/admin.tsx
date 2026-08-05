@@ -1,5 +1,7 @@
+import React from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, useCallback, useMemo, type ReactNode } from "react";
+
 
 import { useServerFn } from "@tanstack/react-start";
 import { ForcedLanguageProvider, useI18n, type TranslationKey } from "@/lib/i18n";

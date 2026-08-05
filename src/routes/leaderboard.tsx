@@ -27,12 +27,9 @@ function LeaderboardPage() {
       
       // Simulate leaderboard data
       return [
-        { name: 'Sadek R.', contributions: 42, rank: 1, badge: 'Elite Contributor' },
-        { name: 'Amine B.', contributions: 28, rank: 2, badge: 'Pro Mapper' },
-        { name: 'Karim T.', contributions: 15, rank: 3, badge: 'Verified Scout' },
-        { name: 'Sarah M.', contributions: 12, rank: 4, badge: 'Data Helper' },
-        { name: 'Omar K.', contributions: 8, rank: 5, badge: 'Newcomer' },
+        { name: 'Saddex (Owner)', contributions: 1250, rank: 1, badge: 'Lead Developer' },
       ];
+
     }
   });
 

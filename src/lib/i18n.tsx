@@ -1,4 +1,4 @@
-import {
+import React, {
   createContext,
   useCallback,
   useContext,
@@ -31,15 +31,26 @@ const baseTranslations = {
   "nav.report": { en: "Report", fr: "Signaler", ar: "تبليغ" },
   "nav.status": { en: "Status", fr: "Statut", ar: "الحالة" },
   "nav.adminLogin": { en: "Admin Login", fr: "Connexion admin", ar: "دخول المشرف" },
-
-
   "nav.dashboard": { en: "Dashboard", fr: "Tableau de bord", ar: "لوحة التحكم" },
+
   "common.backHome": { en: "Back to Home", fr: "Retour à l'accueil", ar: "العودة للرئيسية" },
   "common.contributor": { en: "Contributor", fr: "Contributeur", ar: "المساهم" },
   "common.contributions": { en: "Contributions", fr: "Contributions", ar: "المساهمات" },
   "common.badge": { en: "Badge", fr: "Badge", ar: "الوسام" },
   "common.loading": { en: "Loading...", fr: "Chargement...", ar: "جاري التحميل..." },
   "common.error": { en: "Error", fr: "Erreur", ar: "خطأ" },
+  "common.back": { en: "Back", fr: "Retour", ar: "رجوع" },
+  "common.copy": { en: "Copy", fr: "Copier", ar: "نسخ" },
+  "common.download": { en: "Download", fr: "Télécharger", ar: "تحميل" },
+  "common.search": { en: "Search", fr: "Rechercher", ar: "بحث" },
+  "common.submit": { en: "Submit", fr: "Soumettre", ar: "إرسال" },
+  "common.vote": { en: "Vote", fr: "Voter", ar: "تصويت" },
+  "common.share": { en: "Share", fr: "Partager", ar: "مشاركة" },
+  "common.viewGuide": { en: "View Guide", fr: "Voir le guide", ar: "عرض الدليل" },
+  "common.refresh": { en: "Refresh", fr: "Actualiser", ar: "تحديث" },
+  "common.live": { en: "Live", fr: "Direct", ar: "مباشر" },
+  "common.try": { en: "Try it", fr: "Essayer", ar: "تجربة" },
+  "common.owner": { en: "Owner", fr: "Propriétaire", ar: "المالك" },
 
   // Hero
   "hero.title": { en: "Modern Algerian Address Integration.", fr: "L'intégration moderne des adresses algériennes.", ar: "التكامل الحديث للعناوين الجزائرية." },
@@ -88,6 +99,16 @@ const baseTranslations = {
   "picker.error": { en: "Could not load data", fr: "Impossible de charger les données", ar: "تعذّر تحميل البيانات" },
   "picker.retry": { en: "Retry", fr: "Réessayer", ar: "إعادة المحاولة" },
   "picker.loading": { en: "Loading data", fr: "Chargement des données", ar: "جارٍ تحميل البيانات" },
+  "picker.zipDisclaimer": { en: "Postal codes are provided for reference and may vary by specific neighborhood.", fr: "Les codes postaux sont fournis à titre de référence et peuvent varier selon le quartier.", ar: "يتم توفير الرموز البريدية كمرجع وقد تختلف حسب الحي." },
+  "picker.preview": { en: "Address Preview", fr: "Aperçu de l'adresse", ar: "معاينة العنوان" },
+  "picker.previewEmpty": { en: "Selected address will appear here...", fr: "L'adresse sélectionnée apparaîtra ici...", ar: "سيظهر العنوان المختار هنا..." },
+  "picker.zipLabel": { en: "Postal Code", fr: "Code postal", ar: "الرمز البريدي" },
+  "picker.wilayaFirst": { en: "Select wilaya first", fr: "Choisir d'abord la wilaya", ar: "اختر الولاية أولاً" },
+  "picker.dairaFirst": { en: "Select daira first", fr: "Choisir d'abord la daira", ar: "اختر الدائرة أولاً" },
+  "picker.quickPlaceholder": { en: "Search daira or commune...", fr: "Chercher daira ou commune...", ar: "ابحث عن دائرة أو بلدية..." },
+  "picker.quickHint": { en: "Instant lookup across all names.", fr: "Recherche instantanée sur tous les noms.", ar: "بحث فوري عبر جميع الأسماء." },
+  "picker.quickDaira": { en: "Daira", fr: "Daira", ar: "دائرة" },
+  "picker.quickCommune": { en: "Commune", fr: "Commune", ar: "بلدية" },
 
   // Checkout
   "checkout.title": { en: "See it in action", fr: "Voyez-le en action", ar: "شاهده قيد التشغيل" },
@@ -96,6 +117,10 @@ const baseTranslations = {
   "checkout.total": { en: "Total: 4,500 DZD", fr: "Total : 4 500 DZD", ar: "المجموع: 4٬500 دج" },
   "checkout.name": { en: "Full Name", fr: "Nom complet", ar: "الاسم الكامل" },
   "checkout.phone": { en: "Phone Number", fr: "Numéro de téléphone", ar: "رقم الهاتف" },
+  "checkout.synced": { en: "Synced with picker", fr: "Synchronisé avec le sélecteur", ar: "متزامن مع المختبر" },
+  "checkout.validated": { en: "Address Validated", fr: "Adresse validée", ar: "تم التحقق من العنوان" },
+  "checkout.play": { en: "Play Simulation", fr: "Jouer la démo", ar: "تشغيل المحاكاة" },
+  "checkout.reset": { en: "Reset", fr: "Réinitialiser", ar: "إعادة تعيين" },
 
   // API Docs Categories
   "api.catBase": { en: "Admin Divisions", fr: "Divisions admin", ar: "التقسيم الإداري" },
@@ -110,9 +135,8 @@ const baseTranslations = {
   "api.catExport": { en: "Export", fr: "Exportation", ar: "التصدير" },
 
   // API Content
-  "api.title": { en: "API Reference", fr: "Référence API", ar: "مرجع الواجهة" },
+  "api.title": { en: "API Documentation", fr: "Documentation API", ar: "توثيق البرمجية" },
   "api.subtitle": { en: "Comprehensive endpoints for every use case.", fr: "Points de terminaison complets pour chaque cas.", ar: "نقاط وصول شاملة لكل حالة استخدام." },
-
   "api.example": { en: "Example", fr: "Exemple", ar: "مثال" },
   "api.response": { en: "Response", fr: "Réponse", ar: "الاستجابة" },
   "api.params": { en: "Parameters", fr: "Paramètres", ar: "المعاملات" },
@@ -132,7 +156,6 @@ const baseTranslations = {
   "tester.send": { en: "Run Request", fr: "Exécuter", ar: "تشغيل الطلب" },
   "tester.sending": { en: "Running...", fr: "Exécution...", ar: "جاري التشغيل..." },
 
-
   // API Endpoint descriptions (detailed)
   "api.desc.index": { en: "Dynamic list of all active endpoints.", fr: "Liste dynamique des points de terminaison actifs.", ar: "قائمة ديناميكية لجميع نقاط الوصول النشطة." },
   "api.desc.wilayas": { en: "List all 69 wilayas.", fr: "Liste des 69 wilayas.", ar: "قائمة جميع الـ 69 ولاية." },
@@ -149,13 +172,13 @@ const baseTranslations = {
   // Leaderboard
   "leaderboard.title": { en: "Contributor Leaderboard", fr: "Classement des contributeurs", ar: "لوحة المتصدرين للمساهمين" },
   "leaderboard.subtitle": { en: "Honoring the heroes helping us perfect Algerian address data.", fr: "Honorer les héros qui nous aident à perfectionner les données.", ar: "تكريم الأبطال الذين يساعدون في تحسين بيانات العناوين الجزائرية." },
+  "leaderboard.note": { en: "Community contributions will appear here as users submit data corrections.", fr: "Les contributions de la communauté apparaîtront ici au fur et à mesure que les utilisateurs soumettront des corrections.", ar: "ستظهر مساهمات المجتمع هنا عندما يرسل المستخدمون تصحيحات البيانات." },
 
   // Vote
   "vote.title": { en: "Vote for Upcoming Features", fr: "Votez pour les fonctionnalités", ar: "صوّت للميزات القادمة" },
   "vote.subtitle": { en: "Help us prioritize our roadmap.", fr: "Aidez-nous à prioriser notre feuille de route.", ar: "ساعدنا في تحديد أولويات خريطة الطريق الخاصة بنا." },
   "vote.success": { en: "Vote recorded!", fr: "Vote enregistré !", ar: "تم تسجيل تصويتك!" },
   "vote.error": { en: "Already voted.", fr: "Déjà voté.", ar: "لقد قمت بالتصويت بالفعل." },
-
 
   // Changelog
   "changelog.title": { en: "Project Changelog", fr: "Journal des modifications", ar: "سجل التغييرات" },
@@ -165,15 +188,26 @@ const baseTranslations = {
   "changelog.date": { en: "Date", fr: "التاريخ", ar: "التاريخ" },
   "changelog.changes": { en: "Changes", fr: "Modifications", ar: "التغييرات" },
 
-
   // Integrations
   "integrations.title": { en: "E-commerce Integrations", fr: "Intégrations E-commerce", ar: "التكامل مع التجارة الإلكترونية" },
+  "integrations.desc": { en: "Comprehensive guides to integrate DZ Address Picker into your existing store.", fr: "Guides complets pour intégrer DZ Address Picker dans votre boutique.", ar: "أدلة شاملة لدمج DZ Address Picker في متجرك الحالي." },
 
   // Developer Hub
   "hub.title": { en: "Developer Hub", fr: "Espace développeur", ar: "مركز المطورين" },
   "hub.subtitle": { en: "Ready-to-use snippets.", fr: "Extraits prêts à l'emploi.", ar: "قصاصات برمجية جاهزة." },
   "hub.copy": { en: "Copy", fr: "Copier", ar: "نسخ" },
   "hub.copied": { en: "Copied!", fr: "Copié !", ar: "تم النسخ!" },
+  "hub.liveConfig": { en: "Live Widget Configuration", fr: "Configuration de l'outil", ar: "إعداد الأداة المباشر" },
+  "hub.liveConfigDesc": { en: "Customize the widget to match your needs.", fr: "Personnalisez l'outil selon vos besoins.", ar: "خصص الأداة لتناسب احتياجاتك." },
+  "hub.target": { en: "Target Element", fr: "Élément cible", ar: "العنصر المستهدف" },
+  "hub.showAdvanced": { en: "Show Advanced Options", fr: "Options avancées", ar: "عرض الخيارات المتقدمة" },
+  "hub.format": { en: "Output Format", fr: "Format de sortie", ar: "صيغة المخرجات" },
+  "hub.inputName": { en: "Input Name", fr: "Nom de l'input", ar: "اسم الحقل" },
+  "hub.wpTitle": { en: "Official WordPress Plugin", fr: "Plugin WordPress officiel", ar: "إضافة ووردبريس الرسمية" },
+  "hub.wpDesc": { en: "One-click install for WooCommerce checkouts.", fr: "Installation en un clic pour WooCommerce.", ar: "تثبيت بنقرة واحدة لـ WooCommerce." },
+  "hub.download": { en: "Download ZIP", fr: "Télécharger ZIP", ar: "تحميل ZIP" },
+  "hub.downloading": { en: "Generating...", fr: "Génération...", ar: "جاري الإنشاء..." },
+  "hub.downloadError": { en: "Error", fr: "Erreur", ar: "خطأ" },
 
   // Footer & Features
   "footer.text": { en: "Built for the Algerian developer community.", fr: "Conçu pour les développeurs algériens.", ar: "صُنع لمجتمع المطورين الجزائريين." },
@@ -211,42 +245,25 @@ const baseTranslations = {
   "admin.logout.cancel": { en: "Cancel", fr: "Annuler", ar: "إلغاء" },
   "admin.logout.confirm": { en: "Sign Out", fr: "Se déconnecter", ar: "خروج" },
   "admin.sessionExpired": { en: "Session expired. Redirecting...", fr: "Session expirée. Redirection...", ar: "انتهت الجلسة. جاري التحويل..." },
+  "admin.table.rank": { en: "Rank", fr: "Rang", ar: "الرتبة" },
+  "admin.table.name": { en: "Name", fr: "Nom", ar: "الاسم" },
+  "admin.table.code": { en: "Code", fr: "الكود" },
+  "admin.table.calls": { en: "Calls", fr: "الطلبات", ar: "الطلبات" },
+  "admin.table.share": { en: "Share", fr: "الحصة", ar: "الحصة" },
+  "admin.table.contributor": { en: "Contributor", fr: "المساهم", ar: "المساهم" },
+  "admin.table.contributions": { en: "Contributions", fr: "المساهمات", ar: "المساهمات" },
+  "admin.table.badge": { en: "Badge", fr: "Badge", ar: "الوسام" },
+  "admin.title": { en: "Admin Dashboard", fr: "Tableau de bord", ar: "لوحة التحكم" },
+  "admin.loading": { en: "Loading data...", fr: "Chargement...", ar: "جاري التحميل..." },
+  "admin.login.error": { en: "Authentication failed.", fr: "Échec de l'authentification.", ar: "فشل التحقق." },
+  "admin.live": { en: "Live Data Feed", fr: "Flux en direct", ar: "تغذية البيانات المباشرة" },
+  "admin.series.api": { en: "API Traffic", fr: "Trafic API", ar: "حركة مرور الواجهة" },
+  "admin.health.up": { en: "Live", fr: "En ligne", ar: "نشط" },
+  "admin.health.down": { en: "Down", fr: "Hors ligne", ar: "متوقف" },
   "admin.table.village": { en: "Village", fr: "Village", ar: "القرية" },
   "admin.table.status": { en: "Status", fr: "Statut", ar: "الحالة" },
   "admin.table.date": { en: "Date", fr: "Date", ar: "التاريخ" },
-  "report.message": { en: "Message", fr: "Message", ar: "الرسالة" },
-  "common.back": { en: "Back", fr: "Retour", ar: "رجوع" },
-  "common.copy": { en: "Copy", fr: "Copier", ar: "نسخ" },
-  "common.download": { en: "Download", fr: "Télécharger", ar: "تحميل" },
-  "common.search": { en: "Search", fr: "Rechercher", ar: "بحث" },
-  "common.submit": { en: "Submit", fr: "Soumettre", ar: "إرسال" },
-  "report.title": { en: "Report Correction", fr: "Signaler une correction", ar: "تبليغ عن تصحيح" },
-  "report.submit": { en: "Submit Report", fr: "Envoyer le signalement", ar: "إرسال التبليغ" },
-
-
-  "common.vote": { en: "Vote", fr: "Voter", ar: "تصويت" },
-  "common.share": { en: "Share", fr: "Partager", ar: "مشاركة" },
-  "common.viewGuide": { en: "View Guide", fr: "Voir le guide", ar: "عرض الدليل" },
-  "leaderboard.anonymous": { en: "Share my contributions anonymously", fr: "Partager mes contributions anonymement", ar: "مشاركة مساهماتي بشكل مجهول" },
-  "leaderboard.privacy": { en: "Your data will be used to improve the database but your identity will not be displayed publicly.", fr: "Vos données seront utilisées pour améliorer la base de données mais votre identité ne sera pas affichée publiquement.", ar: "سيتم استخدام بياناتك لتحسين قاعدة البيانات ولكن لن يتم عرض هويتك علنًا." },
-  "vote.voted": { en: "Voted ✓", fr: "Voté ✓", ar: "تم التصويت ✓" },
-  "vote.share": { en: "Share this vote", fr: "Partager ce vote", ar: "مشاركة هذا التصويت" },
-  "changelog.current": { en: "Current", fr: "Actuel", ar: "الحالي" },
-  "integrations.installation": { en: "Step-by-step installation", fr: "Installation étape par étape", ar: "تثبيت خطوة بخطوة" },
-  "integrations.copyCode": { en: "Copy Code", fr: "Copier le code", ar: "نسخ الكود" },
-  "integrations.downloadPlugin": { en: "Download Plugin", fr: "Télécharger le plugin", ar: "تحميل الإضافة" },
-  "integrations.time": { en: "Estimated time", fr: "Temps estimé", ar: "الوقت المقدر" },
-  "integrations.difficulty": { en: "Difficulty", fr: "Difficulté", ar: "الصعوبة" },
-  "picker.zipDisclaimer": { en: "Postal codes are provided for reference and may vary by specific neighborhood.", fr: "Les codes postaux sont fournis à titre de référence et peuvent varier selon le quartier.", ar: "يتم توفير الرموز البريدية كمرجع وقد تختلف حسب الحي." },
-  "picker.preview": { en: "Address Preview", fr: "Aperçu de l'adresse", ar: "معاينة العنوان" },
-  "picker.previewEmpty": { en: "Selected address will appear here...", fr: "L'adresse sélectionnée apparaîtra ici...", ar: "سيظهر العنوان المختار هنا..." },
-  "picker.zipLabel": { en: "Postal Code", fr: "Code postal", ar: "الرمز البريدي" },
-  "picker.wilayaFirst": { en: "Select wilaya first", fr: "Choisir d'abord la wilaya", ar: "اختر الولاية أولاً" },
-  "picker.dairaFirst": { en: "Select daira first", fr: "Choisir d'abord la daira", ar: "اختر الدائرة أولاً" },
   "admin.table.zip": { en: "ZIP", fr: "ZIP", ar: "الرمز البريدي" },
-  "check.auto": { en: "Auto-fill Demo", fr: "Démo remplissage auto", ar: "عرض الملء التلقائي" },
-  "transit.title": { en: "Transit & Routes", fr: "Transit et itinéraires", ar: "النقل والمسارات" },
-  "transit.disclaimer": { en: "Static data - Live tracking coming soon. Data is based on published schedules.", fr: "Données statiques - Suivi en direct bientôt. Basé sur les horaires publiés.", ar: "بيانات ثابتة - تتبع حي قريبًا. البيانات مبنية على الجداول المنشورة." },
   "admin.searchedZip": { en: "Searched ZIP", fr: "ZIP recherché", ar: "الرمز المبحوث" },
   "admin.resultZip": { en: "Result ZIP", fr: "ZIP résultant", ar: "الرمز الناتج" },
   "admin.i18n.title": { en: "I18n Validation", fr: "Validation I18n", ar: "تحقق اللغات" },
@@ -264,14 +281,7 @@ const baseTranslations = {
   "admin.health.status": { en: "Status", fr: "Statut", ar: "الحالة" },
   "admin.health.endpoint": { en: "Endpoint", fr: "Point d'accès", ar: "نقطة الوصول" },
   "admin.health.latency": { en: "Latency", fr: "Latence", ar: "التأخير" },
-  "admin.health.up": { en: "Live", fr: "En ligne", ar: "نشط" },
-  "admin.health.down": { en: "Down", fr: "Hors ligne", ar: "متوقف" },
-  "common.refresh": { en: "Refresh", fr: "Actualiser", ar: "تحديث" },
-  "common.live": { en: "Live", fr: "Direct", ar: "مباشر" },
-  "admin.zipMismatch": { en: "ZIP Mismatch Error", fr: "Erreur de correspondance ZIP", ar: "خطأ في تطابق الرمز" },
 };
-
-
 
 const fr: any = {};
 const en: any = {};
