@@ -89,6 +89,9 @@ export function ApiTester() {
       const json: unknown = await res.json();
       const text = JSON.stringify(json, null, 2);
 
+      // Trigger the public increment endpoint to update the global counter
+      void fetch('/api/public/increment', { method: 'POST' }).catch(() => {});
+      
       trackApiCall(path, res.status, ms, { source: "tester" });
 
       setResult({

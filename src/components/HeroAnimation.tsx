@@ -23,14 +23,14 @@ export function HeroAnimation() {
   if (!current) return null;
 
   return (
-    <span className="inline-block min-w-[180px] text-left">
+    <span className="inline-block min-w-[120px] text-left align-baseline">
       <AnimatePresence mode="wait">
         <motion.span
           key={index}
-          initial={{ y: 20, opacity: 0 }}
+          initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -20, opacity: 0 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className={`${current.color} font-black inline-block`}
         >
           {current.text}

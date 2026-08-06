@@ -29,6 +29,10 @@ export function trackApiCall(
   options: { source?: ApiSource; wilayaCode?: number | null } = {},
 ): void {
   if (typeof window === "undefined") return;
+
+  // Increment the global API call counter
+  void fetch('/api/public/increment', { method: 'POST' }).catch(() => {});
+
   void supabase
     .from("api_logs")
     .insert({

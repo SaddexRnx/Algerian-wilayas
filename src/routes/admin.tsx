@@ -803,8 +803,11 @@ function AdminPage() {
       try {
         const { data: { session } } = await supabase.auth.getSession();
         
-        // Mock auth logic fallback for compatibility with existing flow
-        if (isAdminAuthed() || session) {
+        // Prioritize actual Supabase session over mock storage
+        if (session) {
+          setAuthed(true);
+        } else if (isAdminAuthed()) {
+          // Fallback for mock flow
           setAuthed(true);
         } else {
           setExpired(true);

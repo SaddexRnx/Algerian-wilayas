@@ -736,12 +736,13 @@ export function AlgeriaAddressPicker({
               <input
                 id="dz-zip-input"
                 type="text"
+                inputMode="numeric"
                 maxLength={5}
                 value={zipInput}
                 onChange={(e) => handleZipChange(e.target.value)}
                 placeholder="19070"
                 className={`w-full rounded-md border bg-white px-3 py-2 text-sm text-black transition outline-none focus:ring-1 ${
-                  zipError ? "border-red-500 focus:border-red-500 focus:ring-red-500" : "border-gray-300 focus:border-black focus:ring-black"
+                  zipError ? "border-red-500 focus:border-red-500 focus:ring-red-500" : "border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                 }`}
               />
               {isZipSearching && (
@@ -811,7 +812,7 @@ export function AlgeriaAddressPicker({
             onChange={(e) => setQuickQuery(e.target.value)}
             placeholder={t("picker.quickPlaceholder")}
             aria-describedby="dz-quick-hint"
-            className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-black focus:ring-1 focus:ring-black"
+            className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
           />
           <p id="dz-quick-hint" className="mt-2 text-xs text-gray-400">
             {t("picker.quickHint")}
@@ -866,7 +867,7 @@ export function AlgeriaAddressPicker({
               value={zipInput}
               onChange={(e) => handleZipChange(e.target.value)}
               className={`w-full rounded-lg border bg-white px-3 py-2.5 text-sm transition focus-visible:ring-2 focus-visible:outline-none ${
-                zipError ? "border-red-300 focus-visible:ring-red-500" : "border-gray-300 focus-visible:ring-black"
+                zipError ? "border-red-300 focus-visible:ring-red-500" : "border-gray-300 focus-visible:ring-blue-500"
               }`}
               placeholder="19070"
             />
@@ -932,7 +933,7 @@ export function AlgeriaAddressPicker({
             value={village}
             onChange={(e) => setVillage(e.target.value)}
             placeholder="e.g. Village Ain Soltane"
-            className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-black focus:ring-1 focus:ring-black"
+            className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
           />
         </div>
       ) : null}

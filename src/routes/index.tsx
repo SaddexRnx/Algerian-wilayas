@@ -366,7 +366,7 @@ function Index() {
             <p className="mt-2 text-sm text-gray-500 leading-relaxed font-medium">{t("checkout.subtitle")}</p>
           </div>
 
-          <div className="mx-auto max-w-3xl flex justify-center">
+          <div className="mx-auto max-w-5xl">
             <CheckoutSimulation live={live} />
           </div>
         </section>
