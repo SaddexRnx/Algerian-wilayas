@@ -326,6 +326,12 @@ function Index() {
             One powerful API for <HeroAnimation />. Trilingual, blazing fast, and packed with features for modern apps.
           </p>
 
+          <div className="mt-8 flex flex-col items-center justify-center gap-4">
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 bg-blue-50 px-4 py-2 rounded-full border border-blue-100">
+              {t("nav.language")}
+            </p>
+          </div>
+
           <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
             <Link
               to="/integrations"
