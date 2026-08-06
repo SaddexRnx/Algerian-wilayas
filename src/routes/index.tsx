@@ -102,6 +102,9 @@ function EventConsole({ lines }: { lines: string[] }) {
 function Index() {
   const { t, dir, lang } = useI18n();
   const [totalCalls, setTotalCalls] = useState<number | null>(null);
+  const [healthData, setHealthData] = useState<HealthCheckResult[]>([]);
+  const [healthLoading, setHealthLoading] = useState(false);
+  const [lastCheck, setLastCheck] = useState<Date | null>(null);
 
   useEffect(() => {
     fetch('/api/public/stats')
