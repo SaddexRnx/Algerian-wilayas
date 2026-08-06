@@ -807,7 +807,7 @@ function AdminPage() {
         if (session) {
           setAuthed(true);
         } else if (isAdminAuthed()) {
-          // Fallback for mock flow
+          // If mock authed but server Fn fails (which happened), we should probably re-check server status
           setAuthed(true);
         } else {
           setExpired(true);

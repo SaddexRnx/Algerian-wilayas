@@ -41,7 +41,10 @@ export const adminAnalytics = createServerFn({ method: "POST" })
   }))
   .handler(async ({ data }): Promise<AnalyticsPayload> => {
     const session = await useSession<AdminSession>(sessionConfig());
-    if (session.data.admin !== true) throw new Error("Unauthorized");
+    if (session.data.admin !== true) {
+      console.error("Admin analytics access denied: session.data.admin is", session.data.admin);
+      throw new Error("Unauthorized");
+    }
 
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const since = new Date(Date.now() - data.days * 24 * 60 * 60 * 1000).toISOString();

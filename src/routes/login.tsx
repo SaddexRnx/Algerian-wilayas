@@ -50,13 +50,19 @@ function LoginPage() {
     setLoading(true);
     // Also opens the real server session so dashboard analytics can be queried.
     try {
-      await serverLogin({ data: { email, password } });
-    } catch {
-      /* dashboard falls back to its own empty state */
+      const result = await serverLogin({ data: { email, password } });
+      if (result.ok) {
+        setAdminAuthed();
+        void navigate({ to: "/admin" });
+      } else {
+        setError(true);
+      }
+    } catch (err) {
+      console.error("Login server function failed:", err);
+      setError(true);
+    } finally {
+      setLoading(false);
     }
-    setAdminAuthed();
-    setLoading(false);
-    void navigate({ to: "/admin" });
   }
 
   const field =
