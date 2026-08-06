@@ -1,13 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
+import { CheckCircle2, RefreshCw, Zap, MapPin, Building2, PlayCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const FIELDS: { labelKey: TranslationKey; placeholderKey: TranslationKey; value: string }[] = [
-  { labelKey: "picker.wilaya", placeholderKey: "picker.selectWilaya", value: "16 - الجزائر" },
-  { labelKey: "picker.daira", placeholderKey: "picker.selectDaira", value: "سيدي امحمد" },
-  { labelKey: "picker.commune", placeholderKey: "picker.selectCommune", value: "الجزائر الوسطى" },
+const FIELDS: { labelKey: TranslationKey; icon: React.ReactNode; value: string }[] = [
+  { labelKey: "picker.wilaya", icon: <MapPin className="w-4 h-4" />, value: "16 - Alger" },
+  { labelKey: "picker.daira", icon: <Building2 className="w-4 h-4" />, value: "Sidi M'hamed" },
+  { labelKey: "picker.commune", icon: <Building2 className="w-4 h-4" />, value: "Alger Centre" },
 ];
 
-const STEP_DELAY = 800;
+const STEP_DELAY = 1000;
 
 export interface LiveAddress {
   wilayaCode: string;
@@ -17,13 +19,15 @@ export interface LiveAddress {
 }
 
 export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined }) {
-  const { t } = useI18n();
+  const { t, dir, lang } = useI18n();
   const [step, setStep] = useState(0);
   const [running, setRunning] = useState(false);
+  const [searchByZip, setSearchByZip] = useState(false);
+  const [zipValue, setZipValue] = useState("");
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const liveValues = [
-    live?.wilayaCode ? `${live.wilayaCode} - ${live.wilayaName}` : "",
+    live?.wilayaCode ? \`\${live.wilayaCode} - \${live.wilayaName}\` : "",
     live?.dairaName ?? "",
     live?.communeName ?? "",
   ];
@@ -39,15 +43,24 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
     timers.current.forEach(clearTimeout);
     timers.current = [];
     setStep(0);
+    setSearchByZip(false);
+    setZipValue("");
     setRunning(true);
-    for (let i = 1; i <= 4; i += 1) {
-      timers.current.push(
-        setTimeout(() => {
-          setStep(i);
-          if (i === 4) setRunning(false);
-        }, STEP_DELAY * i),
-      );
-    }
+    
+    // Simulate ZIP search logic
+    timers.current.push(setTimeout(() => {
+      setStep(1);
+      setSearchByZip(true);
+    }, STEP_DELAY));
+
+    timers.current.push(setTimeout(() => {
+      setZipValue("19070");
+    }, STEP_DELAY * 2));
+
+    timers.current.push(setTimeout(() => {
+      setStep(4);
+      setRunning(false);
+    }, STEP_DELAY * 4));
   };
 
   const reset = () => {
@@ -55,146 +68,142 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
     timers.current = [];
     setRunning(false);
     setStep(0);
+    setSearchByZip(false);
+    setZipValue("");
   };
 
-  const stateFor = (index: number) => {
-    if (hasLive) {
-      if (liveValues[index]) return "done";
-      if (index === 0 || liveValues[index - 1]) return "ready";
-      return "locked";
-    }
-    const fieldStep = index + 1;
-    if (step === fieldStep) return "active";
-    if (step > fieldStep) return "done";
-    if (step >= index) return "ready";
-    return "locked";
-  };
-
-  const liveComplete = hasLive && liveValues.every(Boolean);
-  const validated = hasLive ? liveComplete : step >= 4;
+  const isComplete = hasLive ? liveValues.every(Boolean) : step >= 4;
 
   return (
-    <div className="relative mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:mt-12 sm:p-8 sm:mx-0">
-      <div className="flex flex-col sm:flex-row sm:items-start gap-4 border-b border-gray-200 pb-5 sm:justify-between">
-        <div className="min-w-0">
-          <h3 className="truncate text-base font-bold text-black uppercase tracking-tighter">{t("checkout.header")}</h3>
-          <p className="mt-1 text-sm text-gray-500 font-medium">{t("checkout.total")}</p>
-
-          {hasLive && (
-            <p className="mt-2 inline-block rounded border border-gray-200 bg-gray-50 px-2 py-0.5 text-xs text-gray-600">
-              {t("checkout.synced")}
-            </p>
-          )}
-        </div>
-        <div className="flex shrink-0 flex-col items-stretch gap-2 sm:flex-row sm:items-center">
-          <button
-            type="button"
-            onClick={play}
-            disabled={running || hasLive}
-            className="flex items-center justify-center gap-2 rounded-md bg-black px-4 py-2 text-xs text-white transition hover:bg-gray-800 disabled:bg-gray-300 disabled:text-gray-500"
-          >
-            {t("common.live")}
-          </button>
-          {step === 4 && !running && (
+    <div className="max-w-4xl mx-auto my-16">
+      <div className="bg-white rounded-[2rem] border-4 border-blue-50 shadow-2xl overflow-hidden">
+        <div className="bg-gradient-to-r from-blue-600 to-emerald-600 p-6 sm:p-10 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div>
+             <div className="flex items-center gap-2 mb-2">
+                <span className="bg-white/20 px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest">v2.0 Simulation</span>
+                {hasLive && <span className="flex items-center gap-1 text-[10px] font-black uppercase tracking-widest bg-emerald-400 text-emerald-900 px-2 py-0.5 rounded animate-pulse"><Zap className="w-3 h-3"/> {t("checkout.synced")}</span>}
+             </div>
+             <h2 className="text-3xl font-black uppercase tracking-tighter leading-none">{t("checkout.header")}</h2>
+             <p className="mt-2 text-blue-50 font-medium opacity-90">{t("checkout.total")}</p>
+          </div>
+          <div className="flex items-center gap-3">
             <button
-              type="button"
-              onClick={reset}
-              className="rounded-md border border-gray-300 bg-white px-4 py-2 text-xs text-gray-700 transition hover:bg-gray-50"
+              onClick={play}
+              disabled={running || hasLive}
+              className="bg-white text-blue-700 px-6 py-3 rounded-xl font-bold shadow-lg hover:scale-105 transition-transform disabled:opacity-50 disabled:scale-100 flex items-center gap-2 uppercase tracking-widest text-xs"
             >
-              {t("checkout.reset")}
+              {running ? <RefreshCw className="w-4 h-4 animate-spin" /> : <PlayCircle className="w-4 h-4" />}
+              {t("checkout.play")}
             </button>
-          )}
+            {(step > 0 || hasLive) && !running && (
+               <button onClick={reset} className="p-3 bg-white/10 hover:bg-white/20 rounded-xl transition-colors">
+                 <RefreshCw className="w-5 h-5" />
+               </button>
+            )}
+          </div>
         </div>
-      </div>
 
-      <div className="mt-6" dir="rtl">
-        <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="sim-name">
-          {t("checkout.name")}
-        </label>
-        <input
-          id="sim-name"
-          type="text"
-          value="Ahmed Ahmed"
-          readOnly
-          tabIndex={-1}
-          className="mb-4 w-full rounded-lg border border-gray-200 bg-gray-50 p-3 text-gray-500"
-        />
-        <label className="mb-2 block text-sm font-medium text-gray-700" htmlFor="sim-phone">
-          {t("checkout.phone")}
-        </label>
-        <input
-          id="sim-phone"
-          type="text"
-          value="0000 00 00 00"
-          readOnly
-          dir="ltr"
-          tabIndex={-1}
-          className="mb-4 w-full rounded-lg border border-gray-200 bg-gray-50 p-3 text-right text-gray-500"
-        />
-
-        {FIELDS.map((f, i) => {
-          const state = stateFor(i);
-          const shown = state === "active" || state === "done";
-          const base =
-            "w-full p-3 border rounded-lg mb-4 text-right font-medium transition-all duration-500 ease-out";
-          const tone =
-            state === "active"
-              ? "border-black ring-1 ring-black bg-white text-black"
-              : state === "done"
-                ? "border-gray-200 bg-white text-black"
-                : state === "ready"
-                  ? "border-gray-300 bg-white text-gray-400"
-                  : "border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed";
-          return (
-            <div key={f.labelKey}>
-              <span className="mb-2 block text-sm font-medium text-gray-700">
-                {t(f.labelKey)}
-              </span>
-              <div className={`${base} ${tone}`} aria-live="polite">
-                <span className="truncate transition-opacity duration-500">
-                  {shown ? liveValues[i] || f.value : t(f.placeholderKey)}
-                </span>
+        <div className="p-6 sm:p-12 grid lg:grid-cols-2 gap-12" dir={dir}>
+          {/* Form Side */}
+          <div className="space-y-6">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <label className="text-[10px] font-black text-blue-400 uppercase tracking-widest block">{t("checkout.name")}</label>
+                <div className="w-full bg-blue-50/50 border border-blue-100 rounded-xl px-4 py-3 text-sm font-bold text-blue-900">Sadek Rnx</div>
+              </div>
+              <div className="space-y-2">
+                <label className="text-[10px] font-black text-blue-400 uppercase tracking-widest block">{t("checkout.phone")}</label>
+                <div className="w-full bg-blue-50/50 border border-blue-100 rounded-xl px-4 py-3 text-sm font-bold text-blue-900" dir="ltr">0770 00 00 00</div>
               </div>
             </div>
-          );
-        })}
 
-        <div
-          className={`mt-3 flex items-center justify-end gap-2 text-sm text-gray-600 transition-all duration-500 ease-out ${
-            validated ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
-          }`}
-        >
-          <span>{t("checkout.validated")}</span>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-gray-800"
-            aria-hidden="true"
-          >
-            <path d="m20 6-11 11-5-5" />
-          </svg>
+            {/* The Integrated Picker */}
+            <div className="bg-white border-2 border-blue-100 rounded-2xl p-6 space-y-4 shadow-sm relative group">
+              <div className="flex items-center justify-between border-b border-blue-50 pb-4 mb-4">
+                 <span className="text-xs font-black text-blue-900 uppercase tracking-tighter">DZ Address Picker</span>
+                 <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-bold text-blue-400 uppercase">{t("picker.searchByZip")}</span>
+                    <div className={\`w-8 h-4 rounded-full p-0.5 transition-colors \${(searchByZip || (hasLive && live?.wilayaCode)) ? 'bg-emerald-500' : 'bg-gray-200'}\`}>
+                       <div className={\`w-3 h-3 bg-white rounded-full transition-transform \${(searchByZip || (hasLive && live?.wilayaCode)) ? 'translate-x-4' : ''}\`}></div>
+                    </div>
+                 </div>
+              </div>
+
+              {(searchByZip || hasLive) ? (
+                <div className="space-y-4 animate-in fade-in duration-500">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-blue-400 uppercase tracking-widest block">{t("picker.zipLabel")}</label>
+                    <div className="w-full border-2 border-blue-600 rounded-xl px-4 py-3 text-sm font-black text-blue-900 flex items-center justify-between">
+                       <span>{hasLive ? (live?.wilayaCode ? '19070' : '—') : (zipValue || '—')}</span>
+                       { (zipValue === '19070' || hasLive) && <CheckCircle2 className="w-4 h-4 text-emerald-500" /> }
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4 pt-2 border-t border-blue-50">
+                    {FIELDS.map((f, i) => (
+                      <div key={f.labelKey} className={i === 2 ? 'col-span-2' : ''}>
+                         <label className="text-[10px] font-black text-blue-300 uppercase tracking-widest block mb-1">{t(f.labelKey)}</label>
+                         <div className="text-sm font-bold text-blue-900 truncate">
+                           {(hasLive ? liveValues[i] : (step >= 4 ? f.value : '—'))}
+                         </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-4 animate-in fade-in">
+                  {FIELDS.map((f, i) => (
+                    <div key={f.labelKey} className="space-y-2">
+                      <label className="text-[10px] font-black text-blue-400 uppercase tracking-widest block">{t(f.labelKey)}</label>
+                      <div className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-400 flex items-center gap-2">
+                         {f.icon} {t(f.labelKey === "picker.wilaya" ? "picker.selectWilaya" : f.labelKey === "picker.daira" ? "picker.selectDaira" : "picker.selectCommune")}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              
+              <div className="space-y-2">
+                <label className="text-[10px] font-black text-blue-400 uppercase tracking-widest block">{t("picker.village")}</label>
+                <div className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-400">
+                  {lang === 'ar' ? 'القرية / الحي' : 'Village / Neighborhood'}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Cart Side */}
+          <div className="bg-blue-50/50 rounded-3xl p-8 flex flex-col justify-between">
+             <div>
+               <h3 className="text-lg font-black text-blue-900 uppercase tracking-tighter mb-6 border-b border-blue-100 pb-4">Order Summary</h3>
+               <div className="space-y-4">
+                  <div className="flex justify-between text-sm">
+                     <span className="text-blue-600 font-medium">Original AirPods Pro 2</span>
+                     <span className="text-blue-900 font-black">45,000 DZD</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                     <span className="text-blue-600 font-medium">Shipping Fee</span>
+                     <span className="text-emerald-600 font-black">{isComplete ? '600 DZD' : '—'}</span>
+                  </div>
+                  <div className="pt-4 border-t border-blue-100 flex justify-between items-center">
+                     <span className="text-blue-900 font-black uppercase tracking-widest text-xs">Total Amount</span>
+                     <span className="text-2xl font-black text-blue-600">{isComplete ? '45,600 DZD' : '45,000 DZD'}</span>
+                  </div>
+               </div>
+             </div>
+             
+             <button 
+               disabled={!isComplete}
+               className="w-full py-4 bg-blue-600 text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl hover:bg-blue-700 disabled:bg-gray-200 disabled:text-gray-400 transition-all mt-12"
+             >
+               {t("checkout.validated")}
+             </button>
+          </div>
         </div>
       </div>
-
-      {step === 0 && !running && !hasLive && (
-        <button
-          type="button"
-          onClick={play}
-          className="absolute inset-x-0 top-32 bottom-0 flex items-start justify-center bg-white/60 pt-16 text-sm font-medium text-black backdrop-blur-[1px] transition hover:bg-white/70"
-        >
-          <span className="rounded-md border border-gray-300 bg-white px-5 py-2.5 shadow-sm">
-            {t("checkout.play")}
-          </span>
-        </button>
-      )}
     </div>
   );
 }
 
 export default CheckoutSimulation;
+
