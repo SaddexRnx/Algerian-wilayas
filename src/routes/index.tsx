@@ -131,32 +131,36 @@ function Index() {
     return () => clearInterval(interval);
   }, []);
 
-  // Smooth number animation
+  // Smooth number animation with noise for "live" feel
   useEffect(() => {
     if (totalCalls === null) return;
     
-    const startValue = displayCalls;
-    const endValue = totalCalls;
-    const duration = 2000; // 2 seconds animation
-    const startTime = performance.now();
-
+    let lastUpdate = performance.now();
+    let frameId: number;
+    
     const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
+      const deltaTime = currentTime - lastUpdate;
       
-      // Easing function: easeOutExpo
-      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      
-      const currentValue = Math.floor(startValue + (endValue - startValue) * easeProgress);
-      setDisplayCalls(currentValue);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
+      if (totalCalls > displayCalls) {
+        const distance = totalCalls - displayCalls;
+        const baseIncrement = Math.max(1, distance * 0.05);
+        const jitter = Math.random() * 2;
+        
+        if (deltaTime > 60) {
+          const increment = Math.ceil(baseIncrement + jitter);
+          setDisplayCalls(prev => Math.min(prev + increment, totalCalls));
+          lastUpdate = currentTime;
+        }
+      } else if (totalCalls < displayCalls) {
+        setDisplayCalls(totalCalls);
       }
+      
+      frameId = requestAnimationFrame(animate);
     };
 
-    requestAnimationFrame(animate);
-  }, [totalCalls]);
+    frameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frameId);
+  }, [totalCalls, displayCalls]);
 
   const healthCheck = useServerFn(checkApiHealth);
 
