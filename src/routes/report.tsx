@@ -49,8 +49,8 @@ function ReportPage() {
         {t("nav.backHome")}
       </Link>
 
-      <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tighter text-black uppercase mb-2">{t("report.title")}</h1>
-      <p className="text-sm text-gray-500 font-medium mb-8">{t("vote.subtitle")}</p>
+      <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tighter text-black uppercase mb-2">{t("nav.report")}</h1>
+      <p className="text-sm text-gray-500 font-medium mb-8">{t("report.subtitle")}</p>
 
 
       {success ? (
