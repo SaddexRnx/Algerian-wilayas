@@ -12,6 +12,7 @@ import logo from "@/assets/logo.png";
 import { ChevronRight } from "lucide-react";
 
 import { LanguageToggle, useI18n } from "@/lib/i18n";
+import { HeroAnimation } from "@/components/HeroAnimation";
 import pkg from '../../package.json';
 
 
@@ -293,10 +294,10 @@ function Index() {
 
 
           <h1 className="text-4xl font-extrabold tracking-tighter text-black sm:text-5xl md:text-6xl lg:text-7xl !leading-[1.1]">
-            {t("hero.title")}
+            The All-in-One Algerian Location & Transit API.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base text-gray-500 sm:text-lg lg:text-xl leading-relaxed">
-            {t("hero.subtitle")}
+            One powerful API for <HeroAnimation />. Trilingual, blazing fast, and packed with features for modern apps.
           </p>
 
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
