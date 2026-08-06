@@ -303,7 +303,7 @@ function CopyCodeButton({ code, label }: { code: string; label: string }) {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       }}
-      className="absolute top-3 right-3 rounded bg-gray-800 px-3 py-1.5 text-xs text-white transition hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none sm:top-4 sm:right-4"
+      className="absolute top-3 right-3 rounded bg-white/10 px-3 py-1.5 text-xs text-white transition hover:bg-white/20 border border-white/10 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none sm:top-4 sm:right-4"
     >
       {copied ? t("hub.copied") : t("hub.copy")}
     </button>
