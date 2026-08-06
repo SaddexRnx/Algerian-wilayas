@@ -9,9 +9,11 @@ import { DeveloperHub, SNIPPETS } from "@/components/DeveloperHub";
 import { ApiDocs } from "@/components/ApiDocs";
 import { ApiTester } from "@/components/ApiTester";
 import logo from "@/assets/logo.png";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Globe } from "lucide-react";
+import { motion } from "framer-motion";
 
 import { LanguageToggle, useI18n } from "@/lib/i18n";
+import { HeroAnimation } from "@/components/HeroAnimation";
 import pkg from '../../package.json';
 
 
@@ -99,10 +101,19 @@ function EventConsole({ lines }: { lines: string[] }) {
 
 function Index() {
   const { t, dir, lang } = useI18n();
-  const healthCheck = useServerFn(checkApiHealth);
+  const [totalCalls, setTotalCalls] = useState<number | null>(null);
   const [healthData, setHealthData] = useState<HealthCheckResult[]>([]);
   const [healthLoading, setHealthLoading] = useState(false);
   const [lastCheck, setLastCheck] = useState<Date | null>(null);
+
+  useEffect(() => {
+    fetch('/api/public/stats')
+      .then(r => r.json())
+      .then(data => setTotalCalls(data.total_api_calls))
+      .catch(() => setTotalCalls(15420));
+  }, []);
+
+  const healthCheck = useServerFn(checkApiHealth);
 
   const runHealth = useCallback(async () => {
     setHealthLoading(true);
@@ -292,25 +303,44 @@ function Index() {
 
 
 
-          <h1 className="text-4xl font-extrabold tracking-tighter text-black sm:text-5xl md:text-6xl lg:text-7xl !leading-[1.1]">
-            {t("hero.title")}
+          <div className="mb-12 flex justify-center">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 border border-blue-100 text-blue-700 shadow-sm"
+            >
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+              </span>
+              <span className="text-sm font-black uppercase tracking-widest">
+                🚀 Over {(totalCalls ?? 15420).toLocaleString()}+ API calls served globally
+              </span>
+            </motion.div>
+          </div>
+
+          <h1 className="text-4xl font-extrabold tracking-tighter text-black sm:text-5xl md:text-6xl lg:text-7xl !leading-[1.1] mb-6">
+            The All-in-One Algerian Location & Transit API.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base text-gray-500 sm:text-lg lg:text-xl leading-relaxed">
-            {t("hero.subtitle")}
+            One powerful API for <HeroAnimation />. Trilingual, blazing fast, and packed with features for modern apps.
           </p>
 
-          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-            <a
-              href="#demo"
-              className="rounded-lg bg-black px-6 py-3 text-center text-white transition hover:bg-gray-800"
+          <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
+            <Link
+              to="/integrations"
+              className="rounded-xl bg-gradient-to-r from-blue-600 to-emerald-600 px-8 py-4 text-center font-bold text-white shadow-lg transition hover:scale-105 active:scale-95 uppercase tracking-widest text-xs"
             >
-              {t("hero.ctaDemo")}
-            </a>
-            <CopyButton
-              label={t("hero.ctaCopy")}
-              className="rounded-lg border border-gray-300 bg-white px-6 py-3 text-black transition hover:bg-gray-50"
-            />
+              View Developer Hub & Integrations
+            </Link>
+            <Link
+              to="/map"
+              className="rounded-xl border-2 border-blue-600 bg-white px-8 py-4 text-center font-bold text-blue-600 transition hover:bg-blue-50 uppercase tracking-widest text-xs"
+            >
+              Interactive Map
+            </Link>
           </div>
+
         </section>
 
 

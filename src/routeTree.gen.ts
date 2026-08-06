@@ -19,11 +19,14 @@ import { Route as MapRouteImport } from './routes/map'
 import { Route as ReportRouteImport } from './routes/report'
 import { Route as StatusRouteImport } from './routes/status'
 import { Route as VoteRouteImport } from './routes/vote'
+import { Route as ApiSplatRouteImport } from './routes/api/$'
 import { Route as ApiDistanceRouteImport } from './routes/api/distance'
 import { Route as ApiSearchRouteImport } from './routes/api/search'
 import { Route as ApiFormatAddressRouteImport } from './routes/api/format/address'
 import { Route as ApiGeofenceCheckRouteImport } from './routes/api/geofence/check'
 import { Route as ApiPublicBulkZipRouteImport } from './routes/api/public/bulk-zip'
+import { Route as ApiPublicIncrementRouteImport } from './routes/api/public/increment'
+import { Route as ApiPublicStatsRouteImport } from './routes/api/public/stats'
 import { Route as ApiShippingEstimateRouteImport } from './routes/api/shipping/estimate'
 import { Route as ApiTravelVisaRequirementsRouteImport } from './routes/api/travel/visa-requirements'
 import { Route as ApiUtilsAnonymizeRouteImport } from './routes/api/utils/anonymize'
@@ -78,6 +81,11 @@ const VoteRoute = VoteRouteImport.update({
   path: '/vote',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSplatRoute = ApiSplatRouteImport.update({
+  id: '/api/$',
+  path: '/api/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiDistanceRoute = ApiDistanceRouteImport.update({
   id: '/api/distance',
   path: '/api/distance',
@@ -101,6 +109,16 @@ const ApiGeofenceCheckRoute = ApiGeofenceCheckRouteImport.update({
 const ApiPublicBulkZipRoute = ApiPublicBulkZipRouteImport.update({
   id: '/api/public/bulk-zip',
   path: '/api/public/bulk-zip',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicIncrementRoute = ApiPublicIncrementRouteImport.update({
+  id: '/api/public/increment',
+  path: '/api/public/increment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicStatsRoute = ApiPublicStatsRouteImport.update({
+  id: '/api/public/stats',
+  path: '/api/public/stats',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiShippingEstimateRoute = ApiShippingEstimateRouteImport.update({
@@ -131,11 +149,14 @@ export interface FileRoutesByFullPath {
   '/report': typeof ReportRoute
   '/status': typeof StatusRoute
   '/vote': typeof VoteRoute
+  '/api/$': typeof ApiSplatRoute
   '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
   '/api/format/address': typeof ApiFormatAddressRoute
   '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/public/increment': typeof ApiPublicIncrementRoute
+  '/api/public/stats': typeof ApiPublicStatsRoute
   '/api/shipping/estimate': typeof ApiShippingEstimateRoute
   '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
   '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
@@ -151,11 +172,14 @@ export interface FileRoutesByTo {
   '/report': typeof ReportRoute
   '/status': typeof StatusRoute
   '/vote': typeof VoteRoute
+  '/api/$': typeof ApiSplatRoute
   '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
   '/api/format/address': typeof ApiFormatAddressRoute
   '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/public/increment': typeof ApiPublicIncrementRoute
+  '/api/public/stats': typeof ApiPublicStatsRoute
   '/api/shipping/estimate': typeof ApiShippingEstimateRoute
   '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
   '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
@@ -172,11 +196,14 @@ export interface FileRoutesById {
   '/report': typeof ReportRoute
   '/status': typeof StatusRoute
   '/vote': typeof VoteRoute
+  '/api/$': typeof ApiSplatRoute
   '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
   '/api/format/address': typeof ApiFormatAddressRoute
   '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/public/increment': typeof ApiPublicIncrementRoute
+  '/api/public/stats': typeof ApiPublicStatsRoute
   '/api/shipping/estimate': typeof ApiShippingEstimateRoute
   '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
   '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
@@ -194,11 +221,14 @@ export interface FileRouteTypes {
     | '/report'
     | '/status'
     | '/vote'
+    | '/api/$'
     | '/api/distance'
     | '/api/search'
     | '/api/format/address'
     | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/public/increment'
+    | '/api/public/stats'
     | '/api/shipping/estimate'
     | '/api/travel/visa-requirements'
     | '/api/utils/anonymize'
@@ -214,11 +244,14 @@ export interface FileRouteTypes {
     | '/report'
     | '/status'
     | '/vote'
+    | '/api/$'
     | '/api/distance'
     | '/api/search'
     | '/api/format/address'
     | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/public/increment'
+    | '/api/public/stats'
     | '/api/shipping/estimate'
     | '/api/travel/visa-requirements'
     | '/api/utils/anonymize'
@@ -234,11 +267,14 @@ export interface FileRouteTypes {
     | '/report'
     | '/status'
     | '/vote'
+    | '/api/$'
     | '/api/distance'
     | '/api/search'
     | '/api/format/address'
     | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/public/increment'
+    | '/api/public/stats'
     | '/api/shipping/estimate'
     | '/api/travel/visa-requirements'
     | '/api/utils/anonymize'
@@ -255,11 +291,14 @@ export interface RootRouteChildren {
   ReportRoute: typeof ReportRoute
   StatusRoute: typeof StatusRoute
   VoteRoute: typeof VoteRoute
+  ApiSplatRoute: typeof ApiSplatRoute
   ApiDistanceRoute: typeof ApiDistanceRoute
   ApiSearchRoute: typeof ApiSearchRoute
   ApiFormatAddressRoute: typeof ApiFormatAddressRoute
   ApiGeofenceCheckRoute: typeof ApiGeofenceCheckRoute
   ApiPublicBulkZipRoute: typeof ApiPublicBulkZipRoute
+  ApiPublicIncrementRoute: typeof ApiPublicIncrementRoute
+  ApiPublicStatsRoute: typeof ApiPublicStatsRoute
   ApiShippingEstimateRoute: typeof ApiShippingEstimateRoute
   ApiTravelVisaRequirementsRoute: typeof ApiTravelVisaRequirementsRoute
   ApiUtilsAnonymizeRoute: typeof ApiUtilsAnonymizeRoute
@@ -337,6 +376,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VoteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/$': {
+      id: '/api/$'
+      path: '/api/$'
+      fullPath: '/api/$'
+      preLoaderRoute: typeof ApiSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/distance': {
       id: '/api/distance'
       path: '/api/distance'
@@ -370,6 +416,20 @@ declare module '@tanstack/react-router' {
       path: '/api/public/bulk-zip'
       fullPath: '/api/public/bulk-zip'
       preLoaderRoute: typeof ApiPublicBulkZipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/increment': {
+      id: '/api/public/increment'
+      path: '/api/public/increment'
+      fullPath: '/api/public/increment'
+      preLoaderRoute: typeof ApiPublicIncrementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/stats': {
+      id: '/api/public/stats'
+      path: '/api/public/stats'
+      fullPath: '/api/public/stats'
+      preLoaderRoute: typeof ApiPublicStatsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/shipping/estimate': {
@@ -407,11 +467,14 @@ const rootRouteChildren: RootRouteChildren = {
   ReportRoute: ReportRoute,
   StatusRoute: StatusRoute,
   VoteRoute: VoteRoute,
+  ApiSplatRoute: ApiSplatRoute,
   ApiDistanceRoute: ApiDistanceRoute,
   ApiSearchRoute: ApiSearchRoute,
   ApiFormatAddressRoute: ApiFormatAddressRoute,
   ApiGeofenceCheckRoute: ApiGeofenceCheckRoute,
   ApiPublicBulkZipRoute: ApiPublicBulkZipRoute,
+  ApiPublicIncrementRoute: ApiPublicIncrementRoute,
+  ApiPublicStatsRoute: ApiPublicStatsRoute,
   ApiShippingEstimateRoute: ApiShippingEstimateRoute,
   ApiTravelVisaRequirementsRoute: ApiTravelVisaRequirementsRoute,
   ApiUtilsAnonymizeRoute: ApiUtilsAnonymizeRoute,

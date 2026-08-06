@@ -32,24 +32,14 @@ export const Route = createFileRoute("/admin")({
   ssr: false,
   head: () => ({
     meta: [
-      { title: "Admin Dashboard — DZ Address Picker Usage Analytics" },
-      {
-        name: "description",
-        content:
-          "Monitor API traffic, widget loads, top selected wilayas and integration methods for the DZ Address Picker.",
-      },
-      { property: "og:title", content: "DZ Address Picker — Admin Dashboard" },
-      {
-        property: "og:description",
-        content: "API traffic, widget usage, top wilayas and integration breakdown.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { title: "Admin Dashboard | DZ Address Picker" },
+      { name: "description", content: "Analytics and management dashboard for DZ Address Picker." },
       { name: "robots", content: "noindex" },
     ],
   }),
   component: AdminPage,
 });
+
 
 const cardClass = "rounded-xl border border-gray-200 bg-white p-5 shadow-sm";
 
@@ -806,17 +796,42 @@ function AdminPage() {
   const [authed, setAuthed] = useState(false);
   const [expired, setExpired] = useState(false);
   const [confirming, setConfirming] = useState(false);
+  const [sessionLoading, setSessionLoading] = useState(true);
 
   useEffect(() => {
-    if (isAdminAuthed()) {
-      setAuthed(true);
-      return;
+    async function checkSession() {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        // Mock auth logic fallback for compatibility with existing flow
+        if (isAdminAuthed() || session) {
+          setAuthed(true);
+        } else {
+          setExpired(true);
+          setTimeout(() => void navigate({ to: "/login", replace: true }), 1200);
+        }
+      } catch (err) {
+        console.error("Auth initialization failed:", err);
+        setExpired(true);
+        setTimeout(() => void navigate({ to: "/login", replace: true }), 1200);
+      } finally {
+        setSessionLoading(false);
+      }
     }
-    // Invalid or expired session: surface a brief notice before redirecting.
-    setExpired(true);
-    const timer = setTimeout(() => void navigate({ to: "/login", replace: true }), 1200);
-    return () => clearTimeout(timer);
+    
+    checkSession();
   }, [navigate]);
+
+  if (sessionLoading) {
+    return (
+      <div className="min-h-screen bg-blue-50 flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-blue-900 font-black uppercase tracking-widest text-xs">Initializing Secure Session...</p>
+        </div>
+      </div>
+    );
+  }
 
   const body: ReactNode = authed ? (
     <>
@@ -832,9 +847,12 @@ function AdminPage() {
       )}
     </>
   ) : (
-    <div className="min-h-screen bg-gray-50">{expired && <SessionToast />}</div>
+    <div className="min-h-screen bg-blue-50 flex items-center justify-center">
+       {expired && <SessionToast />}
+    </div>
   );
 
   return <ForcedLanguageProvider lang="en">{body}</ForcedLanguageProvider>;
 }
+
 

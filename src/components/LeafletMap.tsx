@@ -29,11 +29,11 @@ export default function LeafletMap({ wilayas, zones, shipping, lang, t }: Leafle
   };
 
   return (
-    <div className="h-full w-full relative group">
+    <div className="h-full w-full relative group min-h-[500px]">
       <MapContainer
         center={[30.0, 3.0]}
         zoom={5}
-        className="h-full w-full grayscale contrast-125 transition-all duration-700"
+        className="h-full w-full grayscale contrast-125 transition-all duration-700 z-0"
         scrollWheelZoom={true}
         aria-label="Interactive Algerian Territory Map"
       >
@@ -42,6 +42,7 @@ export default function LeafletMap({ wilayas, zones, shipping, lang, t }: Leafle
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
           className="map-tiles-dark-transition"
         />
+
 
       
       {wilayas.map((w) => {
