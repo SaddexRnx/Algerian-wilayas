@@ -387,7 +387,7 @@ export function DeveloperHub() {
 
 
 
-      <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+      <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6 group transition-all hover:border-black">
         <h3 className="text-sm font-bold tracking-tighter text-black uppercase">{t("hub.liveConfig")}</h3>
         <p className="mt-1 text-sm text-gray-500 font-medium">{t("hub.liveConfigDesc")}</p>
 
