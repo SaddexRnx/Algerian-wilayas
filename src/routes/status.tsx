@@ -109,39 +109,68 @@ function StatusPage() {
               </div>
             )}
             
-            {healthData.map((res) => (
-              <div
-                key={res.endpoint}
-                className={`flex items-center justify-between rounded-xl border p-4 transition-all hover:shadow-md ${
-                  res.status === "up" ? "border-blue-100 bg-white" : "border-red-200 bg-red-50"
-                }`}
-              >
-                <div className="flex items-center gap-3 overflow-hidden">
-                  <div className={`h-2 w-2 shrink-0 rounded-full ${
-                    res.status === "up" ? "bg-emerald-500" : "bg-red-500 animate-pulse"
-                  }`} />
-                  <div className="overflow-hidden">
-                    <p className="font-mono text-xs font-bold text-blue-900 truncate" dir="ltr">
-                      {res.endpoint}
-                    </p>
-                    <p className="text-[10px] text-blue-400 uppercase tracking-widest mt-0.5">
-                      {res.status === "up" ? `HTTP ${res.statusCode || 200}` : res.error || "DEAD ENDPOINT"}
-                    </p>
-                  </div>
-                </div>
-                <div className="text-right shrink-0 ms-4">
-                  <p className="font-mono text-xs font-bold text-blue-900" dir="ltr">
-                    {res.status === "up" ? `${res.latency}ms` : "—"}
-                  </p>
-                  <p className="text-[10px] text-blue-400 uppercase tracking-widest mt-0.5">
-                    {new Date(res.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                  </p>
-                </div>
+            {healthData.length > 0 && (
+              <div className="space-y-12">
+                {[
+                  { id: 'core', label: 'Core Endpoints', patterns: ['/api/index.json', '/api/wilayas.json', '/api/full-data.json'] },
+                  { id: 'granular', label: 'Granular Data', patterns: ['/api/wilayas/16.json', '/api/wilayas/16/dairas.json', '/api/wilayas/16/dairas/alger-centre.json'] },
+                  { id: 'lang', label: 'Language-Optimized', patterns: ['/api/ar/', '/api/latin/'] },
+                  { id: 'util', label: 'Utilities', patterns: ['/api/zip/', '/api/search', '/api/geo', '/api/shipping', '/api/population', '/api/economy', '/api/travel', '/api/export'] },
+                ].map(group => {
+                  const items = healthData.filter(h => {
+                    if (group.id === 'lang') return h.endpoint.includes('/api/ar/') || h.endpoint.includes('/api/latin/');
+                    if (group.id === 'granular') return h.endpoint.includes('/dairas') || (h.endpoint.match(/\/\d+\.json/) && !h.endpoint.includes('/api/geo/'));
+                    if (group.id === 'core') return group.patterns.includes(h.endpoint);
+                    return group.patterns.some(p => h.endpoint.startsWith(p));
+                  });
+
+                  if (items.length === 0) return null;
+
+                  return (
+                    <div key={group.id}>
+                      <h3 className="mb-4 text-xs font-black uppercase tracking-[0.2em] text-black border-l-4 border-black pl-3">
+                        {group.label}
+                      </h3>
+                      <div className="grid gap-4">
+                        {items.map((res) => (
+                          <div
+                            key={res.endpoint}
+                            className={`flex items-center justify-between rounded-xl border p-4 transition-all hover:shadow-md ${
+                              res.status === "up" ? "border-gray-100 bg-white" : "border-red-200 bg-red-50"
+                            }`}
+                          >
+                            <div className="flex items-center gap-3 overflow-hidden">
+                              <div className={`h-2 w-2 shrink-0 rounded-full ${
+                                res.status === "up" ? "bg-black" : "bg-red-500 animate-pulse"
+                              }`} />
+                              <div className="overflow-hidden">
+                                <p className="font-mono text-xs font-bold text-gray-900 truncate" dir="ltr">
+                                  {res.endpoint}
+                                </p>
+                                <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-0.5">
+                                  {res.status === "up" ? `HTTP ${res.statusCode || 200}` : res.error || "DEAD ENDPOINT"}
+                                </p>
+                              </div>
+                            </div>
+                            <div className="text-right shrink-0 ms-4">
+                              <p className="font-mono text-xs font-bold text-gray-900" dir="ltr">
+                                {res.status === "up" ? `${res.latency}ms` : "—"}
+                              </p>
+                              <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-0.5">
+                                {new Date(res.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-            ))}
+            )}
 
             {healthData.length === 0 && !loading && (
-              <div className="text-center py-12 text-blue-300">
+              <div className="text-center py-12 text-gray-400">
                 <p className="text-sm font-black uppercase tracking-widest">No data collected yet</p>
                 <button onClick={runHealth} className="mt-4 text-[10px] underline">Check Now</button>
               </div>

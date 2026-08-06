@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const PHRASES = [
-  { text: 'Wilayas', color: 'text-blue-600' },
-  { text: 'ZIP codes', color: 'text-emerald-500' },
-  { text: 'Neighborhoods', color: 'text-sky-500' },
-  { text: 'Bus routes', color: 'text-teal-500' },
-  { text: 'Local places', color: 'text-indigo-500' },
+  { text: 'Wilayas', color: 'text-black dark:text-white' },
+  { text: 'ZIP codes', color: 'text-black dark:text-white' },
+  { text: 'Neighborhoods', color: 'text-black dark:text-white' },
+  { text: 'Bus routes', color: 'text-black dark:text-white' },
+  { text: 'Local places', color: 'text-black dark:text-white' },
 ];
 
 export function HeroAnimation() {

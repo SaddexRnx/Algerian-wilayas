@@ -22,9 +22,9 @@ interface LeafletMapProps {
 export default function LeafletMap({ wilayas, zones, shipping, lang, t }: LeafletMapProps) {
   const getZoneColor = (code: number) => {
     if (!zones) return "#94a3b8";
-    if (zones.North.includes(code)) return "#3b82f6";
-    if (zones.Highlands.includes(code)) return "#10b981";
-    if (zones.South.includes(code)) return "#f59e0b";
+    if (zones.North.includes(code)) return "#000000";
+    if (zones.Highlands.includes(code)) return "#4b5563";
+    if (zones.South.includes(code)) return "#9ca3af";
     return "#94a3b8";
   };
 

@@ -308,7 +308,7 @@ export function ApiDocs() {
                             <div className="space-y-3">
                               {e.params.map(p => (
                                 <div key={p.name} className="flex gap-3 text-xs">
-                                  <span className="font-mono text-primary font-bold">`{p.name}`</span>
+                                  <span className="font-mono text-black font-bold">`{p.name}`</span>
                                   <span className="text-gray-400">({p.type})</span>
                                   <span className="text-gray-600">— {p.desc}</span>
                                 </div>

@@ -72,15 +72,15 @@ export function MapContent() {
 
       <footer className="border-t border-gray-200 bg-gray-50 p-4">
         <div className="mx-auto max-w-7xl flex flex-wrap gap-6 text-xs font-medium text-gray-500 uppercase tracking-widest">
-           <div className="flex items-center gap-2">
-             <span className="h-3 w-3 rounded-full bg-blue-500"></span> Zone 1: {lang === "ar" ? "الشمال" : "North"}
-           </div>
-           <div className="flex items-center gap-2">
-             <span className="h-3 w-3 rounded-full bg-emerald-500"></span> Zone 2: {lang === "ar" ? "الهضاب العليا" : "Highlands"}
-           </div>
-           <div className="flex items-center gap-2">
-             <span className="h-3 w-3 rounded-full bg-amber-500"></span> Zone 3: {lang === "ar" ? "الجنوب" : "South"}
-           </div>
+            <div className="flex items-center gap-2">
+              <span className="h-3 w-3 rounded-full bg-black"></span> Zone 1: {lang === "ar" ? "الشمال" : "North"}
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-3 w-3 rounded-full bg-gray-600"></span> Zone 2: {lang === "ar" ? "الهضاب العليا" : "Highlands"}
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-3 w-3 rounded-full bg-gray-400"></span> Zone 3: {lang === "ar" ? "الجنوب" : "South"}
+            </div>
         </div>
       </footer>
     </div>

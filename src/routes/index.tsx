@@ -304,19 +304,15 @@ function Index() {
 
 
           <div className="mb-12 flex justify-center">
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 border border-blue-100 text-blue-700 shadow-sm"
-            >
+            <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 border border-gray-200 text-gray-900 shadow-sm">
               <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-black"></span>
               </span>
               <span className="text-sm font-black uppercase tracking-widest">
                 🚀 Over {(totalCalls ?? 15420).toLocaleString()}+ API calls served globally
               </span>
-            </motion.div>
+            </div>
           </div>
 
           <h1 className="text-4xl font-extrabold tracking-tighter text-black sm:text-5xl md:text-6xl lg:text-7xl !leading-[1.1] mb-6">
@@ -327,7 +323,7 @@ function Index() {
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 bg-blue-50 px-4 py-2 rounded-full border border-blue-100">
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 bg-gray-50 px-4 py-2 rounded-full border border-gray-200">
               {t("nav.language")}
             </p>
           </div>
@@ -335,13 +331,13 @@ function Index() {
           <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
             <Link
               to="/integrations"
-              className="rounded-xl bg-gradient-to-r from-blue-600 to-emerald-600 px-8 py-4 text-center font-bold text-white shadow-lg transition hover:scale-105 active:scale-95 uppercase tracking-widest text-xs"
+              className="rounded-xl bg-black px-8 py-4 text-center font-bold text-white shadow-lg transition hover:bg-gray-800 active:scale-95 uppercase tracking-widest text-xs"
             >
               View Developer Hub & Integrations
             </Link>
             <Link
               to="/map"
-              className="rounded-xl border-2 border-blue-600 bg-white px-8 py-4 text-center font-bold text-blue-600 transition hover:bg-blue-50 uppercase tracking-widest text-xs"
+              className="rounded-xl border-2 border-black bg-white px-8 py-4 text-center font-bold text-black transition hover:bg-gray-100 uppercase tracking-widest text-xs"
             >
               Interactive Map
             </Link>
