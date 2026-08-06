@@ -22,7 +22,7 @@ const baseTranslations = {
   "nav.features": { en: "Capabilities", fr: "Capacités", ar: "القدرات" },
   "nav.admin": { en: "Admin Panel", fr: "Panneau Admin", ar: "لوحة الإشراف" },
   "nav.backHome": { en: "Exit to Site", fr: "Quitter vers le site", ar: "خروج للموقع" },
-  "nav.language": { en: "Language Selector", fr: "Sélecteur", ar: "مبدل اللغة" },
+  "nav.language": { en: "Refine the API counter live animation so the number updates smoothly and never looks fake or misleading.", fr: "Sélecteur", ar: "مبدل اللغة" },
   "nav.leaderboard": { en: "Top Contributors", fr: "Contributeurs", ar: "أعلى المساهمين" },
   "nav.vote": { en: "Feature Voting", fr: "Vote", ar: "تصويت على الميزات" },
   "nav.changelog": { en: "History", fr: "Historique", ar: "تاريخ الإصدارات" },
