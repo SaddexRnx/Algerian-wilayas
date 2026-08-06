@@ -170,7 +170,7 @@ function StatusPage() {
             )}
 
             {healthData.length === 0 && !loading && (
-              <div className="text-center py-12 text-blue-300">
+              <div className="text-center py-12 text-gray-400">
                 <p className="text-sm font-black uppercase tracking-widest">No data collected yet</p>
                 <button onClick={runHealth} className="mt-4 text-[10px] underline">Check Now</button>
               </div>
