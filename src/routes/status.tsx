@@ -6,7 +6,7 @@ import { useI18n, LanguageToggle } from "@/lib/i18n";
 import { checkApiHealth, type HealthCheckResult } from "@/lib/health.functions";
 import logo from "@/assets/logo.png";
 import pkg from '../../package.json';
-import { ChevronLeft, Info, AlertTriangle, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, Info, AlertTriangle, CheckCircle2, RefreshCw } from "lucide-react";
 
 
 export const Route = createFileRoute("/status")({
