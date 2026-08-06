@@ -303,7 +303,7 @@ function CopyCodeButton({ code, label }: { code: string; label: string }) {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       }}
-      className="absolute top-3 right-3 rounded bg-white/10 px-3 py-1.5 text-xs text-white transition hover:bg-white/20 border border-white/10 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none sm:top-4 sm:right-4"
+      className="absolute top-3 right-3 rounded bg-black/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white transition hover:bg-black border border-white/20 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none sm:top-4 sm:right-4 z-10"
     >
       {copied ? t("hub.copied") : t("hub.copy")}
     </button>
@@ -498,6 +498,18 @@ export function DeveloperHub() {
         id={`panel-${active.id}`}
         aria-labelledby={`tab-${active.id}`}
         tabIndex={0}
+        className="mt-4 animate-in fade-in duration-300 outline-none"
+      >
+        <div className="relative overflow-hidden rounded-xl border border-gray-200 bg-gray-50 shadow-inner">
+          <CopyCodeButton code={active.code} label={active.label} />
+          <pre
+            dir="ltr"
+            className="overflow-x-auto p-6 text-sm leading-relaxed text-black scrollbar-hide"
+          >
+            <code>{active.code}</code>
+          </pre>
+        </div>
+      </div>
         dir="ltr"
         className="relative mt-4 overflow-x-auto rounded-xl bg-gray-950 p-4 text-gray-100 focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none sm:p-6"
       >

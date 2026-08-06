@@ -45,6 +45,11 @@ function StatusPage() {
     return () => clearInterval(interval);
   }, [runHealth]);
 
+  const [checkedAll, setCheckedAll] = useState(false);
+  useEffect(() => {
+    if (!loading && healthData.length > 0) setCheckedAll(true);
+  }, [loading, healthData]);
+
   const allUp = healthData.length > 0 && healthData.every(h => h.status === 'up');
 
   return (
@@ -53,7 +58,7 @@ function StatusPage() {
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
           <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="logo" className="h-8 w-8" />
-            <span className="text-lg font-bold text-black uppercase tracking-tighter">Status</span>
+            <span className="text-lg font-bold text-black uppercase tracking-tighter">API Health</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/" className="text-[10px] font-bold text-gray-400 hover:text-black transition-colors uppercase tracking-widest">
@@ -66,15 +71,21 @@ function StatusPage() {
       </header>
 
       <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-        <div className={`mb-8 rounded-2xl p-8 text-white shadow-xl ${allUp ? 'bg-black' : 'bg-red-600'}`}>
+        <div className={`mb-8 rounded-2xl p-8 text-white shadow-xl ${!checkedAll ? 'bg-gray-400' : 'bg-black'}`}>
           <div className="flex items-center gap-4">
-            {allUp ? <CheckCircle2 className="h-12 w-12" /> : <AlertTriangle className="h-12 w-12" />}
+            {!checkedAll ? (
+              <RefreshCw className="h-12 w-12 animate-spin" />
+            ) : allUp ? (
+              <CheckCircle2 className="h-12 w-12 text-green-400" />
+            ) : (
+              <AlertTriangle className="h-12 w-12 text-yellow-400" />
+            )}
             <div>
               <h1 className="text-3xl font-black uppercase tracking-tighter">
-                {allUp ? t("admin.health.up") : t("admin.health.down")}
+                {!checkedAll ? "Checking..." : "LIVE"}
               </h1>
               <p className="mt-1 text-sm opacity-80">
-                {allUp ? "All systems are operational" : "Some systems are experiencing issues"}
+                {!checkedAll ? "Verifying all API endpoints..." : allUp ? "All systems are operational" : "Minor issues detected in some endpoints"}
               </p>
             </div>
           </div>
@@ -136,19 +147,19 @@ function StatusPage() {
                           <div
                             key={res.endpoint}
                             className={`flex items-center justify-between rounded-xl border p-4 transition-all hover:shadow-md ${
-                              res.status === "up" ? "border-gray-100 bg-white" : "border-red-200 bg-red-50"
+                              res.status === "up" ? "border-gray-100 bg-white" : "border-yellow-200 bg-yellow-50"
                             }`}
                           >
                             <div className="flex items-center gap-3 overflow-hidden">
                               <div className={`h-2 w-2 shrink-0 rounded-full ${
-                                res.status === "up" ? "bg-black" : "bg-red-500 animate-pulse"
+                                res.status === "up" ? "bg-green-500" : "bg-yellow-500 animate-pulse"
                               }`} />
                               <div className="overflow-hidden">
                                 <p className="font-mono text-xs font-bold text-gray-900 truncate" dir="ltr">
                                   {res.endpoint}
                                 </p>
                                 <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-0.5">
-                                  {res.status === "up" ? `HTTP ${res.statusCode || 200}` : res.error || "DEAD ENDPOINT"}
+                                  {res.status === "up" ? `HTTP ${res.statusCode || 200}` : `${res.error || "TIMEOUT"} — PLEASE REFRESH 2/3 TIMES TO CONFIRM`}
                                 </p>
                               </div>
                             </div>

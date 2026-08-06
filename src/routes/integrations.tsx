@@ -180,43 +180,39 @@ function IntegrationsPage() {
                     <div className="bg-gray-50 rounded-2xl p-6 font-mono text-xs text-black border border-gray-100 relative group/code overflow-x-auto min-h-[120px]">
                       <pre className="whitespace-pre-wrap">{item.code}</pre>
                       <button 
-                        onClick={() => navigator.clipboard.writeText(item.code)}
-                        className="absolute top-4 right-4 p-2 bg-white/10 rounded-lg opacity-0 group-hover/code:opacity-100 transition-opacity hover:bg-white/20"
+                        onClick={() => {
+                          void navigator.clipboard.writeText(item.code);
+                        }}
+                        className="absolute top-4 right-4 p-2 bg-black text-white rounded-lg opacity-0 group-hover/code:opacity-100 transition-opacity hover:bg-gray-800 flex items-center gap-2"
                       >
-                        <Code className="w-4 h-4 text-black" />
+                        <Code className="w-4 h-4" />
+                        <span className="text-[10px] font-bold uppercase tracking-widest">Copy</span>
                       </button>
                     </div>
-                    <p className="mt-4 text-[10px] text-gray-400 font-bold uppercase tracking-widest">Click icon to copy snippet</p>
+                    <p className="mt-4 text-[10px] text-gray-400 font-bold uppercase tracking-widest">Click button to copy snippet</p>
+                    
+                    {item.hasVersions && (
+                      <div className="mt-8 pt-8 border-t border-gray-50">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 block mb-2">Download Plugin</label>
+                        <div className="flex items-center gap-2">
+                          <select className="bg-white border border-gray-200 text-black text-xs font-bold rounded-lg px-3 py-2 outline-none appearance-none cursor-pointer">
+                            <option value="1.0.4">v1.0.4 (Latest)</option>
+                            <option value="1.0.3">v1.0.3</option>
+                            <option value="1.0.2">v1.0.2</option>
+                          </select>
+                          <button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg shadow-lg transition-colors hover:bg-gray-800">
+                            <Download className="w-4 h-4" />
+                            <span className="text-xs font-bold uppercase tracking-widest">Download ZIP</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
-            </div>
+            </details>
           ))}
         </div>
-        <section id="demo" className="scroll-mt-32 my-16">
-          <div className="mx-auto max-w-3xl">
-            <div className="mb-12 text-center">
-               <h2 className="text-3xl font-black tracking-tighter text-black uppercase">{t("demo.title")}</h2>
-               <p className="mt-2 text-gray-500 font-medium">Test the picker components in a live environment.</p>
-            </div>
-            <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-2xl">
-              <AlgeriaAddressPicker />
-            </div>
-          </div>
-        </section>
-
-        <section id="in-action" className="my-24 scroll-mt-32">
-          <div className="mx-auto max-w-3xl text-center mb-12">
-            <h2 className="text-3xl font-black tracking-tighter text-black uppercase">
-              {t("checkout.title")}
-            </h2>
-            <p className="mt-2 text-gray-500 font-medium">{t("checkout.subtitle")}</p>
-          </div>
-          <div className="mx-auto max-w-6xl">
-            <CheckoutSimulation live={live} />
-          </div>
-        </section>
-
         <section id="integration" className="scroll-mt-32 my-24 pt-12 border-t border-gray-100">
           <DeveloperHub />
         </section>
