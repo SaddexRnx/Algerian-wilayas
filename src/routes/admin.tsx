@@ -32,24 +32,14 @@ export const Route = createFileRoute("/admin")({
   ssr: false,
   head: () => ({
     meta: [
-      { title: "Admin Dashboard — DZ Address Picker Usage Analytics" },
-      {
-        name: "description",
-        content:
-          "Monitor API traffic, widget loads, top selected wilayas and integration methods for the DZ Address Picker.",
-      },
-      { property: "og:title", content: "DZ Address Picker — Admin Dashboard" },
-      {
-        property: "og:description",
-        content: "API traffic, widget usage, top wilayas and integration breakdown.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { title: "Admin Dashboard | DZ Address Picker" },
+      { name: "description", content: "Analytics and management dashboard for DZ Address Picker." },
       { name: "robots", content: "noindex" },
     ],
   }),
   component: AdminPage,
 });
+
 
 const cardClass = "rounded-xl border border-gray-200 bg-white p-5 shadow-sm";
 
