@@ -933,7 +933,7 @@ export function AlgeriaAddressPicker({
             value={village}
             onChange={(e) => setVillage(e.target.value)}
             placeholder="e.g. Village Ain Soltane"
-            className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-black focus:ring-1 focus:ring-black"
           />
         </div>
       ) : null}
