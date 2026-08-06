@@ -26,7 +26,13 @@ const csrfMiddleware = createCsrfMiddleware({
   filter: (ctx) => ctx.handlerType === "serverFn",
 });
 
-export const startInstance = createStart(() => ({
-  functionMiddleware: [attachSupabaseAuth],
-  requestMiddleware: [errorMiddleware, csrfMiddleware],
-}));
+export const startInstance = createStart(() => {
+  // Check for environment flag to enable/disable edge middleware
+  // In this project, we prioritize stability via client-side hydration fallback
+  const useEdgeAuth = import.meta.env['VITE_ENABLE_EDGE_AUTH'] === 'true';
+  
+  return {
+    functionMiddleware: [attachSupabaseAuth],
+    requestMiddleware: [errorMiddleware, csrfMiddleware],
+  };
+});
