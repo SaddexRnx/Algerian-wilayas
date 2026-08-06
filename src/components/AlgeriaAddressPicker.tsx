@@ -742,7 +742,7 @@ export function AlgeriaAddressPicker({
                 onChange={(e) => handleZipChange(e.target.value)}
                 placeholder="19070"
                 className={`w-full rounded-md border bg-white px-3 py-2 text-sm text-black transition outline-none focus:ring-1 ${
-                  zipError ? "border-red-500 focus:border-red-500 focus:ring-red-500" : "border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                  zipError ? "border-red-500 focus:border-red-500 focus:ring-red-500" : "border-gray-300 focus:border-black focus:ring-1 focus:ring-black"
                 }`}
               />
               {isZipSearching && (
@@ -812,7 +812,7 @@ export function AlgeriaAddressPicker({
             onChange={(e) => setQuickQuery(e.target.value)}
             placeholder={t("picker.quickPlaceholder")}
             aria-describedby="dz-quick-hint"
-            className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-black transition outline-none focus:border-black focus:ring-1 focus:ring-black"
           />
           <p id="dz-quick-hint" className="mt-2 text-xs text-gray-400">
             {t("picker.quickHint")}
