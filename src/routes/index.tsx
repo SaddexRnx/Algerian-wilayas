@@ -329,17 +329,18 @@ function Index() {
           <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
             <Link
               to="/integrations"
-              className="rounded-xl bg-gradient-to-r from-blue-600 to-emerald-600 px-8 py-4 text-center font-bold text-white shadow-lg transition hover:scale-105 active:scale-95"
+              className="rounded-xl bg-gradient-to-r from-blue-600 to-emerald-600 px-8 py-4 text-center font-bold text-white shadow-lg transition hover:scale-105 active:scale-95 uppercase tracking-widest text-xs"
             >
               View Developer Hub & Integrations
             </Link>
-            <a
-              href="#demo"
-              className="rounded-xl border-2 border-blue-600 bg-white px-8 py-4 text-center font-bold text-blue-600 transition hover:bg-blue-50"
+            <Link
+              to="/map"
+              className="rounded-xl border-2 border-blue-600 bg-white px-8 py-4 text-center font-bold text-blue-600 transition hover:bg-blue-50 uppercase tracking-widest text-xs"
             >
-              {t("hero.ctaDemo")}
-            </a>
+              Interactive Map
+            </Link>
           </div>
+
         </section>
 
 
