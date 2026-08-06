@@ -253,24 +253,14 @@ function Index() {
           </div>
         </div>
         
-        <nav className="flex items-center justify-center gap-6 overflow-x-auto border-t border-gray-100 px-4 py-3 text-xs whitespace-nowrap scrollbar-hide">
-          <Link to="/map" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.map")}
-          </Link>
-          <Link to="/integrations" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.integrations")}
-          </Link>
-          <Link to="/leaderboard" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.leaderboard")}
-          </Link>
-          <Link to="/vote" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.vote")}
-          </Link>
-          <Link to="/status" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.status")}
-          </Link>
-          <Link to="/report" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.report")}
+        <nav className="flex items-center justify-center gap-6 overflow-x-auto border-t border-gray-100 px-4 py-3 text-[10px] whitespace-nowrap scrollbar-hide">
+          {navLinks.map(link => (
+            <Link key={link.href} to={link.href} className="text-gray-500 font-black uppercase tracking-widest transition hover:text-black">
+              {link.label}
+            </Link>
+          ))}
+          <Link to="/report" className="text-gray-500 font-black uppercase tracking-widest transition hover:text-black">
+            Correction
           </Link>
         </nav>
       </header>

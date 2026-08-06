@@ -133,31 +133,30 @@ function IntegrationsPage() {
 
         <div className="grid gap-8 mb-24">
           {INTEGRATIONS.map((item) => (
-            <div key={item.id} className="bg-white rounded-3xl border border-gray-100 shadow-xl overflow-hidden flex flex-col lg:flex-row group transition-all hover:border-black">
-              <div className="lg:w-80 bg-gray-50 p-8 flex flex-col justify-between text-black border-r border-gray-100">
-                <div>
-                  <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-6 shadow-inner text-white">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-3xl font-black mb-2 uppercase tracking-tighter leading-tight">{item.name}</h3>
-                  <p className="text-gray-500 font-medium">{item.desc}</p>
-                </div>
-                {item.hasVersions && (
-                  <div className="mt-8">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 block mb-2">Select Version</label>
-                    <div className="flex items-center gap-2">
-                      <select className="bg-white border border-gray-200 text-black text-xs font-bold rounded-lg px-3 py-2 outline-none w-full appearance-none cursor-pointer">
-                        <option value="1.0.4">v1.0.4 (Latest)</option>
-                        <option value="1.0.3">v1.0.3</option>
-                        <option value="1.0.2">v1.0.2</option>
-                      </select>
-                      <button className="p-2 bg-black text-white rounded-lg shadow-lg transition-colors">
-                        <Download className="w-5 h-5" />
-                      </button>
+            <details key={item.id} className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group transition-all hover:border-black open:shadow-xl">
+              <summary className="list-none cursor-pointer flex flex-col lg:flex-row items-stretch">
+                <div className="lg:w-80 bg-gray-50 p-8 flex flex-col justify-between text-black border-r border-gray-100">
+                  <div>
+                    <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-6 shadow-inner text-white group-hover:scale-105 transition-transform">
+                      {item.icon}
                     </div>
+                    <h3 className="text-3xl font-black mb-2 uppercase tracking-tighter leading-tight">{item.name}</h3>
+                    <p className="text-gray-500 font-medium">{item.desc}</p>
                   </div>
-                )}
-              </div>
+                </div>
+                <div className="flex-1 p-8 sm:p-12 flex items-center justify-between">
+                  <div>
+                    <h4 className="text-xs font-black uppercase tracking-widest text-gray-400">Status</h4>
+                    <p className="text-sm font-bold text-black mt-1">Ready for Integration</p>
+                  </div>
+                  <div className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform">
+                    <ChevronLeft className="w-5 h-5 rotate-[270deg]" />
+                  </div>
+                </div>
+              </summary>
+              
+              <div className="p-8 sm:p-12 border-t border-gray-100 bg-white">
+
               
               <div className="flex-1 p-8 sm:p-12">
                 <div className="grid md:grid-cols-2 gap-12">

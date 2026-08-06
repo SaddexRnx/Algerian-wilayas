@@ -510,14 +510,7 @@ export function DeveloperHub() {
           </pre>
         </div>
       </div>
-        dir="ltr"
-        className="relative mt-4 overflow-x-auto rounded-xl bg-gray-950 p-4 text-gray-100 focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none sm:p-6"
-      >
-        <CopyCodeButton code={active.code} label={active.label} />
-        <pre className="pt-8 font-mono text-xs leading-relaxed sm:pt-0 sm:pr-20 sm:text-sm">
-          <code>{active.code}</code>
-        </pre>
-      </div>
+
 
       <PluginDownload />
 
