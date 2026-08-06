@@ -107,6 +107,24 @@ export type Database = {
         }
         Relationships: []
       }
+      site_stats: {
+        Row: {
+          id: string
+          total_api_calls: number
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          total_api_calls?: number
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          total_api_calls?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       zip_reports: {
         Row: {
           commune_name: string
@@ -145,7 +163,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      increment_api_calls: { Args: never; Returns: undefined }
     }
     Enums: {
       [_ in never]: never
