@@ -26,7 +26,7 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const liveValues = [
-    live?.wilayaCode ? `${live.wilayaCode} - ${live.wilayaName}` : "",
+    live?.wilayaCode ? `${String(live.wilayaCode).padStart(2, '0')} - ${live.wilayaName}` : "",
     live?.dairaName ?? "",
     live?.communeName ?? "",
   ];

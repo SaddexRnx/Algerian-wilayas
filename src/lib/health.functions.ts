@@ -4,13 +4,15 @@ import { z } from "zod";
 const ENDPOINTS = [
   "/api/index.json",
   "/api/wilayas.json",
-  "/api/full.json",
-  "/api/geo/wilayas.json",
-  "/api/logistics/rates.json",
-  "/api/demographics/population.json",
-  "/api/services/banks.json",
+  "/api/full-data.json",
   "/api/ar/wilayas.json",
   "/api/latin/wilayas.json",
+  "/api/zip/19070.json",
+  "/api/coordinates/wilayas.json",
+  "/api/shipping/rates.json",
+  "/api/geo/wilayas.json",
+  "/api/search?q=bou",
+  "/api/export/wilayas-communes.csv",
 ];
 
 export interface HealthCheckResult {
