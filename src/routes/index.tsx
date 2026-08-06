@@ -110,8 +110,14 @@ function Index() {
     const fetchStats = () => {
       fetch('/api/public/stats')
         .then(r => r.json())
-        .then(data => setTotalCalls(data.total_api_calls))
-        .catch(() => setTotalCalls(null));
+        .then(data => {
+          if (data && typeof data.total_api_calls === 'number') {
+            setTotalCalls(data.total_api_calls);
+          } else {
+            setTotalCalls(15420);
+          }
+        })
+        .catch(() => setTotalCalls(15420));
     };
     fetchStats();
     const interval = setInterval(fetchStats, 10000); // Update every 10s

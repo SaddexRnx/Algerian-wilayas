@@ -17,9 +17,10 @@ export const Route = createFileRoute('/api/public/stats')({
             headers: { 'Content-Type': 'application/json' }
           });
         } catch (error) {
+          console.error('Stats endpoint error:', error);
           return new Response(JSON.stringify({ total_api_calls: 15420 }), {
             headers: { 'Content-Type': 'application/json' },
-            status: 200 // Return fallback even on error
+            status: 200
           });
         }
       }
