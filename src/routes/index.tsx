@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
+import { supabase } from "@/integrations/supabase/client";
 import { checkApiHealth, type HealthCheckResult } from "@/lib/health.functions";
 
 import { CheckoutSimulation, type LiveAddress } from "@/components/CheckoutSimulation";
@@ -107,20 +108,24 @@ function Index() {
   const [lastCheck, setLastCheck] = useState<Date | null>(null);
 
   useEffect(() => {
-    const fetchStats = () => {
-      fetch('/api/public/stats')
-        .then(r => r.json())
-        .then(data => {
-          if (data && typeof data.total_api_calls === 'number') {
-            setTotalCalls(data.total_api_calls);
-          } else {
-            setTotalCalls(15420);
-          }
-        })
-        .catch(() => setTotalCalls(15420));
+    const fetchStats = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('site_stats')
+          .select('total_api_calls')
+          .single();
+          
+        if (data && !error) {
+          setTotalCalls(data.total_api_calls);
+        } else {
+          setTotalCalls(15420);
+        }
+      } catch (err) {
+        setTotalCalls(15420);
+      }
     };
-    fetchStats();
-    const interval = setInterval(fetchStats, 10000); // Update every 10s
+    void fetchStats();
+    const interval = setInterval(() => void fetchStats(), 10000); // Update every 10s
     return () => clearInterval(interval);
   }, []);
 
