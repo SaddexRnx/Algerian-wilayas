@@ -131,7 +131,7 @@ function IntegrationsPage() {
           </div>
         </section>
 
-        <div className="grid gap-8">
+        <div className="grid gap-8 mb-24">
           {INTEGRATIONS.map((item) => (
             <div key={item.id} className="bg-white rounded-3xl border border-gray-100 shadow-xl overflow-hidden flex flex-col lg:flex-row group transition-all hover:border-black">
               <div className="lg:w-80 bg-gray-50 p-8 flex flex-col justify-between text-black border-r border-gray-100">
@@ -192,6 +192,7 @@ function IntegrationsPage() {
               </div>
             </div>
           ))}
+        </div>
         <section id="demo" className="scroll-mt-32 my-16">
           <div className="mx-auto max-w-3xl">
             <div className="mb-12 text-center">
