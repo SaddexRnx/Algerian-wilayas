@@ -22,7 +22,7 @@ const baseTranslations = {
   "nav.features": { en: "Capabilities", fr: "Capacités", ar: "القدرات" },
   "nav.admin": { en: "Admin Panel", fr: "Panneau Admin", ar: "لوحة الإشراف" },
   "nav.backHome": { en: "Exit to Site", fr: "Quitter vers le site", ar: "خروج للموقع" },
-  "nav.language": { en: "🚨 CRITICAL BUILD FIX: The Vercel build is failing because `middleware.ts` is using `next/server`, but this is a TanStack Start / Vite project, NOT Next.js.\n\n\n\nPlease execute the following immediately to fix the build:\n\n\n\n1. DELETE the `middleware.ts` file entirely from the project root.\n\n2. Remove any imports or references to `next/server` anywhere in the codebase.\n\n3. For the live API counter on the homepage, do NOT use middleware. Instead, simply fetch the `total_api_calls` from the `site_stats` Supabase table client-side. Use a standard `supabase.from('site_stats').select('total_api_calls').single()` call inside a `useEffect` or TanStack `useQuery` on the homepage component.\n\n4. Display this fetched number in the hero section (e.g., \"🚀 Over [total_api_calls]+ API calls served globally\").\n\n5. Commit the deletion of `middleware.ts` and the updated homepage component to GitHub and push immediately so the Vercel build succeeds.\n\n\n\nDo not ask for confirmation. Just delete the file, update the homepage fetch logic, and push.", fr: "Sélecteur", ar: "مبدل اللغة" },
+  "nav.language": { en: "Language Selector", fr: "Sélecteur", ar: "مبدل اللغة" },
   "nav.leaderboard": { en: "Top Contributors", fr: "Contributeurs", ar: "أعلى المساهمين" },
   "nav.vote": { en: "Feature Voting", fr: "Vote", ar: "تصويت على الميزات" },
   "nav.changelog": { en: "History", fr: "Historique", ar: "تاريخ الإصدارات" },
@@ -190,6 +190,10 @@ const baseTranslations = {
 
   // Integrations
   "integrations.title": { en: "E-commerce Integrations", fr: "Intégrations E-commerce", ar: "التكامل مع التجارة الإلكترونية" },
+  "report.title": { en: "Data Correction", fr: "Correction de données", ar: "تصحيح البيانات" },
+  "report.subtitle": { en: "Help us improve accuracy by reporting incorrect data.", fr: "Aidez-nous à améliorer la précision en signalant les données incorrectes.", ar: "ساعدنا في تحسين الدقة من خلال الإبلاغ عن البيانات غير الصحيحة." },
+  "report.message": { en: "Details", fr: "Détails", ar: "التفاصيل" },
+  "report.submit": { en: "Submit Correction", fr: "Envoyer la correction", ar: "إرسال التصحيح" },
   "integrations.desc": { en: "Comprehensive guides to integrate DZ Address Picker into your existing store.", fr: "Guides complets pour intégrer DZ Address Picker dans votre boutique.", ar: "أدلة شاملة لدمج DZ Address Picker في متجرك الحالي." },
 
   // Developer Hub
