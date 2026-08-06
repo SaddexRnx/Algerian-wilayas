@@ -29,7 +29,7 @@ const baseTranslations = {
   "nav.integrations": { en: "Developer Hub", fr: "Espace Dev", ar: "مركز المطورين" },
   "nav.tester": { en: "API Sandbox", fr: "Sandbox API", ar: "بيئة الاختبار" },
   "nav.report": { en: "Data Correction", fr: "Correction", ar: "تصحيح البيانات" },
-  "nav.status": { en: "Health Check", fr: "Santé", ar: "فحص الحالة" },
+  "nav.status": { en: "API Health", fr: "Santé API", ar: "حالة البرمجية" },
   "nav.adminLogin": { en: "Staff Login", fr: "Connexion Staff", ar: "دخول الموظفين" },
   "nav.dashboard": { en: "Management Hub", fr: "Gestion", ar: "مركز الإدارة" },
 

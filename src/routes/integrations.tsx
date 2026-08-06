@@ -133,33 +133,29 @@ function IntegrationsPage() {
 
         <div className="grid gap-8 mb-24">
           {INTEGRATIONS.map((item) => (
-            <div key={item.id} className="bg-white rounded-3xl border border-gray-100 shadow-xl overflow-hidden flex flex-col lg:flex-row group transition-all hover:border-black">
-              <div className="lg:w-80 bg-gray-50 p-8 flex flex-col justify-between text-black border-r border-gray-100">
-                <div>
-                  <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-6 shadow-inner text-white">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-3xl font-black mb-2 uppercase tracking-tighter leading-tight">{item.name}</h3>
-                  <p className="text-gray-500 font-medium">{item.desc}</p>
-                </div>
-                {item.hasVersions && (
-                  <div className="mt-8">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 block mb-2">Select Version</label>
-                    <div className="flex items-center gap-2">
-                      <select className="bg-white border border-gray-200 text-black text-xs font-bold rounded-lg px-3 py-2 outline-none w-full appearance-none cursor-pointer">
-                        <option value="1.0.4">v1.0.4 (Latest)</option>
-                        <option value="1.0.3">v1.0.3</option>
-                        <option value="1.0.2">v1.0.2</option>
-                      </select>
-                      <button className="p-2 bg-black text-white rounded-lg shadow-lg transition-colors">
-                        <Download className="w-5 h-5" />
-                      </button>
+            <details key={item.id} className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden flex flex-col group transition-all hover:border-black open:shadow-xl">
+              <summary className="list-none cursor-pointer flex flex-col lg:flex-row items-stretch">
+                <div className="lg:w-80 bg-gray-50 p-8 flex flex-col justify-between text-black border-r border-gray-100">
+                  <div>
+                    <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-6 shadow-inner text-white group-hover:scale-105 transition-transform">
+                      {item.icon}
                     </div>
+                    <h3 className="text-3xl font-black mb-2 uppercase tracking-tighter leading-tight">{item.name}</h3>
+                    <p className="text-gray-500 font-medium">{item.desc}</p>
                   </div>
-                )}
-              </div>
+                </div>
+                <div className="flex-1 p-8 sm:p-12 flex items-center justify-between">
+                  <div>
+                    <h4 className="text-xs font-black uppercase tracking-widest text-gray-400">Status</h4>
+                    <p className="text-sm font-bold text-black mt-1">Ready for Integration</p>
+                  </div>
+                  <div className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform">
+                    <ChevronLeft className="w-5 h-5 rotate-[270deg]" />
+                  </div>
+                </div>
+              </summary>
               
-              <div className="flex-1 p-8 sm:p-12">
+              <div className="p-8 sm:p-12 border-t border-gray-100 bg-white">
                 <div className="grid md:grid-cols-2 gap-12">
                   <div>
                     <h4 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">Setup Steps</h4>
@@ -180,43 +176,39 @@ function IntegrationsPage() {
                     <div className="bg-gray-50 rounded-2xl p-6 font-mono text-xs text-black border border-gray-100 relative group/code overflow-x-auto min-h-[120px]">
                       <pre className="whitespace-pre-wrap">{item.code}</pre>
                       <button 
-                        onClick={() => navigator.clipboard.writeText(item.code)}
-                        className="absolute top-4 right-4 p-2 bg-white/10 rounded-lg opacity-0 group-hover/code:opacity-100 transition-opacity hover:bg-white/20"
+                        onClick={() => {
+                          void navigator.clipboard.writeText(item.code);
+                        }}
+                        className="absolute top-4 right-4 p-2 bg-black text-white rounded-lg opacity-0 group-hover/code:opacity-100 transition-opacity hover:bg-gray-800 flex items-center gap-2"
                       >
-                        <Code className="w-4 h-4 text-black" />
+                        <Code className="w-4 h-4" />
+                        <span className="text-[10px] font-bold uppercase tracking-widest">Copy</span>
                       </button>
                     </div>
-                    <p className="mt-4 text-[10px] text-gray-400 font-bold uppercase tracking-widest">Click icon to copy snippet</p>
+                    <p className="mt-4 text-[10px] text-gray-400 font-bold uppercase tracking-widest">Click button to copy snippet</p>
+                    
+                    {item.hasVersions && (
+                      <div className="mt-8 pt-8 border-t border-gray-50">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 block mb-2">Download Plugin</label>
+                        <div className="flex items-center gap-2">
+                          <select className="bg-white border border-gray-200 text-black text-xs font-bold rounded-lg px-3 py-2 outline-none appearance-none cursor-pointer">
+                            <option value="1.0.4">v1.0.4 (Latest)</option>
+                            <option value="1.0.3">v1.0.3</option>
+                            <option value="1.0.2">v1.0.2</option>
+                          </select>
+                          <button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg shadow-lg transition-colors hover:bg-gray-800">
+                            <Download className="w-4 h-4" />
+                            <span className="text-xs font-bold uppercase tracking-widest">Download ZIP</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
-            </div>
+            </details>
           ))}
         </div>
-        <section id="demo" className="scroll-mt-32 my-16">
-          <div className="mx-auto max-w-3xl">
-            <div className="mb-12 text-center">
-               <h2 className="text-3xl font-black tracking-tighter text-black uppercase">{t("demo.title")}</h2>
-               <p className="mt-2 text-gray-500 font-medium">Test the picker components in a live environment.</p>
-            </div>
-            <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-2xl">
-              <AlgeriaAddressPicker />
-            </div>
-          </div>
-        </section>
-
-        <section id="in-action" className="my-24 scroll-mt-32">
-          <div className="mx-auto max-w-3xl text-center mb-12">
-            <h2 className="text-3xl font-black tracking-tighter text-black uppercase">
-              {t("checkout.title")}
-            </h2>
-            <p className="mt-2 text-gray-500 font-medium">{t("checkout.subtitle")}</p>
-          </div>
-          <div className="mx-auto max-w-6xl">
-            <CheckoutSimulation live={live} />
-          </div>
-        </section>
-
         <section id="integration" className="scroll-mt-32 my-24 pt-12 border-t border-gray-100">
           <DeveloperHub />
         </section>

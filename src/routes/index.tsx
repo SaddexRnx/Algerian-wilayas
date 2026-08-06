@@ -111,7 +111,7 @@ function Index() {
       fetch('/api/public/stats')
         .then(r => r.json())
         .then(data => setTotalCalls(data.total_api_calls))
-        .catch(() => setTotalCalls(15420));
+        .catch(() => setTotalCalls(null));
     };
     fetchStats();
     const interval = setInterval(fetchStats, 10000); // Update every 10s
@@ -176,14 +176,12 @@ function Index() {
   }, []);
 
   const navLinks = [
-    { href: "#demo", label: t("nav.demo") },
-    { href: "/map", label: t("nav.map") },
-    { href: "/leaderboard", label: t("nav.leaderboard") },
-    { href: "/vote", label: t("nav.vote") },
-    { href: "/changelog", label: t("nav.changelog") },
-    { href: "/integrations", label: t("nav.integrations") },
-    { href: "#api", label: t("nav.api") },
-    { href: "/status", label: t("nav.status") },
+    { href: "/map", label: "MAP" },
+    { href: "/integrations", label: "DEV HUB" },
+    { href: "/leaderboard", label: "TOP" },
+    { href: "/vote", label: "VOTE" },
+    { href: "/changelog", label: "UPDATES" },
+    { href: "/status", label: "HEALTH" },
   ];
 
 
@@ -255,24 +253,14 @@ function Index() {
           </div>
         </div>
         
-        <nav className="flex items-center justify-center gap-6 overflow-x-auto border-t border-gray-100 px-4 py-3 text-xs whitespace-nowrap scrollbar-hide">
-          <Link to="/map" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.map")}
-          </Link>
-          <Link to="/integrations" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.integrations")}
-          </Link>
-          <Link to="/leaderboard" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.leaderboard")}
-          </Link>
-          <Link to="/vote" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.vote")}
-          </Link>
-          <Link to="/status" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.status")}
-          </Link>
-          <Link to="/report" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
-            {t("nav.report")}
+        <nav className="flex items-center justify-center gap-6 overflow-x-auto border-t border-gray-100 px-4 py-3 text-[10px] whitespace-nowrap scrollbar-hide">
+          {navLinks.map(link => (
+            <Link key={link.href} to={link.href} className="text-gray-500 font-black uppercase tracking-widest transition hover:text-black">
+              {link.label}
+            </Link>
+          ))}
+          <Link to="/report" className="text-gray-500 font-black uppercase tracking-widest transition hover:text-black">
+            Correction
           </Link>
         </nav>
       </header>
@@ -318,13 +306,13 @@ function Index() {
 
 
           <div className="mb-12 flex justify-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 border border-gray-200 text-gray-900 shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-2 border border-green-100 text-green-700 shadow-sm">
               <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-black"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-600"></span>
               </span>
               <span className="text-sm font-black uppercase tracking-widest">
-                🚀 Over {(totalCalls ?? 15420).toLocaleString()}+ API calls served globally
+                🚀 {totalCalls ? totalCalls.toLocaleString() : '...'} API calls served globally
               </span>
             </div>
           </div>
@@ -347,7 +335,7 @@ function Index() {
               to="/integrations"
               className="rounded-xl bg-black px-8 py-4 text-center font-bold text-white shadow-lg transition hover:bg-gray-800 active:scale-95 uppercase tracking-widest text-xs"
             >
-              View Developer Hub & Integrations
+              Get Started — Dev Hub
             </Link>
             <Link
               to="/map"
