@@ -74,8 +74,8 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
   const isComplete = hasLive ? liveValues.every(Boolean) : step >= 4;
 
   return (
-    <div className="max-w-4xl mx-auto my-16">
-      <div className="bg-white rounded-[2rem] border-4 border-blue-50 shadow-2xl overflow-hidden">
+    <div className="w-full mx-auto my-16">
+      <div className="bg-white rounded-[2rem] border-4 border-blue-50 shadow-2xl overflow-hidden w-full">
         <div className="bg-gradient-to-r from-blue-600 to-emerald-600 p-6 sm:p-10 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
              <div className="flex items-center gap-2 mb-2">
