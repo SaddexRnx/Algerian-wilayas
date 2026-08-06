@@ -364,11 +364,9 @@ function Index() {
             One powerful API for <HeroAnimation />. Trilingual, blazing fast, and packed with features for modern apps.
           </p>
           <div className="mx-auto mt-8 max-w-xl rounded-xl border border-dashed border-gray-300 p-4 text-xs text-gray-400">
-            <p className="mb-2 font-bold uppercase tracking-widest text-gray-500">Upcoming Features Roadmap</p>
+            <p className="mb-2 font-bold uppercase tracking-widest text-gray-500">Core Services Active</p>
             <p>
-              We are currently focusing on administrative divisions. <strong>Bus routes</strong>, <strong>public places</strong>, 
-              <strong>landmarks</strong>, and <strong>industrial zones</strong> are planned for future releases (v3.0.0+) 
-              as we expand our crowdsourced dataset and official partnerships.
+              Focusing on high-precision administrative divisions and postal data.
             </p>
           </div>
 
