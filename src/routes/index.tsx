@@ -363,18 +363,28 @@ function Index() {
           <p className="mx-auto mt-6 max-w-2xl text-base text-gray-500 sm:text-lg lg:text-xl leading-relaxed">
             One powerful API for <HeroAnimation />. Trilingual, blazing fast, and packed with features for modern apps.
           </p>
-          <div className="mx-auto mt-8 max-w-xl rounded-xl border border-dashed border-gray-300 p-4 text-xs text-gray-400">
-            <p className="mb-2 font-bold uppercase tracking-widest text-gray-500">Core Services Active</p>
-            <p>
-              Focusing on high-precision administrative divisions and postal data.
-            </p>
+          <div className="mx-auto mt-8 max-w-xl rounded-xl border border-dashed border-gray-300 p-6 text-xs text-gray-400">
+            <p className="mb-3 font-bold uppercase tracking-widest text-gray-500">Upcoming Features Roadmap</p>
+            <div className="space-y-3 text-left max-w-md mx-auto">
+              <p className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-300"></span>
+                Expanding the dataset: Bus routes, public places, landmarks, and industrial zones planned for future releases.
+              </p>
+              <p className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-300"></span>
+                Street-level data and building numbers integration.
+              </p>
+              <p className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-300"></span>
+                Enhanced interactive map visualizations.
+              </p>
+              <p className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-300"></span>
+                Expanded crowdsourced neighborhood mapping.
+              </p>
+            </div>
           </div>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-4">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 bg-gray-50 px-4 py-2 rounded-full border border-gray-200">
-              {t("nav.language")}
-            </p>
-          </div>
 
           <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
             <Link
