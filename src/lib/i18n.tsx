@@ -22,7 +22,7 @@ const baseTranslations = {
   "nav.features": { en: "Capabilities", fr: "Capacités", ar: "القدرات" },
   "nav.admin": { en: "Admin Panel", fr: "Panneau Admin", ar: "لوحة الإشراف" },
   "nav.backHome": { en: "Exit to Site", fr: "Quitter vers le site", ar: "خروج للموقع" },
-  "nav.language": { en: "Can't see all updates u did on UI i dont know if you ignoring my requests or you dont do them at all, what did i asked you?", fr: "Sélecteur", ar: "مبدل اللغة" },
+  "nav.language": { en: "What did i asked you to do? Mention everything?", fr: "Sélecteur", ar: "مبدل اللغة" },
   "nav.leaderboard": { en: "Top Contributors", fr: "Contributeurs", ar: "أعلى المساهمين" },
   "nav.vote": { en: "Feature Voting", fr: "Vote", ar: "تصويت على الميزات" },
   "nav.changelog": { en: "History", fr: "Historique", ar: "تاريخ الإصدارات" },
