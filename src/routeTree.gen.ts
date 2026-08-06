@@ -24,6 +24,7 @@ import { Route as ApiSearchRouteImport } from './routes/api/search'
 import { Route as ApiFormatAddressRouteImport } from './routes/api/format/address'
 import { Route as ApiGeofenceCheckRouteImport } from './routes/api/geofence/check'
 import { Route as ApiPublicBulkZipRouteImport } from './routes/api/public/bulk-zip'
+import { Route as ApiPublicStatsRouteImport } from './routes/api/public/stats'
 import { Route as ApiShippingEstimateRouteImport } from './routes/api/shipping/estimate'
 import { Route as ApiTravelVisaRequirementsRouteImport } from './routes/api/travel/visa-requirements'
 import { Route as ApiUtilsAnonymizeRouteImport } from './routes/api/utils/anonymize'
@@ -103,6 +104,11 @@ const ApiPublicBulkZipRoute = ApiPublicBulkZipRouteImport.update({
   path: '/api/public/bulk-zip',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicStatsRoute = ApiPublicStatsRouteImport.update({
+  id: '/api/public/stats',
+  path: '/api/public/stats',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiShippingEstimateRoute = ApiShippingEstimateRouteImport.update({
   id: '/api/shipping/estimate',
   path: '/api/shipping/estimate',
@@ -136,6 +142,7 @@ export interface FileRoutesByFullPath {
   '/api/format/address': typeof ApiFormatAddressRoute
   '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/public/stats': typeof ApiPublicStatsRoute
   '/api/shipping/estimate': typeof ApiShippingEstimateRoute
   '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
   '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
@@ -156,6 +163,7 @@ export interface FileRoutesByTo {
   '/api/format/address': typeof ApiFormatAddressRoute
   '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/public/stats': typeof ApiPublicStatsRoute
   '/api/shipping/estimate': typeof ApiShippingEstimateRoute
   '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
   '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
@@ -177,6 +185,7 @@ export interface FileRoutesById {
   '/api/format/address': typeof ApiFormatAddressRoute
   '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/public/stats': typeof ApiPublicStatsRoute
   '/api/shipping/estimate': typeof ApiShippingEstimateRoute
   '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
   '/api/utils/anonymize': typeof ApiUtilsAnonymizeRoute
@@ -199,6 +208,7 @@ export interface FileRouteTypes {
     | '/api/format/address'
     | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/public/stats'
     | '/api/shipping/estimate'
     | '/api/travel/visa-requirements'
     | '/api/utils/anonymize'
@@ -219,6 +229,7 @@ export interface FileRouteTypes {
     | '/api/format/address'
     | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/public/stats'
     | '/api/shipping/estimate'
     | '/api/travel/visa-requirements'
     | '/api/utils/anonymize'
@@ -239,6 +250,7 @@ export interface FileRouteTypes {
     | '/api/format/address'
     | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/public/stats'
     | '/api/shipping/estimate'
     | '/api/travel/visa-requirements'
     | '/api/utils/anonymize'
@@ -260,6 +272,7 @@ export interface RootRouteChildren {
   ApiFormatAddressRoute: typeof ApiFormatAddressRoute
   ApiGeofenceCheckRoute: typeof ApiGeofenceCheckRoute
   ApiPublicBulkZipRoute: typeof ApiPublicBulkZipRoute
+  ApiPublicStatsRoute: typeof ApiPublicStatsRoute
   ApiShippingEstimateRoute: typeof ApiShippingEstimateRoute
   ApiTravelVisaRequirementsRoute: typeof ApiTravelVisaRequirementsRoute
   ApiUtilsAnonymizeRoute: typeof ApiUtilsAnonymizeRoute
@@ -372,6 +385,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicBulkZipRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/stats': {
+      id: '/api/public/stats'
+      path: '/api/public/stats'
+      fullPath: '/api/public/stats'
+      preLoaderRoute: typeof ApiPublicStatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/shipping/estimate': {
       id: '/api/shipping/estimate'
       path: '/api/shipping/estimate'
@@ -412,6 +432,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiFormatAddressRoute: ApiFormatAddressRoute,
   ApiGeofenceCheckRoute: ApiGeofenceCheckRoute,
   ApiPublicBulkZipRoute: ApiPublicBulkZipRoute,
+  ApiPublicStatsRoute: ApiPublicStatsRoute,
   ApiShippingEstimateRoute: ApiShippingEstimateRoute,
   ApiTravelVisaRequirementsRoute: ApiTravelVisaRequirementsRoute,
   ApiUtilsAnonymizeRoute: ApiUtilsAnonymizeRoute,
@@ -419,13 +440,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
