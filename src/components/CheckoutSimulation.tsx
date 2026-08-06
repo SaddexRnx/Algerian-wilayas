@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useI18n, type TranslationKey } from "@/lib/i18n";
 import { CheckCircle2, RefreshCw, Zap, MapPin, Building2, PlayCircle } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const FIELDS: { labelKey: TranslationKey; icon: React.ReactNode; value: string }[] = [
   { labelKey: "picker.wilaya", icon: <MapPin className="w-4 h-4" />, value: "16 - Alger" },
@@ -27,7 +26,7 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const liveValues = [
-    live?.wilayaCode ? \`\${live.wilayaCode} - \${live.wilayaName}\` : "",
+    live?.wilayaCode ? `${live.wilayaCode} - ${live.wilayaName}` : "",
     live?.dairaName ?? "",
     live?.communeName ?? "",
   ];
@@ -123,8 +122,8 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
                  <span className="text-xs font-black text-blue-900 uppercase tracking-tighter">DZ Address Picker</span>
                  <div className="flex items-center gap-2">
                     <span className="text-[10px] font-bold text-blue-400 uppercase">{t("picker.searchByZip")}</span>
-                    <div className={\`w-8 h-4 rounded-full p-0.5 transition-colors \${(searchByZip || (hasLive && live?.wilayaCode)) ? 'bg-emerald-500' : 'bg-gray-200'}\`}>
-                       <div className={\`w-3 h-3 bg-white rounded-full transition-transform \${(searchByZip || (hasLive && live?.wilayaCode)) ? 'translate-x-4' : ''}\`}></div>
+                    <div className={`w-8 h-4 rounded-full p-0.5 transition-colors ${(searchByZip || (hasLive && live?.wilayaCode)) ? 'bg-emerald-500' : 'bg-gray-200'}`}>
+                       <div className={`w-3 h-3 bg-white rounded-full transition-transform ${(searchByZip || (hasLive && live?.wilayaCode)) ? 'translate-x-4' : ''}`}></div>
                     </div>
                  </div>
               </div>
@@ -206,4 +205,3 @@ export function CheckoutSimulation({ live }: { live?: LiveAddress | undefined })
 }
 
 export default CheckoutSimulation;
-
