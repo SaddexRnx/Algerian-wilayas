@@ -90,27 +90,26 @@ function IntegrationsPage() {
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-6xl font-black text-blue-900 mb-6 tracking-tighter uppercase leading-none">
+          <h1 className="text-4xl sm:text-6xl font-black text-black mb-6 tracking-tighter uppercase leading-none">
             Developer Integration Hub
           </h1>
-          <p className="text-blue-600 text-lg sm:text-xl max-w-2xl mx-auto font-medium">
+          <p className="text-gray-500 text-lg sm:text-xl max-w-2xl mx-auto font-medium">
             Seamlessly integrate Algerian address data into any platform with our pre-built plugins and snippets.
           </p>
         </div>
-
-        <section className="bg-gradient-to-br from-blue-600 to-emerald-600 rounded-3xl p-8 mb-16 text-white shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+ 
+        <section className="bg-black rounded-3xl p-8 mb-16 text-white shadow-2xl relative overflow-hidden">
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
             <div className="flex-1">
               <div className="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-4">
                 <Info className="w-4 h-4" /> Pro Tip
               </div>
               <h2 className="text-2xl sm:text-3xl font-black mb-4 uppercase tracking-tighter">Optimize for Arabic Users</h2>
-              <p className="text-blue-50 text-lg leading-relaxed">
-                Use the <code className="bg-black/20 px-1.5 py-0.5 rounded">/api/ar/wilayas.json</code> endpoint to reduce your payload size by <strong>50%</strong> for Arabic-only applications. Blazing fast performance for mobile users.
+              <p className="text-gray-300 text-lg leading-relaxed">
+                Use the <code className="bg-white/20 px-1.5 py-0.5 rounded">/api/ar/wilayas.json</code> endpoint to reduce your payload size by <strong>50%</strong> for Arabic-only applications.
               </p>
             </div>
-            <Link to="/status" className="shrink-0 bg-white text-blue-700 px-8 py-4 rounded-xl font-bold shadow-lg hover:scale-105 transition-transform active:scale-95 uppercase tracking-widest text-sm">
+            <Link to="/status" className="shrink-0 bg-white text-black px-8 py-4 rounded-xl font-bold shadow-lg hover:scale-105 transition-transform active:scale-95 uppercase tracking-widest text-sm">
               Check API Status
             </Link>
           </div>
