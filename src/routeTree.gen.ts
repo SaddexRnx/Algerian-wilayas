@@ -25,6 +25,7 @@ import { Route as ApiSearchRouteImport } from './routes/api/search'
 import { Route as ApiFormatAddressRouteImport } from './routes/api/format/address'
 import { Route as ApiGeofenceCheckRouteImport } from './routes/api/geofence/check'
 import { Route as ApiPublicBulkZipRouteImport } from './routes/api/public/bulk-zip'
+import { Route as ApiPublicIncrementRouteImport } from './routes/api/public/increment'
 import { Route as ApiPublicStatsRouteImport } from './routes/api/public/stats'
 import { Route as ApiShippingEstimateRouteImport } from './routes/api/shipping/estimate'
 import { Route as ApiTravelVisaRequirementsRouteImport } from './routes/api/travel/visa-requirements'
@@ -110,6 +111,11 @@ const ApiPublicBulkZipRoute = ApiPublicBulkZipRouteImport.update({
   path: '/api/public/bulk-zip',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicIncrementRoute = ApiPublicIncrementRouteImport.update({
+  id: '/api/public/increment',
+  path: '/api/public/increment',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicStatsRoute = ApiPublicStatsRouteImport.update({
   id: '/api/public/stats',
   path: '/api/public/stats',
@@ -149,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/api/format/address': typeof ApiFormatAddressRoute
   '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/public/increment': typeof ApiPublicIncrementRoute
   '/api/public/stats': typeof ApiPublicStatsRoute
   '/api/shipping/estimate': typeof ApiShippingEstimateRoute
   '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
@@ -171,6 +178,7 @@ export interface FileRoutesByTo {
   '/api/format/address': typeof ApiFormatAddressRoute
   '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/public/increment': typeof ApiPublicIncrementRoute
   '/api/public/stats': typeof ApiPublicStatsRoute
   '/api/shipping/estimate': typeof ApiShippingEstimateRoute
   '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
@@ -194,6 +202,7 @@ export interface FileRoutesById {
   '/api/format/address': typeof ApiFormatAddressRoute
   '/api/geofence/check': typeof ApiGeofenceCheckRoute
   '/api/public/bulk-zip': typeof ApiPublicBulkZipRoute
+  '/api/public/increment': typeof ApiPublicIncrementRoute
   '/api/public/stats': typeof ApiPublicStatsRoute
   '/api/shipping/estimate': typeof ApiShippingEstimateRoute
   '/api/travel/visa-requirements': typeof ApiTravelVisaRequirementsRoute
@@ -218,6 +227,7 @@ export interface FileRouteTypes {
     | '/api/format/address'
     | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/public/increment'
     | '/api/public/stats'
     | '/api/shipping/estimate'
     | '/api/travel/visa-requirements'
@@ -240,6 +250,7 @@ export interface FileRouteTypes {
     | '/api/format/address'
     | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/public/increment'
     | '/api/public/stats'
     | '/api/shipping/estimate'
     | '/api/travel/visa-requirements'
@@ -262,6 +273,7 @@ export interface FileRouteTypes {
     | '/api/format/address'
     | '/api/geofence/check'
     | '/api/public/bulk-zip'
+    | '/api/public/increment'
     | '/api/public/stats'
     | '/api/shipping/estimate'
     | '/api/travel/visa-requirements'
@@ -285,6 +297,7 @@ export interface RootRouteChildren {
   ApiFormatAddressRoute: typeof ApiFormatAddressRoute
   ApiGeofenceCheckRoute: typeof ApiGeofenceCheckRoute
   ApiPublicBulkZipRoute: typeof ApiPublicBulkZipRoute
+  ApiPublicIncrementRoute: typeof ApiPublicIncrementRoute
   ApiPublicStatsRoute: typeof ApiPublicStatsRoute
   ApiShippingEstimateRoute: typeof ApiShippingEstimateRoute
   ApiTravelVisaRequirementsRoute: typeof ApiTravelVisaRequirementsRoute
@@ -405,6 +418,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicBulkZipRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/increment': {
+      id: '/api/public/increment'
+      path: '/api/public/increment'
+      fullPath: '/api/public/increment'
+      preLoaderRoute: typeof ApiPublicIncrementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/stats': {
       id: '/api/public/stats'
       path: '/api/public/stats'
@@ -453,6 +473,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiFormatAddressRoute: ApiFormatAddressRoute,
   ApiGeofenceCheckRoute: ApiGeofenceCheckRoute,
   ApiPublicBulkZipRoute: ApiPublicBulkZipRoute,
+  ApiPublicIncrementRoute: ApiPublicIncrementRoute,
   ApiPublicStatsRoute: ApiPublicStatsRoute,
   ApiShippingEstimateRoute: ApiShippingEstimateRoute,
   ApiTravelVisaRequirementsRoute: ApiTravelVisaRequirementsRoute,
