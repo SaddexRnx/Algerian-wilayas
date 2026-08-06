@@ -107,10 +107,15 @@ function Index() {
   const [lastCheck, setLastCheck] = useState<Date | null>(null);
 
   useEffect(() => {
-    fetch('/api/public/stats')
-      .then(r => r.json())
-      .then(data => setTotalCalls(data.total_api_calls))
-      .catch(() => setTotalCalls(15420));
+    const fetchStats = () => {
+      fetch('/api/public/stats')
+        .then(r => r.json())
+        .then(data => setTotalCalls(data.total_api_calls))
+        .catch(() => setTotalCalls(15420));
+    };
+    fetchStats();
+    const interval = setInterval(fetchStats, 10000); // Update every 10s
+    return () => clearInterval(interval);
   }, []);
 
   const healthCheck = useServerFn(checkApiHealth);
@@ -250,16 +255,25 @@ function Index() {
           </div>
         </div>
         
-        <nav className="flex items-center justify-center gap-4 overflow-x-auto border-t border-gray-100 px-4 py-2.5 text-xs whitespace-nowrap scrollbar-hide">
-          {navLinks.map((l) => (
-            <a 
-              key={l.href} 
-              href={l.href} 
-              className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black"
-            >
-              {l.label}
-            </a>
-          ))}
+        <nav className="flex items-center justify-center gap-6 overflow-x-auto border-t border-gray-100 px-4 py-3 text-xs whitespace-nowrap scrollbar-hide">
+          <Link to="/map" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
+            {t("nav.map")}
+          </Link>
+          <Link to="/integrations" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
+            {t("nav.integrations")}
+          </Link>
+          <Link to="/leaderboard" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
+            {t("nav.leaderboard")}
+          </Link>
+          <Link to="/vote" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
+            {t("nav.vote")}
+          </Link>
+          <Link to="/status" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
+            {t("nav.status")}
+          </Link>
+          <Link to="/report" className="text-gray-500 font-bold uppercase tracking-widest transition hover:text-black">
+            {t("nav.report")}
+          </Link>
         </nav>
       </header>
 
@@ -345,45 +359,6 @@ function Index() {
 
         </section>
 
-
-        <section id="demo" className="scroll-mt-32 my-16">
-          <div className="mx-auto max-w-3xl px-4 sm:px-0">
-            <div className="mb-12 text-center sm:text-left">
-               <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">{t("demo.title")}</h2>
-               <p className="mt-2 text-sm text-gray-500 leading-relaxed font-medium">Test the picker with live events and state synchronization.</p>
-            </div>
-            <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-8">
-              <AlgeriaAddressPicker />
-              <EventConsole lines={logs} />
-            </div>
-          </div>
-        </section>
-
-
-        <section id="in-action" className="my-16 scroll-mt-32">
-          <div className="mx-auto max-w-3xl px-4 sm:px-0 text-center sm:text-left mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tighter text-black uppercase">
-              {t("checkout.title")}
-            </h2>
-            <p className="mt-2 text-sm text-gray-500 leading-relaxed font-medium">{t("checkout.subtitle")}</p>
-          </div>
-
-          <div className="mx-auto max-w-5xl">
-            <CheckoutSimulation live={live} />
-          </div>
-        </section>
-
-        <section id="tester" className="scroll-mt-32 my-16">
-          <ApiTester />
-        </section>
-
-        <section id="integration" className="scroll-mt-32 my-16">
-          <DeveloperHub />
-        </section>
-
-        <section id="api" className="scroll-mt-32 my-16">
-          <ApiDocs />
-        </section>
 
         <section id="features" className="mx-auto mt-16 max-w-5xl scroll-mt-32 sm:mt-20">
           <h2 className="sr-only">{t("features.title")}</h2>

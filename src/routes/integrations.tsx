@@ -1,5 +1,11 @@
 import React from "react";
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { useCallback, useEffect, useState } from "react";
+import { AlgeriaAddressPicker } from "@/components/AlgeriaAddressPicker";
+import { CheckoutSimulation, type LiveAddress } from "@/components/CheckoutSimulation";
+import { DeveloperHub } from "@/components/DeveloperHub";
+import { ApiDocs } from "@/components/ApiDocs";
+import { ApiTester } from "@/components/ApiTester";
 import { useTranslation } from '@/lib/i18n';
 import { ShoppingBag, Code, Terminal, Layers, ChevronLeft, Download, Info } from 'lucide-react';
 
@@ -69,6 +75,16 @@ const INTEGRATIONS = [
 
 function IntegrationsPage() {
   const { lang, t, dir } = useTranslation();
+  const [live, setLive] = useState<LiveAddress | undefined>(undefined);
+
+  useEffect(() => {
+    const onUpdate = (e: Event) => {
+      const detail = (e as CustomEvent<LiveAddress>).detail;
+      if (detail) setLive(detail);
+    };
+    window.addEventListener("dz-address-update", onUpdate);
+    return () => window.removeEventListener("dz-address-update", onUpdate);
+  }, []);
 
   return (
     <div dir={dir} className="min-h-screen bg-white font-sans pb-20">
@@ -176,7 +192,41 @@ function IntegrationsPage() {
               </div>
             </div>
           ))}
-        </div>
+        <section id="demo" className="scroll-mt-32 my-16">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-12 text-center">
+               <h2 className="text-3xl font-black tracking-tighter text-black uppercase">{t("demo.title")}</h2>
+               <p className="mt-2 text-gray-500 font-medium">Test the picker components in a live environment.</p>
+            </div>
+            <div className="rounded-3xl border border-gray-100 bg-white p-8 shadow-2xl">
+              <AlgeriaAddressPicker />
+            </div>
+          </div>
+        </section>
+
+        <section id="in-action" className="my-24 scroll-mt-32">
+          <div className="mx-auto max-w-3xl text-center mb-12">
+            <h2 className="text-3xl font-black tracking-tighter text-black uppercase">
+              {t("checkout.title")}
+            </h2>
+            <p className="mt-2 text-gray-500 font-medium">{t("checkout.subtitle")}</p>
+          </div>
+          <div className="mx-auto max-w-6xl">
+            <CheckoutSimulation live={live} />
+          </div>
+        </section>
+
+        <section id="integration" className="scroll-mt-32 my-24 pt-12 border-t border-gray-100">
+          <DeveloperHub />
+        </section>
+
+        <section id="tester" className="scroll-mt-32 my-24 pt-12 border-t border-gray-100">
+          <ApiTester />
+        </section>
+
+        <section id="api" className="scroll-mt-32 my-24 pt-12 border-t border-gray-100">
+          <ApiDocs />
+        </section>
       </main>
     </div>
   );
