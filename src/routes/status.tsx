@@ -112,10 +112,10 @@ function StatusPage() {
             {healthData.length > 0 && (
               <div className="space-y-12">
                 {[
-                  { id: 'core', label: 'Core Endpoints', patterns: ['/api/index.json', '/api/wilayas.json', '/api/full-data.json'] },
+                  { id: 'core', label: 'Core Endpoints', patterns: ['/api/index.json', '/api/wilayas.json', '/api/full-data.json', '/api/coordinates/wilayas.json'] },
                   { id: 'granular', label: 'Granular Data', patterns: ['/api/wilayas/16.json', '/api/wilayas/16/dairas.json', '/api/wilayas/16/dairas/alger-centre.json'] },
                   { id: 'lang', label: 'Language-Optimized', patterns: ['/api/ar/', '/api/latin/'] },
-                  { id: 'util', label: 'Utilities', patterns: ['/api/zip/', '/api/search', '/api/geo', '/api/shipping', '/api/population', '/api/economy', '/api/travel', '/api/export'] },
+                  { id: 'util', label: 'Utilities', patterns: ['/api/zip/', '/api/search', '/api/geo', '/api/shipping', '/api/population', '/api/economy', '/api/travel', '/api/export', '/api/logistics', '/api/postoffices', '/api/banks', '/api/government', '/api/distance', '/api/geofence'] },
                 ].map(group => {
                   const items = healthData.filter(h => {
                     if (group.id === 'lang') return h.endpoint.includes('/api/ar/') || h.endpoint.includes('/api/latin/');

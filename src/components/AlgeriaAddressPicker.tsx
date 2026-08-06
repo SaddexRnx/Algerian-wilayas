@@ -228,7 +228,7 @@ export function AlgeriaAddressPicker({
     return () => {
       active = false;
     };
-  }, []);
+  }, [reloadKey]);
 
   useEffect(() => {
     const cleanup = load(true);
@@ -648,6 +648,40 @@ export function AlgeriaAddressPicker({
           type="button"
           onClick={() => load(false)}
           className="mt-4 rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
+        >
+          {t("picker.retry")}
+        </button>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="rounded-xl border border-red-200 bg-red-50 p-8 text-center">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100 text-red-600">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+        </div>
+        <h3 className="text-sm font-bold text-red-900 uppercase tracking-tight">{t("picker.error")}</h3>
+        <p className="mt-1 text-xs text-red-600">The connection to the address API failed.</p>
+        <button
+          onClick={() => {
+            setReloadKey((k) => k + 1);
+            load(false);
+          }}
+          className="mt-4 rounded-lg bg-red-600 px-4 py-2 text-xs font-bold text-white transition hover:bg-red-700 active:scale-95"
         >
           {t("picker.retry")}
         </button>
