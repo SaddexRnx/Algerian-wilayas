@@ -19,6 +19,7 @@ import { Route as MapRouteImport } from './routes/map'
 import { Route as ReportRouteImport } from './routes/report'
 import { Route as StatusRouteImport } from './routes/status'
 import { Route as VoteRouteImport } from './routes/vote'
+import { Route as ApiSplatRouteImport } from './routes/api/$'
 import { Route as ApiDistanceRouteImport } from './routes/api/distance'
 import { Route as ApiSearchRouteImport } from './routes/api/search'
 import { Route as ApiFormatAddressRouteImport } from './routes/api/format/address'
@@ -79,6 +80,11 @@ const VoteRoute = VoteRouteImport.update({
   path: '/vote',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSplatRoute = ApiSplatRouteImport.update({
+  id: '/api/$',
+  path: '/api/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiDistanceRoute = ApiDistanceRouteImport.update({
   id: '/api/distance',
   path: '/api/distance',
@@ -137,6 +143,7 @@ export interface FileRoutesByFullPath {
   '/report': typeof ReportRoute
   '/status': typeof StatusRoute
   '/vote': typeof VoteRoute
+  '/api/$': typeof ApiSplatRoute
   '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
   '/api/format/address': typeof ApiFormatAddressRoute
@@ -158,6 +165,7 @@ export interface FileRoutesByTo {
   '/report': typeof ReportRoute
   '/status': typeof StatusRoute
   '/vote': typeof VoteRoute
+  '/api/$': typeof ApiSplatRoute
   '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
   '/api/format/address': typeof ApiFormatAddressRoute
@@ -180,6 +188,7 @@ export interface FileRoutesById {
   '/report': typeof ReportRoute
   '/status': typeof StatusRoute
   '/vote': typeof VoteRoute
+  '/api/$': typeof ApiSplatRoute
   '/api/distance': typeof ApiDistanceRoute
   '/api/search': typeof ApiSearchRoute
   '/api/format/address': typeof ApiFormatAddressRoute
@@ -203,6 +212,7 @@ export interface FileRouteTypes {
     | '/report'
     | '/status'
     | '/vote'
+    | '/api/$'
     | '/api/distance'
     | '/api/search'
     | '/api/format/address'
@@ -224,6 +234,7 @@ export interface FileRouteTypes {
     | '/report'
     | '/status'
     | '/vote'
+    | '/api/$'
     | '/api/distance'
     | '/api/search'
     | '/api/format/address'
@@ -245,6 +256,7 @@ export interface FileRouteTypes {
     | '/report'
     | '/status'
     | '/vote'
+    | '/api/$'
     | '/api/distance'
     | '/api/search'
     | '/api/format/address'
@@ -267,6 +279,7 @@ export interface RootRouteChildren {
   ReportRoute: typeof ReportRoute
   StatusRoute: typeof StatusRoute
   VoteRoute: typeof VoteRoute
+  ApiSplatRoute: typeof ApiSplatRoute
   ApiDistanceRoute: typeof ApiDistanceRoute
   ApiSearchRoute: typeof ApiSearchRoute
   ApiFormatAddressRoute: typeof ApiFormatAddressRoute
@@ -350,6 +363,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VoteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/$': {
+      id: '/api/$'
+      path: '/api/$'
+      fullPath: '/api/$'
+      preLoaderRoute: typeof ApiSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/distance': {
       id: '/api/distance'
       path: '/api/distance'
@@ -427,6 +447,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReportRoute: ReportRoute,
   StatusRoute: StatusRoute,
   VoteRoute: VoteRoute,
+  ApiSplatRoute: ApiSplatRoute,
   ApiDistanceRoute: ApiDistanceRoute,
   ApiSearchRoute: ApiSearchRoute,
   ApiFormatAddressRoute: ApiFormatAddressRoute,
