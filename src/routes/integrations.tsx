@@ -157,7 +157,6 @@ function IntegrationsPage() {
               
               <div className="p-8 sm:p-12 border-t border-gray-100 bg-white">
                 <div className="grid md:grid-cols-2 gap-12">
-                <div className="grid md:grid-cols-2 gap-12">
                   <div>
                     <h4 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">Setup Steps</h4>
                     <ul className="space-y-4">
