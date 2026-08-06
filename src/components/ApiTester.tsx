@@ -126,7 +126,7 @@ export function ApiTester() {
 
 
 
-      <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+      <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6 group transition-all hover:border-black">
         <label className="block text-sm" htmlFor={`${baseId}-endpoint`}>
           <span className="mb-1.5 block text-[10px] font-bold tracking-widest text-gray-400 uppercase">
             {t("tester.endpoint")}
@@ -141,7 +141,7 @@ export function ApiTester() {
             setResult(null);
           }}
           dir="ltr"
-          className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none"
+          className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:border-black focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none"
         >
           {SHAPES.map((s) => (
             <option key={s.id} value={s.id}>
@@ -163,7 +163,7 @@ export function ApiTester() {
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
                   placeholder="e.g. 16"
-                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none"
+                   className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:border-black focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none"
                 />
               </div>
             )}
@@ -177,7 +177,7 @@ export function ApiTester() {
                   value={dairaSlug}
                   onChange={(e) => setDairaSlug(e.target.value)}
                   placeholder="e.g. bouandas"
-                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none"
+                   className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:border-black focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none"
                 />
               </div>
             )}
@@ -191,7 +191,7 @@ export function ApiTester() {
                   value={zipcode}
                   onChange={(e) => setZipcode(e.target.value)}
                   placeholder="e.g. 19070"
-                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none"
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 font-mono text-sm text-black focus-visible:border-black focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none"
                 />
               </div>
             )}
