@@ -176,12 +176,12 @@ function Index() {
   }, []);
 
   const navLinks = [
-    { href: "/map", label: t("nav.map") },
-    { href: "/integrations", label: "Dev Hub" },
-    { href: "/leaderboard", label: t("nav.leaderboard") },
-    { href: "/vote", label: t("nav.vote") },
-    { href: "/changelog", label: "Updates" },
-    { href: "/status", label: "API Health" },
+    { href: "/map", label: "MAP" },
+    { href: "/integrations", label: "DEV HUB" },
+    { href: "/leaderboard", label: "TOP" },
+    { href: "/vote", label: "VOTE" },
+    { href: "/changelog", label: "UPDATES" },
+    { href: "/status", label: "HEALTH" },
   ];
 
 
