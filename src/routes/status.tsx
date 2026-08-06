@@ -100,62 +100,52 @@ function StatusPage() {
             </div>
           </div>
 
-          <div className="grid gap-6">
-            <div className="space-y-4">
-              <h3 className="text-xs font-black text-blue-400 uppercase tracking-widest px-1">Core Data Endpoints</h3>
-              <div className="grid gap-3">
-                {[
-                  { path: '/api/wilayas.json', desc: 'Main entry point for all 58 Wilayas.' },
-                  { path: '/api/full-data.json', desc: 'Complete dataset (3MB+). Use for initial caching.' },
-                  { path: '/api/index.json', desc: 'Discovery endpoint for all available API routes.' }
-                ].map((ep) => (
-                  <div key={ep.path} className="group bg-blue-50/50 border border-blue-100 rounded-xl p-4 transition-all hover:border-blue-300">
-                    <div className="flex items-center justify-between mb-1">
-                      <code className="text-xs font-mono font-bold text-blue-900">{ep.path}</code>
-                      <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
-                    </div>
-                    <p className="text-[10px] text-blue-600 font-medium">{ep.desc}</p>
-                  </div>
+          <div className="grid gap-4">
+            {healthData.length === 0 && loading && (
+              <div className="animate-pulse space-y-4">
+                {[1, 2, 3].map(i => (
+                  <div key={i} className="h-16 rounded-xl bg-gray-100"></div>
                 ))}
               </div>
-            </div>
+            )}
+            
+            {healthData.map((res) => (
+              <div
+                key={res.endpoint}
+                className={`flex items-center justify-between rounded-xl border p-4 transition-all hover:shadow-md ${
+                  res.status === "up" ? "border-blue-100 bg-white" : "border-red-200 bg-red-50"
+                }`}
+              >
+                <div className="flex items-center gap-3 overflow-hidden">
+                  <div className={`h-2 w-2 shrink-0 rounded-full ${
+                    res.status === "up" ? "bg-emerald-500" : "bg-red-500 animate-pulse"
+                  }`} />
+                  <div className="overflow-hidden">
+                    <p className="font-mono text-xs font-bold text-blue-900 truncate" dir="ltr">
+                      {res.endpoint}
+                    </p>
+                    <p className="text-[10px] text-blue-400 uppercase tracking-widest mt-0.5">
+                      {res.status === "up" ? `HTTP ${res.statusCode || 200}` : res.error || "DEAD ENDPOINT"}
+                    </p>
+                  </div>
+                </div>
+                <div className="text-right shrink-0 ms-4">
+                  <p className="font-mono text-xs font-bold text-blue-900" dir="ltr">
+                    {res.status === "up" ? `${res.latency}ms` : "—"}
+                  </p>
+                  <p className="text-[10px] text-blue-400 uppercase tracking-widest mt-0.5">
+                    {new Date(res.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </p>
+                </div>
+              </div>
+            ))}
 
-            <div className="space-y-4">
-              <h3 className="text-xs font-black text-blue-400 uppercase tracking-widest px-1">Language-Optimized</h3>
-              <div className="grid gap-3">
-                {[
-                  { path: '/api/ar/wilayas.json', desc: 'Arabic-only wilayas list (50% smaller payload).' },
-                  { path: '/api/latin/wilayas.json', desc: 'Latin-only wilayas list for global apps.' }
-                ].map((ep) => (
-                  <div key={ep.path} className="group bg-blue-50/50 border border-blue-100 rounded-xl p-4 transition-all hover:border-blue-300">
-                    <div className="flex items-center justify-between mb-1">
-                      <code className="text-xs font-mono font-bold text-blue-900">{ep.path}</code>
-                      <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-                    </div>
-                    <p className="text-[10px] text-blue-600 font-medium">{ep.desc}</p>
-                  </div>
-                ))}
+            {healthData.length === 0 && !loading && (
+              <div className="text-center py-12 text-blue-300">
+                <p className="text-sm font-black uppercase tracking-widest">No data collected yet</p>
+                <button onClick={runHealth} className="mt-4 text-[10px] underline">Check Now</button>
               </div>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="text-xs font-black text-blue-400 uppercase tracking-widest px-1">Granular & ZIP</h3>
-              <div className="grid gap-3">
-                {[
-                  { path: '/api/wilayas/{code}.json', desc: 'Detailed data for a specific Wilaya.' },
-                  { path: '/api/zip/{zipcode}.json', desc: 'Reverse lookup for any 5-digit Algerian ZIP.' },
-                  { path: '/api/wilayas/{code}/dairas.json', desc: 'List of all Dairas for a specific Wilaya.' }
-                ].map((ep) => (
-                  <div key={ep.path} className="group bg-blue-50/50 border border-blue-100 rounded-xl p-4 transition-all hover:border-blue-300">
-                    <div className="flex items-center justify-between mb-1">
-                      <code className="text-xs font-mono font-bold text-blue-900">{ep.path}</code>
-                      <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-                    </div>
-                    <p className="text-[10px] text-blue-600 font-medium">{ep.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            )}
           </div>
 
         </div>
